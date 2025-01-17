@@ -186,6 +186,7 @@ class TestClient : public MySmithyClient
             MySmithyClient(
                 clientConfig,
                 serviceName,
+                "ServiceUserAgentName",
                 httpClient,
                 errorMarshaller,
                 endpointProvider,
@@ -408,11 +409,12 @@ class SampleClient: public smithy::client::AwsSmithyClientT<SampleServiceName,
 public:
   SampleClient(): AwsSmithyClientT(SampleConfiguration{},
     SampleServiceName,
+    "SampleServiceUserAgentName",
     Aws::MakeShared<MockHttpClient>(SampleServiceName),
     Aws::MakeShared<Aws::Client::JsonErrorMarshaller>(SampleServiceName),
     Aws::MakeShared<SampleEndpointProvider>(SampleServiceName),
     Aws::MakeShared<smithy::SigV4AuthSchemeResolver<>>(SampleServiceName),
-    {})
+    Aws::UnorderedMap<Aws::String, Aws::Crt::Variant<smithy::SigV4aAuthScheme>>())
   {}
 };
 
