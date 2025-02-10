@@ -16,6 +16,7 @@
 #include <aws/s3-crt/model/ObjectLockMode.h>
 #include <aws/s3-crt/model/ObjectLockLegalHoldStatus.h>
 #include <aws/s3-crt/model/ChecksumAlgorithm.h>
+#include <aws/s3-crt/model/ChecksumType.h>
 #include <utility>
 
 namespace Aws
@@ -90,8 +91,8 @@ namespace Model
      * Path-style requests are not supported. Directory bucket names must be unique in
      * the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the
      * format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example,
-     * <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information
-     * about bucket naming restrictions, see <a
+     * <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For
+     * information about bucket naming restrictions, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
      * bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access
      * points</b> - When you use this action with an access point, you must provide the
@@ -106,12 +107,12 @@ namespace Model
      * access points</a> in the <i>Amazon S3 User Guide</i>.</p>  <p>Access
      * points and Object Lambda access points are not supported by directory
      * buckets.</p>  <p> <b>S3 on Outposts</b> - When you use this action with
-     * Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname.
-     * The S3 on Outposts hostname takes the form <code>
+     * S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3
+     * on Outposts hostname takes the form <code>
      * <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
-     * When you use this action with S3 on Outposts through the Amazon Web Services
-     * SDKs, you provide the Outposts access point ARN in place of the bucket name. For
-     * more information about S3 on Outposts ARNs, see <a
+     * When you use this action with S3 on Outposts, the destination bucket must be the
+     * Outposts access point ARN or the access point alias. For more information about
+     * S3 on Outposts, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
      * is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -571,21 +572,19 @@ namespace Model
      * <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide
      * <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the
      * Amazon Web Services managed key (<code>aws/s3</code>) to protect the data.</p>
-     * <p> <b>Directory buckets</b> - If you specify
-     * <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, the <code>
-     * x-amz-server-side-encryption-aws-kms-key-id</code> header is implicitly assigned
-     * the ID of the KMS symmetric encryption customer managed key that's configured
-     * for your directory bucket's default encryption setting. If you want to specify
-     * the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header explicitly,
-     * you can only specify it with the ID (Key ID or Key ARN) of the KMS customer
-     * managed key that's configured for your directory bucket's default encryption
-     * setting. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use
-     * the key ID or key ARN. The key alias format of the KMS key isn't supported. Your
-     * SSE-KMS configuration can only support 1 <a
+     * <p> <b>Directory buckets</b> - To encrypt data using SSE-KMS, it's recommended
+     * to specify the <code>x-amz-server-side-encryption</code> header to
+     * <code>aws:kms</code>. Then, the
+     * <code>x-amz-server-side-encryption-aws-kms-key-id</code> header implicitly uses
+     * the bucket's default KMS customer managed key ID. If you want to explicitly set
+     * the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header, it must
+     * match the bucket's default customer managed key (using key ID or ARN, not
+     * alias). Your SSE-KMS configuration can only support 1 <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-     * managed key</a> per directory bucket for the lifetime of the bucket. The <a
+     * managed key</a> per directory bucket's lifetime. The <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
-     * Web Services managed key</a> (<code>aws/s3</code>) isn't supported. </p>
+     * Web Services managed key</a> (<code>aws/s3</code>) isn't supported. Incorrect
+     * key specification results in an HTTP <code>400 Bad Request</code> error. </p>
      */
     inline const Aws::String& GetSSEKMSKeyId() const{ return m_sSEKMSKeyId; }
     inline bool SSEKMSKeyIdHasBeenSet() const { return m_sSEKMSKeyIdHasBeenSet; }
@@ -600,7 +599,7 @@ namespace Model
     ///@{
     /**
      * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object
-     * encryption. The value of this header is a Base64-encoded string of a UTF-8
+     * encryption. The value of this header is a Base64 encoded string of a UTF-8
      * encoded JSON, which contains the encryption context as key-value pairs.</p> <p>
      * <b>Directory buckets</b> - You can optionally provide an explicit encryption
      * context value. The value must match the default encryption context - the bucket
@@ -744,6 +743,21 @@ namespace Model
     ///@}
 
     ///@{
+    /**
+     * <p>Indicates the checksum type that you want Amazon S3 to use to calculate the
+     * object’s checksum value. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+     * object integrity in the Amazon S3 User Guide</a>.</p>
+     */
+    inline const ChecksumType& GetChecksumType() const{ return m_checksumType; }
+    inline bool ChecksumTypeHasBeenSet() const { return m_checksumTypeHasBeenSet; }
+    inline void SetChecksumType(const ChecksumType& value) { m_checksumTypeHasBeenSet = true; m_checksumType = value; }
+    inline void SetChecksumType(ChecksumType&& value) { m_checksumTypeHasBeenSet = true; m_checksumType = std::move(value); }
+    inline CreateMultipartUploadRequest& WithChecksumType(const ChecksumType& value) { SetChecksumType(value); return *this;}
+    inline CreateMultipartUploadRequest& WithChecksumType(ChecksumType&& value) { SetChecksumType(std::move(value)); return *this;}
+    ///@}
+
+    ///@{
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
     inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
@@ -850,6 +864,9 @@ namespace Model
 
     ChecksumAlgorithm m_checksumAlgorithm;
     bool m_checksumAlgorithmHasBeenSet = false;
+
+    ChecksumType m_checksumType;
+    bool m_checksumTypeHasBeenSet = false;
 
     Aws::Map<Aws::String, Aws::String> m_customizedAccessLogTag;
     bool m_customizedAccessLogTagHasBeenSet = false;

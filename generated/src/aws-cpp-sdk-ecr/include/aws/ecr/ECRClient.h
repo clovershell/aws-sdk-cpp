@@ -6,15 +6,19 @@
 #pragma once
 #include <aws/ecr/ECR_EXPORTS.h>
 #include <aws/core/client/ClientConfiguration.h>
-#include <aws/core/client/AWSClient.h>
 #include <aws/core/client/AWSClientAsyncCRTP.h>
-#include <aws/core/utils/json/JsonSerializer.h>
 #include <aws/ecr/ECRServiceClientModel.h>
+#include <smithy/client/AwsSmithyClient.h>
+#include <smithy/identity/auth/built-in/SigV4AuthSchemeResolver.h>
+#include <smithy/identity/auth/built-in/SigV4AuthScheme.h>
+#include <smithy/client/serializer/JsonOutcomeSerializer.h>
+#include <aws/ecr/ECRErrorMarshaller.h>
 
 namespace Aws
 {
 namespace ECR
 {
+  AWS_ECR_API extern const char SERVICE_NAME[];
   /**
    * <fullname>Amazon Elastic Container Registry</fullname> <p>Amazon Elastic
    * Container Registry (Amazon ECR) is a managed container image registry service.
@@ -28,12 +32,20 @@ namespace ECR
    * href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR
    * endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
-  class AWS_ECR_API ECRClient : public Aws::Client::AWSJsonClient, public Aws::Client::ClientWithAsyncTemplateMethods<ECRClient>
+  class AWS_ECR_API ECRClient : smithy::client::AwsSmithyClientT<Aws::ECR::SERVICE_NAME,
+      Aws::ECR::ECRClientConfiguration,
+      smithy::SigV4AuthSchemeResolver<>,
+      Aws::Crt::Variant<smithy::SigV4AuthScheme>,
+      ECREndpointProviderBase,
+      smithy::client::JsonOutcomeSerializer,
+      smithy::client::JsonOutcome,
+      Aws::Client::ECRErrorMarshaller>,
+    Aws::Client::ClientWithAsyncTemplateMethods<ECRClient>
   {
     public:
-      typedef Aws::Client::AWSJsonClient BASECLASS;
       static const char* GetServiceName();
       static const char* GetAllocationTag();
+      inline const char* GetServiceClientName() const override { return "ECR"; }
 
       typedef ECRClientConfiguration ClientConfigurationType;
       typedef ECREndpointProvider EndpointProviderType;
@@ -1245,10 +1257,12 @@ namespace ECR
         }
 
         /**
-         * <p>Starts an image vulnerability scan. An image scan can only be started once
-         * per 24 hours on an individual image. This limit includes if an image was scanned
-         * on initial push. For more information, see <a
-         * href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image
+         * <p>Starts a basic image vulnerability scan.</p> <p> A basic image scan can only
+         * be started once per 24 hours on an individual image. This limit includes if an
+         * image was scanned on initial push. You can start up to 100,000 basic scans per
+         * 24 hours. This limit includes both scans on initial push and scans initiated by
+         * the StartImageScan API. For more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html">Basic
          * scanning</a> in the <i>Amazon Elastic Container Registry User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/StartImageScan">AWS
@@ -1469,10 +1483,7 @@ namespace ECR
       std::shared_ptr<ECREndpointProviderBase>& accessEndpointProvider();
     private:
       friend class Aws::Client::ClientWithAsyncTemplateMethods<ECRClient>;
-      void init(const ECRClientConfiguration& clientConfiguration);
 
-      ECRClientConfiguration m_clientConfiguration;
-      std::shared_ptr<ECREndpointProviderBase> m_endpointProvider;
   };
 
 } // namespace ECR

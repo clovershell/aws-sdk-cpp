@@ -44,6 +44,7 @@ namespace Model
 
     AWS_S3_API bool HasEmbeddedError(IOStream &body, const Http::HeaderValueCollection &header) const override;
     AWS_S3_API Aws::String GetChecksumAlgorithmName() const override;
+    inline bool RequestChecksumRequired() const override { return true; };
 
     /**
      * Helper function to collect parameters (configurable and static hardcoded) required for endpoint computation.
@@ -66,9 +67,9 @@ namespace Model
 
     ///@{
     /**
-     * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header
-     * as a message integrity check to verify that the request body was not corrupted
-     * in transit. For more information, see <a
+     * <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. You must use
+     * this header as a message integrity check to verify that the request body was not
+     * corrupted in transit. For more information, see <a
      * href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p> <p>For requests
      * made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web
      * Services SDKs, this field is calculated automatically.</p>
@@ -85,7 +86,7 @@ namespace Model
 
     ///@{
     /**
-     * <p>Indicates the algorithm used to create the checksum for the object when you
+     * <p>Indicates the algorithm used to create the checksum for the request when you
      * use the SDK. This header will not provide any additional functionality if you
      * don't use the SDK. When you send this header, there must be a corresponding
      * <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent.

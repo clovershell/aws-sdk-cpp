@@ -46,8 +46,9 @@ namespace Model
      * For example, if you reside in Europe, you will probably find it advantageous to
      * create buckets in the Europe (Ireland) Region.</p> <p>If you don't specify a
      * Region, the bucket is created in the US East (N. Virginia) Region (us-east-1) by
-     * default.</p> <p>For a list of the valid values for all of the Amazon Web
-     * Services Regions, see <a
+     * default. Configurations using the value <code>EU</code> will create a bucket in
+     * <code>eu-west-1</code>.</p> <p>For a list of the valid values for all of the
+     * Amazon Web Services Regions, see <a
      * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions
      * and Endpoints</a>.</p>  <p>This functionality is not supported for
      * directory buckets.</p> 

@@ -46,6 +46,7 @@ namespace Model
 
     AWS_S3_API bool HasEmbeddedError(IOStream &body, const Http::HeaderValueCollection &header) const override;
     AWS_S3_API Aws::String GetChecksumAlgorithmName() const override;
+    inline bool RequestChecksumRequired() const override { return true; };
 
     /**
      * Helper function to collect parameters (configurable and static hardcoded) required for endpoint computation.
@@ -92,13 +93,13 @@ namespace Model
      * information about access point ARNs, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
      * access points</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>S3 on
-     * Outposts</b> - When you use this action with Amazon S3 on Outposts, you must
-     * direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname
-     * takes the form <code>
+     * Outposts</b> - When you use this action with S3 on Outposts, you must direct
+     * requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
+     * form <code>
      * <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
-     * When you use this action with S3 on Outposts through the Amazon Web Services
-     * SDKs, you provide the Outposts access point ARN in place of the bucket name. For
-     * more information about S3 on Outposts ARNs, see <a
+     * When you use this action with S3 on Outposts, the destination bucket must be the
+     * Outposts access point ARN or the access point alias. For more information about
+     * S3 on Outposts, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
      * is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -114,9 +115,9 @@ namespace Model
 
     ///@{
     /**
-     * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used
-     * as a message integrity check to verify that the request body was not corrupted
-     * in transit. For more information, go to <a
+     * <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header
+     * must be used as a message integrity check to verify that the request body was
+     * not corrupted in transit. For more information, go to <a
      * href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.&gt;</a> </p> <p>For
      * requests made using the Amazon Web Services Command Line Interface (CLI) or
      * Amazon Web Services SDKs, this field is calculated automatically.</p>

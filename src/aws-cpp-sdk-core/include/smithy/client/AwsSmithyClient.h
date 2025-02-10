@@ -19,6 +19,10 @@
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/core/utils/FutureOutcome.h>
 #include <aws/core/utils/Outcome.h>
+#include <aws/core/utils/threading/Executor.h>
+#include <aws/core/utils/threading/SameThreadExecutor.h>
+#include <aws/core/http/HttpResponse.h>
+#include <aws/core/http/HttpClientFactory.h>
 
 namespace smithy {
 namespace client
@@ -36,13 +40,19 @@ namespace client
     public:
         static_assert(std::is_base_of<Aws::Client::AWSErrorMarshaller, ErrorMarshallerT>::value, "MarshallerT must be derived from class Aws::Client::AWSErrorMarshaller");
 
-        explicit AwsSmithyClientT(const ServiceClientConfigurationT& clientConfig, const Aws::String& serviceName,
+        explicit AwsSmithyClientT(const ServiceClientConfigurationT& clientConfig,
+            const Aws::String& serviceName,
+            const Aws::String& serviceUserAgentName,
             const std::shared_ptr<Aws::Http::HttpClient>& httpClient,
             const std::shared_ptr<Aws::Client::AWSErrorMarshaller>& errorMarshaller,
             const std::shared_ptr<EndpointProviderT> endpointProvider,
             const std::shared_ptr<ServiceAuthSchemeResolverT>& authSchemeResolver,
             const Aws::UnorderedMap<Aws::String, AuthSchemesVariantT>& authSchemes)
-            : AwsSmithyClientBase(Aws::MakeUnique<ServiceClientConfigurationT>(ServiceNameT, clientConfig), serviceName, httpClient, errorMarshaller),
+            : AwsSmithyClientBase(Aws::MakeUnique<ServiceClientConfigurationT>(ServiceNameT, clientConfig),
+                serviceName,
+                serviceUserAgentName,
+                httpClient,
+                errorMarshaller),
               m_clientConfiguration(*static_cast<ServiceClientConfigurationT*>(AwsSmithyClientBase::m_clientConfig.get())),
               m_endpointProvider(endpointProvider),
               m_authSchemeResolver(authSchemeResolver),
@@ -57,6 +67,7 @@ namespace client
             AwsSmithyClientBase(other,
               Aws::MakeUnique<ServiceClientConfigurationT>(ServiceNameT, other.m_clientConfiguration),
               ServiceNameT,
+              other.m_serviceUserAgentName,
               Aws::Http::CreateHttpClient(other.m_clientConfiguration),
               Aws::MakeShared<ErrorMarshallerT>(ServiceNameT)),
             m_clientConfiguration{*static_cast<ServiceClientConfigurationT*>(m_clientConfig.get())},
@@ -157,7 +168,7 @@ namespace client
                                  false/*retryable*/);
         }
 
-        SigningOutcome SignRequest(std::shared_ptr<HttpRequest> httpRequest, const AuthSchemeOption& targetAuthSchemeOption) const override
+        SigningOutcome SignHttpRequest(std::shared_ptr<HttpRequest> httpRequest, const AuthSchemeOption& targetAuthSchemeOption) const override
         {
             return AwsClientRequestSigning<AuthSchemesVariantT>::SignRequest(httpRequest, targetAuthSchemeOption, m_authSchemes);
         }
@@ -174,6 +185,30 @@ namespace client
         {
             auto httpResponseOutcome = MakeRequestSync(request, requestName, method, std::move(endpointCallback));
             return m_serializer->Deserialize(std::move(httpResponseOutcome), GetServiceClientName(), requestName);
+        }
+	
+        Aws::String GeneratePresignedUrl(const Aws::Http::URI& uri,
+                                                  Aws::Http::HttpMethod method,
+                                                  const Aws::String& region,
+                                                  const Aws::String& serviceName,
+                                                  long long expirationInSeconds,
+                                                  const Aws::Http::HeaderValueCollection& customizedHeaders,
+                                                  const std::shared_ptr<Aws::Http::ServiceSpecificParameters> serviceSpecificParameters) const
+        {
+            std::shared_ptr<HttpRequest> request = CreateHttpRequest(uri, method, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
+            request->SetServiceSpecificParameters(serviceSpecificParameters);
+            for (const auto& it: customizedHeaders)
+            {
+                request->SetHeaderValue(it.first.c_str(), it.second);
+            }
+            AwsSmithyClientAsyncRequestContext ctx;
+            auto authSchemeOptionOutcome = SelectAuthSchemeOption( ctx);
+            auto authSchemeOption = std::move(authSchemeOptionOutcome.GetResultWithOwnership());
+            if (AwsClientRequestSigning<AuthSchemesVariantT>::PreSignRequest(request, authSchemeOption, m_authSchemes, region, serviceName, expirationInSeconds).IsSuccess())
+            {
+                return request->GetURIString();
+            }
+            return {};
         }
 
         ServiceClientConfigurationT& m_clientConfiguration;

@@ -49,7 +49,6 @@ namespace Model
 
     AWS_S3_API bool HasEmbeddedError(IOStream &body, const Http::HeaderValueCollection &header) const override;
     AWS_S3_API Aws::String GetChecksumAlgorithmName() const override;
-
     /**
      * Helper function to collect parameters (configurable and static hardcoded) required for endpoint computation.
      */
@@ -100,8 +99,8 @@ namespace Model
      * Path-style requests are not supported. Directory bucket names must be unique in
      * the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the
      * format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example,
-     * <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information
-     * about bucket naming restrictions, see <a
+     * <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For
+     * information about bucket naming restrictions, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
      * bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access
      * points</b> - When you use this action with an access point, you must provide the
@@ -116,12 +115,12 @@ namespace Model
      * access points</a> in the <i>Amazon S3 User Guide</i>.</p>  <p>Access
      * points and Object Lambda access points are not supported by directory
      * buckets.</p>  <p> <b>S3 on Outposts</b> - When you use this action with
-     * Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname.
-     * The S3 on Outposts hostname takes the form <code>
+     * S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3
+     * on Outposts hostname takes the form <code>
      * <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
-     * When you use this action with S3 on Outposts through the Amazon Web Services
-     * SDKs, you provide the Outposts access point ARN in place of the bucket name. For
-     * more information about S3 on Outposts ARNs, see <a
+     * When you use this action with S3 on Outposts, the destination bucket must be the
+     * Outposts access point ARN or the access point alias. For more information about
+     * S3 on Outposts, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
      * is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -212,11 +211,12 @@ namespace Model
 
     ///@{
     /**
-     * <p>The base64-encoded 128-bit MD5 digest of the message (without the headers)
-     * according to RFC 1864. This header can be used as a message integrity check to
-     * verify that the data is the same data that was originally sent. Although it is
-     * optional, we recommend using the Content-MD5 mechanism as an end-to-end
-     * integrity check. For more information about REST request authentication, see <a
+     * <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without
+     * the headers) according to RFC 1864. This header can be used as a message
+     * integrity check to verify that the data is the same data that was originally
+     * sent. Although it is optional, we recommend using the Content-MD5 mechanism as
+     * an end-to-end integrity check. For more information about REST request
+     * authentication, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST
      * Authentication</a>.</p>  <p>The <code>Content-MD5</code> or
      * <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to
@@ -247,17 +247,16 @@ namespace Model
      * <code>400 Bad Request</code>.</p> <p>For the
      * <code>x-amz-checksum-<i>algorithm</i> </code> header, replace <code>
      * <i>algorithm</i> </code> with the supported algorithm from the following list:
-     * </p> <ul> <li> <p> <code>CRC32</code> </p> </li> <li> <p> <code>CRC32C</code>
-     * </p> </li> <li> <p> <code>SHA1</code> </p> </li> <li> <p> <code>SHA256</code>
-     * </p> </li> </ul> <p>For more information, see <a
+     * </p> <ul> <li> <p> <code>CRC-32</code> </p> </li> <li> <p> <code>CRC-32C</code>
+     * </p> </li> <li> <p> <code>CRC-64NVME</code> </p> </li> <li> <p>
+     * <code>SHA-1</code> </p> </li> <li> <p> <code>SHA-256</code> </p> </li> </ul>
+     * <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If the
      * individual checksum value you provide through
      * <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum
      * algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3
-     * ignores any provided <code>ChecksumAlgorithm</code> parameter and uses the
-     * checksum algorithm that matches the provided value in
-     * <code>x-amz-checksum-<i>algorithm</i> </code>.</p>  <p>The
+     * fails the request with a <code>BadDigest</code> error.</p>  <p>The
      * <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is
      * required for any request to upload an object with a retention period configured
      * using Amazon S3 Object Lock. For more information, see <a
@@ -279,8 +278,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 32-bit CRC-32 checksum of the object. For more information, see
-     * <a
+     * Base64 encoded, 32-bit <code>CRC-32</code> checksum of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -298,8 +297,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 32-bit CRC-32C checksum of the object. For more information, see
-     * <a
+     * Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -317,7 +316,28 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 160-bit SHA-1 digest of the object. For more information, see <a
+     * Base64 encoded, 64-bit <code>CRC-64NVME</code> checksum of the object. The
+     * <code>CRC-64NVME</code> checksum is always a full object checksum. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+     * object integrity in the Amazon S3 User Guide</a>.</p>
+     */
+    inline const Aws::String& GetChecksumCRC64NVME() const{ return m_checksumCRC64NVME; }
+    inline bool ChecksumCRC64NVMEHasBeenSet() const { return m_checksumCRC64NVMEHasBeenSet; }
+    inline void SetChecksumCRC64NVME(const Aws::String& value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME = value; }
+    inline void SetChecksumCRC64NVME(Aws::String&& value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME = std::move(value); }
+    inline void SetChecksumCRC64NVME(const char* value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME.assign(value); }
+    inline PutObjectRequest& WithChecksumCRC64NVME(const Aws::String& value) { SetChecksumCRC64NVME(value); return *this;}
+    inline PutObjectRequest& WithChecksumCRC64NVME(Aws::String&& value) { SetChecksumCRC64NVME(std::move(value)); return *this;}
+    inline PutObjectRequest& WithChecksumCRC64NVME(const char* value) { SetChecksumCRC64NVME(value); return *this;}
+    ///@}
+
+    ///@{
+    /**
+     * <p>This header can be used as a data integrity check to verify that the data
+     * received is the same data that was originally sent. This header specifies the
+     * Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -335,8 +355,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 256-bit SHA-256 digest of the object. For more information, see
-     * <a
+     * Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -704,21 +724,19 @@ namespace Model
      * <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide
      * <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the
      * Amazon Web Services managed key (<code>aws/s3</code>) to protect the data.</p>
-     * <p> <b>Directory buckets</b> - If you specify
-     * <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, the <code>
-     * x-amz-server-side-encryption-aws-kms-key-id</code> header is implicitly assigned
-     * the ID of the KMS symmetric encryption customer managed key that's configured
-     * for your directory bucket's default encryption setting. If you want to specify
-     * the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header explicitly,
-     * you can only specify it with the ID (Key ID or Key ARN) of the KMS customer
-     * managed key that's configured for your directory bucket's default encryption
-     * setting. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use
-     * the key ID or key ARN. The key alias format of the KMS key isn't supported. Your
-     * SSE-KMS configuration can only support 1 <a
+     * <p> <b>Directory buckets</b> - To encrypt data using SSE-KMS, it's recommended
+     * to specify the <code>x-amz-server-side-encryption</code> header to
+     * <code>aws:kms</code>. Then, the
+     * <code>x-amz-server-side-encryption-aws-kms-key-id</code> header implicitly uses
+     * the bucket's default KMS customer managed key ID. If you want to explicitly set
+     * the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header, it must
+     * match the bucket's default customer managed key (using key ID or ARN, not
+     * alias). Your SSE-KMS configuration can only support 1 <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-     * managed key</a> per directory bucket for the lifetime of the bucket. The <a
+     * managed key</a> per directory bucket's lifetime. The <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
-     * Web Services managed key</a> (<code>aws/s3</code>) isn't supported. </p>
+     * Web Services managed key</a> (<code>aws/s3</code>) isn't supported. Incorrect
+     * key specification results in an HTTP <code>400 Bad Request</code> error. </p>
      */
     inline const Aws::String& GetSSEKMSKeyId() const{ return m_sSEKMSKeyId; }
     inline bool SSEKMSKeyIdHasBeenSet() const { return m_sSEKMSKeyIdHasBeenSet; }
@@ -734,7 +752,7 @@ namespace Model
     /**
      * <p>Specifies the Amazon Web Services KMS Encryption Context as an additional
      * encryption context to use for object encryption. The value of this header is a
-     * Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption
+     * Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption
      * context as key-value pairs. This value is stored as object metadata and
      * automatically gets passed on to Amazon Web Services KMS for future
      * <code>GetObject</code> operations on this object.</p> <p> <b>General purpose
@@ -922,6 +940,9 @@ namespace Model
 
     Aws::String m_checksumCRC32C;
     bool m_checksumCRC32CHasBeenSet = false;
+
+    Aws::String m_checksumCRC64NVME;
+    bool m_checksumCRC64NVMEHasBeenSet = false;
 
     Aws::String m_checksumSHA1;
     bool m_checksumSHA1HasBeenSet = false;

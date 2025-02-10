@@ -31,6 +31,7 @@ namespace Aws
         static const char AWS_CN_GLOBAL[] = "aws-cn-global"; // AWS China global region
         static const char AWS_GLOBAL[] = "aws-global"; // AWS Standard global region
         static const char AWS_ISO_B_GLOBAL[] = "aws-iso-b-global"; // AWS ISOB (US) global region
+        static const char AWS_ISO_F_GLOBAL[] = "aws-iso-f-global"; // AWS ISOF global region
         static const char AWS_ISO_GLOBAL[] = "aws-iso-global"; // AWS ISO (US) global region
         static const char AWS_US_GOV_GLOBAL[] = "aws-us-gov-global"; // AWS GovCloud (US) global region
         static const char CA_CENTRAL_1[] = "ca-central-1"; // Canada (Central)
@@ -49,6 +50,7 @@ namespace Aws
         static const char IL_CENTRAL_1[] = "il-central-1"; // Israel (Tel Aviv)
         static const char ME_CENTRAL_1[] = "me-central-1"; // Middle East (UAE)
         static const char ME_SOUTH_1[] = "me-south-1"; // Middle East (Bahrain)
+        static const char MX_CENTRAL_1[] = "mx-central-1"; // Mexico (Central)
         static const char SA_EAST_1[] = "sa-east-1"; // South America (Sao Paulo)
         static const char US_EAST_1[] = "us-east-1"; // US East (N. Virginia)
         static const char US_EAST_2[] = "us-east-2"; // US East (Ohio)
@@ -57,6 +59,8 @@ namespace Aws
         static const char US_ISO_EAST_1[] = "us-iso-east-1"; // US ISO East
         static const char US_ISO_WEST_1[] = "us-iso-west-1"; // US ISO WEST
         static const char US_ISOB_EAST_1[] = "us-isob-east-1"; // US ISOB East (Ohio)
+        static const char US_ISOF_EAST_1[] = "us-isof-east-1"; // US ISOF EAST
+        static const char US_ISOF_SOUTH_1[] = "us-isof-south-1"; // US ISOF SOUTH
         static const char US_WEST_1[] = "us-west-1"; // US West (N. California)
         static const char US_WEST_2[] = "us-west-2"; // US West (Oregon)
 

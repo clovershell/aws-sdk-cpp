@@ -45,6 +45,7 @@ namespace Model
 
     AWS_S3_API bool HasEmbeddedError(IOStream &body, const Http::HeaderValueCollection &header) const override;
     AWS_S3_API Aws::String GetChecksumAlgorithmName() const override;
+    inline bool RequestChecksumRequired() const override { return true; };
 
     /**
      * Helper function to collect parameters (configurable and static hardcoded) required for endpoint computation.
@@ -60,8 +61,8 @@ namespace Model
      * Path-style requests are not supported. Directory bucket names must be unique in
      * the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the
      * format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example,
-     * <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information
-     * about bucket naming restrictions, see <a
+     * <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For
+     * information about bucket naming restrictions, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
      * bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access
      * points</b> - When you use this action with an access point, you must provide the
@@ -76,12 +77,12 @@ namespace Model
      * access points</a> in the <i>Amazon S3 User Guide</i>.</p>  <p>Access
      * points and Object Lambda access points are not supported by directory
      * buckets.</p>  <p> <b>S3 on Outposts</b> - When you use this action with
-     * Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname.
-     * The S3 on Outposts hostname takes the form <code>
+     * S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3
+     * on Outposts hostname takes the form <code>
      * <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
-     * When you use this action with S3 on Outposts through the Amazon Web Services
-     * SDKs, you provide the Outposts access point ARN in place of the bucket name. For
-     * more information about S3 on Outposts ARNs, see <a
+     * When you use this action with S3 on Outposts, the destination bucket must be the
+     * Outposts access point ARN or the access point alias. For more information about
+     * S3 on Outposts, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
      * is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -182,17 +183,16 @@ namespace Model
      * <code>400 Bad Request</code>.</p> <p>For the
      * <code>x-amz-checksum-<i>algorithm</i> </code> header, replace <code>
      * <i>algorithm</i> </code> with the supported algorithm from the following list:
-     * </p> <ul> <li> <p> <code>CRC32</code> </p> </li> <li> <p> <code>CRC32C</code>
-     * </p> </li> <li> <p> <code>SHA1</code> </p> </li> <li> <p> <code>SHA256</code>
-     * </p> </li> </ul> <p>For more information, see <a
+     * </p> <ul> <li> <p> <code>CRC-32</code> </p> </li> <li> <p> <code>CRC-32C</code>
+     * </p> </li> <li> <p> <code>CRC-64NVME</code> </p> </li> <li> <p>
+     * <code>SHA-1</code> </p> </li> <li> <p> <code>SHA-256</code> </p> </li> </ul>
+     * <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If the
      * individual checksum value you provide through
      * <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum
      * algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3
-     * ignores any provided <code>ChecksumAlgorithm</code> parameter and uses the
-     * checksum algorithm that matches the provided value in
-     * <code>x-amz-checksum-<i>algorithm</i> </code>.</p> <p>If you provide an
+     * fails the request with a <code>BadDigest</code> error.</p> <p>If you provide an
      * individual checksum, Amazon S3 ignores any provided
      * <code>ChecksumAlgorithm</code> parameter.</p>
      */

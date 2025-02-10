@@ -8,6 +8,7 @@
 #include <aws/s3-crt/S3CrtRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/s3-crt/model/CompletedMultipartUpload.h>
+#include <aws/s3-crt/model/ChecksumType.h>
 #include <aws/s3-crt/model/RequestPayer.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
@@ -57,8 +58,8 @@ namespace Model
      * Path-style requests are not supported. Directory bucket names must be unique in
      * the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the
      * format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example,
-     * <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information
-     * about bucket naming restrictions, see <a
+     * <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For
+     * information about bucket naming restrictions, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
      * bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access
      * points</b> - When you use this action with an access point, you must provide the
@@ -73,12 +74,12 @@ namespace Model
      * access points</a> in the <i>Amazon S3 User Guide</i>.</p>  <p>Access
      * points and Object Lambda access points are not supported by directory
      * buckets.</p>  <p> <b>S3 on Outposts</b> - When you use this action with
-     * Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname.
-     * The S3 on Outposts hostname takes the form <code>
+     * S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3
+     * on Outposts hostname takes the form <code>
      * <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
-     * When you use this action with S3 on Outposts through the Amazon Web Services
-     * SDKs, you provide the Outposts access point ARN in place of the bucket name. For
-     * more information about S3 on Outposts ARNs, see <a
+     * When you use this action with S3 on Outposts, the destination bucket must be the
+     * Outposts access point ARN or the access point alias. For more information about
+     * S3 on Outposts, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
      * is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -136,8 +137,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 32-bit CRC-32 checksum of the object. For more information, see
-     * <a
+     * Base64 encoded, 32-bit <code>CRC-32</code> checksum of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -155,8 +156,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 32-bit CRC-32C checksum of the object. For more information, see
-     * <a
+     * Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -174,7 +175,28 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 160-bit SHA-1 digest of the object. For more information, see <a
+     * Base64 encoded, 64-bit <code>CRC-64NVME</code> checksum of the object. The
+     * <code>CRC-64NVME</code> checksum is always a full object checksum. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+     * object integrity in the Amazon S3 User Guide</a>.</p>
+     */
+    inline const Aws::String& GetChecksumCRC64NVME() const{ return m_checksumCRC64NVME; }
+    inline bool ChecksumCRC64NVMEHasBeenSet() const { return m_checksumCRC64NVMEHasBeenSet; }
+    inline void SetChecksumCRC64NVME(const Aws::String& value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME = value; }
+    inline void SetChecksumCRC64NVME(Aws::String&& value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME = std::move(value); }
+    inline void SetChecksumCRC64NVME(const char* value) { m_checksumCRC64NVMEHasBeenSet = true; m_checksumCRC64NVME.assign(value); }
+    inline CompleteMultipartUploadRequest& WithChecksumCRC64NVME(const Aws::String& value) { SetChecksumCRC64NVME(value); return *this;}
+    inline CompleteMultipartUploadRequest& WithChecksumCRC64NVME(Aws::String&& value) { SetChecksumCRC64NVME(std::move(value)); return *this;}
+    inline CompleteMultipartUploadRequest& WithChecksumCRC64NVME(const char* value) { SetChecksumCRC64NVME(value); return *this;}
+    ///@}
+
+    ///@{
+    /**
+     * <p>This header can be used as a data integrity check to verify that the data
+     * received is the same data that was originally sent. This header specifies the
+     * Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -192,8 +214,8 @@ namespace Model
     /**
      * <p>This header can be used as a data integrity check to verify that the data
      * received is the same data that was originally sent. This header specifies the
-     * base64-encoded, 256-bit SHA-256 digest of the object. For more information, see
-     * <a
+     * Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. For more
+     * information, see <a
      * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
      * object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
@@ -205,6 +227,37 @@ namespace Model
     inline CompleteMultipartUploadRequest& WithChecksumSHA256(const Aws::String& value) { SetChecksumSHA256(value); return *this;}
     inline CompleteMultipartUploadRequest& WithChecksumSHA256(Aws::String&& value) { SetChecksumSHA256(std::move(value)); return *this;}
     inline CompleteMultipartUploadRequest& WithChecksumSHA256(const char* value) { SetChecksumSHA256(value); return *this;}
+    ///@}
+
+    ///@{
+    /**
+     * <p>This header specifies the checksum type of the object, which determines how
+     * part-level checksums are combined to create an object-level checksum for
+     * multipart objects. You can use this header as a data integrity check to verify
+     * that the checksum type that is received is the same checksum that was specified.
+     * If the checksum type doesn’t match the checksum type that was specified for the
+     * object during the <code>CreateMultipartUpload</code> request, it’ll result in a
+     * <code>BadDigest</code> error. For more information, see Checking object
+     * integrity in the Amazon S3 User Guide. </p>
+     */
+    inline const ChecksumType& GetChecksumType() const{ return m_checksumType; }
+    inline bool ChecksumTypeHasBeenSet() const { return m_checksumTypeHasBeenSet; }
+    inline void SetChecksumType(const ChecksumType& value) { m_checksumTypeHasBeenSet = true; m_checksumType = value; }
+    inline void SetChecksumType(ChecksumType&& value) { m_checksumTypeHasBeenSet = true; m_checksumType = std::move(value); }
+    inline CompleteMultipartUploadRequest& WithChecksumType(const ChecksumType& value) { SetChecksumType(value); return *this;}
+    inline CompleteMultipartUploadRequest& WithChecksumType(ChecksumType&& value) { SetChecksumType(std::move(value)); return *this;}
+    ///@}
+
+    ///@{
+    /**
+     * <p> The expected total object size of the multipart upload request. If there’s a
+     * mismatch between the specified object size value and the actual object size
+     * value, it results in an <code>HTTP 400 InvalidRequest</code> error. </p>
+     */
+    inline long long GetMpuObjectSize() const{ return m_mpuObjectSize; }
+    inline bool MpuObjectSizeHasBeenSet() const { return m_mpuObjectSizeHasBeenSet; }
+    inline void SetMpuObjectSize(long long value) { m_mpuObjectSizeHasBeenSet = true; m_mpuObjectSize = value; }
+    inline CompleteMultipartUploadRequest& WithMpuObjectSize(long long value) { SetMpuObjectSize(value); return *this;}
     ///@}
 
     ///@{
@@ -374,11 +427,20 @@ namespace Model
     Aws::String m_checksumCRC32C;
     bool m_checksumCRC32CHasBeenSet = false;
 
+    Aws::String m_checksumCRC64NVME;
+    bool m_checksumCRC64NVMEHasBeenSet = false;
+
     Aws::String m_checksumSHA1;
     bool m_checksumSHA1HasBeenSet = false;
 
     Aws::String m_checksumSHA256;
     bool m_checksumSHA256HasBeenSet = false;
+
+    ChecksumType m_checksumType;
+    bool m_checksumTypeHasBeenSet = false;
+
+    long long m_mpuObjectSize;
+    bool m_mpuObjectSizeHasBeenSet = false;
 
     RequestPayer m_requestPayer;
     bool m_requestPayerHasBeenSet = false;

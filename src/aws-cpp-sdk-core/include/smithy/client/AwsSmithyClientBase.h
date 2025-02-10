@@ -9,6 +9,7 @@
 #include <smithy/tracing/TelemetryProvider.h>
 #include <smithy/interceptor/Interceptor.h>
 #include <smithy/client/features/ChecksumInterceptor.h>
+#include <smithy/client/features/UserAgentInterceptor.h>
 
 #include <aws/crt/Variant.h>
 #include <aws/core/client/ClientConfiguration.h>
@@ -85,11 +86,12 @@ namespace client
 
         AwsSmithyClientBase(Aws::UniquePtr<Aws::Client::ClientConfiguration>&& clientConfig,
                             Aws::String serviceName,
+                            Aws::String serviceUserAgentName,
                             std::shared_ptr<Aws::Http::HttpClient> httpClient,
                             std::shared_ptr<Aws::Client::AWSErrorMarshaller> errorMarshaller) :
           m_clientConfig(std::move(clientConfig)),
           m_serviceName(std::move(serviceName)),
-          m_userAgent(),
+          m_serviceUserAgentName(std::move(serviceUserAgentName)),
           m_httpClient(std::move(httpClient)),
           m_errorMarshaller(std::move(errorMarshaller)),
           m_interceptors{Aws::MakeShared<ChecksumInterceptor>("AwsSmithyClientBase")}
@@ -100,11 +102,12 @@ namespace client
         AwsSmithyClientBase(const AwsSmithyClientBase& other,
                             Aws::UniquePtr<Aws::Client::ClientConfiguration>&& clientConfig,
                             Aws::String serviceName,
+                            Aws::String serviceUserAgentName,
                             std::shared_ptr<Aws::Http::HttpClient> httpClient,
                             std::shared_ptr<Aws::Client::AWSErrorMarshaller> errorMarshaller) :
           m_clientConfig(std::move(clientConfig)),
           m_serviceName(std::move(serviceName)),
-          m_userAgent(),
+          m_serviceUserAgentName(std::move(serviceUserAgentName)),
           m_httpClient(std::move(httpClient)),
           m_errorMarshaller(std::move(errorMarshaller)),
           m_interceptors{Aws::MakeShared<ChecksumInterceptor>("AwsSmithyClientBase")}
@@ -176,12 +179,12 @@ namespace client
 
         virtual ResolveEndpointOutcome ResolveEndpoint(const Aws::Endpoint::EndpointParameters& endpointParameters, EndpointUpdateCallback&& epCallback) const = 0;
         virtual SelectAuthSchemeOptionOutcome SelectAuthSchemeOption(const AwsSmithyClientAsyncRequestContext& ctx) const = 0;
-        virtual SigningOutcome SignRequest(std::shared_ptr<HttpRequest> httpRequest, const AuthSchemeOption& targetAuthSchemeOption) const = 0;
+        virtual SigningOutcome SignHttpRequest(std::shared_ptr<HttpRequest> httpRequest, const AuthSchemeOption& targetAuthSchemeOption) const = 0;
         virtual bool AdjustClockSkew(HttpResponseOutcome& outcome, const AuthSchemeOption& authSchemeOption) const = 0;
 
         std::shared_ptr<Aws::Client::ClientConfiguration> m_clientConfig;
         Aws::String m_serviceName;
-        Aws::String m_userAgent;
+        Aws::String m_serviceUserAgentName;
 
         std::shared_ptr<Aws::Http::HttpClient> m_httpClient;
         std::shared_ptr<Aws::Client::AWSErrorMarshaller> m_errorMarshaller;

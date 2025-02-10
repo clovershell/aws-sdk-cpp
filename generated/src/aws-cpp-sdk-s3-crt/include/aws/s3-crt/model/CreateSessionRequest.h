@@ -89,7 +89,7 @@ namespace Model
      * managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS
      * keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with
      * SSE-S3. For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting
      * data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
      */
     inline const ServerSideEncryption& GetServerSideEncryption() const{ return m_serverSideEncryption; }
@@ -112,7 +112,7 @@ namespace Model
      * full Key ARN not the Key ID. </p> <p>Your SSE-KMS configuration can only support
      * 1 <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-     * managed key</a> per directory bucket for the lifetime of the bucket. The <a
+     * managed key</a> per directory bucket's lifetime. The <a
      * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
      * Web Services managed key</a> (<code>aws/s3</code>) isn't supported. </p>
      */
@@ -130,7 +130,7 @@ namespace Model
     /**
      * <p>Specifies the Amazon Web Services KMS Encryption Context as an additional
      * encryption context to use for object encryption. The value of this header is a
-     * Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption
+     * Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption
      * context as key-value pairs. This value is stored as object metadata and
      * automatically gets passed on to Amazon Web Services KMS for future
      * <code>GetObject</code> operations on this object.</p> <p> <b>General purpose
