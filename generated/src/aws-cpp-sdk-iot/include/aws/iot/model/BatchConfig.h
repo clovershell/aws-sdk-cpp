@@ -78,15 +78,36 @@ class BatchConfig {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Whether to allow batching messages from different MQTT topics into a single
+   * HTTP request. By default, only messages from the same topic are batched
+   * together. The default value is <code>false</code>.</p>
+   */
+  inline bool GetBatchAcrossTopics() const { return m_batchAcrossTopics; }
+  inline bool BatchAcrossTopicsHasBeenSet() const { return m_batchAcrossTopicsHasBeenSet; }
+  inline void SetBatchAcrossTopics(bool value) {
+    m_batchAcrossTopicsHasBeenSet = true;
+    m_batchAcrossTopics = value;
+  }
+  inline BatchConfig& WithBatchAcrossTopics(bool value) {
+    SetBatchAcrossTopics(value);
+    return *this;
+  }
+  ///@}
  private:
   int m_maxBatchOpenMs{0};
 
   int m_maxBatchSize{0};
 
   int m_maxBatchSizeBytes{0};
+
+  bool m_batchAcrossTopics{false};
   bool m_maxBatchOpenMsHasBeenSet = false;
   bool m_maxBatchSizeHasBeenSet = false;
   bool m_maxBatchSizeBytesHasBeenSet = false;
+  bool m_batchAcrossTopicsHasBeenSet = false;
 };
 
 }  // namespace Model

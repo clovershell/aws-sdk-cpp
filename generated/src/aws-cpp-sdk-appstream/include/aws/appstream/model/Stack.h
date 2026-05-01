@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/appstream/AppStream_EXPORTS.h>
 #include <aws/appstream/model/AccessEndpoint.h>
+#include <aws/appstream/model/AgentAccessConfig.h>
 #include <aws/appstream/model/ApplicationSettingsResponse.h>
 #include <aws/appstream/model/ContentRedirection.h>
 #include <aws/appstream/model/StackError.h>
@@ -348,6 +349,24 @@ class Stack {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The agent access configuration of the stack, if agent access is enabled.</p>
+   */
+  inline const AgentAccessConfig& GetAgentAccessConfig() const { return m_agentAccessConfig; }
+  inline bool AgentAccessConfigHasBeenSet() const { return m_agentAccessConfigHasBeenSet; }
+  template <typename AgentAccessConfigT = AgentAccessConfig>
+  void SetAgentAccessConfig(AgentAccessConfigT&& value) {
+    m_agentAccessConfigHasBeenSet = true;
+    m_agentAccessConfig = std::forward<AgentAccessConfigT>(value);
+  }
+  template <typename AgentAccessConfigT = AgentAccessConfig>
+  Stack& WithAgentAccessConfig(AgentAccessConfigT&& value) {
+    SetAgentAccessConfig(std::forward<AgentAccessConfigT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_arn;
 
@@ -378,6 +397,8 @@ class Stack {
   StreamingExperienceSettings m_streamingExperienceSettings;
 
   ContentRedirection m_contentRedirection;
+
+  AgentAccessConfig m_agentAccessConfig;
   bool m_arnHasBeenSet = false;
   bool m_nameHasBeenSet = false;
   bool m_descriptionHasBeenSet = false;
@@ -393,6 +414,7 @@ class Stack {
   bool m_embedHostDomainsHasBeenSet = false;
   bool m_streamingExperienceSettingsHasBeenSet = false;
   bool m_contentRedirectionHasBeenSet = false;
+  bool m_agentAccessConfigHasBeenSet = false;
 };
 
 }  // namespace Model

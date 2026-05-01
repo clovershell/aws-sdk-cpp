@@ -31,6 +31,10 @@ SpanMessageValue& SpanMessageValue::operator=(JsonView jsonValue) {
     m_toolResult = Aws::MakeShared<SpanToolResultValue>("SpanMessageValue", jsonValue.GetObject("toolResult"));
     m_toolResultHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("reasoning")) {
+    m_reasoning = jsonValue.GetObject("reasoning");
+    m_reasoningHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -47,6 +51,10 @@ JsonValue SpanMessageValue::Jsonize() const {
 
   if (m_toolResultHasBeenSet) {
     payload.WithObject("toolResult", m_toolResult->Jsonize());
+  }
+
+  if (m_reasoningHasBeenSet) {
+    payload.WithObject("reasoning", m_reasoning.Jsonize());
   }
 
   return payload;

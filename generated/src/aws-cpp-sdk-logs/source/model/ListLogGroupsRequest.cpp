@@ -60,6 +60,14 @@ Aws::String ListLogGroupsRequest::SerializePayload() const {
     payload.WithArray("fieldIndexNames", std::move(fieldIndexNamesJsonList));
   }
 
+  if (m_logGroupTagsHasBeenSet) {
+    Aws::Utils::Array<JsonValue> logGroupTagsJsonList(m_logGroupTags.size());
+    for (unsigned logGroupTagsIndex = 0; logGroupTagsIndex < logGroupTagsJsonList.GetLength(); ++logGroupTagsIndex) {
+      logGroupTagsJsonList[logGroupTagsIndex].AsObject(m_logGroupTags[logGroupTagsIndex].Jsonize());
+    }
+    payload.WithArray("logGroupTags", std::move(logGroupTagsJsonList));
+  }
+
   return payload.View().WriteReadable();
 }
 

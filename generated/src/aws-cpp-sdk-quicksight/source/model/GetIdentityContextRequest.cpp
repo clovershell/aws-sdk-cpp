@@ -27,5 +27,9 @@ Aws::String GetIdentityContextRequest::SerializePayload() const {
     payload.WithDouble("SessionExpiresAt", m_sessionExpiresAt.SecondsWithMSPrecision());
   }
 
+  if (m_contextRegionHasBeenSet) {
+    payload.WithString("ContextRegion", m_contextRegion);
+  }
+
   return payload.View().WriteReadable();
 }

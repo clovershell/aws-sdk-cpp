@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSAllocator.h>
 #include <aws/qconnect/QConnect_EXPORTS.h>
+#include <aws/qconnect/model/SpanReasoningValue.h>
 #include <aws/qconnect/model/SpanTextValue.h>
 #include <aws/qconnect/model/SpanToolUseValue.h>
 
@@ -23,8 +24,8 @@ namespace Model {
 class SpanToolResultValue;
 
 /**
- * <p>Message content value - can be text, tool invocation, or tool
- * result</p><p><h3>See Also:</h3>   <a
+ * <p>Message content value - can be text, tool invocation, tool result, or
+ * reasoning</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/qconnect-2020-10-19/SpanMessageValue">AWS
  * API Reference</a></p>
  */
@@ -88,15 +89,34 @@ class SpanMessageValue {
     return *this;
   }
   ///@}
+
+  ///@{
+
+  inline const SpanReasoningValue& GetReasoning() const { return m_reasoning; }
+  inline bool ReasoningHasBeenSet() const { return m_reasoningHasBeenSet; }
+  template <typename ReasoningT = SpanReasoningValue>
+  void SetReasoning(ReasoningT&& value) {
+    m_reasoningHasBeenSet = true;
+    m_reasoning = std::forward<ReasoningT>(value);
+  }
+  template <typename ReasoningT = SpanReasoningValue>
+  SpanMessageValue& WithReasoning(ReasoningT&& value) {
+    SetReasoning(std::forward<ReasoningT>(value));
+    return *this;
+  }
+  ///@}
  private:
   SpanTextValue m_text;
 
   SpanToolUseValue m_toolUse;
 
   std::shared_ptr<SpanToolResultValue> m_toolResult;
+
+  SpanReasoningValue m_reasoning;
   bool m_textHasBeenSet = false;
   bool m_toolUseHasBeenSet = false;
   bool m_toolResultHasBeenSet = false;
+  bool m_reasoningHasBeenSet = false;
 };
 
 }  // namespace Model

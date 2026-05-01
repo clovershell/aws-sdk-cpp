@@ -200,8 +200,8 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
 
   /**
    * <p>Deletes all dashboards that you specify. You can specify up to 100 dashboards
-   * to delete. If there is an error during this call, no dashboards are
-   * deleted.</p><p><h3>See Also:</h3>   <a
+   * to delete. If there is an error during this call, the operation attempts to
+   * delete as many dashboards as possible.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DeleteDashboards">AWS
    * API Reference</a></p>
    */
@@ -899,7 +899,7 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
    * resource tag labels and queryable using PromQL. For the list of supported
    * resources, see <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">Supported
-   * AWS infrastructure metrics</a>.</p><p><h3>See Also:</h3>   <a
+   * Amazon Web Services infrastructure metrics</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/GetOTelEnrichment">AWS
    * API Reference</a></p>
    */
@@ -1095,8 +1095,9 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
   }
 
   /**
-   * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
-   * and Contributor Insights rules support tagging.</p><p><h3>See Also:</h3>   <a
+   * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms,
+   * dashboards, metric streams and Contributor Insights rules support
+   * tagging.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/ListTagsForResource">AWS
    * API Reference</a></p>
    */
@@ -1645,12 +1646,12 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
   /**
    * <p>Enables enrichment and PromQL access for CloudWatch vended metrics for <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported
-   * AWS resources</a> in the account. Once enabled, metrics that contain a resource
-   * identifier dimension (for example, EC2 <code>CPUUtilization</code> with an
-   * <code>InstanceId</code> dimension) are enriched with resource ARN and resource
-   * tag labels and become queryable using PromQL.</p> <p>Before calling this
-   * operation, you must enable resource tags on telemetry for your account. For more
-   * information, see <a
+   * Amazon Web Services resources</a> in the account. Once enabled, metrics that
+   * contain a resource identifier dimension (for example, EC2
+   * <code>CPUUtilization</code> with an <code>InstanceId</code> dimension) are
+   * enriched with resource ARN and resource tag labels and become queryable using
+   * PromQL.</p> <p>Before calling this operation, you must enable resource tags on
+   * telemetry for your account. For more information, see <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html">Enable
    * resource tags on telemetry</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/StartOTelEnrichment">AWS
@@ -1708,9 +1709,9 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
   /**
    * <p>Disables enrichment and PromQL access for CloudWatch vended metrics for <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported
-   * AWS resources</a> in the account. After disabling, these metrics are no longer
-   * enriched with resource ARN and resource tag labels, and cannot be queried using
-   * PromQL.</p><p><h3>See Also:</h3>   <a
+   * Amazon Web Services resources</a> in the account. After disabling, these metrics
+   * are no longer enriched with resource ARN and resource tag labels, and cannot be
+   * queried using PromQL.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/StopOTelEnrichment">AWS
    * API Reference</a></p>
    */
@@ -1738,18 +1739,18 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch
-   * resource. Currently, the only CloudWatch resources that can be tagged are alarms
-   * and Contributor Insights rules.</p> <p>Tags can help you organize and categorize
-   * your resources. You can also use them to scope user permissions by granting a
-   * user permission to access or change only resources with certain tag values.</p>
-   * <p>Tags don't have any semantic meaning to Amazon Web Services and are
-   * interpreted strictly as strings of characters.</p> <p>You can use the
-   * <code>TagResource</code> action with an alarm that already has tags. If you
-   * specify a new tag key for the alarm, this tag is appended to the list of tags
-   * associated with the alarm. If you specify a tag key that is already associated
-   * with the alarm, the new tag value that you specify replaces the previous value
-   * for that tag.</p> <p>You can associate as many as 50 tags with a CloudWatch
-   * resource.</p><p><h3>See Also:</h3>   <a
+   * resource. Currently, the only CloudWatch resources that can be tagged are
+   * alarms, dashboards, metric streams and Contributor Insights rules.</p> <p>Tags
+   * can help you organize and categorize your resources. You can also use them to
+   * scope user permissions by granting a user permission to access or change only
+   * resources with certain tag values.</p> <p>Tags don't have any semantic meaning
+   * to Amazon Web Services and are interpreted strictly as strings of
+   * characters.</p> <p>You can use the <code>TagResource</code> action with an alarm
+   * that already has tags. If you specify a new tag key for the alarm, this tag is
+   * appended to the list of tags associated with the alarm. If you specify a tag key
+   * that is already associated with the alarm, the new tag value that you specify
+   * replaces the previous value for that tag.</p> <p>You can associate as many as 50
+   * tags with a CloudWatch resource.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/TagResource">AWS
    * API Reference</a></p>
    */
@@ -1774,8 +1775,9 @@ class AWS_CLOUDWATCH_API CloudWatchClient : public Aws::Client::AWSRpcV2CborClie
   }
 
   /**
-   * <p>Removes one or more tags from the specified resource.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Removes one or more tags from the specified resource. Currently, alarms,
+   * dashboards, metric streams and Contributor Insights rules support
+   * tagging.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/UntagResource">AWS
    * API Reference</a></p>
    */

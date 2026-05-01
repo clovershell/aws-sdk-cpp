@@ -46,6 +46,10 @@ ParameterSliderControl& ParameterSliderControl::operator=(JsonView jsonValue) {
     m_stepSize = jsonValue.GetDouble("StepSize");
     m_stepSizeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFormatText")) {
+    m_controlTitleFormatText = jsonValue.GetObject("ControlTitleFormatText");
+    m_controlTitleFormatTextHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -78,6 +82,10 @@ JsonValue ParameterSliderControl::Jsonize() const {
 
   if (m_stepSizeHasBeenSet) {
     payload.WithDouble("StepSize", m_stepSize);
+  }
+
+  if (m_controlTitleFormatTextHasBeenSet) {
+    payload.WithObject("ControlTitleFormatText", m_controlTitleFormatText.Jsonize());
   }
 
   return payload;

@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/quicksight/QuickSight_EXPORTS.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/SheetControlSliderType.h>
 #include <aws/quicksight/model/SliderControlDisplayOptions.h>
 
@@ -172,6 +173,24 @@ class FilterSliderControl {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The title text format configuration for the control.</p>
+   */
+  inline const ControlTitleFormatText& GetControlTitleFormatText() const { return m_controlTitleFormatText; }
+  inline bool ControlTitleFormatTextHasBeenSet() const { return m_controlTitleFormatTextHasBeenSet; }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  void SetControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    m_controlTitleFormatTextHasBeenSet = true;
+    m_controlTitleFormatText = std::forward<ControlTitleFormatTextT>(value);
+  }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  FilterSliderControl& WithControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    SetControlTitleFormatText(std::forward<ControlTitleFormatTextT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_filterControlId;
 
@@ -188,6 +207,8 @@ class FilterSliderControl {
   double m_minimumValue{0.0};
 
   double m_stepSize{0.0};
+
+  ControlTitleFormatText m_controlTitleFormatText;
   bool m_filterControlIdHasBeenSet = false;
   bool m_titleHasBeenSet = false;
   bool m_sourceFilterIdHasBeenSet = false;
@@ -196,6 +217,7 @@ class FilterSliderControl {
   bool m_maximumValueHasBeenSet = false;
   bool m_minimumValueHasBeenSet = false;
   bool m_stepSizeHasBeenSet = false;
+  bool m_controlTitleFormatTextHasBeenSet = false;
 };
 
 }  // namespace Model

@@ -399,6 +399,7 @@
 #include <aws/qconnect/model/SpanCitation.h>
 #include <aws/qconnect/model/SpanMessage.h>
 #include <aws/qconnect/model/SpanMessageValue.h>
+#include <aws/qconnect/model/SpanReasoningValue.h>
 #include <aws/qconnect/model/SpanStatus.h>
 #include <aws/qconnect/model/SpanTextValue.h>
 #include <aws/qconnect/model/SpanToolResultValue.h>

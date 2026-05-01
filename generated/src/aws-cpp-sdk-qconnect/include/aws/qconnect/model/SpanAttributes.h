@@ -648,6 +648,23 @@ class SpanAttributes {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Time to first token in milliseconds, measured from when Amazon Bedrock was
+   * invoked to when the first token was returned</p>
+   */
+  inline int GetTimeToFirstTokenMs() const { return m_timeToFirstTokenMs; }
+  inline bool TimeToFirstTokenMsHasBeenSet() const { return m_timeToFirstTokenMsHasBeenSet; }
+  inline void SetTimeToFirstTokenMs(int value) {
+    m_timeToFirstTokenMsHasBeenSet = true;
+    m_timeToFirstTokenMs = value;
+  }
+  inline SpanAttributes& WithTimeToFirstTokenMs(int value) {
+    SetTimeToFirstTokenMs(value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_operationName;
 
@@ -716,6 +733,8 @@ class SpanAttributes {
   Aws::String m_promptName;
 
   int m_promptVersion{0};
+
+  int m_timeToFirstTokenMs{0};
   bool m_operationNameHasBeenSet = false;
   bool m_providerNameHasBeenSet = false;
   bool m_errorTypeHasBeenSet = false;
@@ -750,6 +769,7 @@ class SpanAttributes {
   bool m_promptTypeHasBeenSet = false;
   bool m_promptNameHasBeenSet = false;
   bool m_promptVersionHasBeenSet = false;
+  bool m_timeToFirstTokenMsHasBeenSet = false;
 };
 
 }  // namespace Model

@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/quicksight/QuickSight_EXPORTS.h>
+#include <aws/quicksight/model/ControlTitleFontConfiguration.h>
 #include <aws/quicksight/model/Font.h>
 #include <aws/quicksight/model/FontConfiguration.h>
 #include <aws/quicksight/model/VisualSubtitleFontConfiguration.h>
@@ -174,6 +175,24 @@ class Typography {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Configures the display properties of the control title.</p>
+   */
+  inline const ControlTitleFontConfiguration& GetControlTitleFontConfiguration() const { return m_controlTitleFontConfiguration; }
+  inline bool ControlTitleFontConfigurationHasBeenSet() const { return m_controlTitleFontConfigurationHasBeenSet; }
+  template <typename ControlTitleFontConfigurationT = ControlTitleFontConfiguration>
+  void SetControlTitleFontConfiguration(ControlTitleFontConfigurationT&& value) {
+    m_controlTitleFontConfigurationHasBeenSet = true;
+    m_controlTitleFontConfiguration = std::forward<ControlTitleFontConfigurationT>(value);
+  }
+  template <typename ControlTitleFontConfigurationT = ControlTitleFontConfiguration>
+  Typography& WithControlTitleFontConfiguration(ControlTitleFontConfigurationT&& value) {
+    SetControlTitleFontConfiguration(std::forward<ControlTitleFontConfigurationT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::Vector<Font> m_fontFamilies;
 
@@ -190,6 +209,8 @@ class Typography {
   VisualTitleFontConfiguration m_visualTitleFontConfiguration;
 
   VisualSubtitleFontConfiguration m_visualSubtitleFontConfiguration;
+
+  ControlTitleFontConfiguration m_controlTitleFontConfiguration;
   bool m_fontFamiliesHasBeenSet = false;
   bool m_axisTitleFontConfigurationHasBeenSet = false;
   bool m_axisLabelFontConfigurationHasBeenSet = false;
@@ -198,6 +219,7 @@ class Typography {
   bool m_dataLabelFontConfigurationHasBeenSet = false;
   bool m_visualTitleFontConfigurationHasBeenSet = false;
   bool m_visualSubtitleFontConfigurationHasBeenSet = false;
+  bool m_controlTitleFontConfigurationHasBeenSet = false;
 };
 
 }  // namespace Model

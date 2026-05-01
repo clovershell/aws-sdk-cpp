@@ -7,6 +7,7 @@
 #include <aws/appstream/AppStreamRequest.h>
 #include <aws/appstream/AppStream_EXPORTS.h>
 #include <aws/appstream/model/AccessEndpoint.h>
+#include <aws/appstream/model/AgentAccessConfig.h>
 #include <aws/appstream/model/ApplicationSettings.h>
 #include <aws/appstream/model/ContentRedirection.h>
 #include <aws/appstream/model/StorageConnector.h>
@@ -316,6 +317,25 @@ class CreateStackRequest : public AppStreamRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The configuration for agent access on the stack. If specified, agent access
+   * is enabled for the stack.</p>
+   */
+  inline const AgentAccessConfig& GetAgentAccessConfig() const { return m_agentAccessConfig; }
+  inline bool AgentAccessConfigHasBeenSet() const { return m_agentAccessConfigHasBeenSet; }
+  template <typename AgentAccessConfigT = AgentAccessConfig>
+  void SetAgentAccessConfig(AgentAccessConfigT&& value) {
+    m_agentAccessConfigHasBeenSet = true;
+    m_agentAccessConfig = std::forward<AgentAccessConfigT>(value);
+  }
+  template <typename AgentAccessConfigT = AgentAccessConfig>
+  CreateStackRequest& WithAgentAccessConfig(AgentAccessConfigT&& value) {
+    SetAgentAccessConfig(std::forward<AgentAccessConfigT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_name;
 
@@ -342,6 +362,8 @@ class CreateStackRequest : public AppStreamRequest {
   StreamingExperienceSettings m_streamingExperienceSettings;
 
   ContentRedirection m_contentRedirection;
+
+  AgentAccessConfig m_agentAccessConfig;
   bool m_nameHasBeenSet = false;
   bool m_descriptionHasBeenSet = false;
   bool m_displayNameHasBeenSet = false;
@@ -355,6 +377,7 @@ class CreateStackRequest : public AppStreamRequest {
   bool m_embedHostDomainsHasBeenSet = false;
   bool m_streamingExperienceSettingsHasBeenSet = false;
   bool m_contentRedirectionHasBeenSet = false;
+  bool m_agentAccessConfigHasBeenSet = false;
 };
 
 }  // namespace Model

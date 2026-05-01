@@ -168,6 +168,10 @@ SpanAttributes& SpanAttributes::operator=(JsonView jsonValue) {
     m_promptVersion = jsonValue.GetInteger("promptVersion");
     m_promptVersionHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("timeToFirstTokenMs")) {
+    m_timeToFirstTokenMs = jsonValue.GetInteger("timeToFirstTokenMs");
+    m_timeToFirstTokenMsHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -326,6 +330,10 @@ JsonValue SpanAttributes::Jsonize() const {
 
   if (m_promptVersionHasBeenSet) {
     payload.WithInteger("promptVersion", m_promptVersion);
+  }
+
+  if (m_timeToFirstTokenMsHasBeenSet) {
+    payload.WithInteger("timeToFirstTokenMs", m_timeToFirstTokenMs);
   }
 
   return payload;

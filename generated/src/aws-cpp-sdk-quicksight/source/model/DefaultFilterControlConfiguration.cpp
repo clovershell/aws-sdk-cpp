@@ -26,6 +26,10 @@ DefaultFilterControlConfiguration& DefaultFilterControlConfiguration::operator=(
     m_controlOptions = jsonValue.GetObject("ControlOptions");
     m_controlOptionsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFormatText")) {
+    m_controlTitleFormatText = jsonValue.GetObject("ControlTitleFormatText");
+    m_controlTitleFormatTextHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -38,6 +42,10 @@ JsonValue DefaultFilterControlConfiguration::Jsonize() const {
 
   if (m_controlOptionsHasBeenSet) {
     payload.WithObject("ControlOptions", m_controlOptions.Jsonize());
+  }
+
+  if (m_controlTitleFormatTextHasBeenSet) {
+    payload.WithObject("ControlTitleFormatText", m_controlTitleFormatText.Jsonize());
   }
 
   return payload;

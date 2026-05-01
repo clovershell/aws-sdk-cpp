@@ -337,6 +337,7 @@
 #include <aws/logs/model/SuppressionState.h>
 #include <aws/logs/model/SuppressionType.h>
 #include <aws/logs/model/SuppressionUnit.h>
+#include <aws/logs/model/TagFilter.h>
 #include <aws/logs/model/TagResourceRequest.h>
 #include <aws/logs/model/TestMetricFilterRequest.h>
 #include <aws/logs/model/TestMetricFilterResult.h>

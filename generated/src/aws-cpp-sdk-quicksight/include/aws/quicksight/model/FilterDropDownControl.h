@@ -10,6 +10,7 @@
 #include <aws/quicksight/model/CascadingControlConfiguration.h>
 #include <aws/quicksight/model/CommitMode.h>
 #include <aws/quicksight/model/ControlSortConfiguration.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/DropDownControlDisplayOptions.h>
 #include <aws/quicksight/model/FilterSelectableValues.h>
 #include <aws/quicksight/model/SheetControlListType.h>
@@ -209,6 +210,24 @@ class FilterDropDownControl {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The title text format configuration for the control.</p>
+   */
+  inline const ControlTitleFormatText& GetControlTitleFormatText() const { return m_controlTitleFormatText; }
+  inline bool ControlTitleFormatTextHasBeenSet() const { return m_controlTitleFormatTextHasBeenSet; }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  void SetControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    m_controlTitleFormatTextHasBeenSet = true;
+    m_controlTitleFormatText = std::forward<ControlTitleFormatTextT>(value);
+  }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  FilterDropDownControl& WithControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    SetControlTitleFormatText(std::forward<ControlTitleFormatTextT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_filterControlId;
 
@@ -227,6 +246,8 @@ class FilterDropDownControl {
   CommitMode m_commitMode{CommitMode::NOT_SET};
 
   Aws::Vector<ControlSortConfiguration> m_controlSortConfigurations;
+
+  ControlTitleFormatText m_controlTitleFormatText;
   bool m_filterControlIdHasBeenSet = false;
   bool m_titleHasBeenSet = false;
   bool m_sourceFilterIdHasBeenSet = false;
@@ -236,6 +257,7 @@ class FilterDropDownControl {
   bool m_cascadingControlConfigurationHasBeenSet = false;
   bool m_commitModeHasBeenSet = false;
   bool m_controlSortConfigurationsHasBeenSet = false;
+  bool m_controlTitleFormatTextHasBeenSet = false;
 };
 
 }  // namespace Model

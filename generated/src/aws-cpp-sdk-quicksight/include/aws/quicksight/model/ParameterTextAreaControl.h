@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/quicksight/QuickSight_EXPORTS.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/TextAreaControlDisplayOptions.h>
 
 #include <utility>
@@ -122,6 +123,24 @@ class ParameterTextAreaControl {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The title text format configuration for the control.</p>
+   */
+  inline const ControlTitleFormatText& GetControlTitleFormatText() const { return m_controlTitleFormatText; }
+  inline bool ControlTitleFormatTextHasBeenSet() const { return m_controlTitleFormatTextHasBeenSet; }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  void SetControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    m_controlTitleFormatTextHasBeenSet = true;
+    m_controlTitleFormatText = std::forward<ControlTitleFormatTextT>(value);
+  }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  ParameterTextAreaControl& WithControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    SetControlTitleFormatText(std::forward<ControlTitleFormatTextT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_parameterControlId;
 
@@ -132,11 +151,14 @@ class ParameterTextAreaControl {
   Aws::String m_delimiter;
 
   TextAreaControlDisplayOptions m_displayOptions;
+
+  ControlTitleFormatText m_controlTitleFormatText;
   bool m_parameterControlIdHasBeenSet = false;
   bool m_titleHasBeenSet = false;
   bool m_sourceParameterNameHasBeenSet = false;
   bool m_delimiterHasBeenSet = false;
   bool m_displayOptionsHasBeenSet = false;
+  bool m_controlTitleFormatTextHasBeenSet = false;
 };
 
 }  // namespace Model

@@ -7,6 +7,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/quicksight/QuickSight_EXPORTS.h>
 #include <aws/quicksight/model/CommitMode.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/DateTimePickerControlDisplayOptions.h>
 #include <aws/quicksight/model/SheetControlDateTimePickerType.h>
 
@@ -143,6 +144,24 @@ class FilterDateTimePickerControl {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The title text format configuration for the control.</p>
+   */
+  inline const ControlTitleFormatText& GetControlTitleFormatText() const { return m_controlTitleFormatText; }
+  inline bool ControlTitleFormatTextHasBeenSet() const { return m_controlTitleFormatTextHasBeenSet; }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  void SetControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    m_controlTitleFormatTextHasBeenSet = true;
+    m_controlTitleFormatText = std::forward<ControlTitleFormatTextT>(value);
+  }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  FilterDateTimePickerControl& WithControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    SetControlTitleFormatText(std::forward<ControlTitleFormatTextT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_filterControlId;
 
@@ -155,12 +174,15 @@ class FilterDateTimePickerControl {
   SheetControlDateTimePickerType m_type{SheetControlDateTimePickerType::NOT_SET};
 
   CommitMode m_commitMode{CommitMode::NOT_SET};
+
+  ControlTitleFormatText m_controlTitleFormatText;
   bool m_filterControlIdHasBeenSet = false;
   bool m_titleHasBeenSet = false;
   bool m_sourceFilterIdHasBeenSet = false;
   bool m_displayOptionsHasBeenSet = false;
   bool m_typeHasBeenSet = false;
   bool m_commitModeHasBeenSet = false;
+  bool m_controlTitleFormatTextHasBeenSet = false;
 };
 
 }  // namespace Model

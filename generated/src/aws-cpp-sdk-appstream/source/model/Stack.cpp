@@ -93,6 +93,10 @@ Stack& Stack::operator=(JsonView jsonValue) {
     m_contentRedirection = jsonValue.GetObject("ContentRedirection");
     m_contentRedirectionHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("AgentAccessConfig")) {
+    m_agentAccessConfig = jsonValue.GetObject("AgentAccessConfig");
+    m_agentAccessConfigHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -177,6 +181,10 @@ JsonValue Stack::Jsonize() const {
 
   if (m_contentRedirectionHasBeenSet) {
     payload.WithObject("ContentRedirection", m_contentRedirection.Jsonize());
+  }
+
+  if (m_agentAccessConfigHasBeenSet) {
+    payload.WithObject("AgentAccessConfig", m_agentAccessConfig.Jsonize());
   }
 
   return payload;

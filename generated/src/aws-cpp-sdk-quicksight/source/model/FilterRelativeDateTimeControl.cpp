@@ -38,6 +38,10 @@ FilterRelativeDateTimeControl& FilterRelativeDateTimeControl::operator=(JsonView
     m_commitMode = CommitModeMapper::GetCommitModeForName(jsonValue.GetString("CommitMode"));
     m_commitModeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFormatText")) {
+    m_controlTitleFormatText = jsonValue.GetObject("ControlTitleFormatText");
+    m_controlTitleFormatTextHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -62,6 +66,10 @@ JsonValue FilterRelativeDateTimeControl::Jsonize() const {
 
   if (m_commitModeHasBeenSet) {
     payload.WithString("CommitMode", CommitModeMapper::GetNameForCommitMode(m_commitMode));
+  }
+
+  if (m_controlTitleFormatTextHasBeenSet) {
+    payload.WithObject("ControlTitleFormatText", m_controlTitleFormatText.Jsonize());
   }
 
   return payload;

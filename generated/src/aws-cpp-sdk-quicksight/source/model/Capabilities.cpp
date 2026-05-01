@@ -946,6 +946,14 @@ Capabilities& Capabilities::operator=(JsonView jsonValue) {
     m_generateAnalyses = CapabilityStateMapper::GetCapabilityStateForName(jsonValue.GetString("GenerateAnalyses"));
     m_generateAnalysesHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("Story")) {
+    m_story = CapabilityStateMapper::GetCapabilityStateForName(jsonValue.GetString("Story"));
+    m_storyHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("Scenario")) {
+    m_scenario = CapabilityStateMapper::GetCapabilityStateForName(jsonValue.GetString("Scenario"));
+    m_scenarioHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -1866,6 +1874,14 @@ JsonValue Capabilities::Jsonize() const {
 
   if (m_generateAnalysesHasBeenSet) {
     payload.WithString("GenerateAnalyses", CapabilityStateMapper::GetNameForCapabilityState(m_generateAnalyses));
+  }
+
+  if (m_storyHasBeenSet) {
+    payload.WithString("Story", CapabilityStateMapper::GetNameForCapabilityState(m_story));
+  }
+
+  if (m_scenarioHasBeenSet) {
+    payload.WithString("Scenario", CapabilityStateMapper::GetNameForCapabilityState(m_scenario));
   }
 
   return payload;

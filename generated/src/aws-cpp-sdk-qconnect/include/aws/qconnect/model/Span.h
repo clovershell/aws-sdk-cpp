@@ -196,6 +196,24 @@ class Span {
 
   ///@{
   /**
+   * <p>Human-readable error description when status is ERROR or TIMEOUT</p>
+   */
+  inline const Aws::String& GetStatusDescription() const { return m_statusDescription; }
+  inline bool StatusDescriptionHasBeenSet() const { return m_statusDescriptionHasBeenSet; }
+  template <typename StatusDescriptionT = Aws::String>
+  void SetStatusDescription(StatusDescriptionT&& value) {
+    m_statusDescriptionHasBeenSet = true;
+    m_statusDescription = std::forward<StatusDescriptionT>(value);
+  }
+  template <typename StatusDescriptionT = Aws::String>
+  Span& WithStatusDescription(StatusDescriptionT&& value) {
+    SetStatusDescription(std::forward<StatusDescriptionT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>The service request ID that initiated the operation</p>
    */
   inline const Aws::String& GetRequestId() const { return m_requestId; }
@@ -266,6 +284,8 @@ class Span {
 
   SpanStatus m_status{SpanStatus::NOT_SET};
 
+  Aws::String m_statusDescription;
+
   Aws::String m_requestId;
 
   Aws::String m_originRequestId;
@@ -280,6 +300,7 @@ class Span {
   bool m_startTimestampHasBeenSet = false;
   bool m_endTimestampHasBeenSet = false;
   bool m_statusHasBeenSet = false;
+  bool m_statusDescriptionHasBeenSet = false;
   bool m_requestIdHasBeenSet = false;
   bool m_originRequestIdHasBeenSet = false;
   bool m_attributesHasBeenSet = false;

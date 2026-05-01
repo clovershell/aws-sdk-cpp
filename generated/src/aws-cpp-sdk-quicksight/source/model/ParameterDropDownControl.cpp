@@ -58,6 +58,10 @@ ParameterDropDownControl& ParameterDropDownControl::operator=(JsonView jsonValue
     }
     m_controlSortConfigurationsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFormatText")) {
+    m_controlTitleFormatText = jsonValue.GetObject("ControlTitleFormatText");
+    m_controlTitleFormatTextHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -104,6 +108,10 @@ JsonValue ParameterDropDownControl::Jsonize() const {
           m_controlSortConfigurations[controlSortConfigurationsIndex].Jsonize());
     }
     payload.WithArray("ControlSortConfigurations", std::move(controlSortConfigurationsJsonList));
+  }
+
+  if (m_controlTitleFormatTextHasBeenSet) {
+    payload.WithObject("ControlTitleFormatText", m_controlTitleFormatText.Jsonize());
   }
 
   return payload;

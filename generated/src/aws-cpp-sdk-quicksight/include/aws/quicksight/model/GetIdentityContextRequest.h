@@ -109,6 +109,33 @@ class GetIdentityContextRequest : public QuickSightRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The region in which the context is to be used. Use this parameter to obtain
+   * an identity context for cross-region use.</p> <p>The specified region must meet
+   * the following conditions:</p> <ul> <li> <p>The region must be in the same Amazon
+   * Web Services partition as the region you are calling from. Cross-partition
+   * requests are not supported. For example, you cannot specify a region in the
+   * <code>aws-cn</code> partition when calling from a region in the <code>aws</code>
+   * partition.</p> </li> <li> <p>It must be a valid Amazon QuickSight supported
+   * region.</p> </li> <li> <p>The calling customer account must be enabled in the
+   * specified context region.</p> </li> <li> <p>This parameter is not supported when
+   * calling from an opt-in region.</p> </li> </ul>
+   */
+  inline const Aws::String& GetContextRegion() const { return m_contextRegion; }
+  inline bool ContextRegionHasBeenSet() const { return m_contextRegionHasBeenSet; }
+  template <typename ContextRegionT = Aws::String>
+  void SetContextRegion(ContextRegionT&& value) {
+    m_contextRegionHasBeenSet = true;
+    m_contextRegion = std::forward<ContextRegionT>(value);
+  }
+  template <typename ContextRegionT = Aws::String>
+  GetIdentityContextRequest& WithContextRegion(ContextRegionT&& value) {
+    SetContextRegion(std::forward<ContextRegionT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_awsAccountId;
 
@@ -117,10 +144,13 @@ class GetIdentityContextRequest : public QuickSightRequest {
   Aws::String m_namespace;
 
   Aws::Utils::DateTime m_sessionExpiresAt{};
+
+  Aws::String m_contextRegion;
   bool m_awsAccountIdHasBeenSet = false;
   bool m_userIdentifierHasBeenSet = false;
   bool m_namespaceHasBeenSet = false;
   bool m_sessionExpiresAtHasBeenSet = false;
+  bool m_contextRegionHasBeenSet = false;
 };
 
 }  // namespace Model

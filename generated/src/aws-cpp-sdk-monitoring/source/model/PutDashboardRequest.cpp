@@ -23,6 +23,9 @@ Aws::String PutDashboardRequest::SerializePayload() const {
   if (m_dashboardBodyHasBeenSet) {
     mapSize++;
   }
+  if (m_tagsHasBeenSet) {
+    mapSize++;
+  }
 
   encoder.WriteMapStart(mapSize);
 
@@ -34,6 +37,14 @@ Aws::String PutDashboardRequest::SerializePayload() const {
   if (m_dashboardBodyHasBeenSet) {
     encoder.WriteText(Aws::Crt::ByteCursorFromCString("DashboardBody"));
     encoder.WriteText(Aws::Crt::ByteCursorFromCString(m_dashboardBody.c_str()));
+  }
+
+  if (m_tagsHasBeenSet) {
+    encoder.WriteText(Aws::Crt::ByteCursorFromCString("Tags"));
+    encoder.WriteArrayStart(m_tags.size());
+    for (const auto& item_0 : m_tags) {
+      item_0.CborEncode(encoder);
+    }
   }
   const auto str = Aws::String(reinterpret_cast<char*>(encoder.GetEncodedData().ptr), encoder.GetEncodedData().len);
   return str;

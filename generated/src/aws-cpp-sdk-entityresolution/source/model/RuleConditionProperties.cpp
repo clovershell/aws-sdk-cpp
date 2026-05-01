@@ -25,6 +25,10 @@ RuleConditionProperties& RuleConditionProperties::operator=(JsonView jsonValue) 
     }
     m_rulesHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("matchingConfig")) {
+    m_matchingConfig = jsonValue.GetObject("matchingConfig");
+    m_matchingConfigHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -37,6 +41,10 @@ JsonValue RuleConditionProperties::Jsonize() const {
       rulesJsonList[rulesIndex].AsObject(m_rules[rulesIndex].Jsonize());
     }
     payload.WithArray("rules", std::move(rulesJsonList));
+  }
+
+  if (m_matchingConfigHasBeenSet) {
+    payload.WithObject("matchingConfig", m_matchingConfig.Jsonize());
   }
 
   return payload;

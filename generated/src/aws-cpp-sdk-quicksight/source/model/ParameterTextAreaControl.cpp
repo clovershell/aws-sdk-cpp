@@ -38,6 +38,10 @@ ParameterTextAreaControl& ParameterTextAreaControl::operator=(JsonView jsonValue
     m_displayOptions = jsonValue.GetObject("DisplayOptions");
     m_displayOptionsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFormatText")) {
+    m_controlTitleFormatText = jsonValue.GetObject("ControlTitleFormatText");
+    m_controlTitleFormatTextHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -62,6 +66,10 @@ JsonValue ParameterTextAreaControl::Jsonize() const {
 
   if (m_displayOptionsHasBeenSet) {
     payload.WithObject("DisplayOptions", m_displayOptions.Jsonize());
+  }
+
+  if (m_controlTitleFormatTextHasBeenSet) {
+    payload.WithObject("ControlTitleFormatText", m_controlTitleFormatText.Jsonize());
   }
 
   return payload;

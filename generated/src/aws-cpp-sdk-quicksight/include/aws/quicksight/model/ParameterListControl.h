@@ -9,6 +9,7 @@
 #include <aws/quicksight/QuickSight_EXPORTS.h>
 #include <aws/quicksight/model/CascadingControlConfiguration.h>
 #include <aws/quicksight/model/ControlSortConfiguration.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/ListControlDisplayOptions.h>
 #include <aws/quicksight/model/ParameterSelectableValues.h>
 #include <aws/quicksight/model/SheetControlListType.h>
@@ -187,6 +188,24 @@ class ParameterListControl {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The title text format configuration for the control.</p>
+   */
+  inline const ControlTitleFormatText& GetControlTitleFormatText() const { return m_controlTitleFormatText; }
+  inline bool ControlTitleFormatTextHasBeenSet() const { return m_controlTitleFormatTextHasBeenSet; }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  void SetControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    m_controlTitleFormatTextHasBeenSet = true;
+    m_controlTitleFormatText = std::forward<ControlTitleFormatTextT>(value);
+  }
+  template <typename ControlTitleFormatTextT = ControlTitleFormatText>
+  ParameterListControl& WithControlTitleFormatText(ControlTitleFormatTextT&& value) {
+    SetControlTitleFormatText(std::forward<ControlTitleFormatTextT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_parameterControlId;
 
@@ -203,6 +222,8 @@ class ParameterListControl {
   CascadingControlConfiguration m_cascadingControlConfiguration;
 
   Aws::Vector<ControlSortConfiguration> m_controlSortConfigurations;
+
+  ControlTitleFormatText m_controlTitleFormatText;
   bool m_parameterControlIdHasBeenSet = false;
   bool m_titleHasBeenSet = false;
   bool m_sourceParameterNameHasBeenSet = false;
@@ -211,6 +232,7 @@ class ParameterListControl {
   bool m_selectableValuesHasBeenSet = false;
   bool m_cascadingControlConfigurationHasBeenSet = false;
   bool m_controlSortConfigurationsHasBeenSet = false;
+  bool m_controlTitleFormatTextHasBeenSet = false;
 };
 
 }  // namespace Model

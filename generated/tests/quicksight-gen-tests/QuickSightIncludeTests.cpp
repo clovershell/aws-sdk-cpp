@@ -300,6 +300,8 @@
 #include <aws/quicksight/model/ContributionAnalysisTimeRanges.h>
 #include <aws/quicksight/model/ControlSortConfiguration.h>
 #include <aws/quicksight/model/ControlSortDirection.h>
+#include <aws/quicksight/model/ControlTitleFontConfiguration.h>
+#include <aws/quicksight/model/ControlTitleFormatText.h>
 #include <aws/quicksight/model/Coordinate.h>
 #include <aws/quicksight/model/CreateAccountCustomizationRequest.h>
 #include <aws/quicksight/model/CreateAccountCustomizationResult.h>

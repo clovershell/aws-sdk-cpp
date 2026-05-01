@@ -18,6 +18,10 @@
 #include <aws/appstream/model/AccessEndpointType.h>
 #include <aws/appstream/model/Action.h>
 #include <aws/appstream/model/AdminAppLicenseUsageRecord.h>
+#include <aws/appstream/model/AgentAccessConfig.h>
+#include <aws/appstream/model/AgentAccessConfigForUpdate.h>
+#include <aws/appstream/model/AgentAccessSetting.h>
+#include <aws/appstream/model/AgentAction.h>
 #include <aws/appstream/model/AgentSoftwareVersion.h>
 #include <aws/appstream/model/AppBlock.h>
 #include <aws/appstream/model/AppBlockBuilder.h>
@@ -224,6 +228,8 @@
 #include <aws/appstream/model/ResourceError.h>
 #include <aws/appstream/model/RuntimeValidationConfig.h>
 #include <aws/appstream/model/S3Location.h>
+#include <aws/appstream/model/ScreenImageFormat.h>
+#include <aws/appstream/model/ScreenResolution.h>
 #include <aws/appstream/model/ScriptDetails.h>
 #include <aws/appstream/model/ServiceAccountCredentials.h>
 #include <aws/appstream/model/Session.h>

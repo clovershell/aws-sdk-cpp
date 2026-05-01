@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/entityresolution/EntityResolution_EXPORTS.h>
+#include <aws/entityresolution/model/MatchingConfig.h>
 #include <aws/entityresolution/model/RuleCondition.h>
 
 #include <utility>
@@ -57,9 +58,30 @@ class RuleConditionProperties {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>An object that contains configuration settings for the matching process.</p>
+   */
+  inline const MatchingConfig& GetMatchingConfig() const { return m_matchingConfig; }
+  inline bool MatchingConfigHasBeenSet() const { return m_matchingConfigHasBeenSet; }
+  template <typename MatchingConfigT = MatchingConfig>
+  void SetMatchingConfig(MatchingConfigT&& value) {
+    m_matchingConfigHasBeenSet = true;
+    m_matchingConfig = std::forward<MatchingConfigT>(value);
+  }
+  template <typename MatchingConfigT = MatchingConfig>
+  RuleConditionProperties& WithMatchingConfig(MatchingConfigT&& value) {
+    SetMatchingConfig(std::forward<MatchingConfigT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::Vector<RuleCondition> m_rules;
+
+  MatchingConfig m_matchingConfig;
   bool m_rulesHasBeenSet = false;
+  bool m_matchingConfigHasBeenSet = false;
 };
 
 }  // namespace Model

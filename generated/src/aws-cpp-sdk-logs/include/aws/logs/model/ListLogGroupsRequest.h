@@ -10,6 +10,7 @@
 #include <aws/logs/CloudWatchLogs_EXPORTS.h>
 #include <aws/logs/model/DataSourceFilter.h>
 #include <aws/logs/model/LogGroupClass.h>
+#include <aws/logs/model/TagFilter.h>
 
 #include <utility>
 
@@ -213,6 +214,31 @@ class ListLogGroupsRequest : public CloudWatchLogsRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>An array of tag filters to return only log groups that have specific tags.
+   * Multiple filters are combined with AND logic.</p>
+   */
+  inline const Aws::Vector<TagFilter>& GetLogGroupTags() const { return m_logGroupTags; }
+  inline bool LogGroupTagsHasBeenSet() const { return m_logGroupTagsHasBeenSet; }
+  template <typename LogGroupTagsT = Aws::Vector<TagFilter>>
+  void SetLogGroupTags(LogGroupTagsT&& value) {
+    m_logGroupTagsHasBeenSet = true;
+    m_logGroupTags = std::forward<LogGroupTagsT>(value);
+  }
+  template <typename LogGroupTagsT = Aws::Vector<TagFilter>>
+  ListLogGroupsRequest& WithLogGroupTags(LogGroupTagsT&& value) {
+    SetLogGroupTags(std::forward<LogGroupTagsT>(value));
+    return *this;
+  }
+  template <typename LogGroupTagsT = TagFilter>
+  ListLogGroupsRequest& AddLogGroupTags(LogGroupTagsT&& value) {
+    m_logGroupTagsHasBeenSet = true;
+    m_logGroupTags.emplace_back(std::forward<LogGroupTagsT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_logGroupNamePattern;
 
@@ -229,6 +255,8 @@ class ListLogGroupsRequest : public CloudWatchLogsRequest {
   Aws::Vector<DataSourceFilter> m_dataSources;
 
   Aws::Vector<Aws::String> m_fieldIndexNames;
+
+  Aws::Vector<TagFilter> m_logGroupTags;
   bool m_logGroupNamePatternHasBeenSet = false;
   bool m_logGroupClassHasBeenSet = false;
   bool m_includeLinkedAccountsHasBeenSet = false;
@@ -237,6 +265,7 @@ class ListLogGroupsRequest : public CloudWatchLogsRequest {
   bool m_limitHasBeenSet = false;
   bool m_dataSourcesHasBeenSet = false;
   bool m_fieldIndexNamesHasBeenSet = false;
+  bool m_logGroupTagsHasBeenSet = false;
 };
 
 }  // namespace Model

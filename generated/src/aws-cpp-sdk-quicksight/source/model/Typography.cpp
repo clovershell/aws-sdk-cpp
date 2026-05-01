@@ -53,6 +53,10 @@ Typography& Typography::operator=(JsonView jsonValue) {
     m_visualSubtitleFontConfiguration = jsonValue.GetObject("VisualSubtitleFontConfiguration");
     m_visualSubtitleFontConfigurationHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ControlTitleFontConfiguration")) {
+    m_controlTitleFontConfiguration = jsonValue.GetObject("ControlTitleFontConfiguration");
+    m_controlTitleFontConfigurationHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -93,6 +97,10 @@ JsonValue Typography::Jsonize() const {
 
   if (m_visualSubtitleFontConfigurationHasBeenSet) {
     payload.WithObject("VisualSubtitleFontConfiguration", m_visualSubtitleFontConfiguration.Jsonize());
+  }
+
+  if (m_controlTitleFontConfigurationHasBeenSet) {
+    payload.WithObject("ControlTitleFontConfiguration", m_controlTitleFontConfiguration.Jsonize());
   }
 
   return payload;

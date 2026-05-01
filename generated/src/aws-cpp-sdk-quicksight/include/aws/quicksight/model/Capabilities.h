@@ -3580,6 +3580,38 @@ class Capabilities {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The ability to perform Story-related actions.</p>
+   */
+  inline CapabilityState GetStory() const { return m_story; }
+  inline bool StoryHasBeenSet() const { return m_storyHasBeenSet; }
+  inline void SetStory(CapabilityState value) {
+    m_storyHasBeenSet = true;
+    m_story = value;
+  }
+  inline Capabilities& WithStory(CapabilityState value) {
+    SetStory(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The ability to perform Scenario-related actions.</p>
+   */
+  inline CapabilityState GetScenario() const { return m_scenario; }
+  inline bool ScenarioHasBeenSet() const { return m_scenarioHasBeenSet; }
+  inline void SetScenario(CapabilityState value) {
+    m_scenarioHasBeenSet = true;
+    m_scenario = value;
+  }
+  inline Capabilities& WithScenario(CapabilityState value) {
+    SetScenario(value);
+    return *this;
+  }
+  ///@}
  private:
   CapabilityState m_exportToCsv{CapabilityState::NOT_SET};
 
@@ -4022,6 +4054,10 @@ class Capabilities {
   CapabilityState m_manageSharedFolders{CapabilityState::NOT_SET};
 
   CapabilityState m_generateAnalyses{CapabilityState::NOT_SET};
+
+  CapabilityState m_story{CapabilityState::NOT_SET};
+
+  CapabilityState m_scenario{CapabilityState::NOT_SET};
   bool m_exportToCsvHasBeenSet = false;
   bool m_exportToExcelHasBeenSet = false;
   bool m_exportToPdfHasBeenSet = false;
@@ -4243,6 +4279,8 @@ class Capabilities {
   bool m_extensionHasBeenSet = false;
   bool m_manageSharedFoldersHasBeenSet = false;
   bool m_generateAnalysesHasBeenSet = false;
+  bool m_storyHasBeenSet = false;
+  bool m_scenarioHasBeenSet = false;
 };
 
 }  // namespace Model

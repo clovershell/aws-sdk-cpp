@@ -34,6 +34,10 @@ OAuthParameters& OAuthParameters::operator=(JsonView jsonValue) {
     m_identityProviderResourceUri = jsonValue.GetString("IdentityProviderResourceUri");
     m_identityProviderResourceUriHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("IdentityProviderCACertificatesBundleS3Uri")) {
+    m_identityProviderCACertificatesBundleS3Uri = jsonValue.GetString("IdentityProviderCACertificatesBundleS3Uri");
+    m_identityProviderCACertificatesBundleS3UriHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -54,6 +58,10 @@ JsonValue OAuthParameters::Jsonize() const {
 
   if (m_identityProviderResourceUriHasBeenSet) {
     payload.WithString("IdentityProviderResourceUri", m_identityProviderResourceUri);
+  }
+
+  if (m_identityProviderCACertificatesBundleS3UriHasBeenSet) {
+    payload.WithString("IdentityProviderCACertificatesBundleS3Uri", m_identityProviderCACertificatesBundleS3Uri);
   }
 
   return payload;

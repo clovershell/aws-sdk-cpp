@@ -106,6 +106,27 @@ class OAuthParameters {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The S3 URI of the identity provider's CA certificates bundle in PEM format.
+   * Use this parameter to provide a custom CA certificate bundle for the identity
+   * provider when the default trust store does not include the required
+   * certificates.</p>
+   */
+  inline const Aws::String& GetIdentityProviderCACertificatesBundleS3Uri() const { return m_identityProviderCACertificatesBundleS3Uri; }
+  inline bool IdentityProviderCACertificatesBundleS3UriHasBeenSet() const { return m_identityProviderCACertificatesBundleS3UriHasBeenSet; }
+  template <typename IdentityProviderCACertificatesBundleS3UriT = Aws::String>
+  void SetIdentityProviderCACertificatesBundleS3Uri(IdentityProviderCACertificatesBundleS3UriT&& value) {
+    m_identityProviderCACertificatesBundleS3UriHasBeenSet = true;
+    m_identityProviderCACertificatesBundleS3Uri = std::forward<IdentityProviderCACertificatesBundleS3UriT>(value);
+  }
+  template <typename IdentityProviderCACertificatesBundleS3UriT = Aws::String>
+  OAuthParameters& WithIdentityProviderCACertificatesBundleS3Uri(IdentityProviderCACertificatesBundleS3UriT&& value) {
+    SetIdentityProviderCACertificatesBundleS3Uri(std::forward<IdentityProviderCACertificatesBundleS3UriT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_tokenProviderUrl;
 
@@ -114,10 +135,13 @@ class OAuthParameters {
   VpcConnectionProperties m_identityProviderVpcConnectionProperties;
 
   Aws::String m_identityProviderResourceUri;
+
+  Aws::String m_identityProviderCACertificatesBundleS3Uri;
   bool m_tokenProviderUrlHasBeenSet = false;
   bool m_oAuthScopeHasBeenSet = false;
   bool m_identityProviderVpcConnectionPropertiesHasBeenSet = false;
   bool m_identityProviderResourceUriHasBeenSet = false;
+  bool m_identityProviderCACertificatesBundleS3UriHasBeenSet = false;
 };
 
 }  // namespace Model

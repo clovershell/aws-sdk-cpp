@@ -5,8 +5,10 @@
 
 #pragma once
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/monitoring/CloudWatchRequest.h>
 #include <aws/monitoring/CloudWatch_EXPORTS.h>
+#include <aws/monitoring/model/Tag.h>
 
 #include <utility>
 
@@ -72,12 +74,48 @@ class PutDashboardRequest : public CloudWatchRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>A list of key-value pairs to associate with the dashboard. You can associate
+   * as many as 50 tags with a dashboard.</p> <p>Tags can help you organize and
+   * categorize your dashboards. You can also use them to scope user permissions by
+   * granting a user permission to access or change only dashboards with certain tag
+   * values.</p> <p>You can use this parameter only when creating a new dashboard. If
+   * you specify <code>Tags</code> when updating an existing dashboard, the tag
+   * updates are ignored. To add or update tags on an existing dashboard, use <a
+   * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.
+   * To remove tags, use <a
+   * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
+   */
+  inline const Aws::Vector<Tag>& GetTags() const { return m_tags; }
+  inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+  template <typename TagsT = Aws::Vector<Tag>>
+  void SetTags(TagsT&& value) {
+    m_tagsHasBeenSet = true;
+    m_tags = std::forward<TagsT>(value);
+  }
+  template <typename TagsT = Aws::Vector<Tag>>
+  PutDashboardRequest& WithTags(TagsT&& value) {
+    SetTags(std::forward<TagsT>(value));
+    return *this;
+  }
+  template <typename TagsT = Tag>
+  PutDashboardRequest& AddTags(TagsT&& value) {
+    m_tagsHasBeenSet = true;
+    m_tags.emplace_back(std::forward<TagsT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_dashboardName;
 
   Aws::String m_dashboardBody;
+
+  Aws::Vector<Tag> m_tags;
   bool m_dashboardNameHasBeenSet = false;
   bool m_dashboardBodyHasBeenSet = false;
+  bool m_tagsHasBeenSet = false;
 };
 
 }  // namespace Model

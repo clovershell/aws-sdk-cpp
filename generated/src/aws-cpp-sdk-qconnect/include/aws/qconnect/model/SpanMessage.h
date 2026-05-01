@@ -90,7 +90,7 @@ class SpanMessage {
 
   ///@{
   /**
-   * <p>Message content values (text, tool use, tool result)</p>
+   * <p>Message content values (text, tool use, tool result, reasoning)</p>
    */
   inline const Aws::Vector<SpanMessageValue>& GetValues() const { return m_values; }
   inline bool ValuesHasBeenSet() const { return m_valuesHasBeenSet; }

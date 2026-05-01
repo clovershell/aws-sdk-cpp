@@ -54,6 +54,10 @@ Span& Span::operator=(JsonView jsonValue) {
     m_status = SpanStatusMapper::GetSpanStatusForName(jsonValue.GetString("status"));
     m_statusHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("statusDescription")) {
+    m_statusDescription = jsonValue.GetString("statusDescription");
+    m_statusDescriptionHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("requestId")) {
     m_requestId = jsonValue.GetString("requestId");
     m_requestIdHasBeenSet = true;
@@ -106,6 +110,10 @@ JsonValue Span::Jsonize() const {
 
   if (m_statusHasBeenSet) {
     payload.WithString("status", SpanStatusMapper::GetNameForSpanStatus(m_status));
+  }
+
+  if (m_statusDescriptionHasBeenSet) {
+    payload.WithString("statusDescription", m_statusDescription);
   }
 
   if (m_requestIdHasBeenSet) {

@@ -30,6 +30,10 @@ BatchConfig& BatchConfig::operator=(JsonView jsonValue) {
     m_maxBatchSizeBytes = jsonValue.GetInteger("maxBatchSizeBytes");
     m_maxBatchSizeBytesHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("batchAcrossTopics")) {
+    m_batchAcrossTopics = jsonValue.GetBool("batchAcrossTopics");
+    m_batchAcrossTopicsHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -46,6 +50,10 @@ JsonValue BatchConfig::Jsonize() const {
 
   if (m_maxBatchSizeBytesHasBeenSet) {
     payload.WithInteger("maxBatchSizeBytes", m_maxBatchSizeBytes);
+  }
+
+  if (m_batchAcrossTopicsHasBeenSet) {
+    payload.WithBool("batchAcrossTopics", m_batchAcrossTopics);
   }
 
   return payload;

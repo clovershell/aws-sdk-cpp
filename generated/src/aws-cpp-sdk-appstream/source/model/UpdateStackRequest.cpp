@@ -89,6 +89,10 @@ Aws::String UpdateStackRequest::SerializePayload() const {
     payload.WithObject("ContentRedirection", m_contentRedirection.Jsonize());
   }
 
+  if (m_agentAccessConfigHasBeenSet) {
+    payload.WithObject("AgentAccessConfig", m_agentAccessConfig.Jsonize());
+  }
+
   return payload.View().WriteReadable();
 }
 

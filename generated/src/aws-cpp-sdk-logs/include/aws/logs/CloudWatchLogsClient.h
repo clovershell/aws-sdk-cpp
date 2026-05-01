@@ -2680,13 +2680,11 @@ class AWS_CLOUDWATCHLOGS_API CloudWatchLogsClient : public Aws::Client::AWSJsonC
    * accounts and source accounts, see <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">
    * CloudWatch cross-account observability</a>.</p> <p>You can optionally filter the
-   * list by log group class, by using regular expressions in your request to match
-   * strings in the log group names, by using the fieldIndexes parameter to filter
-   * log groups based on which field indexes are configured, by using the dataSources
-   * parameter to filter log groups by data source types, and by using the
-   * fieldIndexNames parameter to filter by specific field index names.</p> <p>This
-   * operation is paginated. By default, your first use of this operation returns 50
-   * results, and includes a token to use in a subsequent operation to return more
+   * results by log group class, log group name pattern, field indexes, data sources,
+   * field index names, or log group tags. If you specify more than one filter type,
+   * the results include log groups that satisfy all filters.</p> <p>This operation
+   * is paginated. By default, your first use of this operation returns 50 results,
+   * and includes a token to use in a subsequent operation to return more
    * results.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/ListLogGroups">AWS
    * API Reference</a></p>
@@ -3987,8 +3985,9 @@ class AWS_CLOUDWATCHLOGS_API CloudWatchLogsClient : public Aws::Client::AWSJsonC
    * <code>queryString</code> must include a <code>SOURCE</code> command to select
    * log groups for the query. The <code>SOURCE</code> command can select log groups
    * based on log group name prefix, account ID, and log class, or select data
-   * sources using dataSource syntax in LogsQL, PPL, and SQL. </p> <p>For more
-   * information about the <code>SOURCE</code> command, see <a
+   * sources using dataSource syntax in LogsQL, PPL, and SQL. In LogsQL, the
+   * <code>SOURCE</code> command also supports filtering by log group tags. </p>
+   * <p>For more information about the <code>SOURCE</code> command, see <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.</p>
    * </li> </ul>  <p>If you have associated a KMS key with the query results
    * in this account, then <a

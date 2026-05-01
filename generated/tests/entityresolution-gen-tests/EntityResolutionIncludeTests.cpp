@@ -109,6 +109,7 @@
 #include <aws/entityresolution/model/MatchGroup.h>
 #include <aws/entityresolution/model/MatchPurpose.h>
 #include <aws/entityresolution/model/MatchedRecord.h>
+#include <aws/entityresolution/model/MatchingConfig.h>
 #include <aws/entityresolution/model/MatchingWorkflowSummary.h>
 #include <aws/entityresolution/model/NamespaceProviderProperties.h>
 #include <aws/entityresolution/model/NamespaceRuleBasedProperties.h>

@@ -7,6 +7,7 @@
 #include <aws/appstream/AppStreamRequest.h>
 #include <aws/appstream/AppStream_EXPORTS.h>
 #include <aws/appstream/model/AccessEndpoint.h>
+#include <aws/appstream/model/AgentAccessConfigForUpdate.h>
 #include <aws/appstream/model/ApplicationSettings.h>
 #include <aws/appstream/model/ContentRedirection.h>
 #include <aws/appstream/model/StackAttribute.h>
@@ -307,6 +308,26 @@ class UpdateStackRequest : public AppStreamRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The configuration for agent access on the stack. Specify this to update agent
+   * access settings. To remove agent access, use AttributesToDelete with the
+   * AGENT_ACCESS_CONFIG value.</p>
+   */
+  inline const AgentAccessConfigForUpdate& GetAgentAccessConfig() const { return m_agentAccessConfig; }
+  inline bool AgentAccessConfigHasBeenSet() const { return m_agentAccessConfigHasBeenSet; }
+  template <typename AgentAccessConfigT = AgentAccessConfigForUpdate>
+  void SetAgentAccessConfig(AgentAccessConfigT&& value) {
+    m_agentAccessConfigHasBeenSet = true;
+    m_agentAccessConfig = std::forward<AgentAccessConfigT>(value);
+  }
+  template <typename AgentAccessConfigT = AgentAccessConfigForUpdate>
+  UpdateStackRequest& WithAgentAccessConfig(AgentAccessConfigT&& value) {
+    SetAgentAccessConfig(std::forward<AgentAccessConfigT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_displayName;
 
@@ -333,6 +354,8 @@ class UpdateStackRequest : public AppStreamRequest {
   StreamingExperienceSettings m_streamingExperienceSettings;
 
   ContentRedirection m_contentRedirection;
+
+  AgentAccessConfigForUpdate m_agentAccessConfig;
   bool m_displayNameHasBeenSet = false;
   bool m_descriptionHasBeenSet = false;
   bool m_nameHasBeenSet = false;
@@ -346,6 +369,7 @@ class UpdateStackRequest : public AppStreamRequest {
   bool m_embedHostDomainsHasBeenSet = false;
   bool m_streamingExperienceSettingsHasBeenSet = false;
   bool m_contentRedirectionHasBeenSet = false;
+  bool m_agentAccessConfigHasBeenSet = false;
 };
 
 }  // namespace Model
