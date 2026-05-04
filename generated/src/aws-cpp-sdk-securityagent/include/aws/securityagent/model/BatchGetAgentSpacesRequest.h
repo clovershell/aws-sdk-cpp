@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for batch retrieving agent spaces</p><p><h3>See Also:</h3>   <a
+ * <p>Input for batch retrieving agent spaces.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetAgentSpacesInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class BatchGetAgentSpacesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of agent space IDs to retrieve</p>
+   * <p>The list of agent space identifiers to retrieve.</p>
    */
   inline const Aws::Vector<Aws::String>& GetAgentSpaceIds() const { return m_agentSpaceIds; }
   inline bool AgentSpaceIdsHasBeenSet() const { return m_agentSpaceIdsHasBeenSet; }

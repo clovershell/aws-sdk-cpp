@@ -21,7 +21,7 @@ namespace BedrockAgentCoreControl {
 namespace Model {
 
 /**
- * <p>Configuration for on-behalf-of token exchange</p><p><h3>See Also:</h3>   <a
+ * <p>Configuration for on-behalf-of token exchange.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/bedrock-agentcore-control-2023-06-05/OnBehalfOfTokenExchangeConfigType">AWS
  * API Reference</a></p>
  */
@@ -50,7 +50,7 @@ class OnBehalfOfTokenExchangeConfigType {
 
   ///@{
   /**
-   * <p>Configuration specific to TOKEN_EXCHANGE grant type (RFC 8693)</p>
+   * <p>Configuration specific to the TOKEN_EXCHANGE grant type (RFC 8693).</p>
    */
   inline const TokenExchangeGrantTypeConfigType& GetTokenExchangeGrantTypeConfig() const { return m_tokenExchangeGrantTypeConfig; }
   inline bool TokenExchangeGrantTypeConfigHasBeenSet() const { return m_tokenExchangeGrantTypeConfigHasBeenSet; }

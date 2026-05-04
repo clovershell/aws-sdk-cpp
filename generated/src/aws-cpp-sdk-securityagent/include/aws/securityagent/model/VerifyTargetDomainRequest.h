@@ -16,7 +16,7 @@ namespace Model {
 
 /**
  * <p>Input for verifying ownership for a registered target domain in an agent
- * space</p><p><h3>See Also:</h3>   <a
+ * space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/VerifyTargetDomainInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class VerifyTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the target domain</p>
+   * <p>The unique identifier of the target domain to verify.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   inline bool TargetDomainIdHasBeenSet() const { return m_targetDomainIdHasBeenSet; }

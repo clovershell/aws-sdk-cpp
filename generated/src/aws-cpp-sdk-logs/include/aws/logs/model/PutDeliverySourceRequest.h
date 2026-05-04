@@ -165,6 +165,34 @@ class PutDeliverySourceRequest : public CloudWatchLogsRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>A map of key-value pairs to configure the delivery source. Both keys and
+   * values must be between 1 and 255 characters in length. For example,
+   * <code>{"samplingRate": "50"}</code>.</p>
+   */
+  inline const Aws::Map<Aws::String, Aws::String>& GetDeliverySourceConfiguration() const { return m_deliverySourceConfiguration; }
+  inline bool DeliverySourceConfigurationHasBeenSet() const { return m_deliverySourceConfigurationHasBeenSet; }
+  template <typename DeliverySourceConfigurationT = Aws::Map<Aws::String, Aws::String>>
+  void SetDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration = std::forward<DeliverySourceConfigurationT>(value);
+  }
+  template <typename DeliverySourceConfigurationT = Aws::Map<Aws::String, Aws::String>>
+  PutDeliverySourceRequest& WithDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    SetDeliverySourceConfiguration(std::forward<DeliverySourceConfigurationT>(value));
+    return *this;
+  }
+  template <typename DeliverySourceConfigurationKeyT = Aws::String, typename DeliverySourceConfigurationValueT = Aws::String>
+  PutDeliverySourceRequest& AddDeliverySourceConfiguration(DeliverySourceConfigurationKeyT&& key,
+                                                           DeliverySourceConfigurationValueT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration.emplace(std::forward<DeliverySourceConfigurationKeyT>(key),
+                                          std::forward<DeliverySourceConfigurationValueT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_name;
 
@@ -173,10 +201,13 @@ class PutDeliverySourceRequest : public CloudWatchLogsRequest {
   Aws::String m_logType;
 
   Aws::Map<Aws::String, Aws::String> m_tags;
+
+  Aws::Map<Aws::String, Aws::String> m_deliverySourceConfiguration;
   bool m_nameHasBeenSet = false;
   bool m_resourceArnHasBeenSet = false;
   bool m_logTypeHasBeenSet = false;
   bool m_tagsHasBeenSet = false;
+  bool m_deliverySourceConfigurationHasBeenSet = false;
 };
 
 }  // namespace Model

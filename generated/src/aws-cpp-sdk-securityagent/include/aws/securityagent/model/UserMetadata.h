@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>User-specific metadata</p><p><h3>See Also:</h3>   <a
+ * <p>Contains metadata about a user member, including the username and email
+ * address.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UserMetadata">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class UserMetadata {
 
   ///@{
   /**
-   * <p>User name/display name</p>
+   * <p>The username of the user.</p>
    */
   inline const Aws::String& GetUsername() const { return m_username; }
   inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
@@ -51,7 +52,7 @@ class UserMetadata {
 
   ///@{
   /**
-   * <p>User email address</p>
+   * <p>The email address of the user.</p>
    */
   inline const Aws::String& GetEmail() const { return m_email; }
   inline bool EmailHasBeenSet() const { return m_emailHasBeenSet; }

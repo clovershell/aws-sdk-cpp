@@ -9,6 +9,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/vpc-lattice/VPCLattice_EXPORTS.h>
+#include <aws/vpc-lattice/model/ResourceConfigDnsResolution.h>
 #include <aws/vpc-lattice/model/ResourceGatewayIpAddressType.h>
 #include <aws/vpc-lattice/model/ResourceGatewayStatus.h>
 
@@ -139,6 +140,38 @@ class GetResourceGatewayResult {
 
   ///@{
   /**
+   * <p>Indicates whether the resource gateway is managed by an AWS service.</p>
+   */
+  inline bool GetServiceManaged() const { return m_serviceManaged; }
+  inline void SetServiceManaged(bool value) {
+    m_serviceManagedHasBeenSet = true;
+    m_serviceManaged = value;
+  }
+  inline GetResourceGatewayResult& WithServiceManaged(bool value) {
+    SetServiceManaged(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The AWS service that manages the resource gateway.</p>
+   */
+  inline const Aws::String& GetManagedBy() const { return m_managedBy; }
+  template <typename ManagedByT = Aws::String>
+  void SetManagedBy(ManagedByT&& value) {
+    m_managedByHasBeenSet = true;
+    m_managedBy = std::forward<ManagedByT>(value);
+  }
+  template <typename ManagedByT = Aws::String>
+  GetResourceGatewayResult& WithManagedBy(ManagedByT&& value) {
+    SetManagedBy(std::forward<ManagedByT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>The security group IDs associated with the resource gateway.</p>
    */
   inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const { return m_securityGroupIds; }
@@ -186,6 +219,22 @@ class GetResourceGatewayResult {
   }
   inline GetResourceGatewayResult& WithIpv4AddressesPerEni(int value) {
     SetIpv4AddressesPerEni(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The DNS resolution type for resource configurations that are associated with
+   * this resource gateway.</p>
+   */
+  inline ResourceConfigDnsResolution GetResourceConfigDnsResolution() const { return m_resourceConfigDnsResolution; }
+  inline void SetResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+    m_resourceConfigDnsResolution = value;
+  }
+  inline GetResourceGatewayResult& WithResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    SetResourceConfigDnsResolution(value);
     return *this;
   }
   ///@}
@@ -255,11 +304,17 @@ class GetResourceGatewayResult {
 
   Aws::Vector<Aws::String> m_subnetIds;
 
+  bool m_serviceManaged{false};
+
+  Aws::String m_managedBy;
+
   Aws::Vector<Aws::String> m_securityGroupIds;
 
   ResourceGatewayIpAddressType m_ipAddressType{ResourceGatewayIpAddressType::NOT_SET};
 
   int m_ipv4AddressesPerEni{0};
+
+  ResourceConfigDnsResolution m_resourceConfigDnsResolution{ResourceConfigDnsResolution::NOT_SET};
 
   Aws::Utils::DateTime m_createdAt{};
 
@@ -273,9 +328,12 @@ class GetResourceGatewayResult {
   bool m_statusHasBeenSet = false;
   bool m_vpcIdHasBeenSet = false;
   bool m_subnetIdsHasBeenSet = false;
+  bool m_serviceManagedHasBeenSet = false;
+  bool m_managedByHasBeenSet = false;
   bool m_securityGroupIdsHasBeenSet = false;
   bool m_ipAddressTypeHasBeenSet = false;
   bool m_ipv4AddressesPerEniHasBeenSet = false;
+  bool m_resourceConfigDnsResolutionHasBeenSet = false;
   bool m_createdAtHasBeenSet = false;
   bool m_lastUpdatedAtHasBeenSet = false;
   bool m_requestIdHasBeenSet = false;

@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Reference to logs stored in CloudWatch</p><p><h3>See Also:</h3>   <a
+ * <p>The Amazon CloudWatch Logs configuration for pentest job
+ * logging.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CloudWatchLog">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class CloudWatchLog {
 
   ///@{
   /**
-   * <p>Name of the CloudWatch log group</p>
+   * <p>The name of the CloudWatch log group.</p>
    */
   inline const Aws::String& GetLogGroup() const { return m_logGroup; }
   inline bool LogGroupHasBeenSet() const { return m_logGroupHasBeenSet; }
@@ -51,7 +52,7 @@ class CloudWatchLog {
 
   ///@{
   /**
-   * <p>Name of the CloudWatch log stream</p>
+   * <p>The name of the CloudWatch log stream.</p>
    */
   inline const Aws::String& GetLogStream() const { return m_logStream; }
   inline bool LogStreamHasBeenSet() const { return m_logStreamHasBeenSet; }

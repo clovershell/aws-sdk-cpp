@@ -20,7 +20,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>IdC configuration containing application and instance ARNs</p><p><h3>See
+ * <p>The IAM Identity Center configuration for an application.</p><p><h3>See
  * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IdCConfiguration">AWS
  * API Reference</a></p>
@@ -34,8 +34,7 @@ class IdCConfiguration {
 
   ///@{
   /**
-   * <p>ARN of the IAM Identity Center application associated with this
-   * application</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application.</p>
    */
   inline const Aws::String& GetIdcApplicationArn() const { return m_idcApplicationArn; }
   inline bool IdcApplicationArnHasBeenSet() const { return m_idcApplicationArnHasBeenSet; }
@@ -53,7 +52,7 @@ class IdCConfiguration {
 
   ///@{
   /**
-   * <p>ARN of the IAM Identity Center instance used for user authentication</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
    */
   inline const Aws::String& GetIdcInstanceArn() const { return m_idcInstanceArn; }
   inline bool IdcInstanceArnHasBeenSet() const { return m_idcInstanceArnHasBeenSet; }

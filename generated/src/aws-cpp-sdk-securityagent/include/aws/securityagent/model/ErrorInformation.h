@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Error information regarding the pentest job</p><p><h3>See Also:</h3>   <a
+ * <p>Contains error information for a pentest job that encountered an
+ * error.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ErrorInformation">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,8 @@ class ErrorInformation {
 
   ///@{
   /**
-   * <p>Pentest job failure error code</p>
+   * <p>The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and
+   * STOPPED_BY_USER.</p>
    */
   inline ErrorCode GetCode() const { return m_code; }
   inline bool CodeHasBeenSet() const { return m_codeHasBeenSet; }
@@ -50,7 +52,7 @@ class ErrorInformation {
 
   ///@{
   /**
-   * <p>Pentest job failure error message</p>
+   * <p>A message describing the error.</p>
    */
   inline const Aws::String& GetMessage() const { return m_message; }
   inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }

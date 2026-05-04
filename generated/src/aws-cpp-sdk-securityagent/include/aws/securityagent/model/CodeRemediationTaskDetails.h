@@ -20,8 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Code remediation details for a single repository</p><p><h3>See Also:</h3>
- * <a
+ * <p>Contains details about a code remediation task, including links to the code
+ * diff and pull request.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CodeRemediationTaskDetails">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class CodeRemediationTaskDetails {
 
   ///@{
   /**
-   * <p>Name of the repository</p>
+   * <p>The name of the repository where the remediation was applied.</p>
    */
   inline const Aws::String& GetRepoName() const { return m_repoName; }
   inline bool RepoNameHasBeenSet() const { return m_repoNameHasBeenSet; }
@@ -52,7 +52,7 @@ class CodeRemediationTaskDetails {
 
   ///@{
   /**
-   * <p>Link to the code diff for the remediation</p>
+   * <p>The link to the code diff for the remediation.</p>
    */
   inline const Aws::String& GetCodeDiffLink() const { return m_codeDiffLink; }
   inline bool CodeDiffLinkHasBeenSet() const { return m_codeDiffLinkHasBeenSet; }
@@ -70,7 +70,7 @@ class CodeRemediationTaskDetails {
 
   ///@{
   /**
-   * <p>Link to the pull request for the remediation</p>
+   * <p>The link to the pull request created for the remediation.</p>
    */
   inline const Aws::String& GetPullRequestLink() const { return m_pullRequestLink; }
   inline bool PullRequestLinkHasBeenSet() const { return m_pullRequestLinkHasBeenSet; }

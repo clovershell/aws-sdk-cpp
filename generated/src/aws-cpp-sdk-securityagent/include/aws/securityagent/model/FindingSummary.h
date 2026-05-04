@@ -24,7 +24,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information for a security finding</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about a security finding.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/FindingSummary">AWS
  * API Reference</a></p>
  */
@@ -37,7 +38,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Unique identifier for the finding</p>
+   * <p>The unique identifier of the finding.</p>
    */
   inline const Aws::String& GetFindingId() const { return m_findingId; }
   inline bool FindingIdHasBeenSet() const { return m_findingIdHasBeenSet; }
@@ -55,7 +56,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Identifier of the agent space that created this finding</p>
+   * <p>The unique identifier of the agent space associated with the finding.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -73,7 +74,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Identifier of the parent pentest</p>
+   * <p>The unique identifier of the pentest associated with the finding.</p>
    */
   inline const Aws::String& GetPentestId() const { return m_pentestId; }
   inline bool PentestIdHasBeenSet() const { return m_pentestIdHasBeenSet; }
@@ -91,7 +92,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job</p>
+   * <p>The unique identifier of the pentest job that produced the finding.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -109,7 +110,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Name or title of the finding</p>
+   * <p>The name of the finding.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -127,7 +128,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Current status of the finding</p>
+   * <p>The current status of the finding.</p>
    */
   inline FindingStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -143,7 +144,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Type of security risk identified</p>
+   * <p>The type of security risk identified by the finding.</p>
    */
   inline const Aws::String& GetRiskType() const { return m_riskType; }
   inline bool RiskTypeHasBeenSet() const { return m_riskTypeHasBeenSet; }
@@ -161,7 +162,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Severity level of the identified risk</p>
+   * <p>The risk level of the finding.</p>
    */
   inline RiskLevel GetRiskLevel() const { return m_riskLevel; }
   inline bool RiskLevelHasBeenSet() const { return m_riskLevelHasBeenSet; }
@@ -177,7 +178,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Confidence level of the finding</p>
+   * <p>The confidence level of the finding.</p>
    */
   inline ConfidenceLevel GetConfidence() const { return m_confidence; }
   inline bool ConfidenceHasBeenSet() const { return m_confidenceHasBeenSet; }
@@ -193,7 +194,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the finding was created</p>
+   * <p>The date and time the finding was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -211,7 +212,7 @@ class FindingSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the finding was last updated</p>
+   * <p>The date and time the finding was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

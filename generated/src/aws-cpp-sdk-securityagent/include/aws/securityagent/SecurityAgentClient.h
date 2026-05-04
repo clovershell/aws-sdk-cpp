@@ -16,7 +16,18 @@
 namespace Aws {
 namespace SecurityAgent {
 /**
- * <p>AWS Security Agent service documentation.</p>
+ * <p>AWS Security Agent is a frontier agent that proactively secures your
+ * applications throughout the development lifecycle. It conducts automated
+ * security reviews tailored to your organizational requirements and delivers
+ * context-aware penetration testing on demand. By continuously validating security
+ * from design to deployment, AWS Security Agent helps prevent vulnerabilities
+ * early across all your environments. Key capabilities include design security
+ * review for architecture documents, code security review for pull requests in
+ * connected repositories, and on-demand penetration testing that discovers,
+ * validates, and remediates security vulnerabilities through tailored multi-step
+ * attack scenarios. For more information, see the <a
+ * href="https://docs.aws.amazon.com/securityagent/latest/userguide/what-is.html">AWS
+ * Security Agent User Guide</a>.</p>
  */
 class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonClient,
                                                   public Aws::Client::ClientWithAsyncTemplateMethods<SecurityAgentClient>,
@@ -80,7 +91,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   virtual ~SecurityAgentClient();
 
   /**
-   * <p>Adds an Artifact for the given agent space</p><p><h3>See Also:</h3>   <a
+   * <p>Uploads an artifact to an agent space. Artifacts provide additional context
+   * for security testing, such as architecture diagrams, API specifications, or
+   * configuration files.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/AddArtifact">AWS
    * API Reference</a></p>
    */
@@ -105,7 +118,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Deletes multiple pentests in a single request</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes one or more pentests from an agent space.</p><p><h3>See Also:</h3>
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchDeletePentests">AWS
    * API Reference</a></p>
    */
@@ -131,8 +145,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple agent spaces in a single request</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Retrieves information about one or more agent spaces.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetAgentSpaces">AWS
    * API Reference</a></p>
    */
@@ -158,8 +172,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieve the list of artifact metadata for the given agent
-   * space</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves metadata for one or more artifacts in an agent space.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetArtifactMetadata">AWS
    * API Reference</a></p>
    */
@@ -186,7 +200,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple findings in a single request</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves information about one or more security findings in an agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetFindings">AWS
    * API Reference</a></p>
    */
@@ -212,8 +227,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple tasks for a pentest job in a single request</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Retrieves information about one or more tasks within a pentest
+   * job.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetPentestJobTasks">AWS
    * API Reference</a></p>
    */
@@ -240,8 +255,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple pentest jobs in a single request</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Retrieves information about one or more pentest jobs in an agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetPentestJobs">AWS
    * API Reference</a></p>
    */
@@ -267,7 +282,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple pentests in a single request</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves information about one or more pentests in an agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetPentests">AWS
    * API Reference</a></p>
    */
@@ -293,7 +309,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves multiple target domains in a single request</p><p><h3>See
+   * <p>Retrieves information about one or more target domains.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetTargetDomains">AWS
    * API Reference</a></p>
@@ -320,7 +336,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Creates an agent space record</p><p><h3>See Also:</h3>   <a
+   * <p>Creates a new agent space. An agent space is a dedicated workspace for
+   * securing a specific application.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateAgentSpace">AWS
    * API Reference</a></p>
    */
@@ -346,7 +363,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Creates a new application</p><p><h3>See Also:</h3>   <a
+   * <p>Creates a new application. An application is the top-level organizational
+   * unit that supports IAM Identity Center integration.</p><p><h3>See Also:</h3>
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateApplication">AWS
    * API Reference</a></p>
    */
@@ -373,8 +392,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Creates the Integration of the Security Agent App with an external
-   * Provider</p><p><h3>See Also:</h3>   <a
+   * <p>Creates a new integration with a third-party provider, such as GitHub, for
+   * code review and remediation.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateIntegration">AWS
    * API Reference</a></p>
    */
@@ -400,8 +419,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Adds a single member to an agent space with specified role</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Creates a new membership, granting a user access to an agent space within an
+   * application.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateMembership">AWS
    * API Reference</a></p>
    */
@@ -427,7 +446,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Creates a new pentest configuration</p><p><h3>See Also:</h3>   <a
+   * <p>Creates a new pentest configuration in an agent space. A pentest defines the
+   * security test parameters, including target assets, risk type exclusions, and
+   * logging configuration.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreatePentest">AWS
    * API Reference</a></p>
    */
@@ -452,7 +473,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Creates a target domain record</p><p><h3>See Also:</h3>   <a
+   * <p>Creates a new target domain for penetration testing. A target domain is a web
+   * domain that must be registered and verified before it can be
+   * tested.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateTargetDomain">AWS
    * API Reference</a></p>
    */
@@ -478,7 +501,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Deletes an agent space record</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes an agent space and all of its associated resources, including
+   * pentests, findings, and artifacts.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteAgentSpace">AWS
    * API Reference</a></p>
    */
@@ -504,7 +528,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Deletes an application</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes an application and its associated configuration, including IAM
+   * Identity Center settings.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteApplication">AWS
    * API Reference</a></p>
    */
@@ -530,7 +555,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Delete an Artifact from the given agent space</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes an artifact from an agent space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteArtifact">AWS
    * API Reference</a></p>
    */
@@ -555,8 +580,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Deletes the Integration of the Security Agent App with an external
-   * Provider</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes an integration with a third-party provider.</p><p><h3>See Also:</h3>
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteIntegration">AWS
    * API Reference</a></p>
    */
@@ -582,8 +607,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Removes a single member associated to an agent space</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Deletes a membership, revoking a user's access to an agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteMembership">AWS
    * API Reference</a></p>
    */
@@ -609,7 +634,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Deletes a target domain record</p><p><h3>See Also:</h3>   <a
+   * <p>Deletes a target domain registration. After deletion, the domain can no
+   * longer be used for penetration testing.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteTargetDomain">AWS
    * API Reference</a></p>
    */
@@ -635,7 +661,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves application details by application ID</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves information about an application.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GetApplication">AWS
    * API Reference</a></p>
    */
@@ -660,7 +686,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieve an Artifact for the given agent space</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves an artifact from an agent space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GetArtifact">AWS
    * API Reference</a></p>
    */
@@ -685,7 +711,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Gets Integration metadata from the provided id</p><p><h3>See Also:</h3>   <a
+   * <p>Retrieves information about an integration.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GetIntegration">AWS
    * API Reference</a></p>
    */
@@ -710,8 +736,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Initiates the registration of Security Agent App for an external
-   * Provider</p><p><h3>See Also:</h3>   <a
+   * <p>Initiates the OAuth registration flow with a third-party provider. Returns a
+   * redirect URL and CSRF state token for completing the
+   * authorization.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/InitiateProviderRegistration">AWS
    * API Reference</a></p>
    */
@@ -740,7 +767,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists agent spaces</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of agent space summaries in your
+   * account.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListAgentSpaces">AWS
    * API Reference</a></p>
    */
@@ -766,7 +794,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists all applications in the account</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of application summaries in your
+   * account.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListApplications">AWS
    * API Reference</a></p>
    */
@@ -793,8 +822,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists the artifacts for the associated agent space</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Returns a paginated list of artifact summaries for the specified agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListArtifacts">AWS
    * API Reference</a></p>
    */
@@ -819,8 +848,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists discovered endpoints associated with a pentest job with optional URI
-   * prefix filtering</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of endpoints discovered during a pentest job
+   * execution.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListDiscoveredEndpoints">AWS
    * API Reference</a></p>
    */
@@ -847,9 +876,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists findings with filtering and pagination support. When filters are
-   * applied, the actual number of results returned may be less than the specified
-   * limit</p><p><h3>See Also:</h3>   <a
+   * <p>Lists the security findings for a pentest job.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListFindings">AWS
    * API Reference</a></p>
    */
@@ -874,8 +901,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists the integrated resources for an agent space</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Lists the integrated resources for an agent space, optionally filtered by
+   * integration or resource type.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListIntegratedResources">AWS
    * API Reference</a></p>
    */
@@ -902,8 +929,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Retrieves the Integrations associated with the user's account</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Lists the integrations in your account, optionally filtered by provider or
+   * provider type.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListIntegrations">AWS
    * API Reference</a></p>
    */
@@ -930,8 +957,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists all members associated to an agent space with pagination
-   * support</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of membership summaries for the specified agent
+   * space within an application.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListMemberships">AWS
    * API Reference</a></p>
    */
@@ -956,8 +983,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists tasks associated with a specific pentest job</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Returns a paginated list of task summaries for the specified pentest job,
+   * optionally filtered by step name or category.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListPentestJobTasks">AWS
    * API Reference</a></p>
    */
@@ -983,7 +1010,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists pentest jobs associated with a pentest</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of pentest job summaries for the specified pentest
+   * configuration.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListPentestJobsForPentest">AWS
    * API Reference</a></p>
    */
@@ -1011,8 +1039,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists pentests with optional filtering by status</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Returns a paginated list of pentest summaries for the specified agent
+   * space.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListPentests">AWS
    * API Reference</a></p>
    */
@@ -1037,7 +1065,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists tags for a Security Agent resource</p><p><h3>See Also:</h3>   <a
+   * <p>Returns the tags associated with the specified resource.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListTagsForResource">AWS
    * API Reference</a></p>
    */
@@ -1063,7 +1092,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Lists target domains</p><p><h3>See Also:</h3>   <a
+   * <p>Returns a paginated list of target domain summaries in your
+   * account.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListTargetDomains">AWS
    * API Reference</a></p>
    */
@@ -1090,8 +1120,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Starts code remediation for the specified findings</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Initiates code remediation for one or more security findings. This creates
+   * pull requests in integrated repositories to fix the identified
+   * vulnerabilities.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/StartCodeRemediation">AWS
    * API Reference</a></p>
    */
@@ -1117,7 +1148,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Initiates the execution of a pentest</p><p><h3>See Also:</h3>   <a
+   * <p>Starts a new pentest job for a pentest configuration. The job executes the
+   * security tests defined in the pentest.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/StartPentestJob">AWS
    * API Reference</a></p>
    */
@@ -1142,7 +1174,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Stops the execution of a running pentest</p><p><h3>See Also:</h3>   <a
+   * <p>Stops a running pentest job. The job transitions to a stopping state and then
+   * to stopped after cleanup completes.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/StopPentestJob">AWS
    * API Reference</a></p>
    */
@@ -1167,7 +1200,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Adds tags to a Security Agent resource</p><p><h3>See Also:</h3>   <a
+   * <p>Adds tags to a resource.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TagResource">AWS
    * API Reference</a></p>
    */
@@ -1192,7 +1225,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Removes tags from a Security Agent resource</p><p><h3>See Also:</h3>   <a
+   * <p>Removes tags from a resource.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UntagResource">AWS
    * API Reference</a></p>
    */
@@ -1217,7 +1250,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates an agent space record</p><p><h3>See Also:</h3>   <a
+   * <p>Updates the configuration of an existing agent space, including its name,
+   * description, AWS resources, target domains, and code review
+   * settings.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateAgentSpace">AWS
    * API Reference</a></p>
    */
@@ -1243,7 +1278,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates application configuration</p><p><h3>See Also:</h3>   <a
+   * <p>Updates the configuration of an existing application, including the IAM role
+   * and default KMS key.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateApplication">AWS
    * API Reference</a></p>
    */
@@ -1269,7 +1305,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates an existing security finding with new details or status</p><p><h3>See
+   * <p>Updates the status or risk level of a security finding.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateFinding">AWS
    * API Reference</a></p>
@@ -1295,8 +1331,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates the integrated resources for an agent space</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Updates the integrated resources for an agent space, including their
+   * capabilities.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateIntegratedResources">AWS
    * API Reference</a></p>
    */
@@ -1324,8 +1360,7 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates an existing pentest with new configuration or settings</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Updates an existing pentest configuration.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdatePentest">AWS
    * API Reference</a></p>
    */
@@ -1350,7 +1385,8 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Updates a target domain record</p><p><h3>See Also:</h3>   <a
+   * <p>Updates the verification method for a target domain.</p><p><h3>See Also:</h3>
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateTargetDomain">AWS
    * API Reference</a></p>
    */
@@ -1376,8 +1412,9 @@ class AWS_SECURITYAGENT_API SecurityAgentClient : public Aws::Client::AWSJsonCli
   }
 
   /**
-   * <p>Verifies ownership for a registered target domain</p><p><h3>See Also:</h3>
-   * <a
+   * <p>Initiates verification of a target domain. This checks whether the domain
+   * ownership verification token has been properly configured.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/VerifyTargetDomain">AWS
    * API Reference</a></p>
    */

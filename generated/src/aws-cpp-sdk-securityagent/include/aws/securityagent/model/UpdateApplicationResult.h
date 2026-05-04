@@ -29,7 +29,7 @@ class UpdateApplicationResult {
 
   ///@{
   /**
-   * <p>Application ID</p>
+   * <p>The unique identifier of the updated application.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   template <typename ApplicationIdT = Aws::String>

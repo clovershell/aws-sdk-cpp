@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information for an agent space</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about an agent space.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/AgentSpaceSummary">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class AgentSpaceSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -52,7 +53,7 @@ class AgentSpaceSummary {
 
   ///@{
   /**
-   * <p>Name of the agent space</p>
+   * <p>The name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -70,7 +71,7 @@ class AgentSpaceSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was created</p>
+   * <p>The date and time the agent space was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -88,7 +89,7 @@ class AgentSpaceSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was last updated</p>
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

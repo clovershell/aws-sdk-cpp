@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for updating a target domain</p><p><h3>See Also:</h3>   <a
+ * <p>Input for updating a target domain.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateTargetDomainInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class UpdateTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the target domain to update</p>
+   * <p>The unique identifier of the target domain to update.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   inline bool TargetDomainIdHasBeenSet() const { return m_targetDomainIdHasBeenSet; }
@@ -52,7 +52,7 @@ class UpdateTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Verification method for the target domain</p>
+   * <p>The updated verification method for the target domain.</p>
    */
   inline DomainVerificationMethod GetVerificationMethod() const { return m_verificationMethod; }
   inline bool VerificationMethodHasBeenSet() const { return m_verificationMethodHasBeenSet; }

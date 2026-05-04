@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Request structure for listing agent space members</p><p><h3>See Also:</h3>
+ * <p>Request structure for listing agent space members.</p><p><h3>See Also:</h3>
  * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListMembershipsRequest">AWS
  * API Reference</a></p>
@@ -35,7 +35,7 @@ class ListMembershipsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Application identifier</p>
+   * <p>The unique identifier of the application that contains the agent space.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -53,7 +53,7 @@ class ListMembershipsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Agent space identifier</p>
+   * <p>The unique identifier of the agent space to list memberships for.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -71,7 +71,7 @@ class ListMembershipsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter by member type</p>
+   * <p>Filter memberships by member type.</p>
    */
   inline MembershipTypeFilter GetMemberType() const { return m_memberType; }
   inline bool MemberTypeHasBeenSet() const { return m_memberTypeHasBeenSet; }
@@ -87,7 +87,7 @@ class ListMembershipsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Maximum number of results to return</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
   inline int GetMaxResults() const { return m_maxResults; }
   inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
@@ -103,7 +103,9 @@ class ListMembershipsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Token for pagination</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

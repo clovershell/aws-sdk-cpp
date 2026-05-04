@@ -22,9 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>A standard error for input validation failures. This should be thrown by
- * services when a member of the input structure falls outside of the modeled or
- * documented constraints.</p><p><h3>See Also:</h3>   <a
+ * <p>The input fails to satisfy the constraints specified by the
+ * service.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ValidationException">AWS
  * API Reference</a></p>
  */
@@ -55,9 +54,7 @@ class ValidationException {
 
   ///@{
   /**
-   * <p>A list of specific failures encountered while validating the input. A member
-   * can appear in this list more than once if it failed to satisfy multiple
-   * constraints.</p>
+   * <p>A list of specific failures encountered during validation.</p>
    */
   inline const Aws::Vector<ValidationExceptionField>& GetFieldList() const { return m_fieldList; }
   inline bool FieldListHasBeenSet() const { return m_fieldListHasBeenSet; }

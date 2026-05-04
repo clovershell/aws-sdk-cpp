@@ -23,7 +23,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information for a task</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about a task.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TaskSummary">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Unique identifier for the task</p>
+   * <p>The unique identifier of the task.</p>
    */
   inline const Aws::String& GetTaskId() const { return m_taskId; }
   inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
@@ -54,7 +54,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Identifier of the parent pentest</p>
+   * <p>The unique identifier of the pentest associated with the task.</p>
    */
   inline const Aws::String& GetPentestId() const { return m_pentestId; }
   inline bool PentestIdHasBeenSet() const { return m_pentestIdHasBeenSet; }
@@ -72,7 +72,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job this task belongs to</p>
+   * <p>The unique identifier of the pentest job that contains the task.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -90,7 +90,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Identifier of the agent space this task belongs to</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -108,7 +108,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Title or name of the task</p>
+   * <p>The title of the task.</p>
    */
   inline const Aws::String& GetTitle() const { return m_title; }
   inline bool TitleHasBeenSet() const { return m_titleHasBeenSet; }
@@ -126,7 +126,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Type of security risk this task is designed to test</p>
+   * <p>The type of security risk the task is testing for.</p>
    */
   inline RiskType GetRiskType() const { return m_riskType; }
   inline bool RiskTypeHasBeenSet() const { return m_riskTypeHasBeenSet; }
@@ -142,7 +142,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Current status of the task execution</p>
+   * <p>The current execution status of the task.</p>
    */
   inline TaskExecutionStatus GetExecutionStatus() const { return m_executionStatus; }
   inline bool ExecutionStatusHasBeenSet() const { return m_executionStatusHasBeenSet; }
@@ -158,7 +158,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the task was created</p>
+   * <p>The date and time the task was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -176,7 +176,7 @@ class TaskSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the task was last updated</p>
+   * <p>The date and time the task was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

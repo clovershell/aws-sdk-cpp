@@ -20,7 +20,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents http route verification details</p><p><h3>See Also:</h3>   <a
+ * <p>Contains HTTP route verification details for a target domain, including the
+ * route path and token to serve for domain ownership verification.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/HttpVerification">AWS
  * API Reference</a></p>
  */
@@ -33,7 +35,7 @@ class HttpVerification {
 
   ///@{
   /**
-   * <p>Token used to verify domain ownership</p>
+   * <p>The verification token to serve at the specified route path.</p>
    */
   inline const Aws::String& GetToken() const { return m_token; }
   inline bool TokenHasBeenSet() const { return m_tokenHasBeenSet; }
@@ -51,7 +53,7 @@ class HttpVerification {
 
   ///@{
   /**
-   * <p>Route path where verification token should be placed</p>
+   * <p>The HTTP route path where the verification token must be served.</p>
    */
   inline const Aws::String& GetRoutePath() const { return m_routePath; }
   inline bool RoutePathHasBeenSet() const { return m_routePathHasBeenSet; }

@@ -35,6 +35,14 @@ Aws::String PutDeliverySourceRequest::SerializePayload() const {
     payload.WithObject("tags", std::move(tagsJsonMap));
   }
 
+  if (m_deliverySourceConfigurationHasBeenSet) {
+    JsonValue deliverySourceConfigurationJsonMap;
+    for (auto& deliverySourceConfigurationItem : m_deliverySourceConfiguration) {
+      deliverySourceConfigurationJsonMap.WithString(deliverySourceConfigurationItem.first, deliverySourceConfigurationItem.second);
+    }
+    payload.WithObject("deliverySourceConfiguration", std::move(deliverySourceConfigurationJsonMap));
+  }
+
   return payload.View().WriteReadable();
 }
 

@@ -8,6 +8,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/vpc-lattice/VPCLattice_EXPORTS.h>
+#include <aws/vpc-lattice/model/ResourceConfigDnsResolution.h>
 #include <aws/vpc-lattice/model/ResourceGatewayIpAddressType.h>
 #include <aws/vpc-lattice/model/ResourceGatewayStatus.h>
 
@@ -190,6 +191,22 @@ class CreateResourceGatewayResult {
   ///@}
 
   ///@{
+  /**
+   * <p>The DNS resolution type for resource configurations that are associated with
+   * this resource gateway.</p>
+   */
+  inline ResourceConfigDnsResolution GetResourceConfigDnsResolution() const { return m_resourceConfigDnsResolution; }
+  inline void SetResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+    m_resourceConfigDnsResolution = value;
+  }
+  inline CreateResourceGatewayResult& WithResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    SetResourceConfigDnsResolution(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
 
   inline const Aws::String& GetRequestId() const { return m_requestId; }
   template <typename RequestIdT = Aws::String>
@@ -224,6 +241,8 @@ class CreateResourceGatewayResult {
 
   int m_ipv4AddressesPerEni{0};
 
+  ResourceConfigDnsResolution m_resourceConfigDnsResolution{ResourceConfigDnsResolution::NOT_SET};
+
   Aws::String m_requestId;
   Aws::Http::HttpResponseCode m_HttpResponseCode;
   bool m_nameHasBeenSet = false;
@@ -235,6 +254,7 @@ class CreateResourceGatewayResult {
   bool m_securityGroupIdsHasBeenSet = false;
   bool m_ipAddressTypeHasBeenSet = false;
   bool m_ipv4AddressesPerEniHasBeenSet = false;
+  bool m_resourceConfigDnsResolutionHasBeenSet = false;
   bool m_requestIdHasBeenSet = false;
 };
 

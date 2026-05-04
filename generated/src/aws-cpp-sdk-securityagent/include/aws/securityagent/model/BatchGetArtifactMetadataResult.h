@@ -31,7 +31,7 @@ class BatchGetArtifactMetadataResult {
 
   ///@{
   /**
-   * <p>List of artifact metadata</p>
+   * <p>The list of artifact metadata items that were found.</p>
    */
   inline const Aws::Vector<ArtifactMetadataItem>& GetArtifactMetadataList() const { return m_artifactMetadataList; }
   template <typename ArtifactMetadataListT = Aws::Vector<ArtifactMetadataItem>>

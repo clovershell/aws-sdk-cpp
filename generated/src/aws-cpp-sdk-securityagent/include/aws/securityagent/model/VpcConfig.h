@@ -21,8 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Customer VPC configuration that the Security Agent accesses</p><p><h3>See
- * Also:</h3>   <a
+ * <p>The VPC configuration for a pentest, specifying the VPC, security groups, and
+ * subnets to use during testing.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/VpcConfig">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,7 @@ class VpcConfig {
 
   ///@{
   /**
-   * <p>ARN or ID of the customer VPC</p>
+   * <p>The Amazon Resource Name (ARN) of the VPC.</p>
    */
   inline const Aws::String& GetVpcArn() const { return m_vpcArn; }
   inline bool VpcArnHasBeenSet() const { return m_vpcArnHasBeenSet; }
@@ -53,7 +53,8 @@ class VpcConfig {
 
   ///@{
   /**
-   * <p>List of security group ARNs or IDs in the customer VPC</p>
+   * <p>The Amazon Resource Names (ARNs) of the security groups for the VPC
+   * configuration.</p>
    */
   inline const Aws::Vector<Aws::String>& GetSecurityGroupArns() const { return m_securityGroupArns; }
   inline bool SecurityGroupArnsHasBeenSet() const { return m_securityGroupArnsHasBeenSet; }
@@ -77,7 +78,8 @@ class VpcConfig {
 
   ///@{
   /**
-   * <p>List of subnet ARNs or IDs in the customer VPC</p>
+   * <p>The Amazon Resource Names (ARNs) of the subnets for the VPC
+   * configuration.</p>
    */
   inline const Aws::Vector<Aws::String>& GetSubnetArns() const { return m_subnetArns; }
   inline bool SubnetArnsHasBeenSet() const { return m_subnetArnsHasBeenSet; }

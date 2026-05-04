@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Custom headers to be set for network requests</p><p><h3>See Also:</h3>   <a
+ * <p>A custom HTTP header to include in network traffic during penetration
+ * testing.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CustomHeader">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class CustomHeader {
 
   ///@{
   /**
-   * <p>Name of header to set value for</p>
+   * <p>The name of the custom header.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -51,7 +52,7 @@ class CustomHeader {
 
   ///@{
   /**
-   * <p>Value to set for header</p>
+   * <p>The value of the custom header.</p>
    */
   inline const Aws::String& GetValue() const { return m_value; }
   inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }

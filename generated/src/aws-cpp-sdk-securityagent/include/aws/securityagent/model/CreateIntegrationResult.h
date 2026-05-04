@@ -29,7 +29,7 @@ class CreateIntegrationResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the created integration</p>
+   * <p>The unique identifier of the created integration.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   template <typename IntegrationIdT = Aws::String>

@@ -20,7 +20,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a discovered endpoint during pentest execution</p><p><h3>See
+ * <p>Represents an endpoint discovered during a pentest job.</p><p><h3>See
  * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DiscoveredEndpoint">AWS
  * API Reference</a></p>
@@ -34,7 +34,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>The URI of the discovered endpoint</p>
+   * <p>The URI of the discovered endpoint.</p>
    */
   inline const Aws::String& GetUri() const { return m_uri; }
   inline bool UriHasBeenSet() const { return m_uriHasBeenSet; }
@@ -52,7 +52,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job that discovered this endpoint</p>
+   * <p>The unique identifier of the pentest job that discovered the endpoint.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -70,7 +70,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Identifier of the task that discovered this endpoint</p>
+   * <p>The unique identifier of the task that discovered the endpoint.</p>
    */
   inline const Aws::String& GetTaskId() const { return m_taskId; }
   inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
@@ -88,7 +88,8 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Identifier of the agent space where the endpoint was discovered</p>
+   * <p>The unique identifier of the agent space associated with the discovered
+   * endpoint.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -106,7 +107,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Optional evidence or additional information about the endpoint</p>
+   * <p>The evidence that led to the discovery of the endpoint.</p>
    */
   inline const Aws::String& GetEvidence() const { return m_evidence; }
   inline bool EvidenceHasBeenSet() const { return m_evidenceHasBeenSet; }
@@ -124,7 +125,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Operation or action associated with the endpoint</p>
+   * <p>The HTTP operation associated with the discovered endpoint.</p>
    */
   inline const Aws::String& GetOperation() const { return m_operation; }
   inline bool OperationHasBeenSet() const { return m_operationHasBeenSet; }
@@ -142,7 +143,7 @@ class DiscoveredEndpoint {
 
   ///@{
   /**
-   * <p>Additional description of the endpoint</p>
+   * <p>A description of the discovered endpoint.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }

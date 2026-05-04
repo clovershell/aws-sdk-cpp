@@ -23,7 +23,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a target domain</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a target domain registered for penetration testing. A target
+ * domain must be verified through DNS TXT or HTTP route verification before it can
+ * be used in pentests.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TargetDomain">AWS
  * API Reference</a></p>
  */
@@ -36,7 +38,7 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Unique identifier of the target domain</p>
+   * <p>The unique identifier of the target domain.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   inline bool TargetDomainIdHasBeenSet() const { return m_targetDomainIdHasBeenSet; }
@@ -54,7 +56,7 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Name of the registered target domain</p>
+   * <p>The domain name of the target domain.</p>
    */
   inline const Aws::String& GetDomainName() const { return m_domainName; }
   inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
@@ -72,7 +74,7 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Current verification status of the registered target domain</p>
+   * <p>The current verification status of the target domain.</p>
    */
   inline TargetDomainStatus GetVerificationStatus() const { return m_verificationStatus; }
   inline bool VerificationStatusHasBeenSet() const { return m_verificationStatusHasBeenSet; }
@@ -88,7 +90,25 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Verification details to verify registered target domain</p>
+   * <p>The reason for the current target domain verification status.</p>
+   */
+  inline const Aws::String& GetVerificationStatusReason() const { return m_verificationStatusReason; }
+  inline bool VerificationStatusReasonHasBeenSet() const { return m_verificationStatusReasonHasBeenSet; }
+  template <typename VerificationStatusReasonT = Aws::String>
+  void SetVerificationStatusReason(VerificationStatusReasonT&& value) {
+    m_verificationStatusReasonHasBeenSet = true;
+    m_verificationStatusReason = std::forward<VerificationStatusReasonT>(value);
+  }
+  template <typename VerificationStatusReasonT = Aws::String>
+  TargetDomain& WithVerificationStatusReason(VerificationStatusReasonT&& value) {
+    SetVerificationStatusReason(std::forward<VerificationStatusReasonT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The verification details for the target domain.</p>
    */
   inline const VerificationDetails& GetVerificationDetails() const { return m_verificationDetails; }
   inline bool VerificationDetailsHasBeenSet() const { return m_verificationDetailsHasBeenSet; }
@@ -106,7 +126,7 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Timestamp when the target domain was registered</p>
+   * <p>The date and time the target domain was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -124,7 +144,7 @@ class TargetDomain {
 
   ///@{
   /**
-   * <p>Timestamp when the target domain was last successfully verified</p>
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetVerifiedAt() const { return m_verifiedAt; }
   inline bool VerifiedAtHasBeenSet() const { return m_verifiedAtHasBeenSet; }
@@ -146,6 +166,8 @@ class TargetDomain {
 
   TargetDomainStatus m_verificationStatus{TargetDomainStatus::NOT_SET};
 
+  Aws::String m_verificationStatusReason;
+
   VerificationDetails m_verificationDetails;
 
   Aws::Utils::DateTime m_createdAt{};
@@ -154,6 +176,7 @@ class TargetDomain {
   bool m_targetDomainIdHasBeenSet = false;
   bool m_domainNameHasBeenSet = false;
   bool m_verificationStatusHasBeenSet = false;
+  bool m_verificationStatusReasonHasBeenSet = false;
   bool m_verificationDetailsHasBeenSet = false;
   bool m_createdAtHasBeenSet = false;
   bool m_verifiedAtHasBeenSet = false;

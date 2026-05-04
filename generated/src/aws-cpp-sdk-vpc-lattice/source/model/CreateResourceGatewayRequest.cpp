@@ -51,6 +51,11 @@ Aws::String CreateResourceGatewayRequest::SerializePayload() const {
     payload.WithInteger("ipv4AddressesPerEni", m_ipv4AddressesPerEni);
   }
 
+  if (m_resourceConfigDnsResolutionHasBeenSet) {
+    payload.WithString("resourceConfigDnsResolution",
+                       ResourceConfigDnsResolutionMapper::GetNameForResourceConfigDnsResolution(m_resourceConfigDnsResolution));
+  }
+
   if (m_tagsHasBeenSet) {
     JsonValue tagsJsonMap;
     for (auto& tagsItem : m_tags) {

@@ -22,7 +22,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the DeleteTargetDomain operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the DeleteTargetDomain operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteTargetDomainOutput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class DeleteTargetDomainResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the deleted target domain</p>
+   * <p>The unique identifier of the deleted target domain.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   template <typename TargetDomainIdT = Aws::String>

@@ -26,7 +26,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the CreateAgentSpace operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the CreateAgentSpace operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateAgentSpaceOutput">AWS
  * API Reference</a></p>
  */
@@ -38,7 +38,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the created agent space</p>
+   * <p>The unique identifier of the created agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   template <typename AgentSpaceIdT = Aws::String>
@@ -55,7 +55,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Name of the created agent space</p>
+   * <p>The name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   template <typename NameT = Aws::String>
@@ -72,7 +72,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Description of the created agent space</p>
+   * <p>The description of the agent space.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   template <typename DescriptionT = Aws::String>
@@ -89,7 +89,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>AWS resource configurations associated with the agent space</p>
+   * <p>The AWS resources associated with the agent space.</p>
    */
   inline const AWSResources& GetAwsResources() const { return m_awsResources; }
   template <typename AwsResourcesT = AWSResources>
@@ -106,7 +106,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>List of target domain IDs registered with the agent space</p>
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   template <typename TargetDomainIdsT = Aws::Vector<Aws::String>>
@@ -129,8 +129,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Configuration for code review analysis, including controls scanning and
-   * general purpose scanning settings</p>
+   * <p>The code review settings for the agent space.</p>
    */
   inline const CodeReviewSettings& GetCodeReviewSettings() const { return m_codeReviewSettings; }
   template <typename CodeReviewSettingsT = CodeReviewSettings>
@@ -147,8 +146,8 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN,
-   * alias name, or alias ARN. If not specified, an AWS managed key is used.</p>
+   * <p>The identifier of the AWS KMS key used to encrypt data in the agent
+   * space.</p>
    */
   inline const Aws::String& GetKmsKeyId() const { return m_kmsKeyId; }
   template <typename KmsKeyIdT = Aws::String>
@@ -165,7 +164,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was created</p>
+   * <p>The date and time the agent space was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>
@@ -182,7 +181,7 @@ class CreateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was last updated</p>
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   template <typename UpdatedAtT = Aws::Utils::DateTime>

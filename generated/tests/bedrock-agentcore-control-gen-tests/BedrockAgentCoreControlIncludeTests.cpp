@@ -494,6 +494,7 @@
 #include <aws/bedrock-agentcore-control/model/ServerDefinition.h>
 #include <aws/bedrock-agentcore-control/model/ServerProtocol.h>
 #include <aws/bedrock-agentcore-control/model/SessionConfig.h>
+#include <aws/bedrock-agentcore-control/model/SessionConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/SessionStorageConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/SetTokenVaultCMKRequest.h>
 #include <aws/bedrock-agentcore-control/model/SetTokenVaultCMKResult.h>
@@ -509,6 +510,7 @@
 #include <aws/bedrock-agentcore-control/model/StrategyConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/StreamDeliveryResource.h>
 #include <aws/bedrock-agentcore-control/model/StreamDeliveryResources.h>
+#include <aws/bedrock-agentcore-control/model/StreamingConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/StringListValidation.h>
 #include <aws/bedrock-agentcore-control/model/StringValidation.h>
 #include <aws/bedrock-agentcore-control/model/SubmitRegistryRecordForApprovalRequest.h>

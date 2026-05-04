@@ -25,7 +25,7 @@ namespace SecurityAgent {
 namespace Model {
 /**
  * <p>Response structure for listing members associated to an agent
- * space</p><p><h3>See Also:</h3>   <a
+ * space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListMembershipsResponse">AWS
  * API Reference</a></p>
  */
@@ -37,7 +37,7 @@ class ListMembershipsResult {
 
   ///@{
   /**
-   * <p>List of membership summaries</p>
+   * <p>The list of membership summaries.</p>
    */
   inline const Aws::Vector<MembershipSummary>& GetMembershipSummaries() const { return m_membershipSummaries; }
   template <typename MembershipSummariesT = Aws::Vector<MembershipSummary>>
@@ -60,7 +60,9 @@ class ListMembershipsResult {
 
   ///@{
   /**
-   * <p>Token for next page of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

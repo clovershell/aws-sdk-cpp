@@ -21,8 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Authentication information used to access protected resources</p><p><h3>See
- * Also:</h3>   <a
+ * <p>The authentication configuration for an actor, specifying the provider type
+ * and credentials.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Authentication">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,8 @@ class Authentication {
 
   ///@{
   /**
-   * <p>Provider type for the authentication credentials</p>
+   * <p>The type of authentication provider. Valid values include SECRETS_MANAGER,
+   * AWS_LAMBDA, AWS_IAM_ROLE, and AWS_INTERNAL.</p>
    */
   inline AuthenticationProviderType GetProviderType() const { return m_providerType; }
   inline bool ProviderTypeHasBeenSet() const { return m_providerTypeHasBeenSet; }
@@ -51,7 +52,8 @@ class Authentication {
 
   ///@{
   /**
-   * <p>Authentication credential value or reference</p>
+   * <p>The authentication value, such as a secret ARN, Lambda function ARN, or IAM
+   * role ARN, depending on the provider type.</p>
    */
   inline const Aws::String& GetValue() const { return m_value; }
   inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }

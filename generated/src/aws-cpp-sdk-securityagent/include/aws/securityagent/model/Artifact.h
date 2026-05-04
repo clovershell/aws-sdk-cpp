@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Files containing relevant data for review</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an artifact that provides context for security testing, such as
+ * documentation, diagrams, or configuration files.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Artifact">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class Artifact {
 
   ///@{
   /**
-   * <p>The content of the artifact</p>
+   * <p>The content of the artifact.</p>
    */
   inline const Aws::String& GetContents() const { return m_contents; }
   inline bool ContentsHasBeenSet() const { return m_contentsHasBeenSet; }
@@ -52,7 +53,7 @@ class Artifact {
 
   ///@{
   /**
-   * <p>The file type of the artifact</p>
+   * <p>The file type of the artifact.</p>
    */
   inline ArtifactType GetType() const { return m_type; }
   inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }

@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>User membership configuration</p><p><h3>See Also:</h3>   <a
+ * <p>The configuration for a user membership, including the role assigned to the
+ * user within the agent space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UserConfig">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class UserConfig {
 
   ///@{
   /**
-   * <p>Role of the user associated to the agent space</p>
+   * <p>The role assigned to the user. Currently, only MEMBER is supported.</p>
    */
   inline UserRole GetRole() const { return m_role; }
   inline bool RoleHasBeenSet() const { return m_roleHasBeenSet; }

@@ -31,7 +31,7 @@ class BatchGetArtifactMetadataRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space that contains the artifacts.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -49,7 +49,7 @@ class BatchGetArtifactMetadataRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of artifact identifiers</p>
+   * <p>The list of artifact identifiers to retrieve metadata for.</p>
    */
   inline const Aws::Vector<Aws::String>& GetArtifactIds() const { return m_artifactIds; }
   inline bool ArtifactIdsHasBeenSet() const { return m_artifactIdsHasBeenSet; }

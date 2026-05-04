@@ -4,9 +4,11 @@
  */
 
 #pragma once
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/medialive/MediaLive_EXPORTS.h>
 #include <aws/medialive/model/ChannelEngineVersionResponse.h>
+#include <aws/medialive/model/MediaConnectRouterOutputConnection.h>
 
 #include <utility>
 
@@ -143,6 +145,36 @@ class PipelineDetail {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * A map of output names to the MediaConnect Router connection for this pipeline.
+   * Only present for channels with MediaConnect Router outputs.
+   */
+  inline const Aws::Map<Aws::String, MediaConnectRouterOutputConnection>& GetMediaConnectRouterOutputConnectionMap() const {
+    return m_mediaConnectRouterOutputConnectionMap;
+  }
+  inline bool MediaConnectRouterOutputConnectionMapHasBeenSet() const { return m_mediaConnectRouterOutputConnectionMapHasBeenSet; }
+  template <typename MediaConnectRouterOutputConnectionMapT = Aws::Map<Aws::String, MediaConnectRouterOutputConnection>>
+  void SetMediaConnectRouterOutputConnectionMap(MediaConnectRouterOutputConnectionMapT&& value) {
+    m_mediaConnectRouterOutputConnectionMapHasBeenSet = true;
+    m_mediaConnectRouterOutputConnectionMap = std::forward<MediaConnectRouterOutputConnectionMapT>(value);
+  }
+  template <typename MediaConnectRouterOutputConnectionMapT = Aws::Map<Aws::String, MediaConnectRouterOutputConnection>>
+  PipelineDetail& WithMediaConnectRouterOutputConnectionMap(MediaConnectRouterOutputConnectionMapT&& value) {
+    SetMediaConnectRouterOutputConnectionMap(std::forward<MediaConnectRouterOutputConnectionMapT>(value));
+    return *this;
+  }
+  template <typename MediaConnectRouterOutputConnectionMapKeyT = Aws::String,
+            typename MediaConnectRouterOutputConnectionMapValueT = MediaConnectRouterOutputConnection>
+  PipelineDetail& AddMediaConnectRouterOutputConnectionMap(MediaConnectRouterOutputConnectionMapKeyT&& key,
+                                                           MediaConnectRouterOutputConnectionMapValueT&& value) {
+    m_mediaConnectRouterOutputConnectionMapHasBeenSet = true;
+    m_mediaConnectRouterOutputConnectionMap.emplace(std::forward<MediaConnectRouterOutputConnectionMapKeyT>(key),
+                                                    std::forward<MediaConnectRouterOutputConnectionMapValueT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_activeInputAttachmentName;
 
@@ -155,12 +187,15 @@ class PipelineDetail {
   Aws::String m_pipelineId;
 
   ChannelEngineVersionResponse m_channelEngineVersion;
+
+  Aws::Map<Aws::String, MediaConnectRouterOutputConnection> m_mediaConnectRouterOutputConnectionMap;
   bool m_activeInputAttachmentNameHasBeenSet = false;
   bool m_activeInputSwitchActionNameHasBeenSet = false;
   bool m_activeMotionGraphicsActionNameHasBeenSet = false;
   bool m_activeMotionGraphicsUriHasBeenSet = false;
   bool m_pipelineIdHasBeenSet = false;
   bool m_channelEngineVersionHasBeenSet = false;
+  bool m_mediaConnectRouterOutputConnectionMapHasBeenSet = false;
 };
 
 }  // namespace Model

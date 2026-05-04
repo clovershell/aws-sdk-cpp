@@ -20,8 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Information about a document relevant to security testing</p><p><h3>See
- * Also:</h3>   <a
+ * <p>Represents a document that provides context for security
+ * testing.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DocumentInfo">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class DocumentInfo {
 
   ///@{
   /**
-   * <p>S3 storage location of the document</p>
+   * <p>The Amazon S3 location of the document.</p>
    */
   inline const Aws::String& GetS3Location() const { return m_s3Location; }
   inline bool S3LocationHasBeenSet() const { return m_s3LocationHasBeenSet; }
@@ -52,7 +52,7 @@ class DocumentInfo {
 
   ///@{
   /**
-   * <p>Artifact ID of the document</p>
+   * <p>The unique identifier of the artifact associated with the document.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   inline bool ArtifactIdHasBeenSet() const { return m_artifactIdHasBeenSet; }

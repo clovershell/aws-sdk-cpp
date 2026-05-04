@@ -31,7 +31,7 @@ class ListIntegratedResourcesResult {
 
   ///@{
   /**
-   * <p>List of integrated resources</p>
+   * <p>The list of integrated resource summaries.</p>
    */
   inline const Aws::Vector<IntegratedResourceSummary>& GetIntegratedResourceSummaries() const { return m_integratedResourceSummaries; }
   template <typename IntegratedResourceSummariesT = Aws::Vector<IntegratedResourceSummary>>
@@ -54,7 +54,9 @@ class ListIntegratedResourcesResult {
 
   ///@{
   /**
-   * <p>Token for pagination to retrieve the next set of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

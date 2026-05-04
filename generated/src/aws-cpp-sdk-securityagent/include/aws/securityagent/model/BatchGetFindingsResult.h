@@ -24,7 +24,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the BatchGetFindings operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the BatchGetFindings operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetFindingsOutput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class BatchGetFindingsResult {
 
   ///@{
   /**
-   * <p>List of successfully retrieved findings</p>
+   * <p>The list of findings that were found.</p>
    */
   inline const Aws::Vector<Finding>& GetFindings() const { return m_findings; }
   template <typename FindingsT = Aws::Vector<Finding>>
@@ -59,7 +59,7 @@ class BatchGetFindingsResult {
 
   ///@{
   /**
-   * <p>List of finding IDs that could not be found</p>
+   * <p>The list of finding identifiers that were not found.</p>
    */
   inline const Aws::Vector<Aws::String>& GetNotFound() const { return m_notFound; }
   template <typename NotFoundT = Aws::Vector<Aws::String>>

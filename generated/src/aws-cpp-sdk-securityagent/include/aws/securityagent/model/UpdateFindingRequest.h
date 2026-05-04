@@ -17,7 +17,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for updating an existing security finding</p><p><h3>See Also:</h3>   <a
+ * <p>Input for updating an existing security finding.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateFindingInput">AWS
  * API Reference</a></p>
  */
@@ -35,7 +36,7 @@ class UpdateFindingRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifier of the finding to update</p>
+   * <p>The unique identifier of the finding to update.</p>
    */
   inline const Aws::String& GetFindingId() const { return m_findingId; }
   inline bool FindingIdHasBeenSet() const { return m_findingIdHasBeenSet; }
@@ -53,7 +54,7 @@ class UpdateFindingRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space where the finding exists</p>
+   * <p>The unique identifier of the agent space that contains the finding.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -71,7 +72,7 @@ class UpdateFindingRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Updated severity level of the identified risk</p>
+   * <p>The updated risk level for the finding.</p>
    */
   inline RiskLevel GetRiskLevel() const { return m_riskLevel; }
   inline bool RiskLevelHasBeenSet() const { return m_riskLevelHasBeenSet; }
@@ -87,7 +88,7 @@ class UpdateFindingRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Updated status of the finding</p>
+   * <p>The updated status for the finding.</p>
    */
   inline FindingStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }

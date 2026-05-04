@@ -22,8 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Verification details to verify registered target domain</p><p><h3>See
- * Also:</h3>   <a
+ * <p>Contains the verification details for a target domain, including the
+ * verification method and provider-specific details.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/VerificationDetails">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class VerificationDetails {
 
   ///@{
   /**
-   * <p>Type of domain ownership verification method</p>
+   * <p>The verification method used for the target domain.</p>
    */
   inline DomainVerificationMethod GetMethod() const { return m_method; }
   inline bool MethodHasBeenSet() const { return m_methodHasBeenSet; }
@@ -52,7 +52,7 @@ class VerificationDetails {
 
   ///@{
   /**
-   * <p>Represents dns txt verification details</p>
+   * <p>The DNS TXT verification details.</p>
    */
   inline const DnsVerification& GetDnsTxt() const { return m_dnsTxt; }
   inline bool DnsTxtHasBeenSet() const { return m_dnsTxtHasBeenSet; }
@@ -70,7 +70,7 @@ class VerificationDetails {
 
   ///@{
   /**
-   * <p>Represents http route verification details</p>
+   * <p>The HTTP route verification details.</p>
    */
   inline const HttpVerification& GetHttpRoute() const { return m_httpRoute; }
   inline bool HttpRouteHasBeenSet() const { return m_httpRouteHasBeenSet; }

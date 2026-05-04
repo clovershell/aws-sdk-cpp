@@ -22,7 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Network traffic filtering rule</p><p><h3>See Also:</h3>   <a
+ * <p>A rule that controls network traffic during penetration testing by allowing
+ * or denying traffic to specific URL patterns.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/NetworkTrafficRule">AWS
  * API Reference</a></p>
  */
@@ -35,7 +36,7 @@ class NetworkTrafficRule {
 
   ///@{
   /**
-   * <p>Action to take when the rule matches</p>
+   * <p>The effect of the rule. Valid values are ALLOW and DENY.</p>
    */
   inline NetworkTrafficRuleEffect GetEffect() const { return m_effect; }
   inline bool EffectHasBeenSet() const { return m_effectHasBeenSet; }
@@ -51,7 +52,7 @@ class NetworkTrafficRule {
 
   ///@{
   /**
-   * <p>Pattern to match against</p>
+   * <p>The URL pattern to match for the rule.</p>
    */
   inline const Aws::String& GetPattern() const { return m_pattern; }
   inline bool PatternHasBeenSet() const { return m_patternHasBeenSet; }
@@ -69,7 +70,7 @@ class NetworkTrafficRule {
 
   ///@{
   /**
-   * <p>Type of network traffic rule</p>
+   * <p>The type of the network traffic rule. Currently, only URL is supported.</p>
    */
   inline NetworkTrafficRuleType GetNetworkTrafficRuleType() const { return m_networkTrafficRuleType; }
   inline bool NetworkTrafficRuleTypeHasBeenSet() const { return m_networkTrafficRuleTypeHasBeenSet; }

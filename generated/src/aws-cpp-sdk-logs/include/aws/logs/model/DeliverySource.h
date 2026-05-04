@@ -8,6 +8,8 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/logs/CloudWatchLogs_EXPORTS.h>
+#include <aws/logs/model/DeliverySourceStatus.h>
+#include <aws/logs/model/DeliverySourceStatusReason.h>
 
 #include <utility>
 
@@ -182,6 +184,68 @@ class DeliverySource {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The map of key-value pairs that configure the delivery source.</p>
+   */
+  inline const Aws::Map<Aws::String, Aws::String>& GetDeliverySourceConfiguration() const { return m_deliverySourceConfiguration; }
+  inline bool DeliverySourceConfigurationHasBeenSet() const { return m_deliverySourceConfigurationHasBeenSet; }
+  template <typename DeliverySourceConfigurationT = Aws::Map<Aws::String, Aws::String>>
+  void SetDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration = std::forward<DeliverySourceConfigurationT>(value);
+  }
+  template <typename DeliverySourceConfigurationT = Aws::Map<Aws::String, Aws::String>>
+  DeliverySource& WithDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    SetDeliverySourceConfiguration(std::forward<DeliverySourceConfigurationT>(value));
+    return *this;
+  }
+  template <typename DeliverySourceConfigurationKeyT = Aws::String, typename DeliverySourceConfigurationValueT = Aws::String>
+  DeliverySource& AddDeliverySourceConfiguration(DeliverySourceConfigurationKeyT&& key, DeliverySourceConfigurationValueT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration.emplace(std::forward<DeliverySourceConfigurationKeyT>(key),
+                                          std::forward<DeliverySourceConfigurationValueT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The status of the delivery source. A delivery source can have the status
+   * <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for
+   * selective log types.</p>
+   */
+  inline DeliverySourceStatus GetStatus() const { return m_status; }
+  inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+  inline void SetStatus(DeliverySourceStatus value) {
+    m_statusHasBeenSet = true;
+    m_status = value;
+  }
+  inline DeliverySource& WithStatus(DeliverySourceStatus value) {
+    SetStatus(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The reason for the status of the delivery source. A status reason of
+   * <code>RESOURCE_DELETED</code> indicates that the resource associated with the
+   * delivery source has been deleted. Note: This value is defined for selective log
+   * types.</p>
+   */
+  inline DeliverySourceStatusReason GetStatusReason() const { return m_statusReason; }
+  inline bool StatusReasonHasBeenSet() const { return m_statusReasonHasBeenSet; }
+  inline void SetStatusReason(DeliverySourceStatusReason value) {
+    m_statusReasonHasBeenSet = true;
+    m_statusReason = value;
+  }
+  inline DeliverySource& WithStatusReason(DeliverySourceStatusReason value) {
+    SetStatusReason(value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_name;
 
@@ -194,12 +258,21 @@ class DeliverySource {
   Aws::String m_logType;
 
   Aws::Map<Aws::String, Aws::String> m_tags;
+
+  Aws::Map<Aws::String, Aws::String> m_deliverySourceConfiguration;
+
+  DeliverySourceStatus m_status{DeliverySourceStatus::NOT_SET};
+
+  DeliverySourceStatusReason m_statusReason{DeliverySourceStatusReason::NOT_SET};
   bool m_nameHasBeenSet = false;
   bool m_arnHasBeenSet = false;
   bool m_resourceArnsHasBeenSet = false;
   bool m_serviceHasBeenSet = false;
   bool m_logTypeHasBeenSet = false;
   bool m_tagsHasBeenSet = false;
+  bool m_deliverySourceConfigurationHasBeenSet = false;
+  bool m_statusHasBeenSet = false;
+  bool m_statusReasonHasBeenSet = false;
 };
 
 }  // namespace Model

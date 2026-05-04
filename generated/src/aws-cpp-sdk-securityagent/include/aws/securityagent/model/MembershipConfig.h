@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Member-specific configuration</p><p><h3>See Also:</h3>   <a
+ * <p>The configuration for a membership. This is a union type that contains
+ * member-type-specific configuration.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/MembershipConfig">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class MembershipConfig {
 
   ///@{
   /**
-   * <p>Configuration for user members</p>
+   * <p>The user configuration for the membership.</p>
    */
   inline const UserConfig& GetUser() const { return m_user; }
   inline bool UserHasBeenSet() const { return m_userHasBeenSet; }

@@ -24,7 +24,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the ListTargetDomains operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the ListTargetDomains operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListTargetDomainsOutput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class ListTargetDomainsResult {
 
   ///@{
   /**
-   * <p>List of target domain summaries</p>
+   * <p>The list of target domain summaries.</p>
    */
   inline const Aws::Vector<TargetDomainSummary>& GetTargetDomainSummaries() const { return m_targetDomainSummaries; }
   template <typename TargetDomainSummariesT = Aws::Vector<TargetDomainSummary>>
@@ -59,7 +59,9 @@ class ListTargetDomainsResult {
 
   ///@{
   /**
-   * <p>Token for next page of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

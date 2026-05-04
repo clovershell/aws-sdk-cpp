@@ -6,6 +6,8 @@
 #pragma once
 #include <aws/bedrock-agentcore-control/BedrockAgentCoreControl_EXPORTS.h>
 #include <aws/bedrock-agentcore-control/model/SearchType.h>
+#include <aws/bedrock-agentcore-control/model/SessionConfiguration.h>
+#include <aws/bedrock-agentcore-control/model/StreamingConfiguration.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 
@@ -95,15 +97,59 @@ class MCPGatewayConfiguration {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The session configuration for the MCP gateway. This configuration controls
+   * session behavior, including session timeout settings.</p>
+   */
+  inline const SessionConfiguration& GetSessionConfiguration() const { return m_sessionConfiguration; }
+  inline bool SessionConfigurationHasBeenSet() const { return m_sessionConfigurationHasBeenSet; }
+  template <typename SessionConfigurationT = SessionConfiguration>
+  void SetSessionConfiguration(SessionConfigurationT&& value) {
+    m_sessionConfigurationHasBeenSet = true;
+    m_sessionConfiguration = std::forward<SessionConfigurationT>(value);
+  }
+  template <typename SessionConfigurationT = SessionConfiguration>
+  MCPGatewayConfiguration& WithSessionConfiguration(SessionConfigurationT&& value) {
+    SetSessionConfiguration(std::forward<SessionConfigurationT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The streaming configuration for the MCP gateway. This configuration controls
+   * whether response streaming is enabled for the gateway.</p>
+   */
+  inline const StreamingConfiguration& GetStreamingConfiguration() const { return m_streamingConfiguration; }
+  inline bool StreamingConfigurationHasBeenSet() const { return m_streamingConfigurationHasBeenSet; }
+  template <typename StreamingConfigurationT = StreamingConfiguration>
+  void SetStreamingConfiguration(StreamingConfigurationT&& value) {
+    m_streamingConfigurationHasBeenSet = true;
+    m_streamingConfiguration = std::forward<StreamingConfigurationT>(value);
+  }
+  template <typename StreamingConfigurationT = StreamingConfiguration>
+  MCPGatewayConfiguration& WithStreamingConfiguration(StreamingConfigurationT&& value) {
+    SetStreamingConfiguration(std::forward<StreamingConfigurationT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::Vector<Aws::String> m_supportedVersions;
 
   Aws::String m_instructions;
 
   SearchType m_searchType{SearchType::NOT_SET};
+
+  SessionConfiguration m_sessionConfiguration;
+
+  StreamingConfiguration m_streamingConfiguration;
   bool m_supportedVersionsHasBeenSet = false;
   bool m_instructionsHasBeenSet = false;
   bool m_searchTypeHasBeenSet = false;
+  bool m_sessionConfigurationHasBeenSet = false;
+  bool m_streamingConfigurationHasBeenSet = false;
 };
 
 }  // namespace Model

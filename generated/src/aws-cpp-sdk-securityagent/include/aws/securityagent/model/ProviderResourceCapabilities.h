@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Provider-specific capabilities for integrated resources</p><p><h3>See
+ * <p>The capabilities for an integrated resource from a third-party provider. This
+ * is a union type that contains provider-specific capabilities.</p><p><h3>See
  * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ProviderResourceCapabilities">AWS
  * API Reference</a></p>
@@ -33,7 +34,9 @@ class ProviderResourceCapabilities {
   AWS_SECURITYAGENT_API Aws::Utils::Json::JsonValue Jsonize() const;
 
   ///@{
-
+  /**
+   * <p>The GitHub-specific resource capabilities.</p>
+   */
   inline const GitHubResourceCapabilities& GetGithub() const { return m_github; }
   inline bool GithubHasBeenSet() const { return m_githubHasBeenSet; }
   template <typename GithubT = GitHubResourceCapabilities>

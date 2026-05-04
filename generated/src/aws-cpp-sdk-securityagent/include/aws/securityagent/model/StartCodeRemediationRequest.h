@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for the StartCodeRemediation operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for the StartCodeRemediation operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/StartCodeRemediationInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class StartCodeRemediationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space where the pentest job exists</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -52,7 +52,7 @@ class StartCodeRemediationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job to start code remediation for</p>
+   * <p>The unique identifier of the pentest job that produced the findings.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -70,7 +70,7 @@ class StartCodeRemediationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifiers of the findings to start code remediation for</p>
+   * <p>The list of finding identifiers to initiate code remediation for.</p>
    */
   inline const Aws::Vector<Aws::String>& GetFindingIds() const { return m_findingIds; }
   inline bool FindingIdsHasBeenSet() const { return m_findingIdsHasBeenSet; }

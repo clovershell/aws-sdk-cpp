@@ -35,7 +35,7 @@ class ValidationExceptionField {
   ///@{
   /**
    * <p>A JSONPointer expression to the structure member whose value failed to
-   * satisfy the modeled constraints.</p>
+   * satisfy the modeled constraint.</p>
    */
   inline const Aws::String& GetPath() const { return m_path; }
   inline bool PathHasBeenSet() const { return m_pathHasBeenSet; }

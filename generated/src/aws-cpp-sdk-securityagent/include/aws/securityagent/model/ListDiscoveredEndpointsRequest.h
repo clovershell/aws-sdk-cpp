@@ -15,7 +15,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for ListDiscoveredEndpoints operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for ListDiscoveredEndpoints operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListDiscoveredEndpointsInput">AWS
  * API Reference</a></p>
  */
@@ -33,8 +33,7 @@ class ListDiscoveredEndpointsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Maximum number of discovered endpoints to return in a single request
-   * (default: 50)</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
   inline int GetMaxResults() const { return m_maxResults; }
   inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
@@ -50,7 +49,8 @@ class ListDiscoveredEndpointsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job for which to retrieve discovered endpoints</p>
+   * <p>The unique identifier of the pentest job to list discovered endpoints
+   * for.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -68,7 +68,7 @@ class ListDiscoveredEndpointsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space where the pentest job exists</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -86,7 +86,7 @@ class ListDiscoveredEndpointsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Optional URI prefix filter to narrow down results</p>
+   * <p>A prefix to filter discovered endpoints by URI.</p>
    */
   inline const Aws::String& GetPrefix() const { return m_prefix; }
   inline bool PrefixHasBeenSet() const { return m_prefixHasBeenSet; }
@@ -104,7 +104,9 @@ class ListDiscoveredEndpointsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Token for pagination</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

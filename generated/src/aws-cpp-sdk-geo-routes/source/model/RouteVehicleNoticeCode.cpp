@@ -42,6 +42,7 @@ static const int ViolatedStartDirection_HASH = HashingUtils::HashString("Violate
 static const int ViolatedTurnRestriction_HASH = HashingUtils::HashString("ViolatedTurnRestriction");
 static const int ViolatedVehicleRestriction_HASH = HashingUtils::HashString("ViolatedVehicleRestriction");
 static const int ViolatedZoneRestriction_HASH = HashingUtils::HashString("ViolatedZoneRestriction");
+static const int TravelTimeExceedsDriverWorkHours_HASH = HashingUtils::HashString("TravelTimeExceedsDriverWorkHours");
 
 RouteVehicleNoticeCode GetRouteVehicleNoticeCodeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
@@ -99,6 +100,8 @@ RouteVehicleNoticeCode GetRouteVehicleNoticeCodeForName(const Aws::String& name)
     return RouteVehicleNoticeCode::ViolatedVehicleRestriction;
   } else if (hashCode == ViolatedZoneRestriction_HASH) {
     return RouteVehicleNoticeCode::ViolatedZoneRestriction;
+  } else if (hashCode == TravelTimeExceedsDriverWorkHours_HASH) {
+    return RouteVehicleNoticeCode::TravelTimeExceedsDriverWorkHours;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -167,6 +170,8 @@ Aws::String GetNameForRouteVehicleNoticeCode(RouteVehicleNoticeCode enumValue) {
       return "ViolatedVehicleRestriction";
     case RouteVehicleNoticeCode::ViolatedZoneRestriction:
       return "ViolatedZoneRestriction";
+    case RouteVehicleNoticeCode::TravelTimeExceedsDriverWorkHours:
+      return "TravelTimeExceedsDriverWorkHours";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

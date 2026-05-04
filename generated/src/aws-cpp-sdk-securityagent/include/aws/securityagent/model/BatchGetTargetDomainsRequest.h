@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for batch retrieving target domains</p><p><h3>See Also:</h3>   <a
+ * <p>Input for batch retrieving target domains.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetTargetDomainsInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class BatchGetTargetDomainsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of target domain IDs to retrieve</p>
+   * <p>The list of target domain identifiers to retrieve.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   inline bool TargetDomainIdsHasBeenSet() const { return m_targetDomainIdsHasBeenSet; }

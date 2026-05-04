@@ -22,7 +22,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for TagResource operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for TagResource operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TagResourceOutput">AWS
  * API Reference</a></p>
  */

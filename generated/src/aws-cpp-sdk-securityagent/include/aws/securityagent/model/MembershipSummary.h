@@ -24,7 +24,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Membership summary for list operations</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about a membership.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/MembershipSummary">AWS
  * API Reference</a></p>
  */
@@ -37,7 +38,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Member identifier (userId or agentSpaceId)</p>
+   * <p>The unique identifier of the membership.</p>
    */
   inline const Aws::String& GetMembershipId() const { return m_membershipId; }
   inline bool MembershipIdHasBeenSet() const { return m_membershipIdHasBeenSet; }
@@ -55,7 +56,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Application identifier</p>
+   * <p>The unique identifier of the application.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -73,7 +74,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Agent space identifier</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -91,7 +92,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Type of member</p>
+   * <p>The type of member.</p>
    */
   inline MembershipType GetMemberType() const { return m_memberType; }
   inline bool MemberTypeHasBeenSet() const { return m_memberTypeHasBeenSet; }
@@ -107,7 +108,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Configuration specific to the member type</p>
+   * <p>The configuration for the membership.</p>
    */
   inline const MembershipConfig& GetConfig() const { return m_config; }
   inline bool ConfigHasBeenSet() const { return m_configHasBeenSet; }
@@ -125,7 +126,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Member-specific metadata</p>
+   * <p>The metadata for the member.</p>
    */
   inline const MemberMetadata& GetMetadata() const { return m_metadata; }
   inline bool MetadataHasBeenSet() const { return m_metadataHasBeenSet; }
@@ -143,7 +144,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the membership was created (ISO 8601)</p>
+   * <p>The date and time the membership was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -161,7 +162,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>Timestamp when the membership was last updated (ISO 8601)</p>
+   * <p>The date and time the membership was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }
@@ -179,7 +180,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>User ID who created the membership</p>
+   * <p>The identifier of the entity that created the membership.</p>
    */
   inline const Aws::String& GetCreatedBy() const { return m_createdBy; }
   inline bool CreatedByHasBeenSet() const { return m_createdByHasBeenSet; }
@@ -197,7 +198,7 @@ class MembershipSummary {
 
   ///@{
   /**
-   * <p>User ID who last updated the membership</p>
+   * <p>The identifier of the entity that last updated the membership.</p>
    */
   inline const Aws::String& GetUpdatedBy() const { return m_updatedBy; }
   inline bool UpdatedByHasBeenSet() const { return m_updatedByHasBeenSet; }

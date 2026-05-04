@@ -21449,7 +21449,7 @@ class AWS_EC2_API EC2Client : public Aws::Client::AWSXMLClient,
    * API Reference</a></p>
    */
   virtual Model::ModifyManagedResourceVisibilityOutcome ModifyManagedResourceVisibility(
-      const Model::ModifyManagedResourceVisibilityRequest& request = {}) const;
+      const Model::ModifyManagedResourceVisibilityRequest& request) const;
 
   /**
    * A Callable wrapper for ModifyManagedResourceVisibility that returns a future to the operation so that it can be executed in parallel to
@@ -21457,7 +21457,7 @@ class AWS_EC2_API EC2Client : public Aws::Client::AWSXMLClient,
    */
   template <typename ModifyManagedResourceVisibilityRequestT = Model::ModifyManagedResourceVisibilityRequest>
   Model::ModifyManagedResourceVisibilityOutcomeCallable ModifyManagedResourceVisibilityCallable(
-      const ModifyManagedResourceVisibilityRequestT& request = {}) const {
+      const ModifyManagedResourceVisibilityRequestT& request) const {
     return SubmitCallable(&EC2Client::ModifyManagedResourceVisibility, request);
   }
 
@@ -21466,9 +21466,9 @@ class AWS_EC2_API EC2Client : public Aws::Client::AWSXMLClient,
    * when operation has finished.
    */
   template <typename ModifyManagedResourceVisibilityRequestT = Model::ModifyManagedResourceVisibilityRequest>
-  void ModifyManagedResourceVisibilityAsync(const ModifyManagedResourceVisibilityResponseReceivedHandler& handler,
-                                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr,
-                                            const ModifyManagedResourceVisibilityRequestT& request = {}) const {
+  void ModifyManagedResourceVisibilityAsync(const ModifyManagedResourceVisibilityRequestT& request,
+                                            const ModifyManagedResourceVisibilityResponseReceivedHandler& handler,
+                                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
     return SubmitAsync(&EC2Client::ModifyManagedResourceVisibility, request, handler, context);
   }
 

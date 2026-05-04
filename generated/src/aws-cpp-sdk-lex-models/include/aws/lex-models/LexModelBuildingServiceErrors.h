@@ -44,12 +44,6 @@ enum class LexModelBuildingServiceErrors {
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  BAD_REQUEST = static_cast<int>(Aws::Client::CoreErrors::SERVICE_EXTENSION_START_RANGE) + 1,
-  CONFLICT,
-  LIMIT_EXCEEDED,
-  NOT_FOUND,
-  PRECONDITION_FAILED,
-  RESOURCE_IN_USE
 };
 
 class AWS_LEXMODELBUILDINGSERVICE_API LexModelBuildingServiceError : public Aws::Client::AWSError<LexModelBuildingServiceErrors> {

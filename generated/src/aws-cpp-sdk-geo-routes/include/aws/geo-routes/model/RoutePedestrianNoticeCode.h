@@ -16,7 +16,8 @@ enum class RoutePedestrianNoticeCode {
   Other,
   ViolatedAvoidDirtRoad,
   ViolatedAvoidTunnel,
-  ViolatedPedestrianOption
+  ViolatedPedestrianOption,
+  ViolatedAvoidAreas
 };
 
 namespace RoutePedestrianNoticeCodeMapper {

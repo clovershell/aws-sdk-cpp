@@ -22,7 +22,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the DeleteAgentSpace operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the DeleteAgentSpace operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteAgentSpaceOutput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class DeleteAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the deleted agent space</p>
+   * <p>The unique identifier of the deleted agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   template <typename AgentSpaceIdT = Aws::String>

@@ -17,7 +17,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Capabilities for GitHub repositories</p><p><h3>See Also:</h3>   <a
+ * <p>The capabilities enabled for a GitHub resource integration.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GitHubResourceCapabilities">AWS
  * API Reference</a></p>
  */
@@ -30,7 +31,7 @@ class GitHubResourceCapabilities {
 
   ///@{
   /**
-   * <p>Post code review comments on pull requests</p>
+   * <p>Indicates whether the integration can leave comments on pull requests.</p>
    */
   inline bool GetLeaveComments() const { return m_leaveComments; }
   inline bool LeaveCommentsHasBeenSet() const { return m_leaveCommentsHasBeenSet; }
@@ -46,7 +47,8 @@ class GitHubResourceCapabilities {
 
   ///@{
   /**
-   * <p>Create pull requests with automated fixes</p>
+   * <p>Indicates whether the integration can create code remediation pull
+   * requests.</p>
    */
   inline bool GetRemediateCode() const { return m_remediateCode; }
   inline bool RemediateCodeHasBeenSet() const { return m_remediateCodeHasBeenSet; }

@@ -7,6 +7,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/ec2/EC2Request.h>
 #include <aws/ec2/EC2_EXPORTS.h>
+#include <aws/ec2/model/VpnTunnelBandwidth.h>
 
 #include <utility>
 
@@ -128,6 +129,26 @@ class ModifyVpnConnectionOptionsRequest : public EC2Request {
 
   ///@{
   /**
+   * <p>The desired bandwidth specification for the VPN connection.
+   * <code>standard</code> supports up to 1.25 Gbps per tunnel, while
+   * <code>large</code> supports up to 5 Gbps per tunnel. Large bandwidth is only
+   * available for VPN connections attached to a transit gateway or to Cloud WAN. The
+   * default value is <code>standard</code>.</p>
+   */
+  inline VpnTunnelBandwidth GetTunnelBandwidth() const { return m_tunnelBandwidth; }
+  inline bool TunnelBandwidthHasBeenSet() const { return m_tunnelBandwidthHasBeenSet; }
+  inline void SetTunnelBandwidth(VpnTunnelBandwidth value) {
+    m_tunnelBandwidthHasBeenSet = true;
+    m_tunnelBandwidth = value;
+  }
+  inline ModifyVpnConnectionOptionsRequest& WithTunnelBandwidth(VpnTunnelBandwidth value) {
+    SetTunnelBandwidth(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Checks whether you have the required permissions for the action, without
    * actually making the request, and provides an error response. If you have the
    * required permissions, the error response is <code>DryRunOperation</code>.
@@ -155,12 +176,15 @@ class ModifyVpnConnectionOptionsRequest : public EC2Request {
 
   Aws::String m_remoteIpv6NetworkCidr;
 
+  VpnTunnelBandwidth m_tunnelBandwidth{VpnTunnelBandwidth::NOT_SET};
+
   bool m_dryRun{false};
   bool m_vpnConnectionIdHasBeenSet = false;
   bool m_localIpv4NetworkCidrHasBeenSet = false;
   bool m_remoteIpv4NetworkCidrHasBeenSet = false;
   bool m_localIpv6NetworkCidrHasBeenSet = false;
   bool m_remoteIpv6NetworkCidrHasBeenSet = false;
+  bool m_tunnelBandwidthHasBeenSet = false;
   bool m_dryRunHasBeenSet = false;
 };
 

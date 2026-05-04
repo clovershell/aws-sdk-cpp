@@ -24,7 +24,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the ListFindings operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the ListFindings operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListFindingsOutput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class ListFindingsResult {
 
   ///@{
   /**
-   * <p>List of finding summaries matching the filter criteria</p>
+   * <p>The list of finding summaries.</p>
    */
   inline const Aws::Vector<FindingSummary>& GetFindingsSummaries() const { return m_findingsSummaries; }
   template <typename FindingsSummariesT = Aws::Vector<FindingSummary>>
@@ -59,7 +59,9 @@ class ListFindingsResult {
 
   ///@{
   /**
-   * <p>Token for pagination to retrieve the next set of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

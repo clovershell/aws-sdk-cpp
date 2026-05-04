@@ -29,7 +29,7 @@ class CreateApplicationResult {
 
   ///@{
   /**
-   * <p>Application ID</p>
+   * <p>The unique identifier of the created application.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   template <typename ApplicationIdT = Aws::String>

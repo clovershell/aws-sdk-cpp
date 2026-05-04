@@ -18,7 +18,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for updating an agent space</p><p><h3>See Also:</h3>   <a
+ * <p>Input for updating an agent space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateAgentSpaceInput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space to update</p>
+   * <p>The unique identifier of the agent space to update.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -54,7 +54,7 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Name of the agent space</p>
+   * <p>The updated name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -72,7 +72,7 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Description of the agent space</p>
+   * <p>The updated description of the agent space.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
@@ -90,7 +90,7 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>AWS resource configurations associated with the agent space</p>
+   * <p>The updated AWS resources to associate with the agent space.</p>
    */
   inline const AWSResources& GetAwsResources() const { return m_awsResources; }
   inline bool AwsResourcesHasBeenSet() const { return m_awsResourcesHasBeenSet; }
@@ -108,7 +108,8 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Target domain IDs to associate with the agent space</p>
+   * <p>The updated list of target domain identifiers to associate with the agent
+   * space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   inline bool TargetDomainIdsHasBeenSet() const { return m_targetDomainIdsHasBeenSet; }
@@ -132,8 +133,7 @@ class UpdateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Configuration for code review analysis, including controls scanning and
-   * general purpose scanning settings</p>
+   * <p>The updated code review settings for the agent space.</p>
    */
   inline const CodeReviewSettings& GetCodeReviewSettings() const { return m_codeReviewSettings; }
   inline bool CodeReviewSettingsHasBeenSet() const { return m_codeReviewSettingsHasBeenSet; }

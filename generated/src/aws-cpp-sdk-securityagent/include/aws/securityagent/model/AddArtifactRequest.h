@@ -32,7 +32,7 @@ class AddArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space to add the artifact to.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -50,7 +50,7 @@ class AddArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Binary content of the artifact</p>
+   * <p>The binary content of the artifact to upload.</p>
    */
   inline const Aws::Utils::ByteBuffer& GetArtifactContent() const { return m_artifactContent; }
   inline bool ArtifactContentHasBeenSet() const { return m_artifactContentHasBeenSet; }
@@ -68,7 +68,8 @@ class AddArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Type of the artifact file</p>
+   * <p>The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF,
+   * DOCX, DOC, JSON, and YAML.</p>
    */
   inline ArtifactType GetArtifactType() const { return m_artifactType; }
   inline bool ArtifactTypeHasBeenSet() const { return m_artifactTypeHasBeenSet; }
@@ -84,7 +85,7 @@ class AddArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Name of the artifact file</p>
+   * <p>The file name of the artifact.</p>
    */
   inline const Aws::String& GetFileName() const { return m_fileName; }
   inline bool FileNameHasBeenSet() const { return m_fileNameHasBeenSet; }

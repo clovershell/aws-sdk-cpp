@@ -22,7 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Configuration for network traffic filtering</p><p><h3>See Also:</h3>   <a
+ * <p>The network traffic configuration for a pentest, including custom headers and
+ * traffic rules.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/NetworkTrafficConfig">AWS
  * API Reference</a></p>
  */
@@ -35,7 +36,8 @@ class NetworkTrafficConfig {
 
   ///@{
   /**
-   * <p>Traffic filtering rules</p>
+   * <p>The list of network traffic rules that control which URLs are allowed or
+   * denied during testing.</p>
    */
   inline const Aws::Vector<NetworkTrafficRule>& GetRules() const { return m_rules; }
   inline bool RulesHasBeenSet() const { return m_rulesHasBeenSet; }
@@ -59,7 +61,8 @@ class NetworkTrafficConfig {
 
   ///@{
   /**
-   * <p>Custom headers for requests</p>
+   * <p>The list of custom HTTP headers to include in network traffic during
+   * testing.</p>
    */
   inline const Aws::Vector<CustomHeader>& GetCustomHeaders() const { return m_customHeaders; }
   inline bool CustomHeadersHasBeenSet() const { return m_customHeadersHasBeenSet; }

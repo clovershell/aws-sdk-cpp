@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input parameters for GitHub integration</p><p><h3>See Also:</h3>   <a
+ * <p>The input required to create a GitHub integration, including the OAuth
+ * authorization code and CSRF state.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GitHubIntegrationInput">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class GitHubIntegrationInput {
 
   ///@{
   /**
-   * <p>Authorization code from OAuth flow</p>
+   * <p>The OAuth authorization code received from GitHub.</p>
    */
   inline const Aws::String& GetCode() const { return m_code; }
   inline bool CodeHasBeenSet() const { return m_codeHasBeenSet; }
@@ -51,7 +52,7 @@ class GitHubIntegrationInput {
 
   ///@{
   /**
-   * <p>CSRF state token for OAuth security</p>
+   * <p>The CSRF state token for validating the OAuth flow.</p>
    */
   inline const Aws::String& GetState() const { return m_state; }
   inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
@@ -69,7 +70,7 @@ class GitHubIntegrationInput {
 
   ///@{
   /**
-   * <p>Name of the GitHub organization</p>
+   * <p>The name of the GitHub organization to integrate with.</p>
    */
   inline const Aws::String& GetOrganizationName() const { return m_organizationName; }
   inline bool OrganizationNameHasBeenSet() const { return m_organizationNameHasBeenSet; }

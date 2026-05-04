@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Filter criteria for integrations</p><p><h3>See Also:</h3>   <a
+ * <p>A filter for listing integrations. This is a union type where you can filter
+ * by provider or provider type.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegrationFilter">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class IntegrationFilter {
 
   ///@{
   /**
-   * <p>Filter by provider</p>
+   * <p>Filter integrations by provider.</p>
    */
   inline Provider GetProvider() const { return m_provider; }
   inline bool ProviderHasBeenSet() const { return m_providerHasBeenSet; }
@@ -50,7 +51,7 @@ class IntegrationFilter {
 
   ///@{
   /**
-   * <p>Filter by provider type</p>
+   * <p>Filter integrations by provider type.</p>
    */
   inline ProviderType GetProviderType() const { return m_providerType; }
   inline bool ProviderTypeHasBeenSet() const { return m_providerTypeHasBeenSet; }

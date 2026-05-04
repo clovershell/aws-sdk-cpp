@@ -9,8 +9,10 @@
 #include <aws/logs/CloudWatchLogs_EXPORTS.h>
 #include <aws/logs/model/ConfigurationTemplateDeliveryConfigValues.h>
 #include <aws/logs/model/DeliveryDestinationType.h>
+#include <aws/logs/model/DeliverySourceConfigurationSchema.h>
 #include <aws/logs/model/OutputFormat.h>
 #include <aws/logs/model/RecordField.h>
+#include <aws/logs/model/S3TablesIntegration.h>
 
 #include <utility>
 
@@ -267,6 +269,54 @@ class ConfigurationTemplate {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The schema of the delivery source configuration that is available for this
+   * log type. Each element describes a configuration that can be set when calling <a
+   * href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>,
+   * including the configuration name, type, and default value.</p>
+   */
+  inline const Aws::Vector<DeliverySourceConfigurationSchema>& GetDeliverySourceConfiguration() const {
+    return m_deliverySourceConfiguration;
+  }
+  inline bool DeliverySourceConfigurationHasBeenSet() const { return m_deliverySourceConfigurationHasBeenSet; }
+  template <typename DeliverySourceConfigurationT = Aws::Vector<DeliverySourceConfigurationSchema>>
+  void SetDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration = std::forward<DeliverySourceConfigurationT>(value);
+  }
+  template <typename DeliverySourceConfigurationT = Aws::Vector<DeliverySourceConfigurationSchema>>
+  ConfigurationTemplate& WithDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    SetDeliverySourceConfiguration(std::forward<DeliverySourceConfigurationT>(value));
+    return *this;
+  }
+  template <typename DeliverySourceConfigurationT = DeliverySourceConfigurationSchema>
+  ConfigurationTemplate& AddDeliverySourceConfiguration(DeliverySourceConfigurationT&& value) {
+    m_deliverySourceConfigurationHasBeenSet = true;
+    m_deliverySourceConfiguration.emplace_back(std::forward<DeliverySourceConfigurationT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The S3 Tables integration configuration for this configuration template,
+   * including the datasource name and type.</p>
+   */
+  inline const S3TablesIntegration& GetS3TablesIntegration() const { return m_s3TablesIntegration; }
+  inline bool S3TablesIntegrationHasBeenSet() const { return m_s3TablesIntegrationHasBeenSet; }
+  template <typename S3TablesIntegrationT = S3TablesIntegration>
+  void SetS3TablesIntegration(S3TablesIntegrationT&& value) {
+    m_s3TablesIntegrationHasBeenSet = true;
+    m_s3TablesIntegration = std::forward<S3TablesIntegrationT>(value);
+  }
+  template <typename S3TablesIntegrationT = S3TablesIntegration>
+  ConfigurationTemplate& WithS3TablesIntegration(S3TablesIntegrationT&& value) {
+    SetS3TablesIntegration(std::forward<S3TablesIntegrationT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_service;
 
@@ -287,6 +337,10 @@ class ConfigurationTemplate {
   Aws::Vector<Aws::String> m_allowedFieldDelimiters;
 
   Aws::Vector<Aws::String> m_allowedSuffixPathFields;
+
+  Aws::Vector<DeliverySourceConfigurationSchema> m_deliverySourceConfiguration;
+
+  S3TablesIntegration m_s3TablesIntegration;
   bool m_serviceHasBeenSet = false;
   bool m_logTypeHasBeenSet = false;
   bool m_resourceTypeHasBeenSet = false;
@@ -297,6 +351,8 @@ class ConfigurationTemplate {
   bool m_allowedActionForAllowVendedLogsDeliveryForResourceHasBeenSet = false;
   bool m_allowedFieldDelimitersHasBeenSet = false;
   bool m_allowedSuffixPathFieldsHasBeenSet = false;
+  bool m_deliverySourceConfigurationHasBeenSet = false;
+  bool m_s3TablesIntegrationHasBeenSet = false;
 };
 
 }  // namespace Model

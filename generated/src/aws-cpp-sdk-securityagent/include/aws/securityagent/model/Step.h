@@ -22,7 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a single step in pentest job execution</p><p><h3>See Also:</h3>
+ * <p>Represents a step in the pentest job execution pipeline. Steps include
+ * preflight, static analysis, pentest, and finalizing.</p><p><h3>See Also:</h3>
  * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Step">AWS
  * API Reference</a></p>
@@ -36,7 +37,8 @@ class Step {
 
   ///@{
   /**
-   * <p>Name of the execution step</p>
+   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS,
+   * PENTEST, and FINALIZING.</p>
    */
   inline StepName GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -52,7 +54,7 @@ class Step {
 
   ///@{
   /**
-   * <p>Current status of the step</p>
+   * <p>The current status of the step.</p>
    */
   inline StepStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -68,7 +70,7 @@ class Step {
 
   ///@{
   /**
-   * <p>Timestamp when the step was created</p>
+   * <p>The date and time the step was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -86,7 +88,7 @@ class Step {
 
   ///@{
   /**
-   * <p>Timestamp when the step was last updated</p>
+   * <p>The date and time the step was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

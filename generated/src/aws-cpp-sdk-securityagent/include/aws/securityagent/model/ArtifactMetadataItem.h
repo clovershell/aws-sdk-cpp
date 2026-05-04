@@ -21,7 +21,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Metadata in relation to the artifact</p><p><h3>See Also:</h3>   <a
+ * <p>Contains metadata about an artifact.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ArtifactMetadataItem">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class ArtifactMetadataItem {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -52,7 +52,7 @@ class ArtifactMetadataItem {
 
   ///@{
   /**
-   * <p>Unique identifier of the artifact</p>
+   * <p>The unique identifier of the artifact.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   inline bool ArtifactIdHasBeenSet() const { return m_artifactIdHasBeenSet; }
@@ -70,7 +70,7 @@ class ArtifactMetadataItem {
 
   ///@{
   /**
-   * <p>Name of the artifact file</p>
+   * <p>The file name of the artifact.</p>
    */
   inline const Aws::String& GetFileName() const { return m_fileName; }
   inline bool FileNameHasBeenSet() const { return m_fileNameHasBeenSet; }
@@ -88,7 +88,7 @@ class ArtifactMetadataItem {
 
   ///@{
   /**
-   * <p>Timestamp when the artifact was last updated</p>
+   * <p>The date and time the artifact was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>GitHub repository resource details</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a GitHub repository resource used in an integration.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GitHubRepositoryResource">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class GitHubRepositoryResource {
 
   ///@{
   /**
-   * <p>Name of the resource e.g. repository name, etc</p>
+   * <p>The name of the GitHub repository.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -51,7 +52,7 @@ class GitHubRepositoryResource {
 
   ///@{
   /**
-   * <p>Owner of the repository</p>
+   * <p>The owner of the GitHub repository.</p>
    */
   inline const Aws::String& GetOwner() const { return m_owner; }
   inline bool OwnerHasBeenSet() const { return m_ownerHasBeenSet; }

@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Metadata associated with the member</p><p><h3>See Also:</h3>   <a
+ * <p>Contains metadata about a member. This is a union type that contains
+ * member-type-specific metadata.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/MemberMetadata">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class MemberMetadata {
 
   ///@{
   /**
-   * <p>User metadata for USER members</p>
+   * <p>The user metadata for the member.</p>
    */
   inline const UserMetadata& GetUser() const { return m_user; }
   inline bool UserHasBeenSet() const { return m_userHasBeenSet; }

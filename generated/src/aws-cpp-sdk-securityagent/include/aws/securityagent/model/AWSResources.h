@@ -22,8 +22,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>AWS resource configurations associated with the agent space</p><p><h3>See
- * Also:</h3>   <a
+ * <p>The AWS resources associated with an agent space, including VPCs, log groups,
+ * S3 buckets, secrets, Lambda functions, and IAM roles.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/AWSResources">AWS
  * API Reference</a></p>
  */
@@ -36,8 +37,7 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>VPC configurations that the Security Agent accesses in the customer
-   * environment</p>
+   * <p>The VPC configurations associated with the agent space.</p>
    */
   inline const Aws::Vector<VpcConfig>& GetVpcs() const { return m_vpcs; }
   inline bool VpcsHasBeenSet() const { return m_vpcsHasBeenSet; }
@@ -61,7 +61,8 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>CloudWatch log group ARNs or names used to store Security Agent logs</p>
+   * <p>The Amazon Resource Names (ARNs) of the CloudWatch log groups associated with
+   * the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetLogGroups() const { return m_logGroups; }
   inline bool LogGroupsHasBeenSet() const { return m_logGroupsHasBeenSet; }
@@ -85,7 +86,8 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>S3 bucket ARNs or names used to store Security Agent artifacts</p>
+   * <p>The Amazon Resource Names (ARNs) of the S3 buckets associated with the agent
+   * space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetS3Buckets() const { return m_s3Buckets; }
   inline bool S3BucketsHasBeenSet() const { return m_s3BucketsHasBeenSet; }
@@ -109,8 +111,8 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>SecretsManager secret ARNs or names used to store tester credentials for
-   * pentests</p>
+   * <p>The Amazon Resource Names (ARNs) of the Secrets Manager secrets associated
+   * with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetSecretArns() const { return m_secretArns; }
   inline bool SecretArnsHasBeenSet() const { return m_secretArnsHasBeenSet; }
@@ -134,8 +136,8 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>Lambda function ARNs or names used to retrieve tester credentials for
-   * pentests</p>
+   * <p>The Amazon Resource Names (ARNs) of the Lambda functions associated with the
+   * agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetLambdaFunctionArns() const { return m_lambdaFunctionArns; }
   inline bool LambdaFunctionArnsHasBeenSet() const { return m_lambdaFunctionArnsHasBeenSet; }
@@ -159,8 +161,7 @@ class AWSResources {
 
   ///@{
   /**
-   * <p>IAM role ARNs that the Security Agent can assume to access customer
-   * resources</p>
+   * <p>The IAM roles associated with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetIamRoles() const { return m_iamRoles; }
   inline bool IamRolesHasBeenSet() const { return m_iamRolesHasBeenSet; }

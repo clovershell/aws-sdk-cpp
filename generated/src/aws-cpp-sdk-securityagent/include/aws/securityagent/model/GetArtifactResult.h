@@ -31,7 +31,7 @@ class GetArtifactResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   template <typename AgentSpaceIdT = Aws::String>
@@ -48,7 +48,7 @@ class GetArtifactResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the artifact</p>
+   * <p>The unique identifier of the artifact.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   template <typename ArtifactIdT = Aws::String>
@@ -65,7 +65,7 @@ class GetArtifactResult {
 
   ///@{
   /**
-   * <p>Artifact details</p>
+   * <p>The artifact content and type.</p>
    */
   inline const Artifact& GetArtifact() const { return m_artifact; }
   template <typename ArtifactT = Artifact>
@@ -82,7 +82,7 @@ class GetArtifactResult {
 
   ///@{
   /**
-   * <p>Name of the artifact file</p>
+   * <p>The file name of the artifact.</p>
    */
   inline const Aws::String& GetFileName() const { return m_fileName; }
   template <typename FileNameT = Aws::String>
@@ -99,7 +99,7 @@ class GetArtifactResult {
 
   ///@{
   /**
-   * <p>Timestamp when the artifact was last updated</p>
+   * <p>The date and time the artifact was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   template <typename UpdatedAtT = Aws::Utils::DateTime>

@@ -30,7 +30,7 @@ class DeleteIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the integration</p>
+   * <p>The unique identifier of the integration to delete.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }

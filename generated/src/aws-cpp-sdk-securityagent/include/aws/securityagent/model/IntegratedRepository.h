@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Information about an integrated repository</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a code repository that is integrated with the service through a
+ * third-party provider.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegratedRepository">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,8 @@ class IntegratedRepository {
 
   ///@{
   /**
-   * <p>Integration identifier</p>
+   * <p>The unique identifier of the integration that provides access to the
+   * repository.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }
@@ -51,7 +53,7 @@ class IntegratedRepository {
 
   ///@{
   /**
-   * <p>External provider resource identifier, e.g., Github repository identifier</p>
+   * <p>The provider-specific resource identifier for the repository.</p>
    */
   inline const Aws::String& GetProviderResourceId() const { return m_providerResourceId; }
   inline bool ProviderResourceIdHasBeenSet() const { return m_providerResourceIdHasBeenSet; }

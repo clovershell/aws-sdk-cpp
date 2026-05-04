@@ -34,6 +34,10 @@ CreateTargetDomainResult& CreateTargetDomainResult::operator=(const Aws::AmazonW
     m_verificationStatus = TargetDomainStatusMapper::GetTargetDomainStatusForName(jsonValue.GetString("verificationStatus"));
     m_verificationStatusHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("verificationStatusReason")) {
+    m_verificationStatusReason = jsonValue.GetString("verificationStatusReason");
+    m_verificationStatusReasonHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("verificationDetails")) {
     m_verificationDetails = jsonValue.GetObject("verificationDetails");
     m_verificationDetailsHasBeenSet = true;

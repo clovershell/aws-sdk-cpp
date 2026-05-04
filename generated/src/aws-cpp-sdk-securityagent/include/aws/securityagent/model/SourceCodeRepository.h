@@ -20,8 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Information about a source code repository for static analysis</p><p><h3>See
- * Also:</h3>   <a
+ * <p>Represents a source code repository used for security analysis during a
+ * pentest.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/SourceCodeRepository">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class SourceCodeRepository {
 
   ///@{
   /**
-   * <p>S3 storage location of the repository</p>
+   * <p>The Amazon S3 location of the source code repository archive.</p>
    */
   inline const Aws::String& GetS3Location() const { return m_s3Location; }
   inline bool S3LocationHasBeenSet() const { return m_s3LocationHasBeenSet; }

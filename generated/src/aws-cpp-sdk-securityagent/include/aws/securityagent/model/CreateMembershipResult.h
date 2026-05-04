@@ -22,8 +22,8 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Response structure for adding a single member to an agent space</p><p><h3>See
- * Also:</h3>   <a
+ * <p>Response structure for adding a single member to an agent
+ * space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateMembershipResponse">AWS
  * API Reference</a></p>
  */

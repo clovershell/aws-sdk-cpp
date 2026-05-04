@@ -38,7 +38,8 @@ enum class RouteVehicleNoticeCode {
   ViolatedStartDirection,
   ViolatedTurnRestriction,
   ViolatedVehicleRestriction,
-  ViolatedZoneRestriction
+  ViolatedZoneRestriction,
+  TravelTimeExceedsDriverWorkHours
 };
 
 namespace RouteVehicleNoticeCodeMapper {

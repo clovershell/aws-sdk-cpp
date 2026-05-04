@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for TagResource operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for TagResource operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TagResourceInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class TagResourceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the resource to tag</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
    */
   inline const Aws::String& GetResourceArn() const { return m_resourceArn; }
   inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
@@ -52,7 +52,7 @@ class TagResourceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Tags to add to the resource</p>
+   * <p>The tags to add to the resource.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }

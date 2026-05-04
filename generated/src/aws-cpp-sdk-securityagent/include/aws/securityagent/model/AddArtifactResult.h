@@ -29,7 +29,7 @@ class AddArtifactResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the created artifact</p>
+   * <p>The unique identifier assigned to the uploaded artifact.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   template <typename ArtifactIdT = Aws::String>

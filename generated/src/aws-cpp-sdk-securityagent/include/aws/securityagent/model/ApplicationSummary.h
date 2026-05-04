@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Application summary for list operations</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about an application.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ApplicationSummary">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class ApplicationSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the application</p>
+   * <p>The unique identifier of the application.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -51,7 +52,7 @@ class ApplicationSummary {
 
   ///@{
   /**
-   * <p>Name of the application, automatically assigned by the service</p>
+   * <p>The name of the application.</p>
    */
   inline const Aws::String& GetApplicationName() const { return m_applicationName; }
   inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
@@ -69,7 +70,7 @@ class ApplicationSummary {
 
   ///@{
   /**
-   * <p>Domain where the application is available</p>
+   * <p>The domain associated with the application.</p>
    */
   inline const Aws::String& GetDomain() const { return m_domain; }
   inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
@@ -87,7 +88,8 @@ class ApplicationSummary {
 
   ///@{
   /**
-   * <p>Default KMS key identifier used to encrypt application data</p>
+   * <p>The identifier of the default AWS KMS key used to encrypt data for the
+   * application.</p>
    */
   inline const Aws::String& GetDefaultKmsKeyId() const { return m_defaultKmsKeyId; }
   inline bool DefaultKmsKeyIdHasBeenSet() const { return m_defaultKmsKeyIdHasBeenSet; }

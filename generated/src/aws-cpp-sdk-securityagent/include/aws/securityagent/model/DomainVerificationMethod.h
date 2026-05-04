@@ -10,7 +10,7 @@
 namespace Aws {
 namespace SecurityAgent {
 namespace Model {
-enum class DomainVerificationMethod { NOT_SET, DNS_TXT, HTTP_ROUTE };
+enum class DomainVerificationMethod { NOT_SET, DNS_TXT, HTTP_ROUTE, PRIVATE_VPC };
 
 namespace DomainVerificationMethodMapper {
 AWS_SECURITYAGENT_API DomainVerificationMethod GetDomainVerificationMethodForName(const Aws::String& name);

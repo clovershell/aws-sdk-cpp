@@ -17,7 +17,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for creating a new target domain</p><p><h3>See Also:</h3>   <a
+ * <p>Input for creating a new target domain.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateTargetDomainInput">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,7 @@ class CreateTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Domain name of the target domain</p>
+   * <p>The domain name to register as a target domain.</p>
    */
   inline const Aws::String& GetTargetDomainName() const { return m_targetDomainName; }
   inline bool TargetDomainNameHasBeenSet() const { return m_targetDomainNameHasBeenSet; }
@@ -53,7 +53,8 @@ class CreateTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Verification method for the target domain</p>
+   * <p>The method to use for verifying domain ownership. Valid values are DNS_TXT,
+   * HTTP_ROUTE, and PRIVATE_VPC.</p>
    */
   inline DomainVerificationMethod GetVerificationMethod() const { return m_verificationMethod; }
   inline bool VerificationMethodHasBeenSet() const { return m_verificationMethodHasBeenSet; }
@@ -69,7 +70,7 @@ class CreateTargetDomainRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Tags to associate with the target domain</p>
+   * <p>The tags to associate with the target domain.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }

@@ -20,7 +20,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Integrated resource details from a provider</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an integrated resource from a third-party provider. This is a
+ * union type that contains provider-specific resource information.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegratedResource">AWS
  * API Reference</a></p>
  */
@@ -33,7 +35,7 @@ class IntegratedResource {
 
   ///@{
   /**
-   * <p>GitHub repository resource</p>
+   * <p>The GitHub repository resource information.</p>
    */
   inline const GitHubRepositoryResource& GetGithubRepository() const { return m_githubRepository; }
   inline bool GithubRepositoryHasBeenSet() const { return m_githubRepositoryHasBeenSet; }

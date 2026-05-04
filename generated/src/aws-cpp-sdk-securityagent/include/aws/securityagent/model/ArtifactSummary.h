@@ -21,7 +21,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information about an artifact</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about an artifact.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ArtifactSummary">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class ArtifactSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the artifact</p>
+   * <p>The unique identifier of the artifact.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   inline bool ArtifactIdHasBeenSet() const { return m_artifactIdHasBeenSet; }
@@ -52,7 +52,7 @@ class ArtifactSummary {
 
   ///@{
   /**
-   * <p>Name of the artifact file</p>
+   * <p>The file name of the artifact.</p>
    */
   inline const Aws::String& GetFileName() const { return m_fileName; }
   inline bool FileNameHasBeenSet() const { return m_fileNameHasBeenSet; }
@@ -70,7 +70,7 @@ class ArtifactSummary {
 
   ///@{
   /**
-   * <p>Type of the artifact file</p>
+   * <p>The file type of the artifact.</p>
    */
   inline ArtifactType GetArtifactType() const { return m_artifactType; }
   inline bool ArtifactTypeHasBeenSet() const { return m_artifactTypeHasBeenSet; }

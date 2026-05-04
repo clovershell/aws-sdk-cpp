@@ -33,6 +33,10 @@ Aws::String ModifyVpnConnectionOptionsRequest::SerializePayload() const {
     ss << "RemoteIpv6NetworkCidr=" << StringUtils::URLEncode(m_remoteIpv6NetworkCidr.c_str()) << "&";
   }
 
+  if (m_tunnelBandwidthHasBeenSet) {
+    ss << "TunnelBandwidth=" << StringUtils::URLEncode(VpnTunnelBandwidthMapper::GetNameForVpnTunnelBandwidth(m_tunnelBandwidth)) << "&";
+  }
+
   if (m_dryRunHasBeenSet) {
     ss << "DryRun=" << std::boolalpha << m_dryRun << "&";
   }

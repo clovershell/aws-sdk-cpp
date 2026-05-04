@@ -15,7 +15,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for listing agent spaces</p><p><h3>See Also:</h3>   <a
+ * <p>Input for listing agent spaces.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListAgentSpacesInput">AWS
  * API Reference</a></p>
  */
@@ -33,7 +33,9 @@ class ListAgentSpacesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Token for pagination</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
@@ -51,7 +53,7 @@ class ListAgentSpacesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Maximum number of agent spaces to return</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
   inline int GetMaxResults() const { return m_maxResults; }
   inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }

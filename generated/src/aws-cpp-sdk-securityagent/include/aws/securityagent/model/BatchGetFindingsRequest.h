@@ -16,7 +16,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for BatchGetFindings operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for BatchGetFindings operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetFindingsInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class BatchGetFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of finding IDs to retrieve</p>
+   * <p>The list of finding identifiers to retrieve.</p>
    */
   inline const Aws::Vector<Aws::String>& GetFindingIds() const { return m_findingIds; }
   inline bool FindingIdsHasBeenSet() const { return m_findingIdsHasBeenSet; }
@@ -58,7 +58,7 @@ class BatchGetFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space where the findings exist</p>
+   * <p>The unique identifier of the agent space that contains the findings.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }

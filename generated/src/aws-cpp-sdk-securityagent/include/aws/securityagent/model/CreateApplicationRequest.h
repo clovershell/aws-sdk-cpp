@@ -31,8 +31,8 @@ class CreateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the IAM Identity Center instance used for user authentication.
-   * Optional for non-IdC applications</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to
+   * associate with the application.</p>
    */
   inline const Aws::String& GetIdcInstanceArn() const { return m_idcInstanceArn; }
   inline bool IdcInstanceArnHasBeenSet() const { return m_idcInstanceArnHasBeenSet; }
@@ -50,8 +50,8 @@ class CreateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the IAM role that the application uses to access AWS resources on your
-   * behalf</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the
+   * application.</p>
    */
   inline const Aws::String& GetRoleArn() const { return m_roleArn; }
   inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
@@ -69,7 +69,8 @@ class CreateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Default KMS key identifier used to encrypt application data</p>
+   * <p>The identifier of the default AWS KMS key to use for encrypting data in the
+   * application.</p>
    */
   inline const Aws::String& GetDefaultKmsKeyId() const { return m_defaultKmsKeyId; }
   inline bool DefaultKmsKeyIdHasBeenSet() const { return m_defaultKmsKeyIdHasBeenSet; }
@@ -87,7 +88,7 @@ class CreateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Tags to associate with the application</p>
+   * <p>The tags to associate with the application.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }

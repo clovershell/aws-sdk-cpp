@@ -27,7 +27,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a task within a pentest job</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an individual security test task within a pentest job. Each task
+ * targets a specific risk type or endpoint and executes
+ * independently.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Task">AWS
  * API Reference</a></p>
  */
@@ -40,7 +42,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Unique identifier for the task</p>
+   * <p>The unique identifier of the task.</p>
    */
   inline const Aws::String& GetTaskId() const { return m_taskId; }
   inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
@@ -58,7 +60,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Identifier of the parent pentest</p>
+   * <p>The unique identifier of the pentest associated with the task.</p>
    */
   inline const Aws::String& GetPentestId() const { return m_pentestId; }
   inline bool PentestIdHasBeenSet() const { return m_pentestIdHasBeenSet; }
@@ -76,7 +78,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job this task belongs to</p>
+   * <p>The unique identifier of the pentest job that contains the task.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -94,7 +96,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Identifier of the agent space this task belongs to</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -112,7 +114,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Title or name of the task</p>
+   * <p>The title of the task.</p>
    */
   inline const Aws::String& GetTitle() const { return m_title; }
   inline bool TitleHasBeenSet() const { return m_titleHasBeenSet; }
@@ -130,7 +132,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Detailed description of the task's purpose and scope</p>
+   * <p>A description of the task.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
@@ -148,7 +150,7 @@ class Task {
 
   ///@{
   /**
-   * <p>List of categories associated with this task</p>
+   * <p>The list of categories assigned to the task.</p>
    */
   inline const Aws::Vector<Category>& GetCategories() const { return m_categories; }
   inline bool CategoriesHasBeenSet() const { return m_categoriesHasBeenSet; }
@@ -172,7 +174,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Type of security risk this task is designed to test</p>
+   * <p>The type of security risk the task is testing for.</p>
    */
   inline RiskType GetRiskType() const { return m_riskType; }
   inline bool RiskTypeHasBeenSet() const { return m_riskTypeHasBeenSet; }
@@ -188,7 +190,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Target endpoint for this security test</p>
+   * <p>The target endpoint being tested by the task.</p>
    */
   inline const Endpoint& GetTargetEndpoint() const { return m_targetEndpoint; }
   inline bool TargetEndpointHasBeenSet() const { return m_targetEndpointHasBeenSet; }
@@ -206,7 +208,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Current status of the task execution</p>
+   * <p>The current execution status of the task.</p>
    */
   inline TaskExecutionStatus GetExecutionStatus() const { return m_executionStatus; }
   inline bool ExecutionStatusHasBeenSet() const { return m_executionStatusHasBeenSet; }
@@ -222,7 +224,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Location of execution logs for auditing and review</p>
+   * <p>The location of the task execution logs.</p>
    */
   inline const LogLocation& GetLogsLocation() const { return m_logsLocation; }
   inline bool LogsLocationHasBeenSet() const { return m_logsLocationHasBeenSet; }
@@ -240,7 +242,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Timestamp when the task was created</p>
+   * <p>The date and time the task was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -258,7 +260,7 @@ class Task {
 
   ///@{
   /**
-   * <p>Timestamp when the task was last updated</p>
+   * <p>The date and time the task was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

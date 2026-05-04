@@ -64,6 +64,11 @@ CreateResourceGatewayResult& CreateResourceGatewayResult::operator=(const Aws::A
     m_ipv4AddressesPerEni = jsonValue.GetInteger("ipv4AddressesPerEni");
     m_ipv4AddressesPerEniHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("resourceConfigDnsResolution")) {
+    m_resourceConfigDnsResolution =
+        ResourceConfigDnsResolutionMapper::GetResourceConfigDnsResolutionForName(jsonValue.GetString("resourceConfigDnsResolution"));
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+  }
 
   const auto& headers = result.GetHeaderValueCollection();
   const auto& requestIdIter = headers.find("x-amzn-requestid");

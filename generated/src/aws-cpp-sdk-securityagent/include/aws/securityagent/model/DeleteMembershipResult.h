@@ -23,7 +23,7 @@ namespace SecurityAgent {
 namespace Model {
 /**
  * <p>Response structure for removing a single member from an agent
- * space</p><p><h3>See Also:</h3>   <a
+ * space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteMembershipResponse">AWS
  * API Reference</a></p>
  */

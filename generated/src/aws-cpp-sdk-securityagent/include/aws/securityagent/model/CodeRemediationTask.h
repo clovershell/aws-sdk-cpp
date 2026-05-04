@@ -23,7 +23,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Information about task for code remediation</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a code remediation task that was initiated to fix a security
+ * finding.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CodeRemediationTask">AWS
  * API Reference</a></p>
  */
@@ -36,7 +37,7 @@ class CodeRemediationTask {
 
   ///@{
   /**
-   * <p>Current status of the code remediation task</p>
+   * <p>The current status of the code remediation task.</p>
    */
   inline CodeRemediationTaskStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -52,7 +53,7 @@ class CodeRemediationTask {
 
   ///@{
   /**
-   * <p>Reason for the current code remediation task status</p>
+   * <p>The reason for the current status of the code remediation task.</p>
    */
   inline const Aws::String& GetStatusReason() const { return m_statusReason; }
   inline bool StatusReasonHasBeenSet() const { return m_statusReasonHasBeenSet; }
@@ -70,7 +71,8 @@ class CodeRemediationTask {
 
   ///@{
   /**
-   * <p>Details of the code remediation for each repository</p>
+   * <p>The list of details for the code remediation task, including repository name,
+   * code diff link, and pull request link.</p>
    */
   inline const Aws::Vector<CodeRemediationTaskDetails>& GetTaskDetails() const { return m_taskDetails; }
   inline bool TaskDetailsHasBeenSet() const { return m_taskDetailsHasBeenSet; }

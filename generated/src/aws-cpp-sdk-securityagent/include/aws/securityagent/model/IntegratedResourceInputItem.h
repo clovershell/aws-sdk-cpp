@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input item for updating an integrated resource</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an input item for updating integrated resources, including the
+ * resource and its capabilities.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegratedResourceInputItem">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class IntegratedResourceInputItem {
 
   ///@{
   /**
-   * <p>Configuration of the resource</p>
+   * <p>The integrated resource to update.</p>
    */
   inline const IntegratedResource& GetResource() const { return m_resource; }
   inline bool ResourceHasBeenSet() const { return m_resourceHasBeenSet; }
@@ -52,7 +53,7 @@ class IntegratedResourceInputItem {
 
   ///@{
   /**
-   * <p>Provider-specific capabilities for the resource</p>
+   * <p>The capabilities to enable for the integrated resource.</p>
    */
   inline const ProviderResourceCapabilities& GetCapabilities() const { return m_capabilities; }
   inline bool CapabilitiesHasBeenSet() const { return m_capabilitiesHasBeenSet; }

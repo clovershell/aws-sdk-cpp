@@ -22,7 +22,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the UpdateFinding operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the UpdateFinding operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateFindingOutput">AWS
  * API Reference</a></p>
  */

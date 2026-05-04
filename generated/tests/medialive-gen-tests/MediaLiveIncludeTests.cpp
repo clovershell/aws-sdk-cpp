@@ -621,6 +621,7 @@
 #include <aws/medialive/model/MediaConnectFlowRequest.h>
 #include <aws/medialive/model/MediaConnectRouterContainerSettings.h>
 #include <aws/medialive/model/MediaConnectRouterGroupSettings.h>
+#include <aws/medialive/model/MediaConnectRouterOutputConnection.h>
 #include <aws/medialive/model/MediaConnectRouterOutputConnectionMap.h>
 #include <aws/medialive/model/MediaConnectRouterOutputDestinationSettings.h>
 #include <aws/medialive/model/MediaConnectRouterOutputEncryptionType.h>

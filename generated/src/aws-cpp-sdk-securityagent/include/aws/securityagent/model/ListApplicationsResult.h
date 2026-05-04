@@ -31,7 +31,7 @@ class ListApplicationsResult {
 
   ///@{
   /**
-   * <p>List of application summaries</p>
+   * <p>The list of application summaries.</p>
    */
   inline const Aws::Vector<ApplicationSummary>& GetApplicationSummaries() const { return m_applicationSummaries; }
   template <typename ApplicationSummariesT = Aws::Vector<ApplicationSummary>>
@@ -54,7 +54,9 @@ class ListApplicationsResult {
 
   ///@{
   /**
-   * <p>Token for next page of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

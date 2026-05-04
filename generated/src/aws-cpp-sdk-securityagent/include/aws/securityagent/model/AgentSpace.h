@@ -24,7 +24,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Agent space structure</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an agent space, which is a dedicated workspace for securing a
+ * specific application. An agent space contains the configuration, resources, and
+ * settings needed for security testing.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/AgentSpace">AWS
  * API Reference</a></p>
  */
@@ -37,7 +39,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -55,7 +57,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Name of the agent space</p>
+   * <p>The name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -73,7 +75,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Description of the agent space</p>
+   * <p>A description of the agent space.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
@@ -91,7 +93,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>AWS resource configurations</p>
+   * <p>The AWS resources associated with the agent space.</p>
    */
   inline const AWSResources& GetAwsResources() const { return m_awsResources; }
   inline bool AwsResourcesHasBeenSet() const { return m_awsResourcesHasBeenSet; }
@@ -109,7 +111,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>List of target domain IDs registered with the agent space</p>
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   inline bool TargetDomainIdsHasBeenSet() const { return m_targetDomainIdsHasBeenSet; }
@@ -133,8 +135,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Configuration for code review analysis, including controls scanning and
-   * general purpose scanning settings</p>
+   * <p>The code review settings for the agent space.</p>
    */
   inline const CodeReviewSettings& GetCodeReviewSettings() const { return m_codeReviewSettings; }
   inline bool CodeReviewSettingsHasBeenSet() const { return m_codeReviewSettingsHasBeenSet; }
@@ -152,8 +153,8 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN,
-   * alias name, or alias ARN. If not specified, an AWS managed key is used.</p>
+   * <p>The identifier of the AWS KMS key used to encrypt data in the agent
+   * space.</p>
    */
   inline const Aws::String& GetKmsKeyId() const { return m_kmsKeyId; }
   inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
@@ -171,7 +172,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was created</p>
+   * <p>The date and time the agent space was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -189,7 +190,7 @@ class AgentSpace {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was last updated</p>
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

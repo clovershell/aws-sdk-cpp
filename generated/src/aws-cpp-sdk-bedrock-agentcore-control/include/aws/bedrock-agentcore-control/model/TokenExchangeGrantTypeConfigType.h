@@ -22,7 +22,7 @@ namespace BedrockAgentCoreControl {
 namespace Model {
 
 /**
- * <p>Configuration for RFC 8693 Token Exchange</p><p><h3>See Also:</h3>   <a
+ * <p>Configuration for RFC 8693 token exchange.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/bedrock-agentcore-control-2023-06-05/TokenExchangeGrantTypeConfigType">AWS
  * API Reference</a></p>
  */
@@ -51,7 +51,7 @@ class TokenExchangeGrantTypeConfigType {
 
   ///@{
   /**
-   * <p>Only valid when actorTokenContent is M2M</p>
+   * <p>The scopes for the actor token. Only valid when actorTokenContent is M2M.</p>
    */
   inline const Aws::Vector<Aws::String>& GetActorTokenScopes() const { return m_actorTokenScopes; }
   inline bool ActorTokenScopesHasBeenSet() const { return m_actorTokenScopesHasBeenSet; }

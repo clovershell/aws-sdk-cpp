@@ -75,6 +75,18 @@ ConfigurationTemplate& ConfigurationTemplate::operator=(JsonView jsonValue) {
     }
     m_allowedSuffixPathFieldsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("deliverySourceConfiguration")) {
+    Aws::Utils::Array<JsonView> deliverySourceConfigurationJsonList = jsonValue.GetArray("deliverySourceConfiguration");
+    for (unsigned deliverySourceConfigurationIndex = 0; deliverySourceConfigurationIndex < deliverySourceConfigurationJsonList.GetLength();
+         ++deliverySourceConfigurationIndex) {
+      m_deliverySourceConfiguration.push_back(deliverySourceConfigurationJsonList[deliverySourceConfigurationIndex].AsObject());
+    }
+    m_deliverySourceConfigurationHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("s3TablesIntegration")) {
+    m_s3TablesIntegration = jsonValue.GetObject("s3TablesIntegration");
+    m_s3TablesIntegrationHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -140,6 +152,20 @@ JsonValue ConfigurationTemplate::Jsonize() const {
       allowedSuffixPathFieldsJsonList[allowedSuffixPathFieldsIndex].AsString(m_allowedSuffixPathFields[allowedSuffixPathFieldsIndex]);
     }
     payload.WithArray("allowedSuffixPathFields", std::move(allowedSuffixPathFieldsJsonList));
+  }
+
+  if (m_deliverySourceConfigurationHasBeenSet) {
+    Aws::Utils::Array<JsonValue> deliverySourceConfigurationJsonList(m_deliverySourceConfiguration.size());
+    for (unsigned deliverySourceConfigurationIndex = 0; deliverySourceConfigurationIndex < deliverySourceConfigurationJsonList.GetLength();
+         ++deliverySourceConfigurationIndex) {
+      deliverySourceConfigurationJsonList[deliverySourceConfigurationIndex].AsObject(
+          m_deliverySourceConfiguration[deliverySourceConfigurationIndex].Jsonize());
+    }
+    payload.WithArray("deliverySourceConfiguration", std::move(deliverySourceConfigurationJsonList));
+  }
+
+  if (m_s3TablesIntegrationHasBeenSet) {
+    payload.WithObject("s3TablesIntegration", m_s3TablesIntegration.Jsonize());
   }
 
   return payload;

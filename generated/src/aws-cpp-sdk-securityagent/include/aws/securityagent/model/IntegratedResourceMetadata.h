@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Metadata about an integrated resource</p><p><h3>See Also:</h3>   <a
+ * <p>Contains metadata about an integrated resource. This is a union type that
+ * contains provider-specific metadata.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegratedResourceMetadata">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class IntegratedResourceMetadata {
 
   ///@{
   /**
-   * <p>Metadata for a GitHub repository resource</p>
+   * <p>The GitHub repository metadata.</p>
    */
   inline const GitHubRepositoryMetadata& GetGithubRepository() const { return m_githubRepository; }
   inline bool GithubRepositoryHasBeenSet() const { return m_githubRepositoryHasBeenSet; }

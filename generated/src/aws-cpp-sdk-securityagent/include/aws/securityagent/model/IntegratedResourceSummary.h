@@ -22,8 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information about an integrated resource</p><p><h3>See Also:</h3>
- * <a
+ * <p>Contains summary information about an integrated resource.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegratedResourceSummary">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,8 @@ class IntegratedResourceSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the integration</p>
+   * <p>The unique identifier of the integration that provides access to the
+   * resource.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }
@@ -54,7 +55,7 @@ class IntegratedResourceSummary {
 
   ///@{
   /**
-   * <p>The integrated resource details</p>
+   * <p>The metadata for the integrated resource.</p>
    */
   inline const IntegratedResourceMetadata& GetResource() const { return m_resource; }
   inline bool ResourceHasBeenSet() const { return m_resourceHasBeenSet; }
@@ -72,7 +73,7 @@ class IntegratedResourceSummary {
 
   ///@{
   /**
-   * <p>Capabilities of the integrated resource</p>
+   * <p>The capabilities enabled for the integrated resource.</p>
    */
   inline const ProviderResourceCapabilities& GetCapabilities() const { return m_capabilities; }
   inline bool CapabilitiesHasBeenSet() const { return m_capabilitiesHasBeenSet; }

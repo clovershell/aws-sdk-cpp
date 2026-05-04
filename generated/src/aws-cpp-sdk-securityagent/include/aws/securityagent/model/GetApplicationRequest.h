@@ -30,7 +30,7 @@ class GetApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Application ID</p>
+   * <p>The unique identifier of the application to retrieve.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }

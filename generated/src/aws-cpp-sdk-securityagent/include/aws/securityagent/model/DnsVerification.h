@@ -21,7 +21,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents dns txt verification details</p><p><h3>See Also:</h3>   <a
+ * <p>Contains DNS verification details for a target domain, including the DNS
+ * record to create for domain ownership verification.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DnsVerification">AWS
  * API Reference</a></p>
  */
@@ -34,7 +36,7 @@ class DnsVerification {
 
   ///@{
   /**
-   * <p>Token used to verify domain ownership</p>
+   * <p>The verification token to include in the DNS record value.</p>
    */
   inline const Aws::String& GetToken() const { return m_token; }
   inline bool TokenHasBeenSet() const { return m_tokenHasBeenSet; }
@@ -52,7 +54,7 @@ class DnsVerification {
 
   ///@{
   /**
-   * <p>Record name to be added in DNS for target domain</p>
+   * <p>The name of the DNS record to create for verification.</p>
    */
   inline const Aws::String& GetDnsRecordName() const { return m_dnsRecordName; }
   inline bool DnsRecordNameHasBeenSet() const { return m_dnsRecordNameHasBeenSet; }
@@ -70,7 +72,7 @@ class DnsVerification {
 
   ///@{
   /**
-   * <p>Type of record to be added in DNS for target domain</p>
+   * <p>The type of DNS record to create. Currently, only TXT is supported.</p>
    */
   inline DNSRecordType GetDnsRecordType() const { return m_dnsRecordType; }
   inline bool DnsRecordTypeHasBeenSet() const { return m_dnsRecordTypeHasBeenSet; }

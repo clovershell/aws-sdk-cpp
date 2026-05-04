@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a category classification for tasks</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a category assigned to a security testing task.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Category">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class Category {
 
   ///@{
   /**
-   * <p>Name of the category</p>
+   * <p>The name of the category.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -51,7 +52,7 @@ class Category {
 
   ///@{
   /**
-   * <p>Whether this is the primary category for the task</p>
+   * <p>Indicates whether this is the primary category for the task.</p>
    */
   inline bool GetIsPrimary() const { return m_isPrimary; }
   inline bool IsPrimaryHasBeenSet() const { return m_isPrimaryHasBeenSet; }

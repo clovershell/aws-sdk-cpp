@@ -31,7 +31,7 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the integration</p>
+   * <p>The unique identifier of the integration.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   template <typename IntegrationIdT = Aws::String>
@@ -48,7 +48,7 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>Installation identifier from the provider</p>
+   * <p>The installation identifier from the integration provider.</p>
    */
   inline const Aws::String& GetInstallationId() const { return m_installationId; }
   template <typename InstallationIdT = Aws::String>
@@ -65,7 +65,7 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>Provider type</p>
+   * <p>The integration provider.</p>
    */
   inline Provider GetProvider() const { return m_provider; }
   inline void SetProvider(Provider value) {
@@ -80,7 +80,7 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>Type of provider integration</p>
+   * <p>The type of the integration provider.</p>
    */
   inline ProviderType GetProviderType() const { return m_providerType; }
   inline void SetProviderType(ProviderType value) {
@@ -95,7 +95,7 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>Display name for the integration</p>
+   * <p>The display name of the integration.</p>
    */
   inline const Aws::String& GetDisplayName() const { return m_displayName; }
   template <typename DisplayNameT = Aws::String>
@@ -112,7 +112,8 @@ class GetIntegrationResult {
 
   ///@{
   /**
-   * <p>KMS key ID for encrypting integration details</p>
+   * <p>The identifier of the AWS KMS key used to encrypt data associated with the
+   * integration.</p>
    */
   inline const Aws::String& GetKmsKeyId() const { return m_kmsKeyId; }
   template <typename KmsKeyIdT = Aws::String>

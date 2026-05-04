@@ -20,7 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Request denied due to throttling</p><p><h3>See Also:</h3>   <a
+ * <p>The request was denied due to request throttling.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ThrottlingException">AWS
  * API Reference</a></p>
  */
@@ -33,7 +34,7 @@ class ThrottlingException {
 
   ///@{
   /**
-   * <p>Error description</p>
+   * <p>Error description.</p>
    */
   inline const Aws::String& GetMessage() const { return m_message; }
   inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
@@ -51,7 +52,7 @@ class ThrottlingException {
 
   ///@{
   /**
-   * <p>Service code for throttling limit</p>
+   * <p>Service code for throttling limit.</p>
    */
   inline const Aws::String& GetServiceCode() const { return m_serviceCode; }
   inline bool ServiceCodeHasBeenSet() const { return m_serviceCodeHasBeenSet; }
@@ -69,7 +70,7 @@ class ThrottlingException {
 
   ///@{
   /**
-   * <p>Quota code for throttling limit</p>
+   * <p>Quota code for throttling limit.</p>
    */
   inline const Aws::String& GetQuotaCode() const { return m_quotaCode; }
   inline bool QuotaCodeHasBeenSet() const { return m_quotaCodeHasBeenSet; }

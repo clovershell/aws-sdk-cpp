@@ -22,8 +22,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents an entity that interacts with the system during security
- * testing</p><p><h3>See Also:</h3>   <a
+ * <p>Represents an actor used during penetration testing. An actor defines a user
+ * or entity that interacts with the target application, including authentication
+ * credentials and target URIs.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Actor">AWS
  * API Reference</a></p>
  */
@@ -36,7 +37,7 @@ class Actor {
 
   ///@{
   /**
-   * <p>Unique identifier for the actor (case-insensitive)</p>
+   * <p>The unique identifier for the actor.</p>
    */
   inline const Aws::String& GetIdentifier() const { return m_identifier; }
   inline bool IdentifierHasBeenSet() const { return m_identifierHasBeenSet; }
@@ -54,7 +55,7 @@ class Actor {
 
   ///@{
   /**
-   * <p>List of URIs accessible with the actor's credentials</p>
+   * <p>The list of URIs that the actor targets during testing.</p>
    */
   inline const Aws::Vector<Aws::String>& GetUris() const { return m_uris; }
   inline bool UrisHasBeenSet() const { return m_urisHasBeenSet; }
@@ -78,7 +79,7 @@ class Actor {
 
   ///@{
   /**
-   * <p>Authentication information used by the actor to access resources</p>
+   * <p>The authentication configuration for the actor.</p>
    */
   inline const Authentication& GetAuthentication() const { return m_authentication; }
   inline bool AuthenticationHasBeenSet() const { return m_authenticationHasBeenSet; }
@@ -96,7 +97,7 @@ class Actor {
 
   ///@{
   /**
-   * <p>Additional description or details about the actor</p>
+   * <p>A description of the actor.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }

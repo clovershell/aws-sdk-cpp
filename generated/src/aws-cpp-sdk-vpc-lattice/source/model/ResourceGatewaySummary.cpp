@@ -60,6 +60,11 @@ ResourceGatewaySummary& ResourceGatewaySummary::operator=(JsonView jsonValue) {
     m_ipv4AddressesPerEni = jsonValue.GetInteger("ipv4AddressesPerEni");
     m_ipv4AddressesPerEniHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("resourceConfigDnsResolution")) {
+    m_resourceConfigDnsResolution =
+        ResourceConfigDnsResolutionMapper::GetResourceConfigDnsResolutionForName(jsonValue.GetString("resourceConfigDnsResolution"));
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("createdAt")) {
     m_createdAt = jsonValue.GetString("createdAt");
     m_createdAtHasBeenSet = true;
@@ -116,6 +121,11 @@ JsonValue ResourceGatewaySummary::Jsonize() const {
 
   if (m_ipv4AddressesPerEniHasBeenSet) {
     payload.WithInteger("ipv4AddressesPerEni", m_ipv4AddressesPerEni);
+  }
+
+  if (m_resourceConfigDnsResolutionHasBeenSet) {
+    payload.WithString("resourceConfigDnsResolution",
+                       ResourceConfigDnsResolutionMapper::GetNameForResourceConfigDnsResolution(m_resourceConfigDnsResolution));
   }
 
   if (m_createdAtHasBeenSet) {

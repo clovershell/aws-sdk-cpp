@@ -22,8 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Additional context about a pentest or task execution</p><p><h3>See Also:</h3>
- * <a
+ * <p>Contains contextual information about the execution of a pentest job, such as
+ * errors, warnings, or informational messages.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ExecutionContext">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,8 @@ class ExecutionContext {
 
   ///@{
   /**
-   * <p>The category of context</p>
+   * <p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and
+   * INFO.</p>
    */
   inline ContextType GetContextType() const { return m_contextType; }
   inline bool ContextTypeHasBeenSet() const { return m_contextTypeHasBeenSet; }
@@ -52,7 +53,7 @@ class ExecutionContext {
 
   ///@{
   /**
-   * <p>Context associated with a pentest or task execution</p>
+   * <p>The context message.</p>
    */
   inline const Aws::String& GetContext() const { return m_context; }
   inline bool ContextHasBeenSet() const { return m_contextHasBeenSet; }
@@ -70,7 +71,7 @@ class ExecutionContext {
 
   ///@{
   /**
-   * <p>Timestamp associated with a pentest or task execution</p>
+   * <p>The date and time the context was recorded, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetTimestamp() const { return m_timestamp; }
   inline bool TimestampHasBeenSet() const { return m_timestampHasBeenSet; }

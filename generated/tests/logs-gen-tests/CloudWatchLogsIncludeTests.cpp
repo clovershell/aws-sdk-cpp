@@ -82,6 +82,10 @@
 #include <aws/logs/model/DeliveryDestinationConfiguration.h>
 #include <aws/logs/model/DeliveryDestinationType.h>
 #include <aws/logs/model/DeliverySource.h>
+#include <aws/logs/model/DeliverySourceConfigurationSchema.h>
+#include <aws/logs/model/DeliverySourceConfigurationSchemaValueType.h>
+#include <aws/logs/model/DeliverySourceStatus.h>
+#include <aws/logs/model/DeliverySourceStatusReason.h>
 #include <aws/logs/model/DescribeAccountPoliciesRequest.h>
 #include <aws/logs/model/DescribeAccountPoliciesResult.h>
 #include <aws/logs/model/DescribeConfigurationTemplatesRequest.h>
@@ -312,6 +316,7 @@
 #include <aws/logs/model/S3DeliveryConfiguration.h>
 #include <aws/logs/model/S3TableIntegrationSource.h>
 #include <aws/logs/model/S3TableIntegrationSourceStatus.h>
+#include <aws/logs/model/S3TablesIntegration.h>
 #include <aws/logs/model/ScheduledQueryDestination.h>
 #include <aws/logs/model/ScheduledQueryDestinationType.h>
 #include <aws/logs/model/ScheduledQueryState.h>

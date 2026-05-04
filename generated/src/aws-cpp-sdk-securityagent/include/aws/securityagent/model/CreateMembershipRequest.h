@@ -17,7 +17,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Request structure for adding a single member to an agent space</p><p><h3>See
+ * <p>Request structure for adding a single member to an agent space.</p><p><h3>See
  * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateMembershipRequest">AWS
  * API Reference</a></p>
@@ -36,7 +36,7 @@ class CreateMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Application identifier</p>
+   * <p>The unique identifier of the application that contains the agent space.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -54,7 +54,7 @@ class CreateMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Agent space identifier</p>
+   * <p>The unique identifier of the agent space to grant access to.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -72,7 +72,7 @@ class CreateMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Member identifier (userId or agentSpaceId)</p>
+   * <p>The unique identifier for the membership.</p>
    */
   inline const Aws::String& GetMembershipId() const { return m_membershipId; }
   inline bool MembershipIdHasBeenSet() const { return m_membershipIdHasBeenSet; }
@@ -90,7 +90,7 @@ class CreateMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Type of member (USER or AGENT_SPACE)</p>
+   * <p>The type of member. Currently, only USER is supported.</p>
    */
   inline MembershipType GetMemberType() const { return m_memberType; }
   inline bool MemberTypeHasBeenSet() const { return m_memberTypeHasBeenSet; }
@@ -106,7 +106,7 @@ class CreateMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Membership details (user or agent specific)</p>
+   * <p>The configuration for the membership, such as the user role.</p>
    */
   inline const MembershipConfig& GetConfig() const { return m_config; }
   inline bool ConfigHasBeenSet() const { return m_configHasBeenSet; }

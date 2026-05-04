@@ -20,6 +20,7 @@ static const int Other_HASH = HashingUtils::HashString("Other");
 static const int ViolatedAvoidDirtRoad_HASH = HashingUtils::HashString("ViolatedAvoidDirtRoad");
 static const int ViolatedAvoidTunnel_HASH = HashingUtils::HashString("ViolatedAvoidTunnel");
 static const int ViolatedPedestrianOption_HASH = HashingUtils::HashString("ViolatedPedestrianOption");
+static const int ViolatedAvoidAreas_HASH = HashingUtils::HashString("ViolatedAvoidAreas");
 
 RoutePedestrianNoticeCode GetRoutePedestrianNoticeCodeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
@@ -33,6 +34,8 @@ RoutePedestrianNoticeCode GetRoutePedestrianNoticeCodeForName(const Aws::String&
     return RoutePedestrianNoticeCode::ViolatedAvoidTunnel;
   } else if (hashCode == ViolatedPedestrianOption_HASH) {
     return RoutePedestrianNoticeCode::ViolatedPedestrianOption;
+  } else if (hashCode == ViolatedAvoidAreas_HASH) {
+    return RoutePedestrianNoticeCode::ViolatedAvoidAreas;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -57,6 +60,8 @@ Aws::String GetNameForRoutePedestrianNoticeCode(RoutePedestrianNoticeCode enumVa
       return "ViolatedAvoidTunnel";
     case RoutePedestrianNoticeCode::ViolatedPedestrianOption:
       return "ViolatedPedestrianOption";
+    case RoutePedestrianNoticeCode::ViolatedAvoidAreas:
+      return "ViolatedAvoidAreas";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

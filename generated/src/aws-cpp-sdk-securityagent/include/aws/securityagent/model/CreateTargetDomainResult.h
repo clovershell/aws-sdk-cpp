@@ -25,7 +25,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the CreateTargetDomain operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the CreateTargetDomain operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateTargetDomainOutput">AWS
  * API Reference</a></p>
  */
@@ -37,7 +37,7 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the created target domain</p>
+   * <p>The unique identifier of the created target domain.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   template <typename TargetDomainIdT = Aws::String>
@@ -54,7 +54,7 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Name of the created target domain</p>
+   * <p>The domain name of the target domain.</p>
    */
   inline const Aws::String& GetDomainName() const { return m_domainName; }
   template <typename DomainNameT = Aws::String>
@@ -71,7 +71,7 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Current verification status of the registered target domain</p>
+   * <p>The current verification status of the target domain.</p>
    */
   inline TargetDomainStatus GetVerificationStatus() const { return m_verificationStatus; }
   inline void SetVerificationStatus(TargetDomainStatus value) {
@@ -86,7 +86,25 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Verification details to verify registered target domain</p>
+   * <p>The reason for the current target domain verification status.</p>
+   */
+  inline const Aws::String& GetVerificationStatusReason() const { return m_verificationStatusReason; }
+  template <typename VerificationStatusReasonT = Aws::String>
+  void SetVerificationStatusReason(VerificationStatusReasonT&& value) {
+    m_verificationStatusReasonHasBeenSet = true;
+    m_verificationStatusReason = std::forward<VerificationStatusReasonT>(value);
+  }
+  template <typename VerificationStatusReasonT = Aws::String>
+  CreateTargetDomainResult& WithVerificationStatusReason(VerificationStatusReasonT&& value) {
+    SetVerificationStatusReason(std::forward<VerificationStatusReasonT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The verification details for the target domain, including the verification
+   * token and instructions.</p>
    */
   inline const VerificationDetails& GetVerificationDetails() const { return m_verificationDetails; }
   template <typename VerificationDetailsT = VerificationDetails>
@@ -103,7 +121,7 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Timestamp when the target domain was registered</p>
+   * <p>The date and time the target domain was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>
@@ -120,7 +138,7 @@ class CreateTargetDomainResult {
 
   ///@{
   /**
-   * <p>Timestamp when the target domain was last successfully verified</p>
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetVerifiedAt() const { return m_verifiedAt; }
   template <typename VerifiedAtT = Aws::Utils::DateTime>
@@ -158,6 +176,8 @@ class CreateTargetDomainResult {
 
   TargetDomainStatus m_verificationStatus{TargetDomainStatus::NOT_SET};
 
+  Aws::String m_verificationStatusReason;
+
   VerificationDetails m_verificationDetails;
 
   Aws::Utils::DateTime m_createdAt{};
@@ -169,6 +189,7 @@ class CreateTargetDomainResult {
   bool m_targetDomainIdHasBeenSet = false;
   bool m_domainNameHasBeenSet = false;
   bool m_verificationStatusHasBeenSet = false;
+  bool m_verificationStatusReasonHasBeenSet = false;
   bool m_verificationDetailsHasBeenSet = false;
   bool m_createdAtHasBeenSet = false;
   bool m_verifiedAtHasBeenSet = false;

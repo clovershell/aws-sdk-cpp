@@ -25,8 +25,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Collection of assets to be tested or used during a pentest</p><p><h3>See
- * Also:</h3>   <a
+ * <p>The collection of assets used in a pentest configuration, including
+ * endpoints, actors, documents, source code repositories, and integrated
+ * repositories.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Assets">AWS
  * API Reference</a></p>
  */
@@ -39,7 +40,7 @@ class Assets {
 
   ///@{
   /**
-   * <p>List of web application endpoints to test</p>
+   * <p>The list of endpoints to test during the pentest.</p>
    */
   inline const Aws::Vector<Endpoint>& GetEndpoints() const { return m_endpoints; }
   inline bool EndpointsHasBeenSet() const { return m_endpointsHasBeenSet; }
@@ -63,7 +64,7 @@ class Assets {
 
   ///@{
   /**
-   * <p>List of actors that interact with the system</p>
+   * <p>The list of actors used during penetration testing.</p>
    */
   inline const Aws::Vector<Actor>& GetActors() const { return m_actors; }
   inline bool ActorsHasBeenSet() const { return m_actorsHasBeenSet; }
@@ -87,7 +88,7 @@ class Assets {
 
   ///@{
   /**
-   * <p>List of documents providing context for testing</p>
+   * <p>The list of documents that provide context for the pentest.</p>
    */
   inline const Aws::Vector<DocumentInfo>& GetDocuments() const { return m_documents; }
   inline bool DocumentsHasBeenSet() const { return m_documentsHasBeenSet; }
@@ -111,7 +112,7 @@ class Assets {
 
   ///@{
   /**
-   * <p>List of source code repositories for static analysis</p>
+   * <p>The list of source code repositories to analyze during the pentest.</p>
    */
   inline const Aws::Vector<SourceCodeRepository>& GetSourceCode() const { return m_sourceCode; }
   inline bool SourceCodeHasBeenSet() const { return m_sourceCodeHasBeenSet; }
@@ -135,7 +136,7 @@ class Assets {
 
   ///@{
   /**
-   * <p>List of integrated code repositories</p>
+   * <p>The list of integrated repositories associated with the pentest.</p>
    */
   inline const Aws::Vector<IntegratedRepository>& GetIntegratedRepositories() const { return m_integratedRepositories; }
   inline bool IntegratedRepositoriesHasBeenSet() const { return m_integratedRepositoriesHasBeenSet; }

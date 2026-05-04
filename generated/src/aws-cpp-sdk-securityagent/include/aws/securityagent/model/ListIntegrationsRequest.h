@@ -31,7 +31,7 @@ class ListIntegrationsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter criteria for integrations</p>
+   * <p>A filter to apply to the list of integrations.</p>
    */
   inline const IntegrationFilter& GetFilter() const { return m_filter; }
   inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
@@ -49,7 +49,9 @@ class ListIntegrationsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Token for pagination</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
@@ -67,7 +69,7 @@ class ListIntegrationsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Maximum number of results to return</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
   inline int GetMaxResults() const { return m_maxResults; }
   inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }

@@ -20,8 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a web application endpoint to be tested</p><p><h3>See Also:</h3>
- * <a
+ * <p>Represents a target endpoint for penetration testing.</p><p><h3>See
+ * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Endpoint">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class Endpoint {
 
   ///@{
   /**
-   * <p>URI of the endpoint to test</p>
+   * <p>The URI of the endpoint.</p>
    */
   inline const Aws::String& GetUri() const { return m_uri; }
   inline bool UriHasBeenSet() const { return m_uriHasBeenSet; }

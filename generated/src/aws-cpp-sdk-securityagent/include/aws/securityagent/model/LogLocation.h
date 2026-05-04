@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Location information for execution logs</p><p><h3>See Also:</h3>   <a
+ * <p>The log location for a task, specifying where task execution logs are
+ * stored.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/LogLocation">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class LogLocation {
 
   ///@{
   /**
-   * <p>Type of log storage</p>
+   * <p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>
    */
   inline LogType GetLogType() const { return m_logType; }
   inline bool LogTypeHasBeenSet() const { return m_logTypeHasBeenSet; }
@@ -50,7 +51,7 @@ class LogLocation {
 
   ///@{
   /**
-   * <p>CloudWatch log information if logs are stored in CloudWatch</p>
+   * <p>The CloudWatch Logs location for the task logs.</p>
    */
   inline const CloudWatchLog& GetCloudWatchLog() const { return m_cloudWatchLog; }
   inline bool CloudWatchLogHasBeenSet() const { return m_cloudWatchLogHasBeenSet; }

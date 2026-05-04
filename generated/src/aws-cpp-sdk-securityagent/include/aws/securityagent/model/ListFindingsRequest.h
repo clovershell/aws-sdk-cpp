@@ -18,7 +18,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for ListFindings operation with filtering support</p><p><h3>See
+ * <p>Input for ListFindings operation with filtering support.</p><p><h3>See
  * Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListFindingsInput">AWS
  * API Reference</a></p>
@@ -37,7 +37,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Maximum number of findings to return in a single request (default: 50)</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
   inline int GetMaxResults() const { return m_maxResults; }
   inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
@@ -53,7 +53,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job for which to retrieve associated findings</p>
+   * <p>The unique identifier of the pentest job to list findings for.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -71,7 +71,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ID of the agent space where the pentest job exists</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -89,7 +89,9 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Token for pagination</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
@@ -107,7 +109,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter findings by risk type</p>
+   * <p>Filter findings by risk type.</p>
    */
   inline const Aws::String& GetRiskType() const { return m_riskType; }
   inline bool RiskTypeHasBeenSet() const { return m_riskTypeHasBeenSet; }
@@ -125,7 +127,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter findings by risk level</p>
+   * <p>Filter findings by risk level.</p>
    */
   inline RiskLevel GetRiskLevel() const { return m_riskLevel; }
   inline bool RiskLevelHasBeenSet() const { return m_riskLevelHasBeenSet; }
@@ -141,7 +143,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter findings by status</p>
+   * <p>Filter findings by status.</p>
    */
   inline FindingStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -157,7 +159,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter findings by confidence level</p>
+   * <p>Filter findings by confidence level.</p>
    */
   inline ConfidenceLevel GetConfidence() const { return m_confidence; }
   inline bool ConfidenceHasBeenSet() const { return m_confidenceHasBeenSet; }
@@ -173,7 +175,7 @@ class ListFindingsRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Filter findings by name (case-insensitive substring search)</p>
+   * <p>Filter findings by name.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }

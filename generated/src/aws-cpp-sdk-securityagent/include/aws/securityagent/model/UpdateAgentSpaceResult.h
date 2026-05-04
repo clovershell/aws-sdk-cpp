@@ -26,7 +26,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the UpdateAgentSpace operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the UpdateAgentSpace operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UpdateAgentSpaceOutput">AWS
  * API Reference</a></p>
  */
@@ -38,7 +38,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the updated agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   template <typename AgentSpaceIdT = Aws::String>
@@ -55,7 +55,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Name of the agent space</p>
+   * <p>The name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   template <typename NameT = Aws::String>
@@ -72,7 +72,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Description of the agent space</p>
+   * <p>The description of the agent space.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   template <typename DescriptionT = Aws::String>
@@ -89,7 +89,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>AWS resource configurations associated with the agent space</p>
+   * <p>The AWS resources associated with the agent space.</p>
    */
   inline const AWSResources& GetAwsResources() const { return m_awsResources; }
   template <typename AwsResourcesT = AWSResources>
@@ -106,7 +106,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>List of target domain IDs registered with the agent space</p>
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   template <typename TargetDomainIdsT = Aws::Vector<Aws::String>>
@@ -129,8 +129,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Configuration for code review analysis, including controls scanning and
-   * general purpose scanning settings</p>
+   * <p>The code review settings for the agent space.</p>
    */
   inline const CodeReviewSettings& GetCodeReviewSettings() const { return m_codeReviewSettings; }
   template <typename CodeReviewSettingsT = CodeReviewSettings>
@@ -147,7 +146,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was created</p>
+   * <p>The date and time the agent space was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>
@@ -164,7 +163,7 @@ class UpdateAgentSpaceResult {
 
   ///@{
   /**
-   * <p>Timestamp when the agent space was last updated</p>
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   template <typename UpdatedAtT = Aws::Utils::DateTime>

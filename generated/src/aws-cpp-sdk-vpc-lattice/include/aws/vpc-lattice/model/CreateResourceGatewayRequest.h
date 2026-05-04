@@ -10,6 +10,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/vpc-lattice/VPCLatticeRequest.h>
 #include <aws/vpc-lattice/VPCLattice_EXPORTS.h>
+#include <aws/vpc-lattice/model/ResourceConfigDnsResolution.h>
 #include <aws/vpc-lattice/model/ResourceGatewayIpAddressType.h>
 
 #include <utility>
@@ -186,6 +187,32 @@ class CreateResourceGatewayRequest : public VPCLatticeRequest {
 
   ///@{
   /**
+   * <p>Indicates how DNS is resolved for resource configurations associated to this
+   * resource gateway. ResourceConfigDnsResolution is set at creation time and cannot
+   * be changed.</p> <ul> <li> <p> <code>IN_VPC</code> - DNS resolution occurs
+   * privately within the resource gateway's VPC. DNS queries for resources behind
+   * this resource gateway resolve using the DNS resolvers defined in the VPC's DHCP
+   * option sets. Use this when your resource domain names are hosted in private
+   * Route 53 hosted zones or on-premises DNS servers reachable from the VPC.</p>
+   * </li> <li> <p> <code>PUBLIC</code> - DNS resolution occurs against public DNS
+   * resolvers. DNS queries for resources behind this resource gateway resolve using
+   * standard public DNS. Use this when your resource domain names are publicly
+   * resolvable.</p> </li> </ul>
+   */
+  inline ResourceConfigDnsResolution GetResourceConfigDnsResolution() const { return m_resourceConfigDnsResolution; }
+  inline bool ResourceConfigDnsResolutionHasBeenSet() const { return m_resourceConfigDnsResolutionHasBeenSet; }
+  inline void SetResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+    m_resourceConfigDnsResolution = value;
+  }
+  inline CreateResourceGatewayRequest& WithResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    SetResourceConfigDnsResolution(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>The tags for the resource gateway.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
@@ -222,6 +249,8 @@ class CreateResourceGatewayRequest : public VPCLatticeRequest {
 
   int m_ipv4AddressesPerEni{0};
 
+  ResourceConfigDnsResolution m_resourceConfigDnsResolution{ResourceConfigDnsResolution::NOT_SET};
+
   Aws::Map<Aws::String, Aws::String> m_tags;
   bool m_clientTokenHasBeenSet = true;
   bool m_nameHasBeenSet = false;
@@ -230,6 +259,7 @@ class CreateResourceGatewayRequest : public VPCLatticeRequest {
   bool m_securityGroupIdsHasBeenSet = false;
   bool m_ipAddressTypeHasBeenSet = false;
   bool m_ipv4AddressesPerEniHasBeenSet = false;
+  bool m_resourceConfigDnsResolutionHasBeenSet = false;
   bool m_tagsHasBeenSet = false;
 };
 

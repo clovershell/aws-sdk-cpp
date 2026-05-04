@@ -21,8 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Metadata specific to a GitHub repository integrated resource</p><p><h3>See
- * Also:</h3>   <a
+ * <p>Contains metadata about a GitHub repository that is integrated with the
+ * service.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/GitHubRepositoryMetadata">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,7 @@ class GitHubRepositoryMetadata {
 
   ///@{
   /**
-   * <p>Name of the resource e.g. repository name, etc</p>
+   * <p>The name of the GitHub repository.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -53,7 +53,7 @@ class GitHubRepositoryMetadata {
 
   ///@{
   /**
-   * <p>Unique resource identifier from the vendor</p>
+   * <p>The provider-specific resource identifier for the GitHub repository.</p>
    */
   inline const Aws::String& GetProviderResourceId() const { return m_providerResourceId; }
   inline bool ProviderResourceIdHasBeenSet() const { return m_providerResourceIdHasBeenSet; }
@@ -71,7 +71,7 @@ class GitHubRepositoryMetadata {
 
   ///@{
   /**
-   * <p>Owner of the repository</p>
+   * <p>The owner of the GitHub repository.</p>
    */
   inline const Aws::String& GetOwner() const { return m_owner; }
   inline bool OwnerHasBeenSet() const { return m_ownerHasBeenSet; }
@@ -89,7 +89,8 @@ class GitHubRepositoryMetadata {
 
   ///@{
   /**
-   * <p>Access / Visibility Type of the integrated resource</p>
+   * <p>The access type of the GitHub repository. Valid values are PRIVATE and
+   * PUBLIC.</p>
    */
   inline AccessType GetAccessType() const { return m_accessType; }
   inline bool AccessTypeHasBeenSet() const { return m_accessTypeHasBeenSet; }

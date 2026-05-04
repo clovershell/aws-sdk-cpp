@@ -21,7 +21,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information for a target domain</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about a target domain.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/TargetDomainSummary">AWS
  * API Reference</a></p>
  */
@@ -34,7 +35,7 @@ class TargetDomainSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the target domain</p>
+   * <p>The unique identifier of the target domain.</p>
    */
   inline const Aws::String& GetTargetDomainId() const { return m_targetDomainId; }
   inline bool TargetDomainIdHasBeenSet() const { return m_targetDomainIdHasBeenSet; }
@@ -52,7 +53,7 @@ class TargetDomainSummary {
 
   ///@{
   /**
-   * <p>Name of the registered target domain</p>
+   * <p>The domain name of the target domain.</p>
    */
   inline const Aws::String& GetDomainName() const { return m_domainName; }
   inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
@@ -70,7 +71,7 @@ class TargetDomainSummary {
 
   ///@{
   /**
-   * <p>Current verification status of the registered target domain</p>
+   * <p>The current verification status of the target domain.</p>
    */
   inline TargetDomainStatus GetVerificationStatus() const { return m_verificationStatus; }
   inline bool VerificationStatusHasBeenSet() const { return m_verificationStatusHasBeenSet; }

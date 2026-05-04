@@ -163,6 +163,7 @@
 #include <aws/vpc-lattice/model/PutResourcePolicyResult.h>
 #include <aws/vpc-lattice/model/RegisterTargetsRequest.h>
 #include <aws/vpc-lattice/model/RegisterTargetsResult.h>
+#include <aws/vpc-lattice/model/ResourceConfigDnsResolution.h>
 #include <aws/vpc-lattice/model/ResourceConfigurationDefinition.h>
 #include <aws/vpc-lattice/model/ResourceConfigurationIpAddressType.h>
 #include <aws/vpc-lattice/model/ResourceConfigurationStatus.h>

@@ -42,6 +42,15 @@ PipelineDetail& PipelineDetail::operator=(JsonView jsonValue) {
     m_channelEngineVersion = jsonValue.GetObject("channelEngineVersion");
     m_channelEngineVersionHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("mediaConnectRouterOutputConnectionMap")) {
+    Aws::Map<Aws::String, JsonView> mediaConnectRouterOutputConnectionMapJsonMap =
+        jsonValue.GetObject("mediaConnectRouterOutputConnectionMap").GetAllObjects();
+    for (auto& mediaConnectRouterOutputConnectionMapItem : mediaConnectRouterOutputConnectionMapJsonMap) {
+      m_mediaConnectRouterOutputConnectionMap[mediaConnectRouterOutputConnectionMapItem.first] =
+          mediaConnectRouterOutputConnectionMapItem.second.AsObject();
+    }
+    m_mediaConnectRouterOutputConnectionMapHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -70,6 +79,15 @@ JsonValue PipelineDetail::Jsonize() const {
 
   if (m_channelEngineVersionHasBeenSet) {
     payload.WithObject("channelEngineVersion", m_channelEngineVersion.Jsonize());
+  }
+
+  if (m_mediaConnectRouterOutputConnectionMapHasBeenSet) {
+    JsonValue mediaConnectRouterOutputConnectionMapJsonMap;
+    for (auto& mediaConnectRouterOutputConnectionMapItem : m_mediaConnectRouterOutputConnectionMap) {
+      mediaConnectRouterOutputConnectionMapJsonMap.WithObject(mediaConnectRouterOutputConnectionMapItem.first,
+                                                              mediaConnectRouterOutputConnectionMapItem.second.Jsonize());
+    }
+    payload.WithObject("mediaConnectRouterOutputConnectionMap", std::move(mediaConnectRouterOutputConnectionMapJsonMap));
   }
 
   return payload;

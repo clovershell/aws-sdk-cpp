@@ -33,7 +33,7 @@ class CreateIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Provider to integrate with</p>
+   * <p>The integration provider. Currently, only GITHUB is supported.</p>
    */
   inline Provider GetProvider() const { return m_provider; }
   inline bool ProviderHasBeenSet() const { return m_providerHasBeenSet; }
@@ -49,7 +49,7 @@ class CreateIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Provider-specific input parameters</p>
+   * <p>The provider-specific input required to create the integration.</p>
    */
   inline const ProviderInput& GetInput() const { return m_input; }
   inline bool InputHasBeenSet() const { return m_inputHasBeenSet; }
@@ -67,7 +67,7 @@ class CreateIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Display name for the integration</p>
+   * <p>The display name for the integration.</p>
    */
   inline const Aws::String& GetIntegrationDisplayName() const { return m_integrationDisplayName; }
   inline bool IntegrationDisplayNameHasBeenSet() const { return m_integrationDisplayNameHasBeenSet; }
@@ -85,7 +85,8 @@ class CreateIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>KMS key ID for encrypting integration details</p>
+   * <p>The identifier of the AWS KMS key to use for encrypting data associated with
+   * the integration.</p>
    */
   inline const Aws::String& GetKmsKeyId() const { return m_kmsKeyId; }
   inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
@@ -103,7 +104,7 @@ class CreateIntegrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Tags to associate with the integration</p>
+   * <p>The tags to associate with the integration.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }

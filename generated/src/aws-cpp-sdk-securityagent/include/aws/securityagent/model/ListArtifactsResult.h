@@ -31,7 +31,7 @@ class ListArtifactsResult {
 
   ///@{
   /**
-   * <p>List of artifact summaries</p>
+   * <p>The list of artifact summaries.</p>
    */
   inline const Aws::Vector<ArtifactSummary>& GetArtifactSummaries() const { return m_artifactSummaries; }
   template <typename ArtifactSummariesT = Aws::Vector<ArtifactSummary>>
@@ -54,7 +54,9 @@ class ListArtifactsResult {
 
   ///@{
   /**
-   * <p>Token for pagination to retrieve the next set of results</p>
+   * <p>A token to use for paginating results that are returned in the response. Set
+   * the value of this parameter to null for the first request. For subsequent calls,
+   * use the nextToken value returned from the previous request.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

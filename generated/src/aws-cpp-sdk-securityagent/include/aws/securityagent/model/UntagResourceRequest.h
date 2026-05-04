@@ -19,7 +19,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for UntagResource operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for UntagResource operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/UntagResourceInput">AWS
  * API Reference</a></p>
  */
@@ -39,7 +39,7 @@ class UntagResourceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the resource to untag</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
    */
   inline const Aws::String& GetResourceArn() const { return m_resourceArn; }
   inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
@@ -57,7 +57,7 @@ class UntagResourceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of tag keys to remove from the resource</p>
+   * <p>The list of tag keys to remove from the resource.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTagKeys() const { return m_tagKeys; }
   inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }

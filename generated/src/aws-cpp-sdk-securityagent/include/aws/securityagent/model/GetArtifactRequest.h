@@ -30,7 +30,7 @@ class GetArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -48,7 +48,7 @@ class GetArtifactRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the artifact</p>
+   * <p>The unique identifier of the artifact to retrieve.</p>
    */
   inline const Aws::String& GetArtifactId() const { return m_artifactId; }
   inline bool ArtifactIdHasBeenSet() const { return m_artifactIdHasBeenSet; }

@@ -25,8 +25,9 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Represents a security vulnerability or issue discovered during
- * testing</p><p><h3>See Also:</h3>   <a
+ * <p>Represents a security finding discovered during a pentest job. A finding
+ * contains details about a vulnerability, including its risk level, confidence,
+ * and remediation status.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/Finding">AWS
  * API Reference</a></p>
  */
@@ -39,7 +40,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Unique identifier for the finding</p>
+   * <p>The unique identifier of the finding.</p>
    */
   inline const Aws::String& GetFindingId() const { return m_findingId; }
   inline bool FindingIdHasBeenSet() const { return m_findingIdHasBeenSet; }
@@ -57,7 +58,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Identifier of the agent space that created this finding</p>
+   * <p>The unique identifier of the agent space associated with the finding.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -75,7 +76,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Identifier of the parent pentest</p>
+   * <p>The unique identifier of the pentest associated with the finding.</p>
    */
   inline const Aws::String& GetPentestId() const { return m_pentestId; }
   inline bool PentestIdHasBeenSet() const { return m_pentestIdHasBeenSet; }
@@ -93,7 +94,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Identifier of the pentest job</p>
+   * <p>The unique identifier of the pentest job that produced the finding.</p>
    */
   inline const Aws::String& GetPentestJobId() const { return m_pentestJobId; }
   inline bool PentestJobIdHasBeenSet() const { return m_pentestJobIdHasBeenSet; }
@@ -111,7 +112,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Identifier of the associated task</p>
+   * <p>The unique identifier of the task that produced the finding.</p>
    */
   inline const Aws::String& GetTaskId() const { return m_taskId; }
   inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
@@ -129,7 +130,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Name or title of the finding</p>
+   * <p>The name of the finding.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -147,7 +148,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Detailed description of the security vulnerability</p>
+   * <p>A description of the finding.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
@@ -165,7 +166,8 @@ class Finding {
 
   ///@{
   /**
-   * <p>Current status of the finding</p>
+   * <p>The current status of the finding. Valid values include ACTIVE, RESOLVED,
+   * ACCEPTED, and FALSE_POSITIVE.</p>
    */
   inline FindingStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -181,7 +183,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Type of security risk identified</p>
+   * <p>The type of security risk identified by the finding.</p>
    */
   inline const Aws::String& GetRiskType() const { return m_riskType; }
   inline bool RiskTypeHasBeenSet() const { return m_riskTypeHasBeenSet; }
@@ -199,7 +201,8 @@ class Finding {
 
   ///@{
   /**
-   * <p>Severity level of the identified risk</p>
+   * <p>The risk level of the finding. Valid values include UNKNOWN, INFORMATIONAL,
+   * LOW, MEDIUM, HIGH, and CRITICAL.</p>
    */
   inline RiskLevel GetRiskLevel() const { return m_riskLevel; }
   inline bool RiskLevelHasBeenSet() const { return m_riskLevelHasBeenSet; }
@@ -215,7 +218,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Risk score associated with the finding</p>
+   * <p>The numerical risk score of the finding.</p>
    */
   inline const Aws::String& GetRiskScore() const { return m_riskScore; }
   inline bool RiskScoreHasBeenSet() const { return m_riskScoreHasBeenSet; }
@@ -233,7 +236,8 @@ class Finding {
 
   ///@{
   /**
-   * <p>Justification for the assigned risk score</p>
+   * <p>The reasoning behind the finding, explaining why it was identified as a
+   * vulnerability.</p>
    */
   inline const Aws::String& GetReasoning() const { return m_reasoning; }
   inline bool ReasoningHasBeenSet() const { return m_reasoningHasBeenSet; }
@@ -251,7 +255,8 @@ class Finding {
 
   ///@{
   /**
-   * <p>Confidence level of the finding</p>
+   * <p>The confidence level of the finding. Valid values include FALSE_POSITIVE,
+   * UNCONFIRMED, LOW, MEDIUM, and HIGH.</p>
    */
   inline ConfidenceLevel GetConfidence() const { return m_confidence; }
   inline bool ConfidenceHasBeenSet() const { return m_confidenceHasBeenSet; }
@@ -267,7 +272,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Proof-of-concept code demonstrating the vulnerability</p>
+   * <p>The attack script used to reproduce the finding.</p>
    */
   inline const Aws::String& GetAttackScript() const { return m_attackScript; }
   inline bool AttackScriptHasBeenSet() const { return m_attackScriptHasBeenSet; }
@@ -285,7 +290,8 @@ class Finding {
 
   ///@{
   /**
-   * <p>Code remediation task associated with this finding</p>
+   * <p>The code remediation task associated with the finding, if code remediation
+   * was initiated.</p>
    */
   inline const CodeRemediationTask& GetCodeRemediationTask() const { return m_codeRemediationTask; }
   inline bool CodeRemediationTaskHasBeenSet() const { return m_codeRemediationTaskHasBeenSet; }
@@ -303,7 +309,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Identifier of the task or agent that last updated this finding</p>
+   * <p>The identifier of the entity that last updated the finding.</p>
    */
   inline const Aws::String& GetLastUpdatedBy() const { return m_lastUpdatedBy; }
   inline bool LastUpdatedByHasBeenSet() const { return m_lastUpdatedByHasBeenSet; }
@@ -321,7 +327,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Timestamp when the finding was created</p>
+   * <p>The date and time the finding was created, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -339,7 +345,7 @@ class Finding {
 
   ///@{
   /**
-   * <p>Timestamp when the finding was last updated</p>
+   * <p>The date and time the finding was last updated, in UTC format.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

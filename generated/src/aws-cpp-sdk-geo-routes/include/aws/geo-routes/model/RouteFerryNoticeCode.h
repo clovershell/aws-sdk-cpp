@@ -18,7 +18,9 @@ enum class RouteFerryNoticeCode {
   ViolatedAvoidFerry,
   ViolatedAvoidRailFerry,
   SeasonalClosure,
-  PotentialViolatedVehicleRestrictionUsage
+  PotentialViolatedVehicleRestrictionUsage,
+  ViolatedAvoidAreas,
+  ViolatedVehicleRestriction
 };
 
 namespace RouteFerryNoticeCodeMapper {

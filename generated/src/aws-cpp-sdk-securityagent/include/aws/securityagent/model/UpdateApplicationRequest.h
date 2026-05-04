@@ -30,7 +30,7 @@ class UpdateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Application ID</p>
+   * <p>The unique identifier of the application to update.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -48,8 +48,8 @@ class UpdateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the IAM role that the application uses to access AWS resources on your
-   * behalf</p>
+   * <p>The updated Amazon Resource Name (ARN) of the IAM role for the
+   * application.</p>
    */
   inline const Aws::String& GetRoleArn() const { return m_roleArn; }
   inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
@@ -67,8 +67,7 @@ class UpdateApplicationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Default KMS key identifier. Use an empty string to remove the default KMS
-   * key.</p>
+   * <p>The updated identifier of the default AWS KMS key for the application.</p>
    */
   inline const Aws::String& GetDefaultKmsKeyId() const { return m_defaultKmsKeyId; }
   inline bool DefaultKmsKeyIdHasBeenSet() const { return m_defaultKmsKeyIdHasBeenSet; }

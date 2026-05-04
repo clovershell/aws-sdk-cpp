@@ -30,7 +30,8 @@ class InitiateProviderRegistrationRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Provider to register with</p>
+   * <p>The provider to initiate registration with. Currently, only GITHUB is
+   * supported.</p>
    */
   inline Provider GetProvider() const { return m_provider; }
   inline bool ProviderHasBeenSet() const { return m_providerHasBeenSet; }

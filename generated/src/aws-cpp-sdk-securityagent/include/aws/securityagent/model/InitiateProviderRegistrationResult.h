@@ -30,7 +30,7 @@ class InitiateProviderRegistrationResult {
 
   ///@{
   /**
-   * <p>OAuth redirect URL</p>
+   * <p>The URL to redirect the user to for completing the OAuth authorization.</p>
    */
   inline const Aws::String& GetRedirectTo() const { return m_redirectTo; }
   template <typename RedirectToT = Aws::String>
@@ -47,7 +47,7 @@ class InitiateProviderRegistrationResult {
 
   ///@{
   /**
-   * <p>CSRF state token for OAuth security</p>
+   * <p>The CSRF state token to use when completing the OAuth flow.</p>
    */
   inline const Aws::String& GetCsrfState() const { return m_csrfState; }
   template <typename CsrfStateT = Aws::String>

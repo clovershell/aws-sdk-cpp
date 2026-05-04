@@ -20,8 +20,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Provider-specific input parameters for integration</p><p><h3>See Also:</h3>
- * <a
+ * <p>The provider-specific input for creating an integration. This is a union type
+ * that contains provider-specific configuration.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ProviderInput">AWS
  * API Reference</a></p>
  */
@@ -34,7 +34,7 @@ class ProviderInput {
 
   ///@{
   /**
-   * <p>GitHub integration input</p>
+   * <p>The GitHub-specific input for creating an integration.</p>
    */
   inline const GitHubIntegrationInput& GetGithub() const { return m_github; }
   inline bool GithubHasBeenSet() const { return m_githubHasBeenSet; }

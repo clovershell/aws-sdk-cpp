@@ -35,9 +35,7 @@ class MediaConnectRouterOutputSettings {
 
   ///@{
   /**
-   * Shows the MediaConnect Router Inputs that are connected to this output. This
-   * parameter is purely informative, and editing it will have no effect. To connect
-   * or disconnect MediaConnect Router Inputs, go to MediaConnect.
+   * This parameter is deprecated and unused.
    */
   inline const MediaConnectRouterOutputConnectionMap& GetConnectedRouterInputs() const { return m_connectedRouterInputs; }
   inline bool ConnectedRouterInputsHasBeenSet() const { return m_connectedRouterInputsHasBeenSet; }

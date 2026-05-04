@@ -15,7 +15,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for deleting an agent space</p><p><h3>See Also:</h3>   <a
+ * <p>Input for deleting an agent space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteAgentSpaceInput">AWS
  * API Reference</a></p>
  */
@@ -33,7 +33,7 @@ class DeleteAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space to delete</p>
+   * <p>The unique identifier of the agent space to delete.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }

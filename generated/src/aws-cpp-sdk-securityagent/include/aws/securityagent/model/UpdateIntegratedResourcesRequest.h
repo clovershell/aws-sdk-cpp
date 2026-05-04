@@ -32,7 +32,7 @@ class UpdateIntegratedResourcesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the agent space</p>
+   * <p>The unique identifier of the agent space.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -50,7 +50,7 @@ class UpdateIntegratedResourcesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Unique identifier of the integration</p>
+   * <p>The unique identifier of the integration.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }
@@ -68,7 +68,7 @@ class UpdateIntegratedResourcesRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>List of integrated resources to update</p>
+   * <p>The list of integrated resource items to update.</p>
    */
   inline const Aws::Vector<IntegratedResourceInputItem>& GetItems() const { return m_items; }
   inline bool ItemsHasBeenSet() const { return m_itemsHasBeenSet; }

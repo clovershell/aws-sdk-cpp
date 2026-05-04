@@ -23,7 +23,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for ListTagsForResource operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for ListTagsForResource operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListTagsForResourceOutput">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,7 @@ class ListTagsForResourceResult {
 
   ///@{
   /**
-   * <p>Tags associated with the resource</p>
+   * <p>The tags associated with the resource.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   template <typename TagsT = Aws::Map<Aws::String, Aws::String>>

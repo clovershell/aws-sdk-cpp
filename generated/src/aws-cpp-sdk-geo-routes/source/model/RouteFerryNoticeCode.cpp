@@ -22,6 +22,8 @@ static const int ViolatedAvoidFerry_HASH = HashingUtils::HashString("ViolatedAvo
 static const int ViolatedAvoidRailFerry_HASH = HashingUtils::HashString("ViolatedAvoidRailFerry");
 static const int SeasonalClosure_HASH = HashingUtils::HashString("SeasonalClosure");
 static const int PotentialViolatedVehicleRestrictionUsage_HASH = HashingUtils::HashString("PotentialViolatedVehicleRestrictionUsage");
+static const int ViolatedAvoidAreas_HASH = HashingUtils::HashString("ViolatedAvoidAreas");
+static const int ViolatedVehicleRestriction_HASH = HashingUtils::HashString("ViolatedVehicleRestriction");
 
 RouteFerryNoticeCode GetRouteFerryNoticeCodeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
@@ -39,6 +41,10 @@ RouteFerryNoticeCode GetRouteFerryNoticeCodeForName(const Aws::String& name) {
     return RouteFerryNoticeCode::SeasonalClosure;
   } else if (hashCode == PotentialViolatedVehicleRestrictionUsage_HASH) {
     return RouteFerryNoticeCode::PotentialViolatedVehicleRestrictionUsage;
+  } else if (hashCode == ViolatedAvoidAreas_HASH) {
+    return RouteFerryNoticeCode::ViolatedAvoidAreas;
+  } else if (hashCode == ViolatedVehicleRestriction_HASH) {
+    return RouteFerryNoticeCode::ViolatedVehicleRestriction;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -67,6 +73,10 @@ Aws::String GetNameForRouteFerryNoticeCode(RouteFerryNoticeCode enumValue) {
       return "SeasonalClosure";
     case RouteFerryNoticeCode::PotentialViolatedVehicleRestrictionUsage:
       return "PotentialViolatedVehicleRestrictionUsage";
+    case RouteFerryNoticeCode::ViolatedAvoidAreas:
+      return "ViolatedAvoidAreas";
+    case RouteFerryNoticeCode::ViolatedVehicleRestriction:
+      return "ViolatedVehicleRestriction";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

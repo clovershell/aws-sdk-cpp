@@ -30,6 +30,10 @@ TargetDomain& TargetDomain::operator=(JsonView jsonValue) {
     m_verificationStatus = TargetDomainStatusMapper::GetTargetDomainStatusForName(jsonValue.GetString("verificationStatus"));
     m_verificationStatusHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("verificationStatusReason")) {
+    m_verificationStatusReason = jsonValue.GetString("verificationStatusReason");
+    m_verificationStatusReasonHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("verificationDetails")) {
     m_verificationDetails = jsonValue.GetObject("verificationDetails");
     m_verificationDetailsHasBeenSet = true;
@@ -58,6 +62,10 @@ JsonValue TargetDomain::Jsonize() const {
 
   if (m_verificationStatusHasBeenSet) {
     payload.WithString("verificationStatus", TargetDomainStatusMapper::GetNameForTargetDomainStatus(m_verificationStatus));
+  }
+
+  if (m_verificationStatusReasonHasBeenSet) {
+    payload.WithString("verificationStatusReason", m_verificationStatusReason);
   }
 
   if (m_verificationDetailsHasBeenSet) {

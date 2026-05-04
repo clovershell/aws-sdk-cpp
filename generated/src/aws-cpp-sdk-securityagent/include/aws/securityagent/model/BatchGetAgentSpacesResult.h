@@ -24,7 +24,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the BatchGetAgentSpaces operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the BatchGetAgentSpaces operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetAgentSpacesOutput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class BatchGetAgentSpacesResult {
 
   ///@{
   /**
-   * <p>List of agent spaces that were successfully retrieved</p>
+   * <p>The list of agent spaces that were found.</p>
    */
   inline const Aws::Vector<AgentSpace>& GetAgentSpaces() const { return m_agentSpaces; }
   template <typename AgentSpacesT = Aws::Vector<AgentSpace>>
@@ -59,7 +59,7 @@ class BatchGetAgentSpacesResult {
 
   ///@{
   /**
-   * <p>List of agent space IDs that could not be found</p>
+   * <p>The list of agent space identifiers that were not found.</p>
    */
   inline const Aws::Vector<Aws::String>& GetNotFound() const { return m_notFound; }
   template <typename NotFoundT = Aws::Vector<Aws::String>>

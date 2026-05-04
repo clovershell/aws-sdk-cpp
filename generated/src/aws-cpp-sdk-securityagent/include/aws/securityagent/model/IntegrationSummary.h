@@ -22,7 +22,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Summary information about an integration</p><p><h3>See Also:</h3>   <a
+ * <p>Contains summary information about an integration.</p><p><h3>See Also:</h3>
+ * <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/IntegrationSummary">AWS
  * API Reference</a></p>
  */
@@ -35,7 +36,7 @@ class IntegrationSummary {
 
   ///@{
   /**
-   * <p>Unique identifier of the integration</p>
+   * <p>The unique identifier of the integration.</p>
    */
   inline const Aws::String& GetIntegrationId() const { return m_integrationId; }
   inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }
@@ -53,7 +54,7 @@ class IntegrationSummary {
 
   ///@{
   /**
-   * <p>Installation identifier from the provider</p>
+   * <p>The installation identifier from the integration provider.</p>
    */
   inline const Aws::String& GetInstallationId() const { return m_installationId; }
   inline bool InstallationIdHasBeenSet() const { return m_installationIdHasBeenSet; }
@@ -71,7 +72,7 @@ class IntegrationSummary {
 
   ///@{
   /**
-   * <p>Provider type</p>
+   * <p>The integration provider.</p>
    */
   inline Provider GetProvider() const { return m_provider; }
   inline bool ProviderHasBeenSet() const { return m_providerHasBeenSet; }
@@ -87,7 +88,7 @@ class IntegrationSummary {
 
   ///@{
   /**
-   * <p>Type of provider integration</p>
+   * <p>The type of the integration provider.</p>
    */
   inline ProviderType GetProviderType() const { return m_providerType; }
   inline bool ProviderTypeHasBeenSet() const { return m_providerTypeHasBeenSet; }
@@ -103,7 +104,7 @@ class IntegrationSummary {
 
   ///@{
   /**
-   * <p>Display name for the integration</p>
+   * <p>The display name of the integration.</p>
    */
   inline const Aws::String& GetDisplayName() const { return m_displayName; }
   inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }

@@ -8,6 +8,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/vpc-lattice/VPCLattice_EXPORTS.h>
+#include <aws/vpc-lattice/model/ResourceConfigDnsResolution.h>
 #include <aws/vpc-lattice/model/ResourceGatewayIpAddressType.h>
 #include <aws/vpc-lattice/model/ResourceGatewayStatus.h>
 
@@ -205,6 +206,23 @@ class ResourceGatewaySummary {
 
   ///@{
   /**
+   * <p>The DNS resolution type for resource configurations that are associated with
+   * this resource gateway.</p>
+   */
+  inline ResourceConfigDnsResolution GetResourceConfigDnsResolution() const { return m_resourceConfigDnsResolution; }
+  inline bool ResourceConfigDnsResolutionHasBeenSet() const { return m_resourceConfigDnsResolutionHasBeenSet; }
+  inline void SetResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    m_resourceConfigDnsResolutionHasBeenSet = true;
+    m_resourceConfigDnsResolution = value;
+  }
+  inline ResourceGatewaySummary& WithResourceConfigDnsResolution(ResourceConfigDnsResolution value) {
+    SetResourceConfigDnsResolution(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>The date and time that the VPC endpoint association was created, in ISO-8601
    * format.</p>
    */
@@ -259,6 +277,8 @@ class ResourceGatewaySummary {
 
   int m_ipv4AddressesPerEni{0};
 
+  ResourceConfigDnsResolution m_resourceConfigDnsResolution{ResourceConfigDnsResolution::NOT_SET};
+
   Aws::Utils::DateTime m_createdAt{};
 
   Aws::Utils::DateTime m_lastUpdatedAt{};
@@ -271,6 +291,7 @@ class ResourceGatewaySummary {
   bool m_securityGroupIdsHasBeenSet = false;
   bool m_ipAddressTypeHasBeenSet = false;
   bool m_ipv4AddressesPerEniHasBeenSet = false;
+  bool m_resourceConfigDnsResolutionHasBeenSet = false;
   bool m_createdAtHasBeenSet = false;
   bool m_lastUpdatedAtHasBeenSet = false;
 };

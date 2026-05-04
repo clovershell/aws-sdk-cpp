@@ -49,6 +49,14 @@ GetResourceGatewayResult& GetResourceGatewayResult::operator=(const Aws::AmazonW
     }
     m_subnetIdsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("serviceManaged")) {
+    m_serviceManaged = jsonValue.GetBool("serviceManaged");
+    m_serviceManagedHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("managedBy")) {
+    m_managedBy = jsonValue.GetString("managedBy");
+    m_managedByHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("securityGroupIds")) {
     Aws::Utils::Array<JsonView> securityGroupIdsJsonList = jsonValue.GetArray("securityGroupIds");
     for (unsigned securityGroupIdsIndex = 0; securityGroupIdsIndex < securityGroupIdsJsonList.GetLength(); ++securityGroupIdsIndex) {
@@ -63,6 +71,11 @@ GetResourceGatewayResult& GetResourceGatewayResult::operator=(const Aws::AmazonW
   if (jsonValue.ValueExists("ipv4AddressesPerEni")) {
     m_ipv4AddressesPerEni = jsonValue.GetInteger("ipv4AddressesPerEni");
     m_ipv4AddressesPerEniHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("resourceConfigDnsResolution")) {
+    m_resourceConfigDnsResolution =
+        ResourceConfigDnsResolutionMapper::GetResourceConfigDnsResolutionForName(jsonValue.GetString("resourceConfigDnsResolution"));
+    m_resourceConfigDnsResolutionHasBeenSet = true;
   }
   if (jsonValue.ValueExists("createdAt")) {
     m_createdAt = jsonValue.GetString("createdAt");

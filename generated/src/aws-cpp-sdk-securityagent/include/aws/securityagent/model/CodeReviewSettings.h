@@ -17,7 +17,8 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Details of code review settings</p><p><h3>See Also:</h3>   <a
+ * <p>The code review settings for an agent space, controlling which types of
+ * scanning are enabled.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CodeReviewSettings">AWS
  * API Reference</a></p>
  */
@@ -30,7 +31,7 @@ class CodeReviewSettings {
 
   ///@{
   /**
-   * <p>Whether Controls are utilized for code review analysis</p>
+   * <p>Indicates whether controls scanning is enabled for code reviews.</p>
    */
   inline bool GetControlsScanning() const { return m_controlsScanning; }
   inline bool ControlsScanningHasBeenSet() const { return m_controlsScanningHasBeenSet; }
@@ -46,7 +47,7 @@ class CodeReviewSettings {
 
   ///@{
   /**
-   * <p>Whether general purpose analysis is performed for code review</p>
+   * <p>Indicates whether general-purpose scanning is enabled for code reviews.</p>
    */
   inline bool GetGeneralPurposeScanning() const { return m_generalPurposeScanning; }
   inline bool GeneralPurposeScanningHasBeenSet() const { return m_generalPurposeScanningHasBeenSet; }

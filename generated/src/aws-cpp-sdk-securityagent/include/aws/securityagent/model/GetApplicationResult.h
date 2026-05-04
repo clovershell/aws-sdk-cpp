@@ -30,7 +30,7 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>Application ID</p>
+   * <p>The unique identifier of the application.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   template <typename ApplicationIdT = Aws::String>
@@ -47,7 +47,7 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>Domain where the application is available</p>
+   * <p>The domain associated with the application.</p>
    */
   inline const Aws::String& GetDomain() const { return m_domain; }
   template <typename DomainT = Aws::String>
@@ -64,7 +64,7 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>Name of the application, automatically assigned by the service</p>
+   * <p>The name of the application.</p>
    */
   inline const Aws::String& GetApplicationName() const { return m_applicationName; }
   template <typename ApplicationNameT = Aws::String>
@@ -81,7 +81,7 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>IAM Identity Center configuration for the application</p>
+   * <p>The IAM Identity Center configuration for the application.</p>
    */
   inline const IdCConfiguration& GetIdcConfiguration() const { return m_idcConfiguration; }
   template <typename IdcConfigurationT = IdCConfiguration>
@@ -98,8 +98,8 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>ARN of the IAM role that the application uses to access AWS resources on your
-   * behalf</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the
+   * application.</p>
    */
   inline const Aws::String& GetRoleArn() const { return m_roleArn; }
   template <typename RoleArnT = Aws::String>
@@ -116,7 +116,8 @@ class GetApplicationResult {
 
   ///@{
   /**
-   * <p>Default KMS key identifier used to encrypt application data</p>
+   * <p>The identifier of the default AWS KMS key used to encrypt data for the
+   * application.</p>
    */
   inline const Aws::String& GetDefaultKmsKeyId() const { return m_defaultKmsKeyId; }
   template <typename DefaultKmsKeyIdT = Aws::String>

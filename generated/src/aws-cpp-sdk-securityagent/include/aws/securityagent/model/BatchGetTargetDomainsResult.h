@@ -24,7 +24,7 @@ class JsonValue;
 namespace SecurityAgent {
 namespace Model {
 /**
- * <p>Output for the BatchGetTargetDomains operation</p><p><h3>See Also:</h3>   <a
+ * <p>Output for the BatchGetTargetDomains operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/BatchGetTargetDomainsOutput">AWS
  * API Reference</a></p>
  */
@@ -36,7 +36,7 @@ class BatchGetTargetDomainsResult {
 
   ///@{
   /**
-   * <p>List of target domains that were successfully retrieved</p>
+   * <p>The list of target domains that were found.</p>
    */
   inline const Aws::Vector<TargetDomain>& GetTargetDomains() const { return m_targetDomains; }
   template <typename TargetDomainsT = Aws::Vector<TargetDomain>>
@@ -59,7 +59,7 @@ class BatchGetTargetDomainsResult {
 
   ///@{
   /**
-   * <p>List of target domain IDs that could not be found</p>
+   * <p>The list of target domain identifiers that were not found.</p>
    */
   inline const Aws::Vector<Aws::String>& GetNotFound() const { return m_notFound; }
   template <typename NotFoundT = Aws::Vector<Aws::String>>

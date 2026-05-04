@@ -33,6 +33,14 @@ MCPGatewayConfiguration& MCPGatewayConfiguration::operator=(JsonView jsonValue) 
     m_searchType = SearchTypeMapper::GetSearchTypeForName(jsonValue.GetString("searchType"));
     m_searchTypeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("sessionConfiguration")) {
+    m_sessionConfiguration = jsonValue.GetObject("sessionConfiguration");
+    m_sessionConfigurationHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("streamingConfiguration")) {
+    m_streamingConfiguration = jsonValue.GetObject("streamingConfiguration");
+    m_streamingConfigurationHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -53,6 +61,14 @@ JsonValue MCPGatewayConfiguration::Jsonize() const {
 
   if (m_searchTypeHasBeenSet) {
     payload.WithString("searchType", SearchTypeMapper::GetNameForSearchType(m_searchType));
+  }
+
+  if (m_sessionConfigurationHasBeenSet) {
+    payload.WithObject("sessionConfiguration", m_sessionConfiguration.Jsonize());
+  }
+
+  if (m_streamingConfigurationHasBeenSet) {
+    payload.WithObject("streamingConfiguration", m_streamingConfiguration.Jsonize());
   }
 
   return payload;

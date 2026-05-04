@@ -19,7 +19,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for creating a new agent space</p><p><h3>See Also:</h3>   <a
+ * <p>Input for creating a new agent space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/CreateAgentSpaceInput">AWS
  * API Reference</a></p>
  */
@@ -37,7 +37,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Name of the agent space</p>
+   * <p>The name of the agent space.</p>
    */
   inline const Aws::String& GetName() const { return m_name; }
   inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
@@ -55,7 +55,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Description of the agent space</p>
+   * <p>A description of the agent space.</p>
    */
   inline const Aws::String& GetDescription() const { return m_description; }
   inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
@@ -73,7 +73,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>AWS resource configurations associated with the agent space</p>
+   * <p>The AWS resources to associate with the agent space.</p>
    */
   inline const AWSResources& GetAwsResources() const { return m_awsResources; }
   inline bool AwsResourcesHasBeenSet() const { return m_awsResourcesHasBeenSet; }
@@ -91,7 +91,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Target domain IDs to associate with the agent space</p>
+   * <p>The list of target domain identifiers to associate with the agent space.</p>
    */
   inline const Aws::Vector<Aws::String>& GetTargetDomainIds() const { return m_targetDomainIds; }
   inline bool TargetDomainIdsHasBeenSet() const { return m_targetDomainIdsHasBeenSet; }
@@ -115,8 +115,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Configuration for code review analysis, including controls scanning and
-   * general purpose scanning settings</p>
+   * <p>The code review settings for the agent space.</p>
    */
   inline const CodeReviewSettings& GetCodeReviewSettings() const { return m_codeReviewSettings; }
   inline bool CodeReviewSettingsHasBeenSet() const { return m_codeReviewSettingsHasBeenSet; }
@@ -134,8 +133,8 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN,
-   * alias name, or alias ARN. If not specified, an AWS managed key is used.</p>
+   * <p>The identifier of the AWS KMS key to use for encrypting data in the agent
+   * space.</p>
    */
   inline const Aws::String& GetKmsKeyId() const { return m_kmsKeyId; }
   inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
@@ -153,7 +152,7 @@ class CreateAgentSpaceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Tags to associate with the agent space</p>
+   * <p>The tags to associate with the agent space.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
   inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }

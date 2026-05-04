@@ -847,7 +847,6 @@
 #include <aws/ec2/model/ModifyLaunchTemplateResponse.h>
 #include <aws/ec2/model/ModifyLocalGatewayRouteResponse.h>
 #include <aws/ec2/model/ModifyManagedPrefixListResponse.h>
-#include <aws/ec2/model/ModifyManagedResourceVisibilityRequest.h>
 #include <aws/ec2/model/ModifyManagedResourceVisibilityResponse.h>
 #include <aws/ec2/model/ModifyPrivateDnsNameOptionsResponse.h>
 #include <aws/ec2/model/ModifyPublicIpDnsNameOptionsResponse.h>

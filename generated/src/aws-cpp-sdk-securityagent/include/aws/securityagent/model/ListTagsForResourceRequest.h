@@ -15,7 +15,7 @@ namespace SecurityAgent {
 namespace Model {
 
 /**
- * <p>Input for ListTagsForResource operation</p><p><h3>See Also:</h3>   <a
+ * <p>Input for ListTagsForResource operation.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/ListTagsForResourceInput">AWS
  * API Reference</a></p>
  */
@@ -33,7 +33,7 @@ class ListTagsForResourceRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>ARN of the resource to list tags for</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
    */
   inline const Aws::String& GetResourceArn() const { return m_resourceArn; }
   inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }

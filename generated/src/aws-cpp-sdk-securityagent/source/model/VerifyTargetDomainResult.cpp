@@ -46,6 +46,10 @@ VerifyTargetDomainResult& VerifyTargetDomainResult::operator=(const Aws::AmazonW
     m_status = TargetDomainStatusMapper::GetTargetDomainStatusForName(jsonValue.GetString("status"));
     m_statusHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("verificationStatusReason")) {
+    m_verificationStatusReason = jsonValue.GetString("verificationStatusReason");
+    m_verificationStatusReasonHasBeenSet = true;
+  }
 
   const auto& headers = result.GetHeaderValueCollection();
   const auto& requestIdIter = headers.find("x-amzn-requestid");

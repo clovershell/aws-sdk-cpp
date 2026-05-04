@@ -17,7 +17,7 @@ namespace Model {
 
 /**
  * <p>Request structure for removing a single member from an agent
- * space</p><p><h3>See Also:</h3>   <a
+ * space.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/securityagent-2025-09-06/DeleteMembershipRequest">AWS
  * API Reference</a></p>
  */
@@ -35,7 +35,7 @@ class DeleteMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Application identifier</p>
+   * <p>The unique identifier of the application that contains the agent space.</p>
    */
   inline const Aws::String& GetApplicationId() const { return m_applicationId; }
   inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
@@ -53,7 +53,7 @@ class DeleteMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Agent space identifier</p>
+   * <p>The unique identifier of the agent space to revoke access from.</p>
    */
   inline const Aws::String& GetAgentSpaceId() const { return m_agentSpaceId; }
   inline bool AgentSpaceIdHasBeenSet() const { return m_agentSpaceIdHasBeenSet; }
@@ -71,7 +71,7 @@ class DeleteMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Member identifier (userId or agentSpaceId)</p>
+   * <p>The unique identifier of the membership to delete.</p>
    */
   inline const Aws::String& GetMembershipId() const { return m_membershipId; }
   inline bool MembershipIdHasBeenSet() const { return m_membershipIdHasBeenSet; }
@@ -89,7 +89,7 @@ class DeleteMembershipRequest : public SecurityAgentRequest {
 
   ///@{
   /**
-   * <p>Type of member (USER or AGENT_SPACE)</p>
+   * <p>The type of member to remove.</p>
    */
   inline MembershipType GetMemberType() const { return m_memberType; }
   inline bool MemberTypeHasBeenSet() const { return m_memberTypeHasBeenSet; }
