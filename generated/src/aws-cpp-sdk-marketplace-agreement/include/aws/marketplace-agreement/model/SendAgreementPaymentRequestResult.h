@@ -150,7 +150,7 @@ class SendAgreementPaymentRequestResult {
 
   ///@{
   /**
-   * <p>The time when the payment request was created, in ISO 8601 format.</p>
+   * <p>The time when the payment request was created.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>

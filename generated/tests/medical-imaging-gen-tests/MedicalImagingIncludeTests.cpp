@@ -35,6 +35,8 @@
 #include <aws/medical-imaging/model/DeleteDatastoreResult.h>
 #include <aws/medical-imaging/model/DeleteImageSetRequest.h>
 #include <aws/medical-imaging/model/DeleteImageSetResult.h>
+#include <aws/medical-imaging/model/DicomJsonMetadataImportConfiguration.h>
+#include <aws/medical-imaging/model/DicomMetadataMapping.h>
 #include <aws/medical-imaging/model/GetDICOMImportJobRequest.h>
 #include <aws/medical-imaging/model/GetDICOMImportJobResult.h>
 #include <aws/medical-imaging/model/GetDatastoreRequest.h>
@@ -50,6 +52,7 @@
 #include <aws/medical-imaging/model/ImageSetState.h>
 #include <aws/medical-imaging/model/ImageSetWorkflowStatus.h>
 #include <aws/medical-imaging/model/ImageSetsMetadataSummary.h>
+#include <aws/medical-imaging/model/ImportConfiguration.h>
 #include <aws/medical-imaging/model/JobStatus.h>
 #include <aws/medical-imaging/model/ListDICOMImportJobsRequest.h>
 #include <aws/medical-imaging/model/ListDICOMImportJobsResult.h>

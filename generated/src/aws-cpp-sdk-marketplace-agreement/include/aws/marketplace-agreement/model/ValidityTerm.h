@@ -53,6 +53,24 @@ class ValidityTerm {
 
   ///@{
   /**
+   * <p>The unique identifier for the term.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  ValidityTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Defines the duration that the agreement remains active. If
    * <code>AgreementStartDate</code> isn’t provided, the agreement duration is
    * relative to the agreement signature time. The duration is represented in the
@@ -114,12 +132,15 @@ class ValidityTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   Aws::String m_agreementDuration;
 
   Aws::Utils::DateTime m_agreementStartDate{};
 
   Aws::Utils::DateTime m_agreementEndDate{};
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_agreementDurationHasBeenSet = false;
   bool m_agreementStartDateHasBeenSet = false;
   bool m_agreementEndDateHasBeenSet = false;

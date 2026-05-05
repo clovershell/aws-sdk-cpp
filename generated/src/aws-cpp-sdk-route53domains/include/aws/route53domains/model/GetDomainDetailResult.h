@@ -365,8 +365,7 @@ class GetDomainDetailResult {
 
   ///@{
   /**
-   * <p>Reseller of the domain. Domains registered or transferred using Route 53
-   * domains will have <code>"Amazon"</code> as the reseller. </p>
+   * <p>Reserved for future use.</p>
    */
   inline const Aws::String& GetReseller() const { return m_reseller; }
   template <typename ResellerT = Aws::String>

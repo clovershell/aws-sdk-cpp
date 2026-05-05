@@ -58,6 +58,10 @@ DICOMImportJobProperties& DICOMImportJobProperties::operator=(JsonView jsonValue
     m_message = jsonValue.GetString("message");
     m_messageHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("importConfiguration")) {
+    m_importConfiguration = jsonValue.GetObject("importConfiguration");
+    m_importConfigurationHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -102,6 +106,10 @@ JsonValue DICOMImportJobProperties::Jsonize() const {
 
   if (m_messageHasBeenSet) {
     payload.WithString("message", m_message);
+  }
+
+  if (m_importConfigurationHasBeenSet) {
+    payload.WithObject("importConfiguration", m_importConfiguration.Jsonize());
   }
 
   return payload;

@@ -54,6 +54,24 @@ class LegalTerm {
 
   ///@{
   /**
+   * <p>The unique identifer for the term.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  LegalTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>List of references to legal resources proposed to the buyers. An example is
    * the EULA.</p>
    */
@@ -79,8 +97,11 @@ class LegalTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   Aws::Vector<DocumentItem> m_documents;
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_documentsHasBeenSet = false;
 };
 

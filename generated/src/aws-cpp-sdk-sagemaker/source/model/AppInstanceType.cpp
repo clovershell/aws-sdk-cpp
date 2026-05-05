@@ -178,6 +178,7 @@ static const int ml_r6id_12xlarge_HASH = HashingUtils::HashString("ml.r6id.12xla
 static const int ml_r6id_16xlarge_HASH = HashingUtils::HashString("ml.r6id.16xlarge");
 static const int ml_r6id_24xlarge_HASH = HashingUtils::HashString("ml.r6id.24xlarge");
 static const int ml_r6id_32xlarge_HASH = HashingUtils::HashString("ml.r6id.32xlarge");
+static const int ml_p5_4xlarge_HASH = HashingUtils::HashString("ml.p5.4xlarge");
 
 /*
 The if-else chains in this file are converted into a jump table by the compiler,
@@ -677,6 +678,9 @@ static bool GetEnumForNameHelper1(int hashCode, AppInstanceType& enumValue) {
     return true;
   } else if (hashCode == ml_r6id_32xlarge_HASH) {
     enumValue = AppInstanceType::ml_r6id_32xlarge;
+    return true;
+  } else if (hashCode == ml_p5_4xlarge_HASH) {
+    enumValue = AppInstanceType::ml_p5_4xlarge;
     return true;
   }
   return false;
@@ -1178,6 +1182,9 @@ static bool GetNameForEnumHelper1(AppInstanceType enumValue, Aws::String& value)
       return true;
     case AppInstanceType::ml_r6id_32xlarge:
       value = "ml.r6id.32xlarge";
+      return true;
+    case AppInstanceType::ml_p5_4xlarge:
+      value = "ml.p5.4xlarge";
       return true;
     default:
       return false;

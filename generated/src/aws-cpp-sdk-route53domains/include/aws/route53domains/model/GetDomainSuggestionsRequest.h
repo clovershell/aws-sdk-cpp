@@ -65,7 +65,8 @@ class GetDomainSuggestionsRequest : public Route53DomainsRequest {
   ///@{
   /**
    * <p>The number of suggested domain names that you want Route 53 to return.
-   * Specify a value between 1 and 50.</p>
+   * Specify a value between 1 and 50. Note that fewer than the requested number
+   * might be returned.</p>
    */
   inline int GetSuggestionCount() const { return m_suggestionCount; }
   inline bool SuggestionCountHasBeenSet() const { return m_suggestionCountHasBeenSet; }

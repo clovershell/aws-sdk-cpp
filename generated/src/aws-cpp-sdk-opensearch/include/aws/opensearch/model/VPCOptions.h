@@ -87,12 +87,33 @@ class VPCOptions {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Controls whether egress traffic from the domain is routed through the
+   * customer VPC. When <code>true</code>, outbound traffic flows through the VPC.
+   * When <code>false</code>, outbound traffic goes through the public internet.</p>
+   */
+  inline bool GetEgressEnabled() const { return m_egressEnabled; }
+  inline bool EgressEnabledHasBeenSet() const { return m_egressEnabledHasBeenSet; }
+  inline void SetEgressEnabled(bool value) {
+    m_egressEnabledHasBeenSet = true;
+    m_egressEnabled = value;
+  }
+  inline VPCOptions& WithEgressEnabled(bool value) {
+    SetEgressEnabled(value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::Vector<Aws::String> m_subnetIds;
 
   Aws::Vector<Aws::String> m_securityGroupIds;
+
+  bool m_egressEnabled{false};
   bool m_subnetIdsHasBeenSet = false;
   bool m_securityGroupIdsHasBeenSet = false;
+  bool m_egressEnabledHasBeenSet = false;
 };
 
 }  // namespace Model

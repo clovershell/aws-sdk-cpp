@@ -58,6 +58,8 @@ static const int VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS_HASH =
     HashingUtils::HashString("VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS");
 static const int INTERSTITIAL_VOD_SUCCESS_HASH = HashingUtils::HashString("INTERSTITIAL_VOD_SUCCESS");
 static const int INTERSTITIAL_VOD_FAILURE_HASH = HashingUtils::HashString("INTERSTITIAL_VOD_FAILURE");
+static const int PRE_ADS_REQUEST_HOOK_ERROR_HASH = HashingUtils::HashString("PRE_ADS_REQUEST_HOOK_ERROR");
+static const int PRE_ADS_REQUEST_FUNCTION_ERROR_HASH = HashingUtils::HashString("PRE_ADS_REQUEST_FUNCTION_ERROR");
 
 AdsInteractionExcludeEventType GetAdsInteractionExcludeEventTypeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
@@ -143,6 +145,10 @@ AdsInteractionExcludeEventType GetAdsInteractionExcludeEventTypeForName(const Aw
     return AdsInteractionExcludeEventType::INTERSTITIAL_VOD_SUCCESS;
   } else if (hashCode == INTERSTITIAL_VOD_FAILURE_HASH) {
     return AdsInteractionExcludeEventType::INTERSTITIAL_VOD_FAILURE;
+  } else if (hashCode == PRE_ADS_REQUEST_HOOK_ERROR_HASH) {
+    return AdsInteractionExcludeEventType::PRE_ADS_REQUEST_HOOK_ERROR;
+  } else if (hashCode == PRE_ADS_REQUEST_FUNCTION_ERROR_HASH) {
+    return AdsInteractionExcludeEventType::PRE_ADS_REQUEST_FUNCTION_ERROR;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -239,6 +245,10 @@ Aws::String GetNameForAdsInteractionExcludeEventType(AdsInteractionExcludeEventT
       return "INTERSTITIAL_VOD_SUCCESS";
     case AdsInteractionExcludeEventType::INTERSTITIAL_VOD_FAILURE:
       return "INTERSTITIAL_VOD_FAILURE";
+    case AdsInteractionExcludeEventType::PRE_ADS_REQUEST_HOOK_ERROR:
+      return "PRE_ADS_REQUEST_HOOK_ERROR";
+    case AdsInteractionExcludeEventType::PRE_ADS_REQUEST_FUNCTION_ERROR:
+      return "PRE_ADS_REQUEST_FUNCTION_ERROR";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

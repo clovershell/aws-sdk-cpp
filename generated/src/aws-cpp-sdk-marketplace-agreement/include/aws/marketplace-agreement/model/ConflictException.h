@@ -21,8 +21,7 @@ namespace AgreementService {
 namespace Model {
 
 /**
- * <p>The request could not be completed due to a conflict with the current state
- * of the resource.</p><p><h3>See Also:</h3>   <a
+ * <p>Request was denied due to a resource conflict.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-agreement-2020-03-01/ConflictException">AWS
  * API Reference</a></p>
  */
@@ -52,7 +51,9 @@ class ConflictException {
   ///@}
 
   ///@{
-
+  /**
+   * <p>Description of the error.</p>
+   */
   inline const Aws::String& GetMessage() const { return m_message; }
   inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
   template <typename MessageT = Aws::String>
@@ -69,7 +70,7 @@ class ConflictException {
 
   ///@{
   /**
-   * <p>The unique identifier for the resource.</p>
+   * <p>The unique identifier of the resource involved in the conflict.</p>
    */
   inline const Aws::String& GetResourceId() const { return m_resourceId; }
   inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
@@ -87,7 +88,7 @@ class ConflictException {
 
   ///@{
   /**
-   * <p>The type of resource.</p>
+   * <p>The type of the resource involved in the conflict.</p>
    */
   inline ResourceType GetResourceType() const { return m_resourceType; }
   inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }

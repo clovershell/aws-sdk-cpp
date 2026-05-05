@@ -39,5 +39,9 @@ Aws::String StartDICOMImportJobRequest::SerializePayload() const {
     payload.WithString("inputOwnerAccountId", m_inputOwnerAccountId);
   }
 
+  if (m_importConfigurationHasBeenSet) {
+    payload.WithObject("importConfiguration", m_importConfiguration.Jsonize());
+  }
+
   return payload.View().WriteReadable();
 }

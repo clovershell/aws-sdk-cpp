@@ -14,6 +14,7 @@
 #include <aws/mediatailor/model/Bumper.h>
 #include <aws/mediatailor/model/CdnConfiguration.h>
 #include <aws/mediatailor/model/DashConfiguration.h>
+#include <aws/mediatailor/model/EventName.h>
 #include <aws/mediatailor/model/HlsConfiguration.h>
 #include <aws/mediatailor/model/InsertionMode.h>
 #include <aws/mediatailor/model/LivePreRollConfiguration.h>
@@ -470,6 +471,33 @@ class PutPlaybackConfigurationResult {
   ///@}
 
   ///@{
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function
+   * mapping specifies which function MediaTailor executes at each lifecycle hook
+   * during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and
+   * <code>PRE_ADS_REQUEST</code>. For more information, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
+   * lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   */
+  inline const Aws::Map<EventName, Aws::String>& GetFunctionMapping() const { return m_functionMapping; }
+  template <typename FunctionMappingT = Aws::Map<EventName, Aws::String>>
+  void SetFunctionMapping(FunctionMappingT&& value) {
+    m_functionMappingHasBeenSet = true;
+    m_functionMapping = std::forward<FunctionMappingT>(value);
+  }
+  template <typename FunctionMappingT = Aws::Map<EventName, Aws::String>>
+  PutPlaybackConfigurationResult& WithFunctionMapping(FunctionMappingT&& value) {
+    SetFunctionMapping(std::forward<FunctionMappingT>(value));
+    return *this;
+  }
+  inline PutPlaybackConfigurationResult& AddFunctionMapping(EventName key, Aws::String value) {
+    m_functionMappingHasBeenSet = true;
+    m_functionMapping.emplace(key, value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
 
   inline const Aws::String& GetRequestId() const { return m_requestId; }
   template <typename RequestIdT = Aws::String>
@@ -530,6 +558,8 @@ class PutPlaybackConfigurationResult {
 
   AdDecisionServerConfiguration m_adDecisionServerConfiguration;
 
+  Aws::Map<EventName, Aws::String> m_functionMapping;
+
   Aws::String m_requestId;
   Aws::Http::HttpResponseCode m_HttpResponseCode;
   bool m_adDecisionServerUrlHasBeenSet = false;
@@ -554,6 +584,7 @@ class PutPlaybackConfigurationResult {
   bool m_videoContentSourceUrlHasBeenSet = false;
   bool m_adConditioningConfigurationHasBeenSet = false;
   bool m_adDecisionServerConfigurationHasBeenSet = false;
+  bool m_functionMappingHasBeenSet = false;
   bool m_requestIdHasBeenSet = false;
 };
 

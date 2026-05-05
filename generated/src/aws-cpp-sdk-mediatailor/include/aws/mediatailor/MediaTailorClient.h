@@ -370,6 +370,36 @@ class AWS_MEDIATAILOR_API MediaTailorClient : public Aws::Client::AWSJsonClient,
   }
 
   /**
+   * <p>Deletes a function. MediaTailor prevents deletion of a function that is still
+   * referenced by a playback configuration or by another function. Remove all
+   * references before deleting. For more information about functions, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working
+   * with functions</a> in the <i>MediaTailor User Guide</i>.</p><p><h3>See
+   * Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/mediatailor-2018-04-23/DeleteFunction">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::DeleteFunctionOutcome DeleteFunction(const Model::DeleteFunctionRequest& request) const;
+
+  /**
+   * A Callable wrapper for DeleteFunction that returns a future to the operation so that it can be executed in parallel to other requests.
+   */
+  template <typename DeleteFunctionRequestT = Model::DeleteFunctionRequest>
+  Model::DeleteFunctionOutcomeCallable DeleteFunctionCallable(const DeleteFunctionRequestT& request) const {
+    return SubmitCallable(&MediaTailorClient::DeleteFunction, request);
+  }
+
+  /**
+   * An Async wrapper for DeleteFunction that queues the request into a thread executor and triggers associated callback when operation has
+   * finished.
+   */
+  template <typename DeleteFunctionRequestT = Model::DeleteFunctionRequest>
+  void DeleteFunctionAsync(const DeleteFunctionRequestT& request, const DeleteFunctionResponseReceivedHandler& handler,
+                           const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
+    return SubmitAsync(&MediaTailorClient::DeleteFunction, request, handler, context);
+  }
+
+  /**
    * <p>The live source to delete.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/mediatailor-2018-04-23/DeleteLiveSource">AWS
    * API Reference</a></p>
@@ -739,6 +769,35 @@ class AWS_MEDIATAILOR_API MediaTailorClient : public Aws::Client::AWSJsonClient,
   }
 
   /**
+   * <p>Retrieves the configuration and metadata for a function. For more information
+   * about functions, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working
+   * with functions</a> in the <i>MediaTailor User Guide</i>.</p><p><h3>See
+   * Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/mediatailor-2018-04-23/GetFunction">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::GetFunctionOutcome GetFunction(const Model::GetFunctionRequest& request) const;
+
+  /**
+   * A Callable wrapper for GetFunction that returns a future to the operation so that it can be executed in parallel to other requests.
+   */
+  template <typename GetFunctionRequestT = Model::GetFunctionRequest>
+  Model::GetFunctionOutcomeCallable GetFunctionCallable(const GetFunctionRequestT& request) const {
+    return SubmitCallable(&MediaTailorClient::GetFunction, request);
+  }
+
+  /**
+   * An Async wrapper for GetFunction that queues the request into a thread executor and triggers associated callback when operation has
+   * finished.
+   */
+  template <typename GetFunctionRequestT = Model::GetFunctionRequest>
+  void GetFunctionAsync(const GetFunctionRequestT& request, const GetFunctionResponseReceivedHandler& handler,
+                        const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
+    return SubmitAsync(&MediaTailorClient::GetFunction, request, handler, context);
+  }
+
+  /**
    * <p>Retrieves a playback configuration. For information about MediaTailor
    * configurations, see <a
    * href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working
@@ -851,6 +910,36 @@ class AWS_MEDIATAILOR_API MediaTailorClient : public Aws::Client::AWSJsonClient,
                          const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr,
                          const ListChannelsRequestT& request = {}) const {
     return SubmitAsync(&MediaTailorClient::ListChannels, request, handler, context);
+  }
+
+  /**
+   * <p>Retrieves all functions associated with your AWS account in the current
+   * Region. For more information about functions, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working
+   * with functions</a> in the <i>MediaTailor User Guide</i>.</p><p><h3>See
+   * Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/mediatailor-2018-04-23/ListFunctions">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::ListFunctionsOutcome ListFunctions(const Model::ListFunctionsRequest& request = {}) const;
+
+  /**
+   * A Callable wrapper for ListFunctions that returns a future to the operation so that it can be executed in parallel to other requests.
+   */
+  template <typename ListFunctionsRequestT = Model::ListFunctionsRequest>
+  Model::ListFunctionsOutcomeCallable ListFunctionsCallable(const ListFunctionsRequestT& request = {}) const {
+    return SubmitCallable(&MediaTailorClient::ListFunctions, request);
+  }
+
+  /**
+   * An Async wrapper for ListFunctions that queues the request into a thread executor and triggers associated callback when operation has
+   * finished.
+   */
+  template <typename ListFunctionsRequestT = Model::ListFunctionsRequest>
+  void ListFunctionsAsync(const ListFunctionsResponseReceivedHandler& handler,
+                          const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr,
+                          const ListFunctionsRequestT& request = {}) const {
+    return SubmitAsync(&MediaTailorClient::ListFunctions, request, handler, context);
   }
 
   /**
@@ -1048,6 +1137,36 @@ class AWS_MEDIATAILOR_API MediaTailorClient : public Aws::Client::AWSJsonClient,
   void PutChannelPolicyAsync(const PutChannelPolicyRequestT& request, const PutChannelPolicyResponseReceivedHandler& handler,
                              const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
     return SubmitAsync(&MediaTailorClient::PutChannelPolicy, request, handler, context);
+  }
+
+  /**
+   * <p>Creates or updates a function. A function defines reusable logic that
+   * MediaTailor executes at lifecycle hooks during ad insertion. For more
+   * information about functions, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working
+   * with functions</a> in the <i>MediaTailor User Guide</i>.</p><p><h3>See
+   * Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/mediatailor-2018-04-23/PutFunction">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::PutFunctionOutcome PutFunction(const Model::PutFunctionRequest& request) const;
+
+  /**
+   * A Callable wrapper for PutFunction that returns a future to the operation so that it can be executed in parallel to other requests.
+   */
+  template <typename PutFunctionRequestT = Model::PutFunctionRequest>
+  Model::PutFunctionOutcomeCallable PutFunctionCallable(const PutFunctionRequestT& request) const {
+    return SubmitCallable(&MediaTailorClient::PutFunction, request);
+  }
+
+  /**
+   * An Async wrapper for PutFunction that queues the request into a thread executor and triggers associated callback when operation has
+   * finished.
+   */
+  template <typename PutFunctionRequestT = Model::PutFunctionRequest>
+  void PutFunctionAsync(const PutFunctionRequestT& request, const PutFunctionResponseReceivedHandler& handler,
+                        const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
+    return SubmitAsync(&MediaTailorClient::PutFunction, request, handler, context);
   }
 
   /**

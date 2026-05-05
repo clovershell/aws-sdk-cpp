@@ -151,8 +151,7 @@ class CancelAgreementPaymentRequestResult {
 
   ///@{
   /**
-   * <p>The date and time when the payment request was originally created, in ISO
-   * 8601 format.</p>
+   * <p>The date and time when the payment request was originally created.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>
@@ -169,8 +168,7 @@ class CancelAgreementPaymentRequestResult {
 
   ///@{
   /**
-   * <p>The date and time when the payment request was cancelled, in ISO 8601
-   * format.</p>
+   * <p>The date and time when the payment request was cancelled.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   template <typename UpdatedAtT = Aws::Utils::DateTime>

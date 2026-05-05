@@ -183,9 +183,9 @@ class CreatePrefetchScheduleResult {
 
   ///@{
   /**
-   * <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that
-   * you can associate with Amazon resources to help with organization, access
-   * control, and cost tracking. For more information, see <a
+   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you
+   * can associate with Amazon resources to help with organization, access control,
+   * and cost tracking. For more information, see <a
    * href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
    * AWS Elemental MediaTailor Resources</a>.</p>
    */

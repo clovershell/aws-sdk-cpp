@@ -458,10 +458,11 @@ class AWS_MEDICALIMAGING_API MedicalImagingClient : public Aws::Client::AWSJsonC
 
   /**
    * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import
-   * job imports DICOM P10 files found in the S3 prefix specified by the
-   * <code>inputS3Uri</code> parameter. The import job stores processing results in
-   * the file specified by the <code>outputS3Uri</code> parameter.</p><p><h3>See
-   * Also:</h3>   <a
+   * job imports DICOM P10 files or enhances existing DICOM files with JSON metadata.
+   * The <code>importConfiguration</code> parameter specifies the import type. The
+   * data is found in the S3 prefix specified by the <code>inputS3Uri</code>
+   * parameter. The import job stores processing results in the file specified by the
+   * <code>outputS3Uri</code> parameter.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/medical-imaging-2023-07-19/StartDICOMImportJob">AWS
    * API Reference</a></p>
    */

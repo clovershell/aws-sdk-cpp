@@ -90,7 +90,8 @@ class BatchCreateBillingAdjustmentRequestEntry {
 
   ///@{
   /**
-   * <p>The 3-letter ISO 4217 currency code for the adjustment amount (e.g.,
+   * <p>The 3-letter ISO 4217 currency code for the adjustment amount. Must match the
+   * currency code of the offer associated with the agreement (e.g.,
    * <code>USD</code>).</p>
    */
   inline const Aws::String& GetCurrencyCode() const { return m_currencyCode; }
@@ -109,11 +110,7 @@ class BatchCreateBillingAdjustmentRequestEntry {
 
   ///@{
   /**
-   * <p>The reason code for the billing adjustment. Valid values include
-   * <code>INCORRECT_TERMS_ACCEPTED</code>, <code>INCORRECT_METERING</code>,
-   * <code>TEST_ENVIRONMENT_CHARGES</code>,
-   * <code>ALTERNATIVE_PROCUREMENT_CHANNEL</code>, <code>UNINTENDED_RENEWAL</code>,
-   * <code>BUYER_DISSATISFACTION</code>, and <code>OTHER</code>.</p>
+   * <p>The reason code for the billing adjustment.</p>
    */
   inline BillingAdjustmentReasonCode GetAdjustmentReasonCode() const { return m_adjustmentReasonCode; }
   inline bool AdjustmentReasonCodeHasBeenSet() const { return m_adjustmentReasonCodeHasBeenSet; }

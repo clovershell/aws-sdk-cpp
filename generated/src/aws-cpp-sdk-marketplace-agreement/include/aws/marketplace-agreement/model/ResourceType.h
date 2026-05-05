@@ -10,7 +10,17 @@
 namespace Aws {
 namespace AgreementService {
 namespace Model {
-enum class ResourceType { NOT_SET, Agreement, Charge, PaymentRequest };
+enum class ResourceType {
+  NOT_SET,
+  Agreement,
+  AgreementRequest,
+  AgreementProposal,
+  Charge,
+  PaymentRequest,
+  Invoice,
+  AgreementCancellationRequest,
+  BillingAdjustmentRequest
+};
 
 namespace ResourceTypeMapper {
 AWS_AGREEMENTSERVICE_API ResourceType GetResourceTypeForName(const Aws::String& name);

@@ -164,8 +164,7 @@ class PaymentRequestSummary {
 
   ///@{
   /**
-   * <p>The date and time when the payment request was created, in ISO 8601
-   * format.</p>
+   * <p>The date and time when the payment request was created.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -183,8 +182,7 @@ class PaymentRequestSummary {
 
   ///@{
   /**
-   * <p>The date and time when the payment request was last updated, in ISO 8601
-   * format.</p>
+   * <p>The date and time when the payment request was last updated.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

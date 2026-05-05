@@ -37,5 +37,10 @@ Aws::String CreateFunction2020_05_31Request::SerializePayload() const {
     functionCodeNode.SetText(HashingUtils::Base64Encode(m_functionCode));
   }
 
+  if (m_tagsHasBeenSet) {
+    XmlNode tagsNode = parentNode.CreateChildElement("Tags");
+    m_tags.AddToNode(tagsNode);
+  }
+
   return payloadDoc.ConvertToString();
 }

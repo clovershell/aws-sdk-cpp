@@ -145,8 +145,7 @@ class ListAgreementPaymentRequestsRequest : public AgreementServiceRequest {
 
   ///@{
   /**
-   * <p>A token to specify where to start pagination. Use the <code>nextToken</code>
-   * value from a previous response to retrieve the next page of results.</p>
+   * <p>A token to specify where to start pagination.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

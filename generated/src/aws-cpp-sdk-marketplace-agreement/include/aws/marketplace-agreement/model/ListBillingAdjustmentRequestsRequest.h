@@ -71,7 +71,7 @@ class ListBillingAdjustmentRequestsRequest : public AgreementServiceRequest {
   ///@{
   /**
    * <p>An optional filter to return billing adjustment requests created after the
-   * specified POSIX timestamp (Unix epoch seconds).</p>
+   * specified timestamp.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAfter() const { return m_createdAfter; }
   inline bool CreatedAfterHasBeenSet() const { return m_createdAfterHasBeenSet; }
@@ -90,7 +90,7 @@ class ListBillingAdjustmentRequestsRequest : public AgreementServiceRequest {
   ///@{
   /**
    * <p>An optional filter to return billing adjustment requests created before the
-   * specified POSIX timestamp (Unix epoch seconds).</p>
+   * specified timestamp.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedBefore() const { return m_createdBefore; }
   inline bool CreatedBeforeHasBeenSet() const { return m_createdBeforeHasBeenSet; }
@@ -163,8 +163,7 @@ class ListBillingAdjustmentRequestsRequest : public AgreementServiceRequest {
 
   ///@{
   /**
-   * <p>A token to specify where to start pagination. Use the <code>nextToken</code>
-   * value from a previous response to retrieve the next page of results.</p>
+   * <p>A token to specify where to start pagination.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

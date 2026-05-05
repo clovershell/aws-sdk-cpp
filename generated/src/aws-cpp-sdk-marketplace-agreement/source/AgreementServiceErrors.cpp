@@ -10,6 +10,7 @@
 #include <aws/marketplace-agreement/model/ConflictException.h>
 #include <aws/marketplace-agreement/model/InternalServerException.h>
 #include <aws/marketplace-agreement/model/ResourceNotFoundException.h>
+#include <aws/marketplace-agreement/model/ServiceQuotaExceededException.h>
 #include <aws/marketplace-agreement/model/ThrottlingException.h>
 #include <aws/marketplace-agreement/model/ValidationException.h>
 
@@ -33,15 +34,21 @@ AWS_AGREEMENTSERVICE_API ThrottlingException AgreementServiceError::GetModeledEr
 }
 
 template <>
-AWS_AGREEMENTSERVICE_API InternalServerException AgreementServiceError::GetModeledError() {
-  assert(this->GetErrorType() == AgreementServiceErrors::INTERNAL_SERVER);
-  return InternalServerException(this->GetJsonPayload().View());
+AWS_AGREEMENTSERVICE_API ServiceQuotaExceededException AgreementServiceError::GetModeledError() {
+  assert(this->GetErrorType() == AgreementServiceErrors::SERVICE_QUOTA_EXCEEDED);
+  return ServiceQuotaExceededException(this->GetJsonPayload().View());
 }
 
 template <>
 AWS_AGREEMENTSERVICE_API ResourceNotFoundException AgreementServiceError::GetModeledError() {
   assert(this->GetErrorType() == AgreementServiceErrors::RESOURCE_NOT_FOUND);
   return ResourceNotFoundException(this->GetJsonPayload().View());
+}
+
+template <>
+AWS_AGREEMENTSERVICE_API InternalServerException AgreementServiceError::GetModeledError() {
+  assert(this->GetErrorType() == AgreementServiceErrors::INTERNAL_SERVER);
+  return InternalServerException(this->GetJsonPayload().View());
 }
 
 template <>
@@ -59,6 +66,7 @@ AWS_AGREEMENTSERVICE_API AccessDeniedException AgreementServiceError::GetModeled
 namespace AgreementServiceErrorMapper {
 
 static const int CONFLICT_HASH = HashingUtils::HashString("ConflictException");
+static const int SERVICE_QUOTA_EXCEEDED_HASH = HashingUtils::HashString("ServiceQuotaExceededException");
 static const int INTERNAL_SERVER_HASH = HashingUtils::HashString("InternalServerException");
 
 AWSError<CoreErrors> GetErrorForName(const char* errorName) {
@@ -66,6 +74,8 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName) {
 
   if (hashCode == CONFLICT_HASH) {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(AgreementServiceErrors::CONFLICT), RetryableType::NOT_RETRYABLE);
+  } else if (hashCode == SERVICE_QUOTA_EXCEEDED_HASH) {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(AgreementServiceErrors::SERVICE_QUOTA_EXCEEDED), RetryableType::NOT_RETRYABLE);
   } else if (hashCode == INTERNAL_SERVER_HASH) {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(AgreementServiceErrors::INTERNAL_SERVER), RetryableType::NOT_RETRYABLE);
   }

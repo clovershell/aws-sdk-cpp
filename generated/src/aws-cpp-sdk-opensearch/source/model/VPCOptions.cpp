@@ -32,6 +32,10 @@ VPCOptions& VPCOptions::operator=(JsonView jsonValue) {
     }
     m_securityGroupIdsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("EgressEnabled")) {
+    m_egressEnabled = jsonValue.GetBool("EgressEnabled");
+    m_egressEnabledHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -52,6 +56,10 @@ JsonValue VPCOptions::Jsonize() const {
       securityGroupIdsJsonList[securityGroupIdsIndex].AsString(m_securityGroupIds[securityGroupIdsIndex]);
     }
     payload.WithArray("SecurityGroupIds", std::move(securityGroupIdsJsonList));
+  }
+
+  if (m_egressEnabledHasBeenSet) {
+    payload.WithBool("EgressEnabled", m_egressEnabled);
   }
 
   return payload;

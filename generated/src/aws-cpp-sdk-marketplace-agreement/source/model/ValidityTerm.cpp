@@ -22,6 +22,10 @@ ValidityTerm& ValidityTerm::operator=(JsonView jsonValue) {
     m_type = jsonValue.GetString("type");
     m_typeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("id")) {
+    m_id = jsonValue.GetString("id");
+    m_idHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("agreementDuration")) {
     m_agreementDuration = jsonValue.GetString("agreementDuration");
     m_agreementDurationHasBeenSet = true;
@@ -42,6 +46,10 @@ JsonValue ValidityTerm::Jsonize() const {
 
   if (m_typeHasBeenSet) {
     payload.WithString("type", m_type);
+  }
+
+  if (m_idHasBeenSet) {
+    payload.WithString("id", m_id);
   }
 
   if (m_agreementDurationHasBeenSet) {

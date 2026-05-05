@@ -30,6 +30,7 @@
 #include <aws/mediatailor/model/CreateVodSourceResult.h>
 #include <aws/mediatailor/model/DeleteChannelPolicyResult.h>
 #include <aws/mediatailor/model/DeleteChannelResult.h>
+#include <aws/mediatailor/model/DeleteFunctionResult.h>
 #include <aws/mediatailor/model/DeleteLiveSourceResult.h>
 #include <aws/mediatailor/model/DeletePlaybackConfigurationResult.h>
 #include <aws/mediatailor/model/DeletePrefetchScheduleResult.h>
@@ -43,11 +44,14 @@
 #include <aws/mediatailor/model/DescribeVodSourceResult.h>
 #include <aws/mediatailor/model/GetChannelPolicyResult.h>
 #include <aws/mediatailor/model/GetChannelScheduleResult.h>
+#include <aws/mediatailor/model/GetFunctionResult.h>
 #include <aws/mediatailor/model/GetPlaybackConfigurationResult.h>
 #include <aws/mediatailor/model/GetPrefetchScheduleResult.h>
 #include <aws/mediatailor/model/ListAlertsResult.h>
 #include <aws/mediatailor/model/ListChannelsRequest.h>
 #include <aws/mediatailor/model/ListChannelsResult.h>
+#include <aws/mediatailor/model/ListFunctionsRequest.h>
+#include <aws/mediatailor/model/ListFunctionsResult.h>
 #include <aws/mediatailor/model/ListLiveSourcesResult.h>
 #include <aws/mediatailor/model/ListPlaybackConfigurationsRequest.h>
 #include <aws/mediatailor/model/ListPlaybackConfigurationsResult.h>
@@ -57,6 +61,7 @@
 #include <aws/mediatailor/model/ListTagsForResourceResult.h>
 #include <aws/mediatailor/model/ListVodSourcesResult.h>
 #include <aws/mediatailor/model/PutChannelPolicyResult.h>
+#include <aws/mediatailor/model/PutFunctionResult.h>
 #include <aws/mediatailor/model/PutPlaybackConfigurationResult.h>
 #include <aws/mediatailor/model/StartChannelResult.h>
 #include <aws/mediatailor/model/StopChannelResult.h>
@@ -108,6 +113,7 @@ class CreateSourceLocationRequest;
 class CreateVodSourceRequest;
 class DeleteChannelRequest;
 class DeleteChannelPolicyRequest;
+class DeleteFunctionRequest;
 class DeleteLiveSourceRequest;
 class DeletePlaybackConfigurationRequest;
 class DeletePrefetchScheduleRequest;
@@ -121,10 +127,12 @@ class DescribeSourceLocationRequest;
 class DescribeVodSourceRequest;
 class GetChannelPolicyRequest;
 class GetChannelScheduleRequest;
+class GetFunctionRequest;
 class GetPlaybackConfigurationRequest;
 class GetPrefetchScheduleRequest;
 class ListAlertsRequest;
 class ListChannelsRequest;
+class ListFunctionsRequest;
 class ListLiveSourcesRequest;
 class ListPlaybackConfigurationsRequest;
 class ListPrefetchSchedulesRequest;
@@ -132,6 +140,7 @@ class ListSourceLocationsRequest;
 class ListTagsForResourceRequest;
 class ListVodSourcesRequest;
 class PutChannelPolicyRequest;
+class PutFunctionRequest;
 class PutPlaybackConfigurationRequest;
 class StartChannelRequest;
 class StopChannelRequest;
@@ -155,6 +164,7 @@ typedef Aws::Utils::Outcome<CreateSourceLocationResult, MediaTailorError> Create
 typedef Aws::Utils::Outcome<CreateVodSourceResult, MediaTailorError> CreateVodSourceOutcome;
 typedef Aws::Utils::Outcome<DeleteChannelResult, MediaTailorError> DeleteChannelOutcome;
 typedef Aws::Utils::Outcome<DeleteChannelPolicyResult, MediaTailorError> DeleteChannelPolicyOutcome;
+typedef Aws::Utils::Outcome<DeleteFunctionResult, MediaTailorError> DeleteFunctionOutcome;
 typedef Aws::Utils::Outcome<DeleteLiveSourceResult, MediaTailorError> DeleteLiveSourceOutcome;
 typedef Aws::Utils::Outcome<DeletePlaybackConfigurationResult, MediaTailorError> DeletePlaybackConfigurationOutcome;
 typedef Aws::Utils::Outcome<DeletePrefetchScheduleResult, MediaTailorError> DeletePrefetchScheduleOutcome;
@@ -168,10 +178,12 @@ typedef Aws::Utils::Outcome<DescribeSourceLocationResult, MediaTailorError> Desc
 typedef Aws::Utils::Outcome<DescribeVodSourceResult, MediaTailorError> DescribeVodSourceOutcome;
 typedef Aws::Utils::Outcome<GetChannelPolicyResult, MediaTailorError> GetChannelPolicyOutcome;
 typedef Aws::Utils::Outcome<GetChannelScheduleResult, MediaTailorError> GetChannelScheduleOutcome;
+typedef Aws::Utils::Outcome<GetFunctionResult, MediaTailorError> GetFunctionOutcome;
 typedef Aws::Utils::Outcome<GetPlaybackConfigurationResult, MediaTailorError> GetPlaybackConfigurationOutcome;
 typedef Aws::Utils::Outcome<GetPrefetchScheduleResult, MediaTailorError> GetPrefetchScheduleOutcome;
 typedef Aws::Utils::Outcome<ListAlertsResult, MediaTailorError> ListAlertsOutcome;
 typedef Aws::Utils::Outcome<ListChannelsResult, MediaTailorError> ListChannelsOutcome;
+typedef Aws::Utils::Outcome<ListFunctionsResult, MediaTailorError> ListFunctionsOutcome;
 typedef Aws::Utils::Outcome<ListLiveSourcesResult, MediaTailorError> ListLiveSourcesOutcome;
 typedef Aws::Utils::Outcome<ListPlaybackConfigurationsResult, MediaTailorError> ListPlaybackConfigurationsOutcome;
 typedef Aws::Utils::Outcome<ListPrefetchSchedulesResult, MediaTailorError> ListPrefetchSchedulesOutcome;
@@ -179,6 +191,7 @@ typedef Aws::Utils::Outcome<ListSourceLocationsResult, MediaTailorError> ListSou
 typedef Aws::Utils::Outcome<ListTagsForResourceResult, MediaTailorError> ListTagsForResourceOutcome;
 typedef Aws::Utils::Outcome<ListVodSourcesResult, MediaTailorError> ListVodSourcesOutcome;
 typedef Aws::Utils::Outcome<PutChannelPolicyResult, MediaTailorError> PutChannelPolicyOutcome;
+typedef Aws::Utils::Outcome<PutFunctionResult, MediaTailorError> PutFunctionOutcome;
 typedef Aws::Utils::Outcome<PutPlaybackConfigurationResult, MediaTailorError> PutPlaybackConfigurationOutcome;
 typedef Aws::Utils::Outcome<StartChannelResult, MediaTailorError> StartChannelOutcome;
 typedef Aws::Utils::Outcome<StopChannelResult, MediaTailorError> StopChannelOutcome;
@@ -202,6 +215,7 @@ typedef std::future<CreateSourceLocationOutcome> CreateSourceLocationOutcomeCall
 typedef std::future<CreateVodSourceOutcome> CreateVodSourceOutcomeCallable;
 typedef std::future<DeleteChannelOutcome> DeleteChannelOutcomeCallable;
 typedef std::future<DeleteChannelPolicyOutcome> DeleteChannelPolicyOutcomeCallable;
+typedef std::future<DeleteFunctionOutcome> DeleteFunctionOutcomeCallable;
 typedef std::future<DeleteLiveSourceOutcome> DeleteLiveSourceOutcomeCallable;
 typedef std::future<DeletePlaybackConfigurationOutcome> DeletePlaybackConfigurationOutcomeCallable;
 typedef std::future<DeletePrefetchScheduleOutcome> DeletePrefetchScheduleOutcomeCallable;
@@ -215,10 +229,12 @@ typedef std::future<DescribeSourceLocationOutcome> DescribeSourceLocationOutcome
 typedef std::future<DescribeVodSourceOutcome> DescribeVodSourceOutcomeCallable;
 typedef std::future<GetChannelPolicyOutcome> GetChannelPolicyOutcomeCallable;
 typedef std::future<GetChannelScheduleOutcome> GetChannelScheduleOutcomeCallable;
+typedef std::future<GetFunctionOutcome> GetFunctionOutcomeCallable;
 typedef std::future<GetPlaybackConfigurationOutcome> GetPlaybackConfigurationOutcomeCallable;
 typedef std::future<GetPrefetchScheduleOutcome> GetPrefetchScheduleOutcomeCallable;
 typedef std::future<ListAlertsOutcome> ListAlertsOutcomeCallable;
 typedef std::future<ListChannelsOutcome> ListChannelsOutcomeCallable;
+typedef std::future<ListFunctionsOutcome> ListFunctionsOutcomeCallable;
 typedef std::future<ListLiveSourcesOutcome> ListLiveSourcesOutcomeCallable;
 typedef std::future<ListPlaybackConfigurationsOutcome> ListPlaybackConfigurationsOutcomeCallable;
 typedef std::future<ListPrefetchSchedulesOutcome> ListPrefetchSchedulesOutcomeCallable;
@@ -226,6 +242,7 @@ typedef std::future<ListSourceLocationsOutcome> ListSourceLocationsOutcomeCallab
 typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
 typedef std::future<ListVodSourcesOutcome> ListVodSourcesOutcomeCallable;
 typedef std::future<PutChannelPolicyOutcome> PutChannelPolicyOutcomeCallable;
+typedef std::future<PutFunctionOutcome> PutFunctionOutcomeCallable;
 typedef std::future<PutPlaybackConfigurationOutcome> PutPlaybackConfigurationOutcomeCallable;
 typedef std::future<StartChannelOutcome> StartChannelOutcomeCallable;
 typedef std::future<StopChannelOutcome> StopChannelOutcomeCallable;
@@ -273,6 +290,9 @@ typedef std::function<void(const MediaTailorClient*, const Model::DeleteChannelR
 typedef std::function<void(const MediaTailorClient*, const Model::DeleteChannelPolicyRequest&, const Model::DeleteChannelPolicyOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     DeleteChannelPolicyResponseReceivedHandler;
+typedef std::function<void(const MediaTailorClient*, const Model::DeleteFunctionRequest&, const Model::DeleteFunctionOutcome&,
+                           const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    DeleteFunctionResponseReceivedHandler;
 typedef std::function<void(const MediaTailorClient*, const Model::DeleteLiveSourceRequest&, const Model::DeleteLiveSourceOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     DeleteLiveSourceResponseReceivedHandler;
@@ -312,6 +332,9 @@ typedef std::function<void(const MediaTailorClient*, const Model::GetChannelPoli
 typedef std::function<void(const MediaTailorClient*, const Model::GetChannelScheduleRequest&, const Model::GetChannelScheduleOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     GetChannelScheduleResponseReceivedHandler;
+typedef std::function<void(const MediaTailorClient*, const Model::GetFunctionRequest&, const Model::GetFunctionOutcome&,
+                           const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    GetFunctionResponseReceivedHandler;
 typedef std::function<void(const MediaTailorClient*, const Model::GetPlaybackConfigurationRequest&,
                            const Model::GetPlaybackConfigurationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     GetPlaybackConfigurationResponseReceivedHandler;
@@ -324,6 +347,9 @@ typedef std::function<void(const MediaTailorClient*, const Model::ListAlertsRequ
 typedef std::function<void(const MediaTailorClient*, const Model::ListChannelsRequest&, const Model::ListChannelsOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     ListChannelsResponseReceivedHandler;
+typedef std::function<void(const MediaTailorClient*, const Model::ListFunctionsRequest&, const Model::ListFunctionsOutcome&,
+                           const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    ListFunctionsResponseReceivedHandler;
 typedef std::function<void(const MediaTailorClient*, const Model::ListLiveSourcesRequest&, const Model::ListLiveSourcesOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     ListLiveSourcesResponseReceivedHandler;
@@ -345,6 +371,9 @@ typedef std::function<void(const MediaTailorClient*, const Model::ListVodSources
 typedef std::function<void(const MediaTailorClient*, const Model::PutChannelPolicyRequest&, const Model::PutChannelPolicyOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     PutChannelPolicyResponseReceivedHandler;
+typedef std::function<void(const MediaTailorClient*, const Model::PutFunctionRequest&, const Model::PutFunctionOutcome&,
+                           const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    PutFunctionResponseReceivedHandler;
 typedef std::function<void(const MediaTailorClient*, const Model::PutPlaybackConfigurationRequest&,
                            const Model::PutPlaybackConfigurationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     PutPlaybackConfigurationResponseReceivedHandler;

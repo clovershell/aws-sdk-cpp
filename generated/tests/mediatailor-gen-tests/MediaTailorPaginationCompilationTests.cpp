@@ -13,6 +13,7 @@
 #include <aws/mediatailor/model/ListPrefetchSchedulesPaginationTraits.h>
 #include <aws/mediatailor/model/GetChannelSchedulePaginationTraits.h>
 #include <aws/mediatailor/model/ListSourceLocationsPaginationTraits.h>
+#include <aws/mediatailor/model/ListFunctionsPaginationTraits.h>
 #include <aws/mediatailor/model/ListChannelsPaginationTraits.h>
 #include <aws/mediatailor/model/ListVodSourcesPaginationTraits.h>
 #include <aws/mediatailor/model/ListAlertsPaginationTraits.h>

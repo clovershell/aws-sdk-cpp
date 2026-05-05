@@ -60,6 +60,24 @@ class RenewalTerm {
 
   ///@{
   /**
+   * <p>The unique identifier for the term.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  RenewalTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Additional parameters specified by the acceptor while accepting the term.</p>
    */
   inline const RenewalTermConfiguration& GetConfiguration() const { return m_configuration; }
@@ -78,8 +96,11 @@ class RenewalTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   RenewalTermConfiguration m_configuration;
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_configurationHasBeenSet = false;
 };
 

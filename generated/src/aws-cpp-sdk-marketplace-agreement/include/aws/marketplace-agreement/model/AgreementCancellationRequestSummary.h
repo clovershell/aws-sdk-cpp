@@ -144,8 +144,7 @@ class AgreementCancellationRequestSummary {
 
   ///@{
   /**
-   * <p>The date and time when the cancellation request was created, as a POSIX
-   * timestamp (Unix epoch seconds).</p>
+   * <p>The date and time when the cancellation request was created.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
@@ -163,8 +162,7 @@ class AgreementCancellationRequestSummary {
 
   ///@{
   /**
-   * <p>The date and time when the cancellation request was last updated, as a POSIX
-   * timestamp (Unix epoch seconds).</p>
+   * <p>The date and time when the cancellation request was last updated.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }

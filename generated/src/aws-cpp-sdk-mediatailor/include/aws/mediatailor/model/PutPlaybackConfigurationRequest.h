@@ -14,6 +14,7 @@
 #include <aws/mediatailor/model/Bumper.h>
 #include <aws/mediatailor/model/CdnConfiguration.h>
 #include <aws/mediatailor/model/DashConfigurationForPut.h>
+#include <aws/mediatailor/model/EventName.h>
 #include <aws/mediatailor/model/InsertionMode.h>
 #include <aws/mediatailor/model/LivePreRollConfiguration.h>
 #include <aws/mediatailor/model/ManifestProcessingRules.h>
@@ -396,6 +397,34 @@ class PutPlaybackConfigurationRequest : public MediaTailorRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function
+   * mapping specifies which function MediaTailor executes at each lifecycle hook
+   * during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and
+   * <code>PRE_ADS_REQUEST</code>. For more information, see <a
+   * href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
+   * lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   */
+  inline const Aws::Map<EventName, Aws::String>& GetFunctionMapping() const { return m_functionMapping; }
+  inline bool FunctionMappingHasBeenSet() const { return m_functionMappingHasBeenSet; }
+  template <typename FunctionMappingT = Aws::Map<EventName, Aws::String>>
+  void SetFunctionMapping(FunctionMappingT&& value) {
+    m_functionMappingHasBeenSet = true;
+    m_functionMapping = std::forward<FunctionMappingT>(value);
+  }
+  template <typename FunctionMappingT = Aws::Map<EventName, Aws::String>>
+  PutPlaybackConfigurationRequest& WithFunctionMapping(FunctionMappingT&& value) {
+    SetFunctionMapping(std::forward<FunctionMappingT>(value));
+    return *this;
+  }
+  inline PutPlaybackConfigurationRequest& AddFunctionMapping(EventName key, Aws::String value) {
+    m_functionMappingHasBeenSet = true;
+    m_functionMapping.emplace(key, value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_adDecisionServerUrl;
 
@@ -430,6 +459,8 @@ class PutPlaybackConfigurationRequest : public MediaTailorRequest {
   AdConditioningConfiguration m_adConditioningConfiguration;
 
   AdDecisionServerConfiguration m_adDecisionServerConfiguration;
+
+  Aws::Map<EventName, Aws::String> m_functionMapping;
   bool m_adDecisionServerUrlHasBeenSet = false;
   bool m_availSuppressionHasBeenSet = false;
   bool m_bumperHasBeenSet = false;
@@ -447,6 +478,7 @@ class PutPlaybackConfigurationRequest : public MediaTailorRequest {
   bool m_videoContentSourceUrlHasBeenSet = false;
   bool m_adConditioningConfigurationHasBeenSet = false;
   bool m_adDecisionServerConfigurationHasBeenSet = false;
+  bool m_functionMappingHasBeenSet = false;
 };
 
 }  // namespace Model

@@ -7,6 +7,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/mediatailor/MediaTailor_EXPORTS.h>
 #include <aws/mediatailor/model/ManifestServiceExcludeEventType.h>
+#include <aws/mediatailor/model/ManifestServicePublishOptInEventType.h>
 
 #include <utility>
 
@@ -39,6 +40,31 @@ class ManifestServiceInteractionLog {
 
   ///@{
   /**
+   * <p>Indicates that MediaTailor will emit the selected events in the logs for
+   * playback sessions that are initialized with this configuration. These events are
+   * not emitted by default and must be explicitly opted in.</p>
+   */
+  inline const Aws::Vector<ManifestServicePublishOptInEventType>& GetPublishOptInEventTypes() const { return m_publishOptInEventTypes; }
+  inline bool PublishOptInEventTypesHasBeenSet() const { return m_publishOptInEventTypesHasBeenSet; }
+  template <typename PublishOptInEventTypesT = Aws::Vector<ManifestServicePublishOptInEventType>>
+  void SetPublishOptInEventTypes(PublishOptInEventTypesT&& value) {
+    m_publishOptInEventTypesHasBeenSet = true;
+    m_publishOptInEventTypes = std::forward<PublishOptInEventTypesT>(value);
+  }
+  template <typename PublishOptInEventTypesT = Aws::Vector<ManifestServicePublishOptInEventType>>
+  ManifestServiceInteractionLog& WithPublishOptInEventTypes(PublishOptInEventTypesT&& value) {
+    SetPublishOptInEventTypes(std::forward<PublishOptInEventTypesT>(value));
+    return *this;
+  }
+  inline ManifestServiceInteractionLog& AddPublishOptInEventTypes(ManifestServicePublishOptInEventType value) {
+    m_publishOptInEventTypesHasBeenSet = true;
+    m_publishOptInEventTypes.push_back(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Indicates that MediaTailor won't emit the selected events in the logs for
    * playback sessions that are initialized with this configuration.</p>
    */
@@ -61,7 +87,10 @@ class ManifestServiceInteractionLog {
   }
   ///@}
  private:
+  Aws::Vector<ManifestServicePublishOptInEventType> m_publishOptInEventTypes;
+
   Aws::Vector<ManifestServiceExcludeEventType> m_excludeEventTypes;
+  bool m_publishOptInEventTypesHasBeenSet = false;
   bool m_excludeEventTypesHasBeenSet = false;
 };
 

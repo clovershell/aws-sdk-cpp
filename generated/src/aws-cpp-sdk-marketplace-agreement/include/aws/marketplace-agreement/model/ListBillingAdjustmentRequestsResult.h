@@ -32,8 +32,8 @@ class ListBillingAdjustmentRequestsResult {
 
   ///@{
   /**
-   * <p>A token to retrieve the next page of results. If <code>null</code>, there are
-   * no more results to retrieve.</p>
+   * <p>The token used for pagination. The field is <code>null</code> if there are no
+   * more results.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

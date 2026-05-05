@@ -276,8 +276,8 @@ class AWS_ROUTE53DOMAINS_API Route53DomainsClient : public Aws::Client::AWSJsonC
    * (varies by registry). </p> </li> <li> <p>When the registration has been deleted,
    * we'll send you a confirmation to the registrant contact. The email will come
    * from <code>noreply@domainnameverification.net</code> or
-   * <code>noreply@registrar.amazon.com</code>.</p> </li> </ol><p><h3>See Also:</h3>
-   * <a
+   * <code>noreply@emailverification.info</code> or
+   * <code>noreply@registrar.amazon</code>.</p> </li> </ol><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/DeleteDomain">AWS
    * API Reference</a></p>
    */

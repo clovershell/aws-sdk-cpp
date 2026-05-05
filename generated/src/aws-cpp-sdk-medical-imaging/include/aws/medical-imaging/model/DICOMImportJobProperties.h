@@ -7,6 +7,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/medical-imaging/MedicalImaging_EXPORTS.h>
+#include <aws/medical-imaging/model/ImportConfiguration.h>
 #include <aws/medical-imaging/model/JobStatus.h>
 
 #include <utility>
@@ -213,6 +214,24 @@ class DICOMImportJobProperties {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The object containing <code>DicomJsonMetadataImportConfiguration</code>.</p>
+   */
+  inline const ImportConfiguration& GetImportConfiguration() const { return m_importConfiguration; }
+  inline bool ImportConfigurationHasBeenSet() const { return m_importConfigurationHasBeenSet; }
+  template <typename ImportConfigurationT = ImportConfiguration>
+  void SetImportConfiguration(ImportConfigurationT&& value) {
+    m_importConfigurationHasBeenSet = true;
+    m_importConfiguration = std::forward<ImportConfigurationT>(value);
+  }
+  template <typename ImportConfigurationT = ImportConfiguration>
+  DICOMImportJobProperties& WithImportConfiguration(ImportConfigurationT&& value) {
+    SetImportConfiguration(std::forward<ImportConfigurationT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_jobId;
 
@@ -233,6 +252,8 @@ class DICOMImportJobProperties {
   Aws::String m_outputS3Uri;
 
   Aws::String m_message;
+
+  ImportConfiguration m_importConfiguration;
   bool m_jobIdHasBeenSet = false;
   bool m_jobNameHasBeenSet = false;
   bool m_jobStatusHasBeenSet = false;
@@ -243,6 +264,7 @@ class DICOMImportJobProperties {
   bool m_inputS3UriHasBeenSet = false;
   bool m_outputS3UriHasBeenSet = false;
   bool m_messageHasBeenSet = false;
+  bool m_importConfigurationHasBeenSet = false;
 };
 
 }  // namespace Model

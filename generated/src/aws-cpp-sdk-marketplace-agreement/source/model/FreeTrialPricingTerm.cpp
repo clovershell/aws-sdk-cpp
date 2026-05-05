@@ -22,6 +22,10 @@ FreeTrialPricingTerm& FreeTrialPricingTerm::operator=(JsonView jsonValue) {
     m_type = jsonValue.GetString("type");
     m_typeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("id")) {
+    m_id = jsonValue.GetString("id");
+    m_idHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("duration")) {
     m_duration = jsonValue.GetString("duration");
     m_durationHasBeenSet = true;
@@ -41,6 +45,10 @@ JsonValue FreeTrialPricingTerm::Jsonize() const {
 
   if (m_typeHasBeenSet) {
     payload.WithString("type", m_type);
+  }
+
+  if (m_idHasBeenSet) {
+    payload.WithString("id", m_id);
   }
 
   if (m_durationHasBeenSet) {

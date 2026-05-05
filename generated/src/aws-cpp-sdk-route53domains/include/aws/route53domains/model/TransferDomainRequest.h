@@ -85,9 +85,11 @@ class TransferDomainRequest : public Route53DomainsRequest {
 
   ///@{
   /**
-   * <p>The number of years that you want to register the domain for. Domains are
-   * registered for a minimum of one year. The maximum period depends on the
-   * top-level domain.</p> <p>Default: 1</p>
+   * <p>Reserved for future use.</p> <p>Currently, the effect of a domain transfer on
+   * the registration period varies by TLD. For information about how transferring a
+   * domain affects the expiration date, see the Transfer Term column in the pricing
+   * information at <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53
+   * Pricing</a>.</p> <p>Default: 1</p>
    */
   inline int GetDurationInYears() const { return m_durationInYears; }
   inline bool DurationInYearsHasBeenSet() const { return m_durationInYearsHasBeenSet; }

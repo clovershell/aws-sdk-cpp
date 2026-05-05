@@ -54,6 +54,24 @@ class FreeTrialPricingTerm {
 
   ///@{
   /**
+   * <p>The unique identifier for the terms.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  FreeTrialPricingTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Duration of the free trial period (5–31 days). </p>
    */
   inline const Aws::String& GetDuration() const { return m_duration; }
@@ -97,10 +115,13 @@ class FreeTrialPricingTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   Aws::String m_duration;
 
   Aws::Vector<GrantItem> m_grants;
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_durationHasBeenSet = false;
   bool m_grantsHasBeenSet = false;
 };

@@ -66,7 +66,7 @@ class GetAgreementTermsRequest : public AgreementServiceRequest {
 
   ///@{
   /**
-   * <p>A token to specify where to start pagination</p>
+   * <p>A token to specify where to start pagination.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

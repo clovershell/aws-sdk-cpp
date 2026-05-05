@@ -72,10 +72,7 @@ class ListAgreementCancellationRequestsRequest : public AgreementServiceRequest 
 
   ///@{
   /**
-   * <p>An optional parameter to filter cancellation requests by status. Valid values
-   * include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>,
-   * <code>REJECTED</code>, <code>CANCELLED</code>, and
-   * <code>VALIDATION_FAILED</code>.</p>
+   * <p>An optional parameter to filter cancellation requests by status.</p>
    */
   inline AgreementCancellationRequestStatus GetStatus() const { return m_status; }
   inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
@@ -145,8 +142,7 @@ class ListAgreementCancellationRequestsRequest : public AgreementServiceRequest 
 
   ///@{
   /**
-   * <p>A token to specify where to start pagination. Use the <code>nextToken</code>
-   * value from a previous response to retrieve the next page of results.</p>
+   * <p>A token to specify where to start pagination.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }

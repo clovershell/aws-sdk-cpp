@@ -95,5 +95,13 @@ Aws::String PutPlaybackConfigurationRequest::SerializePayload() const {
     payload.WithObject("AdDecisionServerConfiguration", m_adDecisionServerConfiguration.Jsonize());
   }
 
+  if (m_functionMappingHasBeenSet) {
+    JsonValue functionMappingJsonMap;
+    for (auto& functionMappingItem : m_functionMapping) {
+      functionMappingJsonMap.WithString(EventNameMapper::GetNameForEventName(functionMappingItem.first), functionMappingItem.second);
+    }
+    payload.WithObject("FunctionMapping", std::move(functionMappingJsonMap));
+  }
+
   return payload.View().WriteReadable();
 }

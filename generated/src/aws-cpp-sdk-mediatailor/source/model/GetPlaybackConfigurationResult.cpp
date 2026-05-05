@@ -121,6 +121,13 @@ GetPlaybackConfigurationResult& GetPlaybackConfigurationResult::operator=(const 
     m_adDecisionServerConfiguration = jsonValue.GetObject("AdDecisionServerConfiguration");
     m_adDecisionServerConfigurationHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("FunctionMapping")) {
+    Aws::Map<Aws::String, JsonView> functionMappingJsonMap = jsonValue.GetObject("FunctionMapping").GetAllObjects();
+    for (auto& functionMappingItem : functionMappingJsonMap) {
+      m_functionMapping[EventNameMapper::GetEventNameForName(functionMappingItem.first)] = functionMappingItem.second.AsString();
+    }
+    m_functionMappingHasBeenSet = true;
+  }
 
   const auto& headers = result.GetHeaderValueCollection();
   const auto& requestIdIter = headers.find("x-amzn-requestid");

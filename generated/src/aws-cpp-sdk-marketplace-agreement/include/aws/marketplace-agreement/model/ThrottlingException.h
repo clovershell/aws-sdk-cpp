@@ -50,7 +50,9 @@ class ThrottlingException {
   ///@}
 
   ///@{
-
+  /**
+   * <p>Description of the error.</p>
+   */
   inline const Aws::String& GetMessage() const { return m_message; }
   inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
   template <typename MessageT = Aws::String>

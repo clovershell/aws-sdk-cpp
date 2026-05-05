@@ -45,7 +45,8 @@ enum class AgreementServiceErrors {
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   CONFLICT = static_cast<int>(Aws::Client::CoreErrors::SERVICE_EXTENSION_START_RANGE) + 1,
-  INTERNAL_SERVER
+  INTERNAL_SERVER,
+  SERVICE_QUOTA_EXCEEDED
 };
 
 class AWS_AGREEMENTSERVICE_API AgreementServiceError : public Aws::Client::AWSError<AgreementServiceErrors> {

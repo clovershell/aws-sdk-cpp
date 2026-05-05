@@ -54,8 +54,9 @@ class Resource {
 
   ///@{
   /**
-   * <p>Type of the resource, which is the product. Values include
-   * <code>SaaSProduct</code> or <code>AmiProduct</code>.</p>
+   * <p>Type of the resource, which is the product (for example,
+   * <code>SaaSProduct</code>, <code>AmiProduct</code>,
+   * <code>ContainerProduct</code>).</p>
    */
   inline const Aws::String& GetType() const { return m_type; }
   inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }

@@ -22,6 +22,10 @@ VariablePaymentTerm& VariablePaymentTerm::operator=(JsonView jsonValue) {
     m_type = jsonValue.GetString("type");
     m_typeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("id")) {
+    m_id = jsonValue.GetString("id");
+    m_idHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("currencyCode")) {
     m_currencyCode = jsonValue.GetString("currencyCode");
     m_currencyCodeHasBeenSet = true;
@@ -42,6 +46,10 @@ JsonValue VariablePaymentTerm::Jsonize() const {
 
   if (m_typeHasBeenSet) {
     payload.WithString("type", m_type);
+  }
+
+  if (m_idHasBeenSet) {
+    payload.WithString("id", m_id);
   }
 
   if (m_currencyCodeHasBeenSet) {

@@ -52,6 +52,24 @@ class SupportTerm {
 
   ///@{
   /**
+   * <p>The unique identifier for the term.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  SupportTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Free-text field about the refund policy description that will be shown to
    * customers as is on the website and console.</p>
    */
@@ -71,8 +89,11 @@ class SupportTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   Aws::String m_refundPolicy;
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_refundPolicyHasBeenSet = false;
 };
 

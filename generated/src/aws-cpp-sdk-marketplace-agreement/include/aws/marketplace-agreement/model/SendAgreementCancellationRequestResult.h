@@ -115,8 +115,7 @@ class SendAgreementCancellationRequestResult {
 
   ///@{
   /**
-   * <p>The time when the cancellation request was created, as a POSIX timestamp
-   * (Unix epoch seconds).</p>
+   * <p>The time when the cancellation request was created.</p>
    */
   inline const Aws::Utils::DateTime& GetCreatedAt() const { return m_createdAt; }
   template <typename CreatedAtT = Aws::Utils::DateTime>
@@ -133,8 +132,7 @@ class SendAgreementCancellationRequestResult {
 
   ///@{
   /**
-   * <p>The time when the cancellation request was last updated, as a POSIX timestamp
-   * (Unix epoch seconds).</p>
+   * <p>The time when the cancellation request was last updated.</p>
    */
   inline const Aws::Utils::DateTime& GetUpdatedAt() const { return m_updatedAt; }
   template <typename UpdatedAtT = Aws::Utils::DateTime>

@@ -8,6 +8,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/medical-imaging/MedicalImagingRequest.h>
 #include <aws/medical-imaging/MedicalImaging_EXPORTS.h>
+#include <aws/medical-imaging/model/ImportConfiguration.h>
 
 #include <utility>
 
@@ -157,6 +158,24 @@ class StartDICOMImportJobRequest : public MedicalImagingRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The import configuration for the import job.</p>
+   */
+  inline const ImportConfiguration& GetImportConfiguration() const { return m_importConfiguration; }
+  inline bool ImportConfigurationHasBeenSet() const { return m_importConfigurationHasBeenSet; }
+  template <typename ImportConfigurationT = ImportConfiguration>
+  void SetImportConfiguration(ImportConfigurationT&& value) {
+    m_importConfigurationHasBeenSet = true;
+    m_importConfiguration = std::forward<ImportConfigurationT>(value);
+  }
+  template <typename ImportConfigurationT = ImportConfiguration>
+  StartDICOMImportJobRequest& WithImportConfiguration(ImportConfigurationT&& value) {
+    SetImportConfiguration(std::forward<ImportConfigurationT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_jobName;
 
@@ -171,6 +190,8 @@ class StartDICOMImportJobRequest : public MedicalImagingRequest {
   Aws::String m_outputS3Uri;
 
   Aws::String m_inputOwnerAccountId;
+
+  ImportConfiguration m_importConfiguration;
   bool m_jobNameHasBeenSet = false;
   bool m_dataAccessRoleArnHasBeenSet = false;
   bool m_clientTokenHasBeenSet = true;
@@ -178,6 +199,7 @@ class StartDICOMImportJobRequest : public MedicalImagingRequest {
   bool m_inputS3UriHasBeenSet = false;
   bool m_outputS3UriHasBeenSet = false;
   bool m_inputOwnerAccountIdHasBeenSet = false;
+  bool m_importConfigurationHasBeenSet = false;
 };
 
 }  // namespace Model

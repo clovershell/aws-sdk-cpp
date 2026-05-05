@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/marketplace-agreement/AgreementService_EXPORTS.h>
+#include <aws/marketplace-agreement/model/AccessDeniedExceptionReason.h>
 
 #include <utility>
 
@@ -51,7 +52,9 @@ class AccessDeniedException {
   ///@}
 
   ///@{
-
+  /**
+   * <p>Description of the error.</p>
+   */
   inline const Aws::String& GetMessage() const { return m_message; }
   inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
   template <typename MessageT = Aws::String>
@@ -65,12 +68,31 @@ class AccessDeniedException {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The reason for the access denied exception.</p>
+   */
+  inline AccessDeniedExceptionReason GetReason() const { return m_reason; }
+  inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
+  inline void SetReason(AccessDeniedExceptionReason value) {
+    m_reasonHasBeenSet = true;
+    m_reason = value;
+  }
+  inline AccessDeniedException& WithReason(AccessDeniedExceptionReason value) {
+    SetReason(value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_requestId;
 
   Aws::String m_message;
+
+  AccessDeniedExceptionReason m_reason{AccessDeniedExceptionReason::NOT_SET};
   bool m_requestIdHasBeenSet = false;
   bool m_messageHasBeenSet = false;
+  bool m_reasonHasBeenSet = false;
 };
 
 }  // namespace Model

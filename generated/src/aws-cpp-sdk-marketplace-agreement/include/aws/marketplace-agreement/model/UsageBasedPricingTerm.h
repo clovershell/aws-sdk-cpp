@@ -54,6 +54,24 @@ class UsageBasedPricingTerm {
 
   ///@{
   /**
+   * <p>The unique identifier for the term.</p>
+   */
+  inline const Aws::String& GetId() const { return m_id; }
+  inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+  template <typename IdT = Aws::String>
+  void SetId(IdT&& value) {
+    m_idHasBeenSet = true;
+    m_id = std::forward<IdT>(value);
+  }
+  template <typename IdT = Aws::String>
+  UsageBasedPricingTerm& WithId(IdT&& value) {
+    SetId(std::forward<IdT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Defines the currency for the prices mentioned in the term. </p>
    */
   inline const Aws::String& GetCurrencyCode() const { return m_currencyCode; }
@@ -96,10 +114,13 @@ class UsageBasedPricingTerm {
  private:
   Aws::String m_type;
 
+  Aws::String m_id;
+
   Aws::String m_currencyCode;
 
   Aws::Vector<UsageBasedRateCardItem> m_rateCards;
   bool m_typeHasBeenSet = false;
+  bool m_idHasBeenSet = false;
   bool m_currencyCodeHasBeenSet = false;
   bool m_rateCardsHasBeenSet = false;
 };

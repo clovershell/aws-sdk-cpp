@@ -117,6 +117,13 @@ PlaybackConfiguration& PlaybackConfiguration::operator=(JsonView jsonValue) {
     m_adDecisionServerConfiguration = jsonValue.GetObject("AdDecisionServerConfiguration");
     m_adDecisionServerConfigurationHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("FunctionMapping")) {
+    Aws::Map<Aws::String, JsonView> functionMappingJsonMap = jsonValue.GetObject("FunctionMapping").GetAllObjects();
+    for (auto& functionMappingItem : functionMappingJsonMap) {
+      m_functionMapping[EventNameMapper::GetEventNameForName(functionMappingItem.first)] = functionMappingItem.second.AsString();
+    }
+    m_functionMappingHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -221,6 +228,14 @@ JsonValue PlaybackConfiguration::Jsonize() const {
 
   if (m_adDecisionServerConfigurationHasBeenSet) {
     payload.WithObject("AdDecisionServerConfiguration", m_adDecisionServerConfiguration.Jsonize());
+  }
+
+  if (m_functionMappingHasBeenSet) {
+    JsonValue functionMappingJsonMap;
+    for (auto& functionMappingItem : m_functionMapping) {
+      functionMappingJsonMap.WithString(EventNameMapper::GetNameForEventName(functionMappingItem.first), functionMappingItem.second);
+    }
+    payload.WithObject("FunctionMapping", std::move(functionMappingJsonMap));
   }
 
   return payload;

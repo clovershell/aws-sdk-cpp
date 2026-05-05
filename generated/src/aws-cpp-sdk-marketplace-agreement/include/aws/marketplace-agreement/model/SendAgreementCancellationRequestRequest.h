@@ -53,11 +53,7 @@ class SendAgreementCancellationRequestRequest : public AgreementServiceRequest {
 
   ///@{
   /**
-   * <p>The reason code for the cancellation request. Valid values include
-   * <code>INCORRECT_TERMS_ACCEPTED</code>, <code>REPLACING_AGREEMENT</code>,
-   * <code>TEST_AGREEMENT</code>, <code>ALTERNATIVE_PROCUREMENT_CHANNEL</code>,
-   * <code>PRODUCT_DISCONTINUED</code>, <code>UNINTENDED_RENEWAL</code>,
-   * <code>BUYER_DISSATISFACTION</code>, and <code>OTHER</code>.</p>
+   * <p>The reason code for the cancellation request.</p>
    */
   inline AgreementCancellationRequestReasonCode GetReasonCode() const { return m_reasonCode; }
   inline bool ReasonCodeHasBeenSet() const { return m_reasonCodeHasBeenSet; }

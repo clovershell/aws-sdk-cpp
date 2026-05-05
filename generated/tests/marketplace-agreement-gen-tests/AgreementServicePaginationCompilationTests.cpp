@@ -8,10 +8,12 @@
 
 #include <aws/marketplace-agreement/AgreementServiceClientPagination.h>
 #include <aws/marketplace-agreement/AgreementServicePaginationBase.h>
+#include <aws/marketplace-agreement/model/ListAgreementChargesPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListBillingAdjustmentRequestsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/SearchAgreementsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementPaymentRequestsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementCancellationRequestsPaginationTraits.h>
+#include <aws/marketplace-agreement/model/GetAgreementEntitlementsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementInvoiceLineItemsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/GetAgreementTermsPaginationTraits.h>
 

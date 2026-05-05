@@ -36,5 +36,10 @@ Aws::String CreateKeyValueStore2020_05_31Request::SerializePayload() const {
     m_importSource.AddToNode(importSourceNode);
   }
 
+  if (m_tagsHasBeenSet) {
+    XmlNode tagsNode = parentNode.CreateChildElement("Tags");
+    m_tags.AddToNode(tagsNode);
+  }
+
   return payloadDoc.ConvertToString();
 }

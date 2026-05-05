@@ -30,6 +30,7 @@
 #include <aws/mediatailor/model/CreateVodSourceRequest.h>
 #include <aws/mediatailor/model/DeleteChannelPolicyRequest.h>
 #include <aws/mediatailor/model/DeleteChannelRequest.h>
+#include <aws/mediatailor/model/DeleteFunctionRequest.h>
 #include <aws/mediatailor/model/DeleteLiveSourceRequest.h>
 #include <aws/mediatailor/model/DeletePlaybackConfigurationRequest.h>
 #include <aws/mediatailor/model/DeletePrefetchScheduleRequest.h>
@@ -43,10 +44,12 @@
 #include <aws/mediatailor/model/DescribeVodSourceRequest.h>
 #include <aws/mediatailor/model/GetChannelPolicyRequest.h>
 #include <aws/mediatailor/model/GetChannelScheduleRequest.h>
+#include <aws/mediatailor/model/GetFunctionRequest.h>
 #include <aws/mediatailor/model/GetPlaybackConfigurationRequest.h>
 #include <aws/mediatailor/model/GetPrefetchScheduleRequest.h>
 #include <aws/mediatailor/model/ListAlertsRequest.h>
 #include <aws/mediatailor/model/ListChannelsRequest.h>
+#include <aws/mediatailor/model/ListFunctionsRequest.h>
 #include <aws/mediatailor/model/ListLiveSourcesRequest.h>
 #include <aws/mediatailor/model/ListPlaybackConfigurationsRequest.h>
 #include <aws/mediatailor/model/ListPrefetchSchedulesRequest.h>
@@ -54,6 +57,7 @@
 #include <aws/mediatailor/model/ListTagsForResourceRequest.h>
 #include <aws/mediatailor/model/ListVodSourcesRequest.h>
 #include <aws/mediatailor/model/PutChannelPolicyRequest.h>
+#include <aws/mediatailor/model/PutFunctionRequest.h>
 #include <aws/mediatailor/model/PutPlaybackConfigurationRequest.h>
 #include <aws/mediatailor/model/StartChannelRequest.h>
 #include <aws/mediatailor/model/StopChannelRequest.h>
@@ -410,6 +414,23 @@ DeleteChannelPolicyOutcome MediaTailorClient::DeleteChannelPolicy(const DeleteCh
                             : DeleteChannelPolicyOutcome(std::move(result.GetError()));
 }
 
+DeleteFunctionOutcome MediaTailorClient::DeleteFunction(const DeleteFunctionRequest& request) const {
+  if (!request.FunctionIdHasBeenSet()) {
+    AWS_LOGSTREAM_ERROR("DeleteFunction", "Required field: FunctionId, is not set");
+    return DeleteFunctionOutcome(Aws::Client::AWSError<MediaTailorErrors>(MediaTailorErrors::MISSING_PARAMETER, "MISSING_PARAMETER",
+                                                                          "Missing required field [FunctionId]", false));
+  }
+
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/function/");
+    endpointResolutionOutcome.GetResult().AddPathSegment(request.GetFunctionId());
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_DELETE);
+  return result.IsSuccess() ? DeleteFunctionOutcome(result.GetResultWithOwnership()) : DeleteFunctionOutcome(std::move(result.GetError()));
+}
+
 DeleteLiveSourceOutcome MediaTailorClient::DeleteLiveSource(const DeleteLiveSourceRequest& request) const {
   if (!request.LiveSourceNameHasBeenSet()) {
     AWS_LOGSTREAM_ERROR("DeleteLiveSource", "Required field: LiveSourceName, is not set");
@@ -693,6 +714,23 @@ GetChannelScheduleOutcome MediaTailorClient::GetChannelSchedule(const GetChannel
                             : GetChannelScheduleOutcome(std::move(result.GetError()));
 }
 
+GetFunctionOutcome MediaTailorClient::GetFunction(const GetFunctionRequest& request) const {
+  if (!request.FunctionIdHasBeenSet()) {
+    AWS_LOGSTREAM_ERROR("GetFunction", "Required field: FunctionId, is not set");
+    return GetFunctionOutcome(Aws::Client::AWSError<MediaTailorErrors>(MediaTailorErrors::MISSING_PARAMETER, "MISSING_PARAMETER",
+                                                                       "Missing required field [FunctionId]", false));
+  }
+
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/function/");
+    endpointResolutionOutcome.GetResult().AddPathSegment(request.GetFunctionId());
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_GET);
+  return result.IsSuccess() ? GetFunctionOutcome(result.GetResultWithOwnership()) : GetFunctionOutcome(std::move(result.GetError()));
+}
+
 GetPlaybackConfigurationOutcome MediaTailorClient::GetPlaybackConfiguration(const GetPlaybackConfigurationRequest& request) const {
   if (!request.NameHasBeenSet()) {
     AWS_LOGSTREAM_ERROR("GetPlaybackConfiguration", "Required field: Name, is not set");
@@ -759,6 +797,16 @@ ListChannelsOutcome MediaTailorClient::ListChannels(const ListChannelsRequest& r
 
   auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_GET);
   return result.IsSuccess() ? ListChannelsOutcome(result.GetResultWithOwnership()) : ListChannelsOutcome(std::move(result.GetError()));
+}
+
+ListFunctionsOutcome MediaTailorClient::ListFunctions(const ListFunctionsRequest& request) const {
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/functions");
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_GET);
+  return result.IsSuccess() ? ListFunctionsOutcome(result.GetResultWithOwnership()) : ListFunctionsOutcome(std::move(result.GetError()));
 }
 
 ListLiveSourcesOutcome MediaTailorClient::ListLiveSources(const ListLiveSourcesRequest& request) const {
@@ -873,6 +921,23 @@ PutChannelPolicyOutcome MediaTailorClient::PutChannelPolicy(const PutChannelPoli
   auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_PUT);
   return result.IsSuccess() ? PutChannelPolicyOutcome(result.GetResultWithOwnership())
                             : PutChannelPolicyOutcome(std::move(result.GetError()));
+}
+
+PutFunctionOutcome MediaTailorClient::PutFunction(const PutFunctionRequest& request) const {
+  if (!request.FunctionIdHasBeenSet()) {
+    AWS_LOGSTREAM_ERROR("PutFunction", "Required field: FunctionId, is not set");
+    return PutFunctionOutcome(Aws::Client::AWSError<MediaTailorErrors>(MediaTailorErrors::MISSING_PARAMETER, "MISSING_PARAMETER",
+                                                                       "Missing required field [FunctionId]", false));
+  }
+
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/function/");
+    endpointResolutionOutcome.GetResult().AddPathSegment(request.GetFunctionId());
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_PUT);
+  return result.IsSuccess() ? PutFunctionOutcome(result.GetResultWithOwnership()) : PutFunctionOutcome(std::move(result.GetError()));
 }
 
 PutPlaybackConfigurationOutcome MediaTailorClient::PutPlaybackConfiguration(const PutPlaybackConfigurationRequest& request) const {

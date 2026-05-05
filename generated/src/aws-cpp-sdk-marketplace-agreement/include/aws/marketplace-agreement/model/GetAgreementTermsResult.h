@@ -55,7 +55,8 @@ class GetAgreementTermsResult {
 
   ///@{
   /**
-   * <p>A token to specify where to start pagination</p>
+   * <p>The token used for pagination. The field is <code>null</code> if there are no
+   * more results.</p>
    */
   inline const Aws::String& GetNextToken() const { return m_nextToken; }
   template <typename NextTokenT = Aws::String>

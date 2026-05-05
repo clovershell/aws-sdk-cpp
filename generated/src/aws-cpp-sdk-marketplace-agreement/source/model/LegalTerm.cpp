@@ -22,6 +22,10 @@ LegalTerm& LegalTerm::operator=(JsonView jsonValue) {
     m_type = jsonValue.GetString("type");
     m_typeHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("id")) {
+    m_id = jsonValue.GetString("id");
+    m_idHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("documents")) {
     Aws::Utils::Array<JsonView> documentsJsonList = jsonValue.GetArray("documents");
     for (unsigned documentsIndex = 0; documentsIndex < documentsJsonList.GetLength(); ++documentsIndex) {
@@ -37,6 +41,10 @@ JsonValue LegalTerm::Jsonize() const {
 
   if (m_typeHasBeenSet) {
     payload.WithString("type", m_type);
+  }
+
+  if (m_idHasBeenSet) {
+    payload.WithString("id", m_id);
   }
 
   if (m_documentsHasBeenSet) {

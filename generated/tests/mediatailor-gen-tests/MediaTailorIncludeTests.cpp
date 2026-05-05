@@ -53,6 +53,7 @@
 #include <aws/mediatailor/model/CreateSourceLocationResult.h>
 #include <aws/mediatailor/model/CreateVodSourceRequest.h>
 #include <aws/mediatailor/model/CreateVodSourceResult.h>
+#include <aws/mediatailor/model/CustomOutputConfiguration.h>
 #include <aws/mediatailor/model/DashConfiguration.h>
 #include <aws/mediatailor/model/DashConfigurationForPut.h>
 #include <aws/mediatailor/model/DashPlaylistSettings.h>
@@ -61,6 +62,8 @@
 #include <aws/mediatailor/model/DeleteChannelPolicyResult.h>
 #include <aws/mediatailor/model/DeleteChannelRequest.h>
 #include <aws/mediatailor/model/DeleteChannelResult.h>
+#include <aws/mediatailor/model/DeleteFunctionRequest.h>
+#include <aws/mediatailor/model/DeleteFunctionResult.h>
 #include <aws/mediatailor/model/DeleteLiveSourceRequest.h>
 #include <aws/mediatailor/model/DeleteLiveSourceResult.h>
 #include <aws/mediatailor/model/DeletePlaybackConfigurationRequest.h>
@@ -83,11 +86,17 @@
 #include <aws/mediatailor/model/DescribeSourceLocationResult.h>
 #include <aws/mediatailor/model/DescribeVodSourceRequest.h>
 #include <aws/mediatailor/model/DescribeVodSourceResult.h>
+#include <aws/mediatailor/model/EventName.h>
 #include <aws/mediatailor/model/FillPolicy.h>
+#include <aws/mediatailor/model/Function.h>
+#include <aws/mediatailor/model/FunctionRef.h>
+#include <aws/mediatailor/model/FunctionType.h>
 #include <aws/mediatailor/model/GetChannelPolicyRequest.h>
 #include <aws/mediatailor/model/GetChannelPolicyResult.h>
 #include <aws/mediatailor/model/GetChannelScheduleRequest.h>
 #include <aws/mediatailor/model/GetChannelScheduleResult.h>
+#include <aws/mediatailor/model/GetFunctionRequest.h>
+#include <aws/mediatailor/model/GetFunctionResult.h>
 #include <aws/mediatailor/model/GetPlaybackConfigurationRequest.h>
 #include <aws/mediatailor/model/GetPlaybackConfigurationResult.h>
 #include <aws/mediatailor/model/GetPrefetchScheduleRequest.h>
@@ -97,12 +106,15 @@
 #include <aws/mediatailor/model/HttpConfiguration.h>
 #include <aws/mediatailor/model/HttpPackageConfiguration.h>
 #include <aws/mediatailor/model/HttpRequest.h>
+#include <aws/mediatailor/model/HttpRequestConfiguration.h>
 #include <aws/mediatailor/model/InsertionMode.h>
 #include <aws/mediatailor/model/KeyValuePair.h>
 #include <aws/mediatailor/model/ListAlertsRequest.h>
 #include <aws/mediatailor/model/ListAlertsResult.h>
 #include <aws/mediatailor/model/ListChannelsRequest.h>
 #include <aws/mediatailor/model/ListChannelsResult.h>
+#include <aws/mediatailor/model/ListFunctionsRequest.h>
+#include <aws/mediatailor/model/ListFunctionsResult.h>
 #include <aws/mediatailor/model/ListLiveSourcesRequest.h>
 #include <aws/mediatailor/model/ListLiveSourcesResult.h>
 #include <aws/mediatailor/model/ListPlaybackConfigurationsRequest.h>
@@ -125,8 +137,10 @@
 #include <aws/mediatailor/model/ManifestProcessingRules.h>
 #include <aws/mediatailor/model/ManifestServiceExcludeEventType.h>
 #include <aws/mediatailor/model/ManifestServiceInteractionLog.h>
+#include <aws/mediatailor/model/ManifestServicePublishOptInEventType.h>
 #include <aws/mediatailor/model/MessageType.h>
 #include <aws/mediatailor/model/Method.h>
+#include <aws/mediatailor/model/MethodType.h>
 #include <aws/mediatailor/model/Mode.h>
 #include <aws/mediatailor/model/Operator.h>
 #include <aws/mediatailor/model/OriginManifestType.h>
@@ -138,6 +152,8 @@
 #include <aws/mediatailor/model/PrefetchScheduleType.h>
 #include <aws/mediatailor/model/PutChannelPolicyRequest.h>
 #include <aws/mediatailor/model/PutChannelPolicyResult.h>
+#include <aws/mediatailor/model/PutFunctionRequest.h>
+#include <aws/mediatailor/model/PutFunctionResult.h>
 #include <aws/mediatailor/model/PutPlaybackConfigurationRequest.h>
 #include <aws/mediatailor/model/PutPlaybackConfigurationResult.h>
 #include <aws/mediatailor/model/RecurringConsumption.h>
@@ -146,6 +162,7 @@
 #include <aws/mediatailor/model/RelativePosition.h>
 #include <aws/mediatailor/model/RequestOutputItem.h>
 #include <aws/mediatailor/model/ResponseOutputItem.h>
+#include <aws/mediatailor/model/RuntimeType.h>
 #include <aws/mediatailor/model/ScheduleAdBreak.h>
 #include <aws/mediatailor/model/ScheduleConfiguration.h>
 #include <aws/mediatailor/model/ScheduleEntry.h>
@@ -153,6 +170,7 @@
 #include <aws/mediatailor/model/SecretsManagerAccessTokenConfiguration.h>
 #include <aws/mediatailor/model/SegmentDeliveryConfiguration.h>
 #include <aws/mediatailor/model/SegmentationDescriptor.h>
+#include <aws/mediatailor/model/SequentialExecutorConfiguration.h>
 #include <aws/mediatailor/model/SlateSource.h>
 #include <aws/mediatailor/model/SourceLocation.h>
 #include <aws/mediatailor/model/SpliceInsertMessage.h>

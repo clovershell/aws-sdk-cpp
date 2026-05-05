@@ -6,8 +6,10 @@
 #pragma once
 #include <aws/core/utils/pagination/Paginator.h>
 #include <aws/marketplace-agreement/AgreementServiceClient.h>
+#include <aws/marketplace-agreement/model/GetAgreementEntitlementsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/GetAgreementTermsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementCancellationRequestsPaginationTraits.h>
+#include <aws/marketplace-agreement/model/ListAgreementChargesPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementInvoiceLineItemsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListAgreementPaymentRequestsPaginationTraits.h>
 #include <aws/marketplace-agreement/model/ListBillingAdjustmentRequestsPaginationTraits.h>
@@ -16,11 +18,17 @@
 namespace Aws {
 namespace AgreementService {
 
+using GetAgreementEntitlementsPaginator =
+    Aws::Utils::Pagination::Paginator<AgreementServiceClient, Model::GetAgreementEntitlementsRequest,
+                                      Pagination::GetAgreementEntitlementsPaginationTraits<AgreementServiceClient>>;
 using GetAgreementTermsPaginator = Aws::Utils::Pagination::Paginator<AgreementServiceClient, Model::GetAgreementTermsRequest,
                                                                      Pagination::GetAgreementTermsPaginationTraits<AgreementServiceClient>>;
 using ListAgreementCancellationRequestsPaginator =
     Aws::Utils::Pagination::Paginator<AgreementServiceClient, Model::ListAgreementCancellationRequestsRequest,
                                       Pagination::ListAgreementCancellationRequestsPaginationTraits<AgreementServiceClient>>;
+using ListAgreementChargesPaginator =
+    Aws::Utils::Pagination::Paginator<AgreementServiceClient, Model::ListAgreementChargesRequest,
+                                      Pagination::ListAgreementChargesPaginationTraits<AgreementServiceClient>>;
 using ListAgreementInvoiceLineItemsPaginator =
     Aws::Utils::Pagination::Paginator<AgreementServiceClient, Model::ListAgreementInvoiceLineItemsRequest,
                                       Pagination::ListAgreementInvoiceLineItemsPaginationTraits<AgreementServiceClient>>;

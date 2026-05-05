@@ -16,17 +16,32 @@ namespace Model {
 namespace ResourceTypeMapper {
 
 static const int Agreement_HASH = HashingUtils::HashString("Agreement");
+static const int AgreementRequest_HASH = HashingUtils::HashString("AgreementRequest");
+static const int AgreementProposal_HASH = HashingUtils::HashString("AgreementProposal");
 static const int Charge_HASH = HashingUtils::HashString("Charge");
 static const int PaymentRequest_HASH = HashingUtils::HashString("PaymentRequest");
+static const int Invoice_HASH = HashingUtils::HashString("Invoice");
+static const int AgreementCancellationRequest_HASH = HashingUtils::HashString("AgreementCancellationRequest");
+static const int BillingAdjustmentRequest_HASH = HashingUtils::HashString("BillingAdjustmentRequest");
 
 ResourceType GetResourceTypeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
   if (hashCode == Agreement_HASH) {
     return ResourceType::Agreement;
+  } else if (hashCode == AgreementRequest_HASH) {
+    return ResourceType::AgreementRequest;
+  } else if (hashCode == AgreementProposal_HASH) {
+    return ResourceType::AgreementProposal;
   } else if (hashCode == Charge_HASH) {
     return ResourceType::Charge;
   } else if (hashCode == PaymentRequest_HASH) {
     return ResourceType::PaymentRequest;
+  } else if (hashCode == Invoice_HASH) {
+    return ResourceType::Invoice;
+  } else if (hashCode == AgreementCancellationRequest_HASH) {
+    return ResourceType::AgreementCancellationRequest;
+  } else if (hashCode == BillingAdjustmentRequest_HASH) {
+    return ResourceType::BillingAdjustmentRequest;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -43,10 +58,20 @@ Aws::String GetNameForResourceType(ResourceType enumValue) {
       return {};
     case ResourceType::Agreement:
       return "Agreement";
+    case ResourceType::AgreementRequest:
+      return "AgreementRequest";
+    case ResourceType::AgreementProposal:
+      return "AgreementProposal";
     case ResourceType::Charge:
       return "Charge";
     case ResourceType::PaymentRequest:
       return "PaymentRequest";
+    case ResourceType::Invoice:
+      return "Invoice";
+    case ResourceType::AgreementCancellationRequest:
+      return "AgreementCancellationRequest";
+    case ResourceType::BillingAdjustmentRequest:
+      return "BillingAdjustmentRequest";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

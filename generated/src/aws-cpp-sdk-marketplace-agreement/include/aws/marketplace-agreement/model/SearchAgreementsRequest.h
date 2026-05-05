@@ -60,23 +60,23 @@ class SearchAgreementsRequest : public AgreementServiceRequest {
    * product (<code>AmiProduct</code>, <code>ContainerProduct</code>,
    * <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or
    * <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code>
-   * – The party type of the caller. For agreements where the caller is the proposer,
-   * use the <code>Proposer</code> filter.</p> </li> <li> <p>
-   * <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the
-   * agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier
-   * of the offer in which the terms are registered in the agreement token.</p> </li>
-   * <li> <p> <code>Status</code> – The current status of the agreement. Values
-   * include <code>ACTIVE</code>, <code>ARCHIVED</code>, <code>CANCELLED</code>,
-   * <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and
-   * <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date
-   * used to filter agreements with a date before the <code>endTime</code> of an
-   * agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter
-   * agreements with a date after the <code>endTime</code> of an agreement.</p> </li>
-   * <li> <p> <code>AgreementType</code> – The type of agreement. Supported value
-   * includes <code>PurchaseAgreement</code>.</p> </li> <li> <p>
-   * <code>OfferSetId</code> – A unique identifier for the offer set containing this
-   * offer. All agreements created from offers in this set include this identifier as
-   * context.</p> </li> </ul>
+   * – The party type of the caller. Use <code>Proposer</code> or
+   * <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The
+   * AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p>
+   * <code>OfferId</code> – The unique identifier of the offer in which the terms are
+   * registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The
+   * current status of the agreement. Values include <code>ACTIVE</code>,
+   * <code>ARCHIVED</code>, <code>CANCELLED</code>, <code>EXPIRED</code>,
+   * <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p>
+   * </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements
+   * with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p>
+   * <code>AfterEndTime</code> – A date used to filter agreements with a date after
+   * the <code>endTime</code> of an agreement.</p> </li> <li> <p>
+   * <code>AgreementType</code> – The type of agreement. Supported value includes
+   * <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A
+   * unique identifier for the offer set containing this offer. All agreements
+   * created from offers in this set include this identifier as context.</p> </li>
+   * </ul>
    */
   inline const Aws::Vector<Filter>& GetFilters() const { return m_filters; }
   inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }

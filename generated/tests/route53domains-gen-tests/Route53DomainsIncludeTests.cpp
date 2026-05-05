@@ -94,6 +94,7 @@
 #include <aws/route53domains/model/SortCondition.h>
 #include <aws/route53domains/model/SortOrder.h>
 #include <aws/route53domains/model/StatusFlag.h>
+#include <aws/route53domains/model/TLDInMaintenance.h>
 #include <aws/route53domains/model/Tag.h>
 #include <aws/route53domains/model/TransferDomainRequest.h>
 #include <aws/route53domains/model/TransferDomainResult.h>

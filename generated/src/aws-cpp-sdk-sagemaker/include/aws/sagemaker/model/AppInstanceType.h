@@ -174,7 +174,8 @@ enum class AppInstanceType {
   ml_r6id_12xlarge,
   ml_r6id_16xlarge,
   ml_r6id_24xlarge,
-  ml_r6id_32xlarge
+  ml_r6id_32xlarge,
+  ml_p5_4xlarge
 };
 
 namespace AppInstanceTypeMapper {

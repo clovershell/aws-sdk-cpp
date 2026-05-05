@@ -20,7 +20,7 @@ namespace AgreementService {
 namespace Model {
 
 /**
- * <p>The entity that issues the AWS invoice.</p><p><h3>See Also:</h3>   <a
+ * <p>The entity responsible for issuing the invoice.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-agreement-2020-03-01/InvoicingEntity">AWS
  * API Reference</a></p>
  */
@@ -33,7 +33,7 @@ class InvoicingEntity {
 
   ///@{
   /**
-   * <p>The legal name of the invoicing entity.</p>
+   * <p>Legal name of the entity issuing the invoice.</p>
    */
   inline const Aws::String& GetLegalName() const { return m_legalName; }
   inline bool LegalNameHasBeenSet() const { return m_legalNameHasBeenSet; }
@@ -51,7 +51,7 @@ class InvoicingEntity {
 
   ///@{
   /**
-   * <p>The branch name of the invoicing entity.</p>
+   * <p>The branch where the issuing entity is operating from.</p>
    */
   inline const Aws::String& GetBranchName() const { return m_branchName; }
   inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }

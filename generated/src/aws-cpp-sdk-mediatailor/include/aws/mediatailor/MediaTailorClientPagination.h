@@ -9,6 +9,7 @@
 #include <aws/mediatailor/model/GetChannelSchedulePaginationTraits.h>
 #include <aws/mediatailor/model/ListAlertsPaginationTraits.h>
 #include <aws/mediatailor/model/ListChannelsPaginationTraits.h>
+#include <aws/mediatailor/model/ListFunctionsPaginationTraits.h>
 #include <aws/mediatailor/model/ListLiveSourcesPaginationTraits.h>
 #include <aws/mediatailor/model/ListPlaybackConfigurationsPaginationTraits.h>
 #include <aws/mediatailor/model/ListPrefetchSchedulesPaginationTraits.h>
@@ -24,6 +25,8 @@ using ListAlertsPaginator = Aws::Utils::Pagination::Paginator<MediaTailorClient,
                                                               Pagination::ListAlertsPaginationTraits<MediaTailorClient>>;
 using ListChannelsPaginator = Aws::Utils::Pagination::Paginator<MediaTailorClient, Model::ListChannelsRequest,
                                                                 Pagination::ListChannelsPaginationTraits<MediaTailorClient>>;
+using ListFunctionsPaginator = Aws::Utils::Pagination::Paginator<MediaTailorClient, Model::ListFunctionsRequest,
+                                                                 Pagination::ListFunctionsPaginationTraits<MediaTailorClient>>;
 using ListLiveSourcesPaginator = Aws::Utils::Pagination::Paginator<MediaTailorClient, Model::ListLiveSourcesRequest,
                                                                    Pagination::ListLiveSourcesPaginationTraits<MediaTailorClient>>;
 using ListPlaybackConfigurationsPaginator =

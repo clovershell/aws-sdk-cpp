@@ -7,6 +7,7 @@
 #include <aws/cloudfront/CloudFrontRequest.h>
 #include <aws/cloudfront/CloudFront_EXPORTS.h>
 #include <aws/cloudfront/model/ImportSource.h>
+#include <aws/cloudfront/model/Tags.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 
 #include <utility>
@@ -84,15 +85,34 @@ class CreateKeyValueStore2020_05_31Request : public CloudFrontRequest {
     return *this;
   }
   ///@}
+
+  ///@{
+
+  inline const Tags& GetTags() const { return m_tags; }
+  inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+  template <typename TagsT = Tags>
+  void SetTags(TagsT&& value) {
+    m_tagsHasBeenSet = true;
+    m_tags = std::forward<TagsT>(value);
+  }
+  template <typename TagsT = Tags>
+  CreateKeyValueStore2020_05_31Request& WithTags(TagsT&& value) {
+    SetTags(std::forward<TagsT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_name;
 
   Aws::String m_comment;
 
   ImportSource m_importSource;
+
+  Tags m_tags;
   bool m_nameHasBeenSet = false;
   bool m_commentHasBeenSet = false;
   bool m_importSourceHasBeenSet = false;
+  bool m_tagsHasBeenSet = false;
 };
 
 }  // namespace Model
