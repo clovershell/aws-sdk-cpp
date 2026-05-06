@@ -10,6 +10,7 @@
 #include <aws/sagemaker/SageMaker_EXPORTS.h>
 #include <aws/sagemaker/model/ActiveClusterOperationName.h>
 #include <aws/sagemaker/model/ClusterCapacityRequirements.h>
+#include <aws/sagemaker/model/ClusterImageVersionStatus.h>
 #include <aws/sagemaker/model/ClusterInstanceRequirementDetails.h>
 #include <aws/sagemaker/model/ClusterInstanceStorageConfig.h>
 #include <aws/sagemaker/model/ClusterInstanceType.h>
@@ -434,6 +435,24 @@ class ClusterInstanceGroupDetails {
 
   ///@{
   /**
+   * <p>The status of the image version for the instance group. Indicates whether the
+   * instance group is running the latest image version or if an update is
+   * available.</p>
+   */
+  inline ClusterImageVersionStatus GetImageVersionStatus() const { return m_imageVersionStatus; }
+  inline bool ImageVersionStatusHasBeenSet() const { return m_imageVersionStatusHasBeenSet; }
+  inline void SetImageVersionStatus(ClusterImageVersionStatus value) {
+    m_imageVersionStatusHasBeenSet = true;
+    m_imageVersionStatus = value;
+  }
+  inline ClusterInstanceGroupDetails& WithImageVersionStatus(ClusterImageVersionStatus value) {
+    SetImageVersionStatus(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>A map indicating active operations currently in progress for the instance
    * group of a SageMaker HyperPod cluster. When there is a scaling operation in
    * progress, this map contains a key <code>Scaling</code> with value 1. </p>
@@ -631,6 +650,8 @@ class ClusterInstanceGroupDetails {
 
   Aws::String m_desiredImageId;
 
+  ClusterImageVersionStatus m_imageVersionStatus{ClusterImageVersionStatus::NOT_SET};
+
   Aws::Map<ActiveClusterOperationName, int> m_activeOperations;
 
   ClusterKubernetesConfigDetails m_kubernetesConfig;
@@ -665,6 +686,7 @@ class ClusterInstanceGroupDetails {
   bool m_scheduledUpdateConfigHasBeenSet = false;
   bool m_currentImageIdHasBeenSet = false;
   bool m_desiredImageIdHasBeenSet = false;
+  bool m_imageVersionStatusHasBeenSet = false;
   bool m_activeOperationsHasBeenSet = false;
   bool m_kubernetesConfigHasBeenSet = false;
   bool m_capacityRequirementsHasBeenSet = false;

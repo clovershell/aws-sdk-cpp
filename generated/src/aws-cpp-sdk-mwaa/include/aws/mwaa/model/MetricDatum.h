@@ -59,7 +59,8 @@ class MetricDatum {
 
   ///@{
   /**
-   * <p> <b>Internal only</b>. The time the metric data was received.</p>
+   * <p> <b>Internal only</b>. The time the metric data was received, expressed as an
+   * ISO 8601 datetime string.</p>
    */
   inline const Aws::Utils::DateTime& GetTimestamp() const { return m_timestamp; }
   inline bool TimestampHasBeenSet() const { return m_timestampHasBeenSet; }

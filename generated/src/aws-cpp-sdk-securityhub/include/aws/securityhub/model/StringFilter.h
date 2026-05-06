@@ -111,9 +111,10 @@ class StringFilter {
    * AwsIam</code> </p> </li> <li> <p> <code>ResourceType PREFIX AwsEc2</code> </p>
    * </li> <li> <p> <code>ResourceType NOT_EQUALS AwsIamPolicy</code> </p> </li> <li>
    * <p> <code>ResourceType NOT_EQUALS AwsEc2NetworkInterface</code> </p> </li> </ul>
-   * <p> <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used
-   * only with automation rules V1. <code>CONTAINS_WORD</code> operator is only
-   * supported in <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>,
+   * <p>The <code>CONTAINS</code> operator works with automation rules V1 and V2. The
+   * <code>NOT_CONTAINS</code> operator works only with automation rules V1. The
+   * <code>CONTAINS_WORD</code> operator works only in the
+   * <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>,
    * <code>GetResourcesV2</code>, and <code>GetResourcesStatisticsV2</code> APIs. For
    * more information, see <a
    * href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation

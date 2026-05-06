@@ -183,6 +183,7 @@
 #include <aws/bedrock-agentcore-control/model/DeleteWorkloadIdentityResult.h>
 #include <aws/bedrock-agentcore-control/model/DescriptorType.h>
 #include <aws/bedrock-agentcore-control/model/Descriptors.h>
+#include <aws/bedrock-agentcore-control/model/EfsAccessPointConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/EndpointIpAddressType.h>
 #include <aws/bedrock-agentcore-control/model/EpisodicConsolidationOverride.h>
 #include <aws/bedrock-agentcore-control/model/EpisodicExtractionOverride.h>
@@ -473,6 +474,7 @@
 #include <aws/bedrock-agentcore-control/model/RuntimeMetadataConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/RuntimeTargetConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/S3Configuration.h>
+#include <aws/bedrock-agentcore-control/model/S3FilesAccessPointConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/S3Location.h>
 #include <aws/bedrock-agentcore-control/model/SalesforceOauth2ProviderConfigInput.h>
 #include <aws/bedrock-agentcore-control/model/SalesforceOauth2ProviderConfigOutput.h>

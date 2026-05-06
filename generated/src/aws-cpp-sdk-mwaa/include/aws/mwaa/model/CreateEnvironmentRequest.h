@@ -22,7 +22,7 @@ namespace Model {
 /**
  * <p>This section contains the Amazon Managed Workflows for Apache Airflow (Amazon
  * MWAA) API reference documentation to create an environment. For more
- * information, see <a
+ * information, refer to <a
  * href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get
  * started with Amazon Managed Workflows for Apache Airflow</a>.</p><p><h3>See
  * Also:</h3>   <a
@@ -67,7 +67,7 @@ class CreateEnvironmentRequest : public MWAARequest {
    * role that grants MWAA permission to access Amazon Web Services services and
    * resources used by your environment. For example,
    * <code>arn:aws:iam::123456789:role/my-execution-role</code>. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
    * MWAA Execution role</a>.</p>
    */
@@ -90,7 +90,7 @@ class CreateEnvironmentRequest : public MWAARequest {
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code
    * and supporting files are stored. For example,
    * <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information,
-   * see <a
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
    * an Amazon S3 bucket for Amazon MWAA</a>.</p>
    */
@@ -111,7 +111,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>The relative path to the DAGs folder on your Amazon S3 bucket. For example,
-   * <code>dags</code>. For more information, see <a
+   * <code>dags</code>. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
    * or updating DAGs</a>.</p>
    */
@@ -133,7 +133,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The VPC networking components used to secure and enable network traffic
    * between the Amazon Web Services resources for your environment. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
    * networking on Amazon MWAA</a>.</p>
    */
@@ -155,7 +155,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The relative path to the <code>plugins.zip</code> file on your Amazon S3
    * bucket. For example, <code>plugins.zip</code>. If specified, then the
-   * <code>plugins.zip</code> version is required. For more information, see <a
+   * <code>plugins.zip</code> version is required. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
    * custom plugins</a>.</p>
    */
@@ -177,7 +177,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The version of the plugins.zip file on your Amazon S3 bucket. You must
    * specify a version each time a plugins.zip file is updated. For more information,
-   * see <a
+   * refer to <a
    * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
    * S3 Versioning works</a>.</p>
    */
@@ -199,7 +199,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The relative path to the <code>requirements.txt</code> file on your Amazon S3
    * bucket. For example, <code>requirements.txt</code>. If specified, then a version
-   * is required. For more information, see <a
+   * is required. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
    * Python dependencies</a>.</p>
    */
@@ -221,7 +221,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The version of the <code>requirements.txt</code> file on your Amazon S3
    * bucket. You must specify a version each time a requirements.txt file is updated.
-   * For more information, see <a
+   * For more information, refer to <a
    * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
    * S3 Versioning works</a>.</p>
    */
@@ -245,8 +245,8 @@ class CreateEnvironmentRequest : public MWAARequest {
    * example, <code>s3://mwaa-environment/startup.sh</code>.</p> <p> Amazon MWAA runs
    * the script as your environment starts, and before running the Apache Airflow
    * process. You can use this script to install dependencies, modify Apache Airflow
-   * configuration options, and set environment variables. For more information, see
-   * <a
+   * configuration options, and set environment variables. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -273,7 +273,7 @@ class CreateEnvironmentRequest : public MWAARequest {
    * <p> Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are
    * no more than 1,024 bytes long. The following is an example: </p> <p>
    * <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code>
-   * </p> <p> For more information, see <a
+   * </p> <p> For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -294,7 +294,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>A list of key-value pairs containing the Apache Airflow configuration options
-   * you want to attach to your environment. For more information, see <a
+   * you want to attach to your environment. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
    * Airflow configuration options</a>.</p>
    */
@@ -324,8 +324,8 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The environment class type. Valid values: <code>mw1.micro</code>,
    * <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
-   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
-   * <a
+   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
    * MWAA environment class</a>.</p>
    */
@@ -368,7 +368,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The Amazon Web Services Key Management Service (KMS) key to encrypt the data
    * in your environment. You can use an Amazon Web Services owned CMK, or a Customer
-   * managed CMK (advanced). For more information, see <a
+   * managed CMK (advanced). For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
    * an Amazon MWAA environment</a>.</p>
    */
@@ -389,13 +389,12 @@ class CreateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>The Apache Airflow version for your environment. If no value is specified, it
-   * defaults to the latest version. For more information, see <a
+   * defaults to the latest version. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
    * Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon
-   * MWAA)</a>.</p> <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>,
-   * <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>,
-   * <code>2.7.2</code>, <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>,
-   * and <code>2.10.3</code>.</p>
+   * MWAA)</a>.</p> <p>Valid values: <code>2.7.2</code>, <code>2.8.1</code>,
+   * <code>2.9.2</code>, <code>2.10.1</code>, <code>2.10.3</code>,
+   * <code>2.11.0</code>, and <code>3.0.6</code>.</p>
    */
   inline const Aws::String& GetAirflowVersion() const { return m_airflowVersion; }
   inline bool AirflowVersionHasBeenSet() const { return m_airflowVersionHasBeenSet; }
@@ -453,8 +452,8 @@ class CreateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>The key-value tag pairs you want to associate to your environment. For
-   * example, <code>"Environment": "Staging"</code>. For more information, see <a
-   * href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+   * example, <code>"Environment": "Staging"</code>. For more information, refer to
+   * <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
    * Amazon Web Services resources</a>.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }
@@ -480,7 +479,7 @@ class CreateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>Defines the access mode for the Apache Airflow <i>web server</i>. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
    * Airflow access modes</a>.</p>
    */

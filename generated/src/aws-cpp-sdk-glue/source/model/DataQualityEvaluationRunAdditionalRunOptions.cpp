@@ -31,6 +31,10 @@ DataQualityEvaluationRunAdditionalRunOptions& DataQualityEvaluationRunAdditional
         jsonValue.GetString("CompositeRuleEvaluationMethod"));
     m_compositeRuleEvaluationMethodHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("CustomLogGroupPrefix")) {
+    m_customLogGroupPrefix = jsonValue.GetString("CustomLogGroupPrefix");
+    m_customLogGroupPrefixHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -48,6 +52,10 @@ JsonValue DataQualityEvaluationRunAdditionalRunOptions::Jsonize() const {
   if (m_compositeRuleEvaluationMethodHasBeenSet) {
     payload.WithString("CompositeRuleEvaluationMethod",
                        DQCompositeRuleEvaluationMethodMapper::GetNameForDQCompositeRuleEvaluationMethod(m_compositeRuleEvaluationMethod));
+  }
+
+  if (m_customLogGroupPrefixHasBeenSet) {
+    payload.WithString("CustomLogGroupPrefix", m_customLogGroupPrefix);
   }
 
   return payload;

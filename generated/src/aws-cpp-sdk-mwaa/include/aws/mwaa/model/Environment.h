@@ -62,38 +62,39 @@ class Environment {
   ///@{
   /**
    * <p>The status of the Amazon MWAA environment.</p> <p>Valid values:</p> <ul> <li>
-   * <p> <code>CREATING</code> - Indicates the request to create the environment is
-   * in progress.</p> </li> <li> <p> <code>CREATING_SNAPSHOT</code> - Indicates the
-   * request to update environment details, or upgrade the environment version, is in
-   * progress and Amazon MWAA is creating a storage volume snapshot of the Amazon RDS
-   * database cluster associated with the environment. A database snapshot is a
-   * backup created at a specific point in time. Amazon MWAA uses snapshots to
-   * recover environment metadata if the process to update or upgrade an environment
-   * fails.</p> </li> <li> <p> <code>CREATE_FAILED</code> - Indicates the request to
-   * create the environment failed, and the environment could not be created.</p>
-   * </li> <li> <p> <code>AVAILABLE</code> - Indicates the request was successful and
-   * the environment is ready to use.</p> </li> <li> <p> <code>PENDING</code> -
-   * Indicates the request was successful, but the process to create the environment
-   * is paused until you create the required VPC endpoints in your VPC. After you
-   * create the VPC endpoints, the process resumes.</p> </li> <li> <p>
-   * <code>UPDATING</code> - Indicates the request to update the environment is in
-   * progress.</p> </li> <li> <p> <code>ROLLING_BACK</code> - Indicates the request
-   * to update environment details, or upgrade the environment version, failed and
-   * Amazon MWAA is restoring the environment using the latest storage volume
-   * snapshot.</p> </li> <li> <p> <code>DELETING</code> - Indicates the request to
-   * delete the environment is in progress.</p> </li> <li> <p> <code>DELETED</code> -
-   * Indicates the request to delete the environment is complete, and the environment
-   * has been deleted.</p> </li> <li> <p> <code>UNAVAILABLE</code> - Indicates the
-   * request failed, but the environment did not return to its previous state and is
-   * not stable.</p> </li> <li> <p> <code>UPDATE_FAILED</code> - Indicates the
-   * request to update the environment failed, and the environment was restored to
-   * its previous state successfully and is ready to use.</p> </li> <li> <p>
-   * <code>MAINTENANCE</code> - Indicates that the environment is undergoing
+   * <p> <code>CREATING</code> - The request to create the environment is in
+   * progress.</p> </li> <li> <p> <code>CREATING_SNAPSHOT</code> - The request to
+   * update environment details, or upgrade the environment version, is in progress
+   * and Amazon MWAA is creating a storage volume snapshot of the Amazon RDS database
+   * cluster associated with the environment. A database snapshot is a backup created
+   * at a specific point in time. Amazon MWAA uses snapshots to recover environment
+   * metadata if the process to update or upgrade an environment fails.</p> </li>
+   * <li> <p> <code>CREATE_FAILED</code> - The request to create the environment
+   * failed and the environment was not created.</p> </li> <li> <p>
+   * <code>AVAILABLE</code> - The request was successful and the environment is ready
+   * to use.</p> </li> <li> <p> <code>PENDING</code> - The request was successful,
+   * but the process to create the environment is paused until you create the
+   * required VPC endpoints in your VPC. After you create the VPC endpoints, the
+   * process resumes.</p> </li> <li> <p> <code>UPDATING</code> - The request to
+   * update the environment is in progress.</p> </li> <li> <p>
+   * <code>ROLLING_BACK</code> - The request to update environment details or upgrade
+   * the environment version failed and Amazon MWAA is restoring the environment
+   * using the latest storage volume snapshot.</p> </li> <li> <p>
+   * <code>DELETING</code> - The request to delete the environment is in
+   * progress.</p> </li> <li> <p> <code>DELETED</code> - The request to delete the
+   * environment is complete, and the environment has been deleted.</p> </li> <li>
+   * <p> <code>UNAVAILABLE</code> - The request failed, but the environment did not
+   * return to its previous state and is not stable.</p> </li> <li> <p>
+   * <code>UPDATE_FAILED</code> - The request to update the environment failed and
+   * the environment was restored to its previous state successfully and is ready to
+   * use.</p> </li> <li> <p> <code>MAINTENANCE</code> - The environment is undergoing
    * maintenance. Depending on the type of work Amazon MWAA is performing, your
-   * environment might become unavailable during this process. After all operations
-   * are done, your environment will return to its status prior to mainteneace
-   * operations. </p> </li> </ul> <p>We recommend reviewing our troubleshooting guide
-   * for a list of common errors and their solutions. For more information, see <a
+   * environment might be unavailable during this process. Note that as part of the
+   * maintenance work, Amazon MWAA performs with a <code>GRACEFUL</code> <a
+   * href="https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html#mwaa-UpdateEnvironment-request-WorkerReplacementStrategy">
+   * <code>workerReplacementStrategy</code> </a>.</p> </li> </ul> <p>You can review
+   * our troubleshooting guide for a list of common errors and their solutions. For
+   * more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon
    * MWAA troubleshooting</a>.</p>
    */
@@ -148,7 +149,7 @@ class Environment {
   ///@{
   /**
    * <p>The Apache Airflow <i>web server</i> host name for the Amazon MWAA
-   * environment. For more information, see <a
+   * environment. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html">Accessing
    * the Apache Airflow UI</a>.</p>
    */
@@ -171,7 +172,7 @@ class Environment {
    * <p>The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA
    * to access Amazon Web Services resources in your environment. For example,
    * <code>arn:aws:iam::123456789:role/my-execution-role</code>. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
    * MWAA Execution role</a>.</p>
    */
@@ -192,7 +193,7 @@ class Environment {
   ///@{
   /**
    * <p>The Amazon Resource Name (ARN) for the service-linked role of the
-   * environment. For more information, see <a
+   * environment. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-slr.html">Amazon
    * MWAA Service-linked role</a>.</p>
    */
@@ -231,10 +232,8 @@ class Environment {
   ///@{
   /**
    * <p>The Apache Airflow version on your environment.</p> <p>Valid values:
-   * <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
-   * <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
-   * <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>, and
-   * <code>2.10.3</code>.</p>
+   * <code>2.7.2</code>, <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>,
+   * <code>2.10.3</code>, <code>2.11.0</code>, and <code>3.0.6</code>.</p>
    */
   inline const Aws::String& GetAirflowVersion() const { return m_airflowVersion; }
   inline bool AirflowVersionHasBeenSet() const { return m_airflowVersionHasBeenSet; }
@@ -255,7 +254,7 @@ class Environment {
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code
    * and supporting files are stored. For example,
    * <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information,
-   * see <a
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
    * an Amazon S3 bucket for Amazon MWAA</a>.</p>
    */
@@ -276,7 +275,7 @@ class Environment {
   ///@{
   /**
    * <p>The relative path to the DAGs folder in your Amazon S3 bucket. For example,
-   * <code>s3://mwaa-environment/dags</code>. For more information, see <a
+   * <code>s3://mwaa-environment/dags</code>. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
    * or updating DAGs</a>.</p>
    */
@@ -297,7 +296,8 @@ class Environment {
   ///@{
   /**
    * <p>The relative path to the file in your Amazon S3 bucket. For example,
-   * <code>s3://mwaa-environment/plugins.zip</code>. For more information, see <a
+   * <code>s3://mwaa-environment/plugins.zip</code>. For more information, refer to
+   * <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
    * custom plugins</a>.</p>
    */
@@ -324,7 +324,7 @@ class Environment {
    * UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long.
    * The following is an example: </p> <p>
    * <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code>
-   * </p> <p>For more information, see <a
+   * </p> <p>For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
    * custom plugins</a>.</p>
    */
@@ -346,7 +346,7 @@ class Environment {
   /**
    * <p>The relative path to the <code>requirements.txt</code> file in your Amazon S3
    * bucket. For example, <code>s3://mwaa-environment/requirements.txt</code>. For
-   * more information, see <a
+   * more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
    * Python dependencies</a>.</p>
    */
@@ -373,7 +373,7 @@ class Environment {
    * UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long.
    * The following is an example: </p> <p>
    * <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code>
-   * </p> <p> For more information, see <a
+   * </p> <p> For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
    * Python dependencies</a>. </p>
    */
@@ -397,8 +397,8 @@ class Environment {
    * example, <code>s3://mwaa-environment/startup.sh</code>.</p> <p> Amazon MWAA runs
    * the script as your environment starts, and before running the Apache Airflow
    * process. You can use this script to install dependencies, modify Apache Airflow
-   * configuration options, and set environment variables. For more information, see
-   * <a
+   * configuration options, and set environment variables. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -425,7 +425,7 @@ class Environment {
    * UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long.
    * The following is an example: </p> <p>
    * <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code>
-   * </p> <p> For more information, see <a
+   * </p> <p> For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -446,7 +446,7 @@ class Environment {
   ///@{
   /**
    * <p>A list of key-value pairs containing the Apache Airflow configuration options
-   * attached to your environment. For more information, see <a
+   * attached to your environment. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
    * Airflow configuration options</a>.</p>
    */
@@ -475,8 +475,8 @@ class Environment {
   /**
    * <p>The environment class type. Valid values: <code>mw1.micro</code>,
    * <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
-   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
-   * <a
+   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
    * MWAA environment class</a>.</p>
    */
@@ -515,7 +515,7 @@ class Environment {
   /**
    * <p>Describes the VPC networking components used to secure and enable network
    * traffic between the Amazon Web Services resources for your environment. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
    * networking on Amazon MWAA</a>.</p>
    */
@@ -592,7 +592,7 @@ class Environment {
   ///@{
   /**
    * <p>The key-value tag pairs associated to your environment. For example,
-   * <code>"Environment": "Staging"</code>. For more information, see <a
+   * <code>"Environment": "Staging"</code>. For more information, refer to <a
    * href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
    * Amazon Web Services resources</a>.</p>
    */
@@ -618,8 +618,8 @@ class Environment {
 
   ///@{
   /**
-   * <p>The Apache Airflow <i>web server</i> access mode. For more information, see
-   * <a
+   * <p>The Apache Airflow <i>web server</i> access mode. For more information, refer
+   * to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
    * Airflow access modes</a>.</p>
    */

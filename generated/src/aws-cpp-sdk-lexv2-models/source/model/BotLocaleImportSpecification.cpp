@@ -51,6 +51,10 @@ BotLocaleImportSpecification& BotLocaleImportSpecification::operator=(JsonView j
     m_unifiedSpeechSettings = jsonValue.GetObject("unifiedSpeechSettings");
     m_unifiedSpeechSettingsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("audioFillerSettings")) {
+    m_audioFillerSettings = jsonValue.GetObject("audioFillerSettings");
+    m_audioFillerSettingsHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -88,6 +92,10 @@ JsonValue BotLocaleImportSpecification::Jsonize() const {
 
   if (m_unifiedSpeechSettingsHasBeenSet) {
     payload.WithObject("unifiedSpeechSettings", m_unifiedSpeechSettings.Jsonize());
+  }
+
+  if (m_audioFillerSettingsHasBeenSet) {
+    payload.WithObject("audioFillerSettings", m_audioFillerSettings.Jsonize());
   }
 
   return payload;

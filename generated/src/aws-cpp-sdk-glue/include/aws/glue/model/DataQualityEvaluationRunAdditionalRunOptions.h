@@ -83,15 +83,41 @@ class DataQualityEvaluationRunAdditionalRunOptions {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>A custom prefix for the CloudWatch log group names. When specified,
+   * evaluation run logs are written to
+   * <code>&lt;CustomLogGroupPrefix&gt;/error</code> and
+   * <code>&lt;CustomLogGroupPrefix&gt;/output</code> instead of the default
+   * <code>/aws-glue/data-quality/error</code> and
+   * <code>/aws-glue/data-quality/output</code> log groups.</p>
+   */
+  inline const Aws::String& GetCustomLogGroupPrefix() const { return m_customLogGroupPrefix; }
+  inline bool CustomLogGroupPrefixHasBeenSet() const { return m_customLogGroupPrefixHasBeenSet; }
+  template <typename CustomLogGroupPrefixT = Aws::String>
+  void SetCustomLogGroupPrefix(CustomLogGroupPrefixT&& value) {
+    m_customLogGroupPrefixHasBeenSet = true;
+    m_customLogGroupPrefix = std::forward<CustomLogGroupPrefixT>(value);
+  }
+  template <typename CustomLogGroupPrefixT = Aws::String>
+  DataQualityEvaluationRunAdditionalRunOptions& WithCustomLogGroupPrefix(CustomLogGroupPrefixT&& value) {
+    SetCustomLogGroupPrefix(std::forward<CustomLogGroupPrefixT>(value));
+    return *this;
+  }
+  ///@}
  private:
   bool m_cloudWatchMetricsEnabled{false};
 
   Aws::String m_resultsS3Prefix;
 
   DQCompositeRuleEvaluationMethod m_compositeRuleEvaluationMethod{DQCompositeRuleEvaluationMethod::NOT_SET};
+
+  Aws::String m_customLogGroupPrefix;
   bool m_cloudWatchMetricsEnabledHasBeenSet = false;
   bool m_resultsS3PrefixHasBeenSet = false;
   bool m_compositeRuleEvaluationMethodHasBeenSet = false;
+  bool m_customLogGroupPrefixHasBeenSet = false;
 };
 
 }  // namespace Model

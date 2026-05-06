@@ -30,6 +30,10 @@ DataQualityRulesetEvaluationRunFilter& DataQualityRulesetEvaluationRunFilter::op
     m_startedAfter = jsonValue.GetDouble("StartedAfter");
     m_startedAfterHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("RulesetName")) {
+    m_rulesetName = jsonValue.GetString("RulesetName");
+    m_rulesetNameHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -46,6 +50,10 @@ JsonValue DataQualityRulesetEvaluationRunFilter::Jsonize() const {
 
   if (m_startedAfterHasBeenSet) {
     payload.WithDouble("StartedAfter", m_startedAfter.SecondsWithMSPrecision());
+  }
+
+  if (m_rulesetNameHasBeenSet) {
+    payload.WithString("RulesetName", m_rulesetName);
   }
 
   return payload;

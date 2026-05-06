@@ -6,6 +6,7 @@
 #pragma once
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/lexv2-models/LexModelsV2_EXPORTS.h>
+#include <aws/lexv2-models/model/AudioFillerSettings.h>
 #include <aws/lexv2-models/model/SpeechDetectionSensitivity.h>
 #include <aws/lexv2-models/model/SpeechRecognitionSettings.h>
 #include <aws/lexv2-models/model/UnifiedSpeechSettings.h>
@@ -194,6 +195,26 @@ class BotLocaleImportSpecification {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Audio filler settings to apply when importing the bot locale configuration.
+   * Audio filler requires <code>unifiedSpeechSettings</code> (speech-to-speech) to
+   * be enabled when <code>enabled</code> is <code>true</code>.</p>
+   */
+  inline const AudioFillerSettings& GetAudioFillerSettings() const { return m_audioFillerSettings; }
+  inline bool AudioFillerSettingsHasBeenSet() const { return m_audioFillerSettingsHasBeenSet; }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  void SetAudioFillerSettings(AudioFillerSettingsT&& value) {
+    m_audioFillerSettingsHasBeenSet = true;
+    m_audioFillerSettings = std::forward<AudioFillerSettingsT>(value);
+  }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  BotLocaleImportSpecification& WithAudioFillerSettings(AudioFillerSettingsT&& value) {
+    SetAudioFillerSettings(std::forward<AudioFillerSettingsT>(value));
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_botId;
 
@@ -210,6 +231,8 @@ class BotLocaleImportSpecification {
   SpeechDetectionSensitivity m_speechDetectionSensitivity{SpeechDetectionSensitivity::NOT_SET};
 
   UnifiedSpeechSettings m_unifiedSpeechSettings;
+
+  AudioFillerSettings m_audioFillerSettings;
   bool m_botIdHasBeenSet = false;
   bool m_botVersionHasBeenSet = false;
   bool m_localeIdHasBeenSet = false;
@@ -218,6 +241,7 @@ class BotLocaleImportSpecification {
   bool m_speechRecognitionSettingsHasBeenSet = false;
   bool m_speechDetectionSensitivityHasBeenSet = false;
   bool m_unifiedSpeechSettingsHasBeenSet = false;
+  bool m_audioFillerSettingsHasBeenSet = false;
 };
 
 }  // namespace Model

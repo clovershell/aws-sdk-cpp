@@ -5,6 +5,7 @@
 
 #pragma once
 #include <aws/core/utils/DateTime.h>
+#include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/glue/Glue_EXPORTS.h>
 #include <aws/glue/model/DataSource.h>
 
@@ -85,15 +86,36 @@ class DataQualityRulesetEvaluationRunFilter {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Filter results by the name of the ruleset.</p>
+   */
+  inline const Aws::String& GetRulesetName() const { return m_rulesetName; }
+  inline bool RulesetNameHasBeenSet() const { return m_rulesetNameHasBeenSet; }
+  template <typename RulesetNameT = Aws::String>
+  void SetRulesetName(RulesetNameT&& value) {
+    m_rulesetNameHasBeenSet = true;
+    m_rulesetName = std::forward<RulesetNameT>(value);
+  }
+  template <typename RulesetNameT = Aws::String>
+  DataQualityRulesetEvaluationRunFilter& WithRulesetName(RulesetNameT&& value) {
+    SetRulesetName(std::forward<RulesetNameT>(value));
+    return *this;
+  }
+  ///@}
  private:
   DataSource m_dataSource;
 
   Aws::Utils::DateTime m_startedBefore{};
 
   Aws::Utils::DateTime m_startedAfter{};
+
+  Aws::String m_rulesetName;
   bool m_dataSourceHasBeenSet = false;
   bool m_startedBeforeHasBeenSet = false;
   bool m_startedAfterHasBeenSet = false;
+  bool m_rulesetNameHasBeenSet = false;
 };
 
 }  // namespace Model

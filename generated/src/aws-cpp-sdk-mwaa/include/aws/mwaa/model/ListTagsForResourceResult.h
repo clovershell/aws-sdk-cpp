@@ -31,7 +31,7 @@ class ListTagsForResourceResult {
   ///@{
   /**
    * <p>The key-value tag pairs associated to your environment. For more information,
-   * see <a
+   * refer to <a
    * href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
    * Amazon Web Services resources</a>.</p>
    */

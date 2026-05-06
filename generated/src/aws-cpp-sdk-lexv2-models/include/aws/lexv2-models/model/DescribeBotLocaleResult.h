@@ -9,6 +9,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/lexv2-models/LexModelsV2_EXPORTS.h>
+#include <aws/lexv2-models/model/AudioFillerSettings.h>
 #include <aws/lexv2-models/model/BotLocaleHistoryEvent.h>
 #include <aws/lexv2-models/model/BotLocaleStatus.h>
 #include <aws/lexv2-models/model/GenerativeAISettings.h>
@@ -169,6 +170,23 @@ class DescribeBotLocaleResult {
   template <typename UnifiedSpeechSettingsT = UnifiedSpeechSettings>
   DescribeBotLocaleResult& WithUnifiedSpeechSettings(UnifiedSpeechSettingsT&& value) {
     SetUnifiedSpeechSettings(std::forward<UnifiedSpeechSettingsT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The audio filler settings configured for the bot locale.</p>
+   */
+  inline const AudioFillerSettings& GetAudioFillerSettings() const { return m_audioFillerSettings; }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  void SetAudioFillerSettings(AudioFillerSettingsT&& value) {
+    m_audioFillerSettingsHasBeenSet = true;
+    m_audioFillerSettings = std::forward<AudioFillerSettingsT>(value);
+  }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  DescribeBotLocaleResult& WithAudioFillerSettings(AudioFillerSettingsT&& value) {
+    SetAudioFillerSettings(std::forward<AudioFillerSettingsT>(value));
     return *this;
   }
   ///@}
@@ -426,6 +444,8 @@ class DescribeBotLocaleResult {
 
   UnifiedSpeechSettings m_unifiedSpeechSettings;
 
+  AudioFillerSettings m_audioFillerSettings;
+
   SpeechRecognitionSettings m_speechRecognitionSettings;
 
   int m_intentsCount{0};
@@ -460,6 +480,7 @@ class DescribeBotLocaleResult {
   bool m_nluIntentConfidenceThresholdHasBeenSet = false;
   bool m_voiceSettingsHasBeenSet = false;
   bool m_unifiedSpeechSettingsHasBeenSet = false;
+  bool m_audioFillerSettingsHasBeenSet = false;
   bool m_speechRecognitionSettingsHasBeenSet = false;
   bool m_intentsCountHasBeenSet = false;
   bool m_slotTypesCountHasBeenSet = false;

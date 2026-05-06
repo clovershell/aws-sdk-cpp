@@ -107,6 +107,10 @@ ClusterInstanceGroupDetails& ClusterInstanceGroupDetails::operator=(JsonView jso
     m_desiredImageId = jsonValue.GetString("DesiredImageId");
     m_desiredImageIdHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("ImageVersionStatus")) {
+    m_imageVersionStatus = ClusterImageVersionStatusMapper::GetClusterImageVersionStatusForName(jsonValue.GetString("ImageVersionStatus"));
+    m_imageVersionStatusHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("ActiveOperations")) {
     Aws::Map<Aws::String, JsonView> activeOperationsJsonMap = jsonValue.GetObject("ActiveOperations").GetAllObjects();
     for (auto& activeOperationsItem : activeOperationsJsonMap) {
@@ -239,6 +243,10 @@ JsonValue ClusterInstanceGroupDetails::Jsonize() const {
 
   if (m_desiredImageIdHasBeenSet) {
     payload.WithString("DesiredImageId", m_desiredImageId);
+  }
+
+  if (m_imageVersionStatusHasBeenSet) {
+    payload.WithString("ImageVersionStatus", ClusterImageVersionStatusMapper::GetNameForClusterImageVersionStatus(m_imageVersionStatus));
   }
 
   if (m_activeOperationsHasBeenSet) {

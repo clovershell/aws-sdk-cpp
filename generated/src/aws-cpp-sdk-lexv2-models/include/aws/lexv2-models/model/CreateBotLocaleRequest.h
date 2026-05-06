@@ -7,6 +7,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/lexv2-models/LexModelsV2Request.h>
 #include <aws/lexv2-models/LexModelsV2_EXPORTS.h>
+#include <aws/lexv2-models/model/AudioFillerSettings.h>
 #include <aws/lexv2-models/model/GenerativeAISettings.h>
 #include <aws/lexv2-models/model/SpeechDetectionSensitivity.h>
 #include <aws/lexv2-models/model/SpeechRecognitionSettings.h>
@@ -176,6 +177,28 @@ class CreateBotLocaleRequest : public LexModelsV2Request {
 
   ///@{
   /**
+   * <p>Audio filler settings to configure for the new bot locale. When enabled,
+   * Amazon Lex plays a brief background audio filler during speech-to-speech
+   * interactions to mask processing delays. Requires
+   * <code>unifiedSpeechSettings</code> (speech-to-speech) to be configured on the
+   * bot locale.</p>
+   */
+  inline const AudioFillerSettings& GetAudioFillerSettings() const { return m_audioFillerSettings; }
+  inline bool AudioFillerSettingsHasBeenSet() const { return m_audioFillerSettingsHasBeenSet; }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  void SetAudioFillerSettings(AudioFillerSettingsT&& value) {
+    m_audioFillerSettingsHasBeenSet = true;
+    m_audioFillerSettings = std::forward<AudioFillerSettingsT>(value);
+  }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  CreateBotLocaleRequest& WithAudioFillerSettings(AudioFillerSettingsT&& value) {
+    SetAudioFillerSettings(std::forward<AudioFillerSettingsT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Speech-to-text settings to configure for the new bot locale.</p>
    */
   inline const SpeechRecognitionSettings& GetSpeechRecognitionSettings() const { return m_speechRecognitionSettings; }
@@ -240,6 +263,8 @@ class CreateBotLocaleRequest : public LexModelsV2Request {
 
   UnifiedSpeechSettings m_unifiedSpeechSettings;
 
+  AudioFillerSettings m_audioFillerSettings;
+
   SpeechRecognitionSettings m_speechRecognitionSettings;
 
   GenerativeAISettings m_generativeAISettings;
@@ -252,6 +277,7 @@ class CreateBotLocaleRequest : public LexModelsV2Request {
   bool m_nluIntentConfidenceThresholdHasBeenSet = false;
   bool m_voiceSettingsHasBeenSet = false;
   bool m_unifiedSpeechSettingsHasBeenSet = false;
+  bool m_audioFillerSettingsHasBeenSet = false;
   bool m_speechRecognitionSettingsHasBeenSet = false;
   bool m_generativeAISettingsHasBeenSet = false;
   bool m_speechDetectionSensitivityHasBeenSet = false;

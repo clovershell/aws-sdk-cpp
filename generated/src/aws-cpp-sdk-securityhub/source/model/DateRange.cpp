@@ -26,6 +26,10 @@ DateRange& DateRange::operator=(JsonView jsonValue) {
     m_unit = DateRangeUnitMapper::GetDateRangeUnitForName(jsonValue.GetString("Unit"));
     m_unitHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("Comparison")) {
+    m_comparison = DateRangeComparisonMapper::GetDateRangeComparisonForName(jsonValue.GetString("Comparison"));
+    m_comparisonHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -38,6 +42,10 @@ JsonValue DateRange::Jsonize() const {
 
   if (m_unitHasBeenSet) {
     payload.WithString("Unit", DateRangeUnitMapper::GetNameForDateRangeUnit(m_unit));
+  }
+
+  if (m_comparisonHasBeenSet) {
+    payload.WithString("Comparison", DateRangeComparisonMapper::GetNameForDateRangeComparison(m_comparison));
   }
 
   return payload;

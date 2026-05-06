@@ -51,8 +51,8 @@ class TagResourceRequest : public MWAARequest {
   ///@{
   /**
    * <p>The key-value tag pairs you want to associate to your environment. For
-   * example, <code>"Environment": "Staging"</code>. For more information, see <a
-   * href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+   * example, <code>"Environment": "Staging"</code>. For more information, refer to
+   * <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
    * Amazon Web Services resources</a>.</p>
    */
   inline const Aws::Map<Aws::String, Aws::String>& GetTags() const { return m_tags; }

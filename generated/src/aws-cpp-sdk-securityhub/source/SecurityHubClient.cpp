@@ -71,6 +71,7 @@
 #include <aws/securityhub/model/EnableOrganizationAdminAccountRequest.h>
 #include <aws/securityhub/model/EnableSecurityHubRequest.h>
 #include <aws/securityhub/model/EnableSecurityHubV2Request.h>
+#include <aws/securityhub/model/GenerateRecommendedPolicyV2Request.h>
 #include <aws/securityhub/model/GetAdministratorAccountRequest.h>
 #include <aws/securityhub/model/GetAggregatorV2Request.h>
 #include <aws/securityhub/model/GetAutomationRuleV2Request.h>
@@ -88,6 +89,7 @@
 #include <aws/securityhub/model/GetInsightsRequest.h>
 #include <aws/securityhub/model/GetInvitationsCountRequest.h>
 #include <aws/securityhub/model/GetMembersRequest.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2Request.h>
 #include <aws/securityhub/model/GetResourcesStatisticsV2Request.h>
 #include <aws/securityhub/model/GetResourcesTrendsV2Request.h>
 #include <aws/securityhub/model/GetResourcesV2Request.h>
@@ -906,6 +908,24 @@ EnableSecurityHubV2Outcome SecurityHubClient::EnableSecurityHubV2(const EnableSe
                             : EnableSecurityHubV2Outcome(std::move(result.GetError()));
 }
 
+GenerateRecommendedPolicyV2Outcome SecurityHubClient::GenerateRecommendedPolicyV2(const GenerateRecommendedPolicyV2Request& request) const {
+  if (!request.MetadataUidHasBeenSet()) {
+    AWS_LOGSTREAM_ERROR("GenerateRecommendedPolicyV2", "Required field: MetadataUid, is not set");
+    return GenerateRecommendedPolicyV2Outcome(Aws::Client::AWSError<SecurityHubErrors>(
+        SecurityHubErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [MetadataUid]", false));
+  }
+
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/recommendedPolicyV2/");
+    endpointResolutionOutcome.GetResult().AddPathSegment(request.GetMetadataUid());
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_POST);
+  return result.IsSuccess() ? GenerateRecommendedPolicyV2Outcome(result.GetResultWithOwnership())
+                            : GenerateRecommendedPolicyV2Outcome(std::move(result.GetError()));
+}
+
 GetAdministratorAccountOutcome SecurityHubClient::GetAdministratorAccount(const GetAdministratorAccountRequest& request) const {
   auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
     (void)endpointResolutionOutcome;
@@ -1129,6 +1149,24 @@ GetMembersOutcome SecurityHubClient::GetMembers(const GetMembersRequest& request
 
   auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_POST);
   return result.IsSuccess() ? GetMembersOutcome(result.GetResultWithOwnership()) : GetMembersOutcome(std::move(result.GetError()));
+}
+
+GetRecommendedPolicyV2Outcome SecurityHubClient::GetRecommendedPolicyV2(const GetRecommendedPolicyV2Request& request) const {
+  if (!request.MetadataUidHasBeenSet()) {
+    AWS_LOGSTREAM_ERROR("GetRecommendedPolicyV2", "Required field: MetadataUid, is not set");
+    return GetRecommendedPolicyV2Outcome(Aws::Client::AWSError<SecurityHubErrors>(SecurityHubErrors::MISSING_PARAMETER, "MISSING_PARAMETER",
+                                                                                  "Missing required field [MetadataUid]", false));
+  }
+
+  auto uriResolver = [&](Aws::Endpoint::ResolveEndpointOutcome& endpointResolutionOutcome) {
+    (void)endpointResolutionOutcome;
+    endpointResolutionOutcome.GetResult().AddPathSegments("/recommendedPolicyV2/");
+    endpointResolutionOutcome.GetResult().AddPathSegment(request.GetMetadataUid());
+  };
+
+  auto result = InvokeServiceOperation(request, uriResolver, Aws::Http::HttpMethod::HTTP_GET);
+  return result.IsSuccess() ? GetRecommendedPolicyV2Outcome(result.GetResultWithOwnership())
+                            : GetRecommendedPolicyV2Outcome(std::move(result.GetError()));
 }
 
 GetResourcesStatisticsV2Outcome SecurityHubClient::GetResourcesStatisticsV2(const GetResourcesStatisticsV2Request& request) const {

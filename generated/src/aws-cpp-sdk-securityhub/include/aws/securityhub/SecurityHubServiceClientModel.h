@@ -83,6 +83,7 @@
 #include <aws/securityhub/model/EnableSecurityHubResult.h>
 #include <aws/securityhub/model/EnableSecurityHubV2Request.h>
 #include <aws/securityhub/model/EnableSecurityHubV2Result.h>
+#include <aws/securityhub/model/GenerateRecommendedPolicyV2Result.h>
 #include <aws/securityhub/model/GetAdministratorAccountRequest.h>
 #include <aws/securityhub/model/GetAdministratorAccountResult.h>
 #include <aws/securityhub/model/GetAggregatorV2Result.h>
@@ -106,6 +107,7 @@
 #include <aws/securityhub/model/GetInvitationsCountRequest.h>
 #include <aws/securityhub/model/GetInvitationsCountResult.h>
 #include <aws/securityhub/model/GetMembersResult.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2Result.h>
 #include <aws/securityhub/model/GetResourcesStatisticsV2Result.h>
 #include <aws/securityhub/model/GetResourcesTrendsV2Result.h>
 #include <aws/securityhub/model/GetResourcesV2Request.h>
@@ -240,6 +242,7 @@ class EnableImportFindingsForProductRequest;
 class EnableOrganizationAdminAccountRequest;
 class EnableSecurityHubRequest;
 class EnableSecurityHubV2Request;
+class GenerateRecommendedPolicyV2Request;
 class GetAdministratorAccountRequest;
 class GetAggregatorV2Request;
 class GetAutomationRuleV2Request;
@@ -257,6 +260,7 @@ class GetInsightResultsRequest;
 class GetInsightsRequest;
 class GetInvitationsCountRequest;
 class GetMembersRequest;
+class GetRecommendedPolicyV2Request;
 class GetResourcesStatisticsV2Request;
 class GetResourcesTrendsV2Request;
 class GetResourcesV2Request;
@@ -347,6 +351,7 @@ typedef Aws::Utils::Outcome<EnableImportFindingsForProductResult, SecurityHubErr
 typedef Aws::Utils::Outcome<EnableOrganizationAdminAccountResult, SecurityHubError> EnableOrganizationAdminAccountOutcome;
 typedef Aws::Utils::Outcome<EnableSecurityHubResult, SecurityHubError> EnableSecurityHubOutcome;
 typedef Aws::Utils::Outcome<EnableSecurityHubV2Result, SecurityHubError> EnableSecurityHubV2Outcome;
+typedef Aws::Utils::Outcome<GenerateRecommendedPolicyV2Result, SecurityHubError> GenerateRecommendedPolicyV2Outcome;
 typedef Aws::Utils::Outcome<GetAdministratorAccountResult, SecurityHubError> GetAdministratorAccountOutcome;
 typedef Aws::Utils::Outcome<GetAggregatorV2Result, SecurityHubError> GetAggregatorV2Outcome;
 typedef Aws::Utils::Outcome<GetAutomationRuleV2Result, SecurityHubError> GetAutomationRuleV2Outcome;
@@ -364,6 +369,7 @@ typedef Aws::Utils::Outcome<GetInsightResultsResult, SecurityHubError> GetInsigh
 typedef Aws::Utils::Outcome<GetInsightsResult, SecurityHubError> GetInsightsOutcome;
 typedef Aws::Utils::Outcome<GetInvitationsCountResult, SecurityHubError> GetInvitationsCountOutcome;
 typedef Aws::Utils::Outcome<GetMembersResult, SecurityHubError> GetMembersOutcome;
+typedef Aws::Utils::Outcome<GetRecommendedPolicyV2Result, SecurityHubError> GetRecommendedPolicyV2Outcome;
 typedef Aws::Utils::Outcome<GetResourcesStatisticsV2Result, SecurityHubError> GetResourcesStatisticsV2Outcome;
 typedef Aws::Utils::Outcome<GetResourcesTrendsV2Result, SecurityHubError> GetResourcesTrendsV2Outcome;
 typedef Aws::Utils::Outcome<GetResourcesV2Result, SecurityHubError> GetResourcesV2Outcome;
@@ -454,6 +460,7 @@ typedef std::future<EnableImportFindingsForProductOutcome> EnableImportFindingsF
 typedef std::future<EnableOrganizationAdminAccountOutcome> EnableOrganizationAdminAccountOutcomeCallable;
 typedef std::future<EnableSecurityHubOutcome> EnableSecurityHubOutcomeCallable;
 typedef std::future<EnableSecurityHubV2Outcome> EnableSecurityHubV2OutcomeCallable;
+typedef std::future<GenerateRecommendedPolicyV2Outcome> GenerateRecommendedPolicyV2OutcomeCallable;
 typedef std::future<GetAdministratorAccountOutcome> GetAdministratorAccountOutcomeCallable;
 typedef std::future<GetAggregatorV2Outcome> GetAggregatorV2OutcomeCallable;
 typedef std::future<GetAutomationRuleV2Outcome> GetAutomationRuleV2OutcomeCallable;
@@ -471,6 +478,7 @@ typedef std::future<GetInsightResultsOutcome> GetInsightResultsOutcomeCallable;
 typedef std::future<GetInsightsOutcome> GetInsightsOutcomeCallable;
 typedef std::future<GetInvitationsCountOutcome> GetInvitationsCountOutcomeCallable;
 typedef std::future<GetMembersOutcome> GetMembersOutcomeCallable;
+typedef std::future<GetRecommendedPolicyV2Outcome> GetRecommendedPolicyV2OutcomeCallable;
 typedef std::future<GetResourcesStatisticsV2Outcome> GetResourcesStatisticsV2OutcomeCallable;
 typedef std::future<GetResourcesTrendsV2Outcome> GetResourcesTrendsV2OutcomeCallable;
 typedef std::future<GetResourcesV2Outcome> GetResourcesV2OutcomeCallable;
@@ -676,6 +684,9 @@ typedef std::function<void(const SecurityHubClient*, const Model::EnableSecurity
 typedef std::function<void(const SecurityHubClient*, const Model::EnableSecurityHubV2Request&, const Model::EnableSecurityHubV2Outcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     EnableSecurityHubV2ResponseReceivedHandler;
+typedef std::function<void(const SecurityHubClient*, const Model::GenerateRecommendedPolicyV2Request&,
+                           const Model::GenerateRecommendedPolicyV2Outcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    GenerateRecommendedPolicyV2ResponseReceivedHandler;
 typedef std::function<void(const SecurityHubClient*, const Model::GetAdministratorAccountRequest&,
                            const Model::GetAdministratorAccountOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     GetAdministratorAccountResponseReceivedHandler;
@@ -728,6 +739,9 @@ typedef std::function<void(const SecurityHubClient*, const Model::GetInvitations
 typedef std::function<void(const SecurityHubClient*, const Model::GetMembersRequest&, const Model::GetMembersOutcome&,
                            const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     GetMembersResponseReceivedHandler;
+typedef std::function<void(const SecurityHubClient*, const Model::GetRecommendedPolicyV2Request&,
+                           const Model::GetRecommendedPolicyV2Outcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
+    GetRecommendedPolicyV2ResponseReceivedHandler;
 typedef std::function<void(const SecurityHubClient*, const Model::GetResourcesStatisticsV2Request&,
                            const Model::GetResourcesStatisticsV2Outcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&)>
     GetResourcesStatisticsV2ResponseReceivedHandler;

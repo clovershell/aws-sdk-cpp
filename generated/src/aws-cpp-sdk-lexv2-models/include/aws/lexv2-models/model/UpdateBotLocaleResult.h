@@ -9,6 +9,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/lexv2-models/LexModelsV2_EXPORTS.h>
+#include <aws/lexv2-models/model/AudioFillerSettings.h>
 #include <aws/lexv2-models/model/BotLocaleStatus.h>
 #include <aws/lexv2-models/model/GenerativeAISettings.h>
 #include <aws/lexv2-models/model/SpeechDetectionSensitivity.h>
@@ -168,6 +169,23 @@ class UpdateBotLocaleResult {
   template <typename UnifiedSpeechSettingsT = UnifiedSpeechSettings>
   UpdateBotLocaleResult& WithUnifiedSpeechSettings(UnifiedSpeechSettingsT&& value) {
     SetUnifiedSpeechSettings(std::forward<UnifiedSpeechSettingsT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>The updated audio filler settings for the bot locale.</p>
+   */
+  inline const AudioFillerSettings& GetAudioFillerSettings() const { return m_audioFillerSettings; }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  void SetAudioFillerSettings(AudioFillerSettingsT&& value) {
+    m_audioFillerSettingsHasBeenSet = true;
+    m_audioFillerSettings = std::forward<AudioFillerSettingsT>(value);
+  }
+  template <typename AudioFillerSettingsT = AudioFillerSettings>
+  UpdateBotLocaleResult& WithAudioFillerSettings(AudioFillerSettingsT&& value) {
+    SetAudioFillerSettings(std::forward<AudioFillerSettingsT>(value));
     return *this;
   }
   ///@}
@@ -355,6 +373,8 @@ class UpdateBotLocaleResult {
 
   UnifiedSpeechSettings m_unifiedSpeechSettings;
 
+  AudioFillerSettings m_audioFillerSettings;
+
   SpeechRecognitionSettings m_speechRecognitionSettings;
 
   BotLocaleStatus m_botLocaleStatus{BotLocaleStatus::NOT_SET};
@@ -381,6 +401,7 @@ class UpdateBotLocaleResult {
   bool m_nluIntentConfidenceThresholdHasBeenSet = false;
   bool m_voiceSettingsHasBeenSet = false;
   bool m_unifiedSpeechSettingsHasBeenSet = false;
+  bool m_audioFillerSettingsHasBeenSet = false;
   bool m_speechRecognitionSettingsHasBeenSet = false;
   bool m_botLocaleStatusHasBeenSet = false;
   bool m_failureReasonsHasBeenSet = false;

@@ -57,7 +57,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
    * <p>The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA
    * to access Amazon Web Services resources in your environment. For example,
    * <code>arn:aws:iam::123456789:role/my-execution-role</code>. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
    * MWAA Execution role</a>.</p>
    */
@@ -78,7 +78,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>A list of key-value pairs containing the Apache Airflow configuration options
-   * you want to attach to your environment. For more information, see <a
+   * you want to attach to your environment. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
    * Airflow configuration options</a>.</p>
    */
@@ -107,16 +107,16 @@ class UpdateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>The Apache Airflow version for your environment. To upgrade your environment,
-   * specify a newer version of Apache Airflow supported by Amazon MWAA.</p>
-   * <p>Before you upgrade an environment, make sure your requirements, DAGs,
-   * plugins, and other resources used in your workflows are compatible with the new
-   * Apache Airflow version. For more information about updating your resources, see
-   * <a
+   * specify a newer version of Apache Airflow supported by Amazon MWAA. To downgrade
+   * your environment, specify an older version of Apache Airflow supported by Amazon
+   * MWAA.</p> <p>Before you upgrade or downgrade an environment, make sure your
+   * requirements, DAGs, plugins, and other resources used in your workflows are
+   * compatible with the new Apache Airflow version. For more information about
+   * updating your resources, see <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading
-   * an Amazon MWAA environment</a>.</p> <p>Valid values: <code>1.10.12</code>,
-   * <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>, <code>2.5.1</code>,
-   * <code>2.6.3</code>, <code>2.7.2</code>, <code>2.8.1</code>, <code>2.9.2</code>,
-   * <code>2.10.1</code>, and <code>2.10.3</code>.</p>
+   * and downgrading an Amazon MWAA environment</a>.</p> <p>Valid values:
+   * <code>2.7.2</code>, <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>,
+   * <code>2.10.3</code>, <code>2.11.0</code>, and <code>3.0.6</code>.</p>
    */
   inline const Aws::String& GetAirflowVersion() const { return m_airflowVersion; }
   inline bool AirflowVersionHasBeenSet() const { return m_airflowVersionHasBeenSet; }
@@ -135,7 +135,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   ///@{
   /**
    * <p>The relative path to the DAGs folder on your Amazon S3 bucket. For example,
-   * <code>dags</code>. For more information, see <a
+   * <code>dags</code>. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
    * or updating DAGs</a>.</p>
    */
@@ -157,8 +157,8 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The environment class type. Valid values: <code>mw1.micro</code>,
    * <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
-   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
-   * <a
+   * <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
    * MWAA environment class</a>. </p>
    */
@@ -313,7 +313,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The VPC networking components used to secure and enable network traffic
    * between the Amazon Web Services resources for your environment. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
    * networking on Amazon MWAA</a>.</p>
    */
@@ -335,7 +335,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The relative path to the <code>plugins.zip</code> file on your Amazon S3
    * bucket. For example, <code>plugins.zip</code>. If specified, then the
-   * plugins.zip version is required. For more information, see <a
+   * plugins.zip version is required. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
    * custom plugins</a>.</p>
    */
@@ -357,7 +357,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The version of the plugins.zip file on your Amazon S3 bucket. You must
    * specify a version each time a <code>plugins.zip</code> file is updated. For more
-   * information, see <a
+   * information, refer to <a
    * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
    * S3 Versioning works</a>.</p>
    */
@@ -379,7 +379,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The relative path to the <code>requirements.txt</code> file on your Amazon S3
    * bucket. For example, <code>requirements.txt</code>. If specified, then a file
-   * version is required. For more information, see <a
+   * version is required. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
    * Python dependencies</a>.</p>
    */
@@ -401,7 +401,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
   /**
    * <p>The version of the requirements.txt file on your Amazon S3 bucket. You must
    * specify a version each time a <code>requirements.txt</code> file is updated. For
-   * more information, see <a
+   * more information, refer to <a
    * href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
    * S3 Versioning works</a>.</p>
    */
@@ -441,7 +441,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code
    * and supporting files are stored. For example,
    * <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information,
-   * see <a
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
    * an Amazon S3 bucket for Amazon MWAA</a>.</p>
    */
@@ -465,8 +465,8 @@ class UpdateEnvironmentRequest : public MWAARequest {
    * example, <code>s3://mwaa-environment/startup.sh</code>.</p> <p> Amazon MWAA runs
    * the script as your environment starts, and before running the Apache Airflow
    * process. You can use this script to install dependencies, modify Apache Airflow
-   * configuration options, and set environment variables. For more information, see
-   * <a
+   * configuration options, and set environment variables. For more information,
+   * refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -493,7 +493,7 @@ class UpdateEnvironmentRequest : public MWAARequest {
    * <p> Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are
    * no more than 1,024 bytes long. The following is an example: </p> <p>
    * <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code>
-   * </p> <p> For more information, see <a
+   * </p> <p> For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
    * a startup script</a>. </p>
    */
@@ -513,8 +513,8 @@ class UpdateEnvironmentRequest : public MWAARequest {
 
   ///@{
   /**
-   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see
-   * <a
+   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, refer
+   * to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
    * Airflow access modes</a>.</p>
    */

@@ -17,6 +17,7 @@
 #include <aws/securityhub/model/GetFindingsTrendsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetFindingsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetInsightsPaginationTraits.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2PaginationTraits.h>
 #include <aws/securityhub/model/GetResourcesTrendsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetResourcesV2PaginationTraits.h>
 #include <aws/securityhub/model/ListAggregatorsV2PaginationTraits.h>
@@ -57,6 +58,9 @@ using GetFindingsV2Paginator = Aws::Utils::Pagination::Paginator<SecurityHubClie
                                                                  Pagination::GetFindingsV2PaginationTraits<SecurityHubClient>>;
 using GetInsightsPaginator = Aws::Utils::Pagination::Paginator<SecurityHubClient, Model::GetInsightsRequest,
                                                                Pagination::GetInsightsPaginationTraits<SecurityHubClient>>;
+using GetRecommendedPolicyV2Paginator =
+    Aws::Utils::Pagination::Paginator<SecurityHubClient, Model::GetRecommendedPolicyV2Request,
+                                      Pagination::GetRecommendedPolicyV2PaginationTraits<SecurityHubClient>>;
 using GetResourcesTrendsV2Paginator =
     Aws::Utils::Pagination::Paginator<SecurityHubClient, Model::GetResourcesTrendsV2Request,
                                       Pagination::GetResourcesTrendsV2PaginationTraits<SecurityHubClient>>;

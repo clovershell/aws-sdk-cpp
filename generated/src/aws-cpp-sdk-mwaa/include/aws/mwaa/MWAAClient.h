@@ -21,7 +21,8 @@ namespace MWAA {
  * reference documentation. For more information, see <a
  * href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What
  * is Amazon MWAA?</a>.</p> <p> <b>Endpoints</b> </p> <ul> <li> <p>
- * <code>api.airflow.{region}.amazonaws.com</code> - This endpoint is used for
+ * <code>api.airflow.{region}.amazonaws.com</code> (use
+ * <code>api.airflow.{region}.api.aws</code> for IPv6) - This endpoint is used for
  * environment management.</p> <ul> <li> <p> <a
  * href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html">CreateEnvironment</a>
  * </p> </li> <li> <p> <a
@@ -39,7 +40,8 @@ namespace MWAA {
  * </p> </li> <li> <p> <a
  * href="https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html">UpdateEnvironment</a>
  * </p> </li> </ul> </li> <li> <p> <code>env.airflow.{region}.amazonaws.com</code>
- * - This endpoint is used to operate the Airflow environment.</p> <ul> <li> <p> <a
+ * (use <code>env.airflow.{region}.api.aws</code> for IPv6) - This endpoint is used
+ * to operate the Airflow environment.</p> <ul> <li> <p> <a
  * href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html
  * ">CreateCliToken</a> </p> </li> <li> <p> <a
  * href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>

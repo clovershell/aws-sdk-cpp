@@ -17,6 +17,7 @@ namespace WebserverAccessModeMapper {
 
 static const int PRIVATE_ONLY_HASH = HashingUtils::HashString("PRIVATE_ONLY");
 static const int PUBLIC_ONLY_HASH = HashingUtils::HashString("PUBLIC_ONLY");
+static const int PUBLIC_AND_PRIVATE_HASH = HashingUtils::HashString("PUBLIC_AND_PRIVATE");
 
 WebserverAccessMode GetWebserverAccessModeForName(const Aws::String& name) {
   int hashCode = HashingUtils::HashString(name.c_str());
@@ -24,6 +25,8 @@ WebserverAccessMode GetWebserverAccessModeForName(const Aws::String& name) {
     return WebserverAccessMode::PRIVATE_ONLY;
   } else if (hashCode == PUBLIC_ONLY_HASH) {
     return WebserverAccessMode::PUBLIC_ONLY;
+  } else if (hashCode == PUBLIC_AND_PRIVATE_HASH) {
+    return WebserverAccessMode::PUBLIC_AND_PRIVATE;
   }
   EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
   if (overflowContainer) {
@@ -42,6 +45,8 @@ Aws::String GetNameForWebserverAccessMode(WebserverAccessMode enumValue) {
       return "PRIVATE_ONLY";
     case WebserverAccessMode::PUBLIC_ONLY:
       return "PUBLIC_ONLY";
+    case WebserverAccessMode::PUBLIC_AND_PRIVATE:
+      return "PUBLIC_AND_PRIVATE";
     default:
       EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
       if (overflowContainer) {

@@ -54,6 +54,10 @@ CreateBotLocaleResult& CreateBotLocaleResult::operator=(const Aws::AmazonWebServ
     m_unifiedSpeechSettings = jsonValue.GetObject("unifiedSpeechSettings");
     m_unifiedSpeechSettingsHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("audioFillerSettings")) {
+    m_audioFillerSettings = jsonValue.GetObject("audioFillerSettings");
+    m_audioFillerSettingsHasBeenSet = true;
+  }
   if (jsonValue.ValueExists("speechRecognitionSettings")) {
     m_speechRecognitionSettings = jsonValue.GetObject("speechRecognitionSettings");
     m_speechRecognitionSettingsHasBeenSet = true;

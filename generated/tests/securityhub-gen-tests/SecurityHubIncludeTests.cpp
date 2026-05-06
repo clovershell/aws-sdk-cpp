@@ -634,6 +634,7 @@
 #include <aws/securityhub/model/DataClassificationDetails.h>
 #include <aws/securityhub/model/DateFilter.h>
 #include <aws/securityhub/model/DateRange.h>
+#include <aws/securityhub/model/DateRangeComparison.h>
 #include <aws/securityhub/model/DateRangeUnit.h>
 #include <aws/securityhub/model/DeclineInvitationsRequest.h>
 #include <aws/securityhub/model/DeclineInvitationsResult.h>
@@ -714,6 +715,8 @@
 #include <aws/securityhub/model/FirewallPolicyStatefulRuleGroupReferencesDetails.h>
 #include <aws/securityhub/model/FirewallPolicyStatelessCustomActionsDetails.h>
 #include <aws/securityhub/model/FirewallPolicyStatelessRuleGroupReferencesDetails.h>
+#include <aws/securityhub/model/GenerateRecommendedPolicyV2Request.h>
+#include <aws/securityhub/model/GenerateRecommendedPolicyV2Result.h>
 #include <aws/securityhub/model/GeneratorDetails.h>
 #include <aws/securityhub/model/GeoLocation.h>
 #include <aws/securityhub/model/GetAdministratorAccountRequest.h>
@@ -750,6 +753,8 @@
 #include <aws/securityhub/model/GetInvitationsCountResult.h>
 #include <aws/securityhub/model/GetMembersRequest.h>
 #include <aws/securityhub/model/GetMembersResult.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2Request.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2Result.h>
 #include <aws/securityhub/model/GetResourcesStatisticsV2Request.h>
 #include <aws/securityhub/model/GetResourcesStatisticsV2Result.h>
 #include <aws/securityhub/model/GetResourcesTrendsV2Request.h>
@@ -879,6 +884,10 @@
 #include <aws/securityhub/model/ProviderUpdateConfiguration.h>
 #include <aws/securityhub/model/Range.h>
 #include <aws/securityhub/model/Recommendation.h>
+#include <aws/securityhub/model/RecommendationError.h>
+#include <aws/securityhub/model/RecommendationStatus.h>
+#include <aws/securityhub/model/RecommendationStep.h>
+#include <aws/securityhub/model/RecommendationType.h>
 #include <aws/securityhub/model/Record.h>
 #include <aws/securityhub/model/RecordState.h>
 #include <aws/securityhub/model/RegionAvailabilityStatus.h>
@@ -1008,6 +1017,7 @@
 #include <aws/securityhub/model/UnprocessedStandardsControlAssociationUpdate.h>
 #include <aws/securityhub/model/UntagResourceRequest.h>
 #include <aws/securityhub/model/UntagResourceResult.h>
+#include <aws/securityhub/model/UnusedPermissionsRecommendationStep.h>
 #include <aws/securityhub/model/UpdateActionTargetRequest.h>
 #include <aws/securityhub/model/UpdateActionTargetResult.h>
 #include <aws/securityhub/model/UpdateAggregatorV2Request.h>

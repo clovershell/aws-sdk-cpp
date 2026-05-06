@@ -18,6 +18,7 @@
 #include <aws/securityhub/model/GetFindingsTrendsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetFindingsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetInsightsPaginationTraits.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2PaginationTraits.h>
 #include <aws/securityhub/model/GetResourcesTrendsV2PaginationTraits.h>
 #include <aws/securityhub/model/GetResourcesV2PaginationTraits.h>
 #include <aws/securityhub/model/ListAggregatorsV2PaginationTraits.h>
@@ -166,6 +167,18 @@ class SecurityHubPaginationBase {
     return Aws::Utils::Pagination::Paginator<DerivedClient, Model::GetInsightsRequest,
                                              Pagination::GetInsightsPaginationTraits<DerivedClient>>{static_cast<DerivedClient*>(this),
                                                                                                      request};
+  }
+
+  /**
+   * Create a paginator for GetRecommendedPolicyV2 operation
+   */
+  Aws::Utils::Pagination::Paginator<DerivedClient, Model::GetRecommendedPolicyV2Request,
+                                    Pagination::GetRecommendedPolicyV2PaginationTraits<DerivedClient>>
+  GetRecommendedPolicyV2Paginator(const Model::GetRecommendedPolicyV2Request& request) {
+    request.AddUserAgentFeature(Aws::Client::UserAgentFeature::PAGINATOR);
+    return Aws::Utils::Pagination::Paginator<DerivedClient, Model::GetRecommendedPolicyV2Request,
+                                             Pagination::GetRecommendedPolicyV2PaginationTraits<DerivedClient>>{
+        static_cast<DerivedClient*>(this), request};
   }
 
   /**

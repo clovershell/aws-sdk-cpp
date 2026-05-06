@@ -1768,6 +1768,37 @@ class AWS_SECURITYHUB_API SecurityHubClient : public Aws::Client::AWSJsonClient,
   }
 
   /**
+   * <p>Begins the recommended policy generation to remediate a Security Hub finding.
+   * <code>GenerateRecommendedPolicyV2</code> only supports findings for unused
+   * permissions.</p><p><h3>See Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/GenerateRecommendedPolicyV2">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::GenerateRecommendedPolicyV2Outcome GenerateRecommendedPolicyV2(
+      const Model::GenerateRecommendedPolicyV2Request& request) const;
+
+  /**
+   * A Callable wrapper for GenerateRecommendedPolicyV2 that returns a future to the operation so that it can be executed in parallel to
+   * other requests.
+   */
+  template <typename GenerateRecommendedPolicyV2RequestT = Model::GenerateRecommendedPolicyV2Request>
+  Model::GenerateRecommendedPolicyV2OutcomeCallable GenerateRecommendedPolicyV2Callable(
+      const GenerateRecommendedPolicyV2RequestT& request) const {
+    return SubmitCallable(&SecurityHubClient::GenerateRecommendedPolicyV2, request);
+  }
+
+  /**
+   * An Async wrapper for GenerateRecommendedPolicyV2 that queues the request into a thread executor and triggers associated callback when
+   * operation has finished.
+   */
+  template <typename GenerateRecommendedPolicyV2RequestT = Model::GenerateRecommendedPolicyV2Request>
+  void GenerateRecommendedPolicyV2Async(const GenerateRecommendedPolicyV2RequestT& request,
+                                        const GenerateRecommendedPolicyV2ResponseReceivedHandler& handler,
+                                        const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
+    return SubmitAsync(&SecurityHubClient::GenerateRecommendedPolicyV2, request, handler, context);
+  }
+
+  /**
    * <p>Provides the details for the Security Hub CSPM administrator account for the
    * current member account.</p> <p>Can be used by both member accounts that are
    * managed using Organizations and accounts that were invited
@@ -2280,6 +2311,35 @@ class AWS_SECURITYHUB_API SecurityHubClient : public Aws::Client::AWSJsonClient,
   void GetMembersAsync(const GetMembersRequestT& request, const GetMembersResponseReceivedHandler& handler,
                        const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
     return SubmitAsync(&SecurityHubClient::GetMembers, request, handler, context);
+  }
+
+  /**
+   * <p>Retrieves the recommended policy to remediate a Security Hub finding.
+   * <code>GetRecommendedPolicyV2</code> only supports findings for unused
+   * permissions.</p><p><h3>See Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/GetRecommendedPolicyV2">AWS
+   * API Reference</a></p>
+   */
+  virtual Model::GetRecommendedPolicyV2Outcome GetRecommendedPolicyV2(const Model::GetRecommendedPolicyV2Request& request) const;
+
+  /**
+   * A Callable wrapper for GetRecommendedPolicyV2 that returns a future to the operation so that it can be executed in parallel to other
+   * requests.
+   */
+  template <typename GetRecommendedPolicyV2RequestT = Model::GetRecommendedPolicyV2Request>
+  Model::GetRecommendedPolicyV2OutcomeCallable GetRecommendedPolicyV2Callable(const GetRecommendedPolicyV2RequestT& request) const {
+    return SubmitCallable(&SecurityHubClient::GetRecommendedPolicyV2, request);
+  }
+
+  /**
+   * An Async wrapper for GetRecommendedPolicyV2 that queues the request into a thread executor and triggers associated callback when
+   * operation has finished.
+   */
+  template <typename GetRecommendedPolicyV2RequestT = Model::GetRecommendedPolicyV2Request>
+  void GetRecommendedPolicyV2Async(const GetRecommendedPolicyV2RequestT& request,
+                                   const GetRecommendedPolicyV2ResponseReceivedHandler& handler,
+                                   const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const {
+    return SubmitAsync(&SecurityHubClient::GetRecommendedPolicyV2, request, handler, context);
   }
 
   /**

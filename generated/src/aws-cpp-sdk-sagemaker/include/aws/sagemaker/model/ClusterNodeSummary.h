@@ -7,6 +7,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/sagemaker/SageMaker_EXPORTS.h>
+#include <aws/sagemaker/model/ClusterImageVersionStatus.h>
 #include <aws/sagemaker/model/ClusterInstanceStatusDetails.h>
 #include <aws/sagemaker/model/ClusterInstanceType.h>
 #include <aws/sagemaker/model/UltraServerInfo.h>
@@ -200,6 +201,22 @@ class ClusterNodeSummary {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The status of the image version for the cluster node.</p>
+   */
+  inline ClusterImageVersionStatus GetImageVersionStatus() const { return m_imageVersionStatus; }
+  inline bool ImageVersionStatusHasBeenSet() const { return m_imageVersionStatusHasBeenSet; }
+  inline void SetImageVersionStatus(ClusterImageVersionStatus value) {
+    m_imageVersionStatusHasBeenSet = true;
+    m_imageVersionStatus = value;
+  }
+  inline ClusterNodeSummary& WithImageVersionStatus(ClusterImageVersionStatus value) {
+    SetImageVersionStatus(value);
+    return *this;
+  }
+  ///@}
  private:
   Aws::String m_instanceGroupName;
 
@@ -218,6 +235,8 @@ class ClusterNodeSummary {
   UltraServerInfo m_ultraServerInfo;
 
   Aws::String m_privateDnsHostname;
+
+  ClusterImageVersionStatus m_imageVersionStatus{ClusterImageVersionStatus::NOT_SET};
   bool m_instanceGroupNameHasBeenSet = false;
   bool m_instanceIdHasBeenSet = false;
   bool m_nodeLogicalIdHasBeenSet = false;
@@ -227,6 +246,7 @@ class ClusterNodeSummary {
   bool m_instanceStatusHasBeenSet = false;
   bool m_ultraServerInfoHasBeenSet = false;
   bool m_privateDnsHostnameHasBeenSet = false;
+  bool m_imageVersionStatusHasBeenSet = false;
 };
 
 }  // namespace Model

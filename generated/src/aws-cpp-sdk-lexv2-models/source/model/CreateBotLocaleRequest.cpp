@@ -35,6 +35,10 @@ Aws::String CreateBotLocaleRequest::SerializePayload() const {
     payload.WithObject("unifiedSpeechSettings", m_unifiedSpeechSettings.Jsonize());
   }
 
+  if (m_audioFillerSettingsHasBeenSet) {
+    payload.WithObject("audioFillerSettings", m_audioFillerSettings.Jsonize());
+  }
+
   if (m_speechRecognitionSettingsHasBeenSet) {
     payload.WithObject("speechRecognitionSettings", m_speechRecognitionSettings.Jsonize());
   }

@@ -5,6 +5,7 @@
 
 #pragma once
 #include <aws/securityhub/SecurityHub_EXPORTS.h>
+#include <aws/securityhub/model/DateRangeComparison.h>
 #include <aws/securityhub/model/DateRangeUnit.h>
 
 #include <utility>
@@ -62,12 +63,35 @@ class DateRange {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>The condition to apply to a date range filter. If you specify
+   * <code>WITHIN</code>, Security Hub filters for dates within the specified date
+   * range. If you specify <code>OLDER_THAN</code>, Security Hub filters for dates
+   * before the specified date range. If you don't specify a value, the default is
+   * <code>WITHIN</code>.</p>
+   */
+  inline DateRangeComparison GetComparison() const { return m_comparison; }
+  inline bool ComparisonHasBeenSet() const { return m_comparisonHasBeenSet; }
+  inline void SetComparison(DateRangeComparison value) {
+    m_comparisonHasBeenSet = true;
+    m_comparison = value;
+  }
+  inline DateRange& WithComparison(DateRangeComparison value) {
+    SetComparison(value);
+    return *this;
+  }
+  ///@}
  private:
   int m_value{0};
 
   DateRangeUnit m_unit{DateRangeUnit::NOT_SET};
+
+  DateRangeComparison m_comparison{DateRangeComparison::NOT_SET};
   bool m_valueHasBeenSet = false;
   bool m_unitHasBeenSet = false;
+  bool m_comparisonHasBeenSet = false;
 };
 
 }  // namespace Model

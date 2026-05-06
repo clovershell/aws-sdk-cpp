@@ -22,6 +22,14 @@ FilesystemConfiguration& FilesystemConfiguration::operator=(JsonView jsonValue) 
     m_sessionStorage = jsonValue.GetObject("sessionStorage");
     m_sessionStorageHasBeenSet = true;
   }
+  if (jsonValue.ValueExists("s3FilesAccessPoint")) {
+    m_s3FilesAccessPoint = jsonValue.GetObject("s3FilesAccessPoint");
+    m_s3FilesAccessPointHasBeenSet = true;
+  }
+  if (jsonValue.ValueExists("efsAccessPoint")) {
+    m_efsAccessPoint = jsonValue.GetObject("efsAccessPoint");
+    m_efsAccessPointHasBeenSet = true;
+  }
   return *this;
 }
 
@@ -30,6 +38,14 @@ JsonValue FilesystemConfiguration::Jsonize() const {
 
   if (m_sessionStorageHasBeenSet) {
     payload.WithObject("sessionStorage", m_sessionStorage.Jsonize());
+  }
+
+  if (m_s3FilesAccessPointHasBeenSet) {
+    payload.WithObject("s3FilesAccessPoint", m_s3FilesAccessPoint.Jsonize());
+  }
+
+  if (m_efsAccessPointHasBeenSet) {
+    payload.WithObject("efsAccessPoint", m_efsAccessPoint.Jsonize());
   }
 
   return payload;

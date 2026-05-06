@@ -9,6 +9,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/sagemaker/SageMaker_EXPORTS.h>
 #include <aws/sagemaker/model/ClusterCapacityType.h>
+#include <aws/sagemaker/model/ClusterImageVersionStatus.h>
 #include <aws/sagemaker/model/ClusterInstancePlacement.h>
 #include <aws/sagemaker/model/ClusterInstanceStatusDetails.h>
 #include <aws/sagemaker/model/ClusterInstanceStorageConfig.h>
@@ -363,6 +364,22 @@ class ClusterNodeDetails {
 
   ///@{
   /**
+   * <p>The status of the image version for the cluster node.</p>
+   */
+  inline ClusterImageVersionStatus GetImageVersionStatus() const { return m_imageVersionStatus; }
+  inline bool ImageVersionStatusHasBeenSet() const { return m_imageVersionStatusHasBeenSet; }
+  inline void SetImageVersionStatus(ClusterImageVersionStatus value) {
+    m_imageVersionStatusHasBeenSet = true;
+    m_imageVersionStatus = value;
+  }
+  inline ClusterNodeDetails& WithImageVersionStatus(ClusterImageVersionStatus value) {
+    SetImageVersionStatus(value);
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
    * <p>Contains information about the UltraServer.</p>
    */
   inline const UltraServerInfo& GetUltraServerInfo() const { return m_ultraServerInfo; }
@@ -470,6 +487,8 @@ class ClusterNodeDetails {
 
   Aws::String m_desiredImageId;
 
+  ClusterImageVersionStatus m_imageVersionStatus{ClusterImageVersionStatus::NOT_SET};
+
   UltraServerInfo m_ultraServerInfo;
 
   ClusterKubernetesConfigNodeDetails m_kubernetesConfig;
@@ -494,6 +513,7 @@ class ClusterNodeDetails {
   bool m_placementHasBeenSet = false;
   bool m_currentImageIdHasBeenSet = false;
   bool m_desiredImageIdHasBeenSet = false;
+  bool m_imageVersionStatusHasBeenSet = false;
   bool m_ultraServerInfoHasBeenSet = false;
   bool m_kubernetesConfigHasBeenSet = false;
   bool m_capacityTypeHasBeenSet = false;

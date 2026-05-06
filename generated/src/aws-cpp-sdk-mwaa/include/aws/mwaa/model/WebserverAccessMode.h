@@ -10,7 +10,7 @@
 namespace Aws {
 namespace MWAA {
 namespace Model {
-enum class WebserverAccessMode { NOT_SET, PRIVATE_ONLY, PUBLIC_ONLY };
+enum class WebserverAccessMode { NOT_SET, PRIVATE_ONLY, PUBLIC_ONLY, PUBLIC_AND_PRIVATE };
 
 namespace WebserverAccessModeMapper {
 AWS_MWAA_API WebserverAccessMode GetWebserverAccessModeForName(const Aws::String& name);

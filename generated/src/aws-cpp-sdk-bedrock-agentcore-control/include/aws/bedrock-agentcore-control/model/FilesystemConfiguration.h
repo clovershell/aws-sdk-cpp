@@ -5,6 +5,8 @@
 
 #pragma once
 #include <aws/bedrock-agentcore-control/BedrockAgentCoreControl_EXPORTS.h>
+#include <aws/bedrock-agentcore-control/model/EfsAccessPointConfiguration.h>
+#include <aws/bedrock-agentcore-control/model/S3FilesAccessPointConfiguration.h>
 #include <aws/bedrock-agentcore-control/model/SessionStorageConfiguration.h>
 
 #include <utility>
@@ -50,9 +52,53 @@ class FilesystemConfiguration {
     return *this;
   }
   ///@}
+
+  ///@{
+  /**
+   * <p>Configuration for an Amazon S3 Files access point to mount into the AgentCore
+   * Runtime.</p>
+   */
+  inline const S3FilesAccessPointConfiguration& GetS3FilesAccessPoint() const { return m_s3FilesAccessPoint; }
+  inline bool S3FilesAccessPointHasBeenSet() const { return m_s3FilesAccessPointHasBeenSet; }
+  template <typename S3FilesAccessPointT = S3FilesAccessPointConfiguration>
+  void SetS3FilesAccessPoint(S3FilesAccessPointT&& value) {
+    m_s3FilesAccessPointHasBeenSet = true;
+    m_s3FilesAccessPoint = std::forward<S3FilesAccessPointT>(value);
+  }
+  template <typename S3FilesAccessPointT = S3FilesAccessPointConfiguration>
+  FilesystemConfiguration& WithS3FilesAccessPoint(S3FilesAccessPointT&& value) {
+    SetS3FilesAccessPoint(std::forward<S3FilesAccessPointT>(value));
+    return *this;
+  }
+  ///@}
+
+  ///@{
+  /**
+   * <p>Configuration for an Amazon EFS access point to mount into the AgentCore
+   * Runtime.</p>
+   */
+  inline const EfsAccessPointConfiguration& GetEfsAccessPoint() const { return m_efsAccessPoint; }
+  inline bool EfsAccessPointHasBeenSet() const { return m_efsAccessPointHasBeenSet; }
+  template <typename EfsAccessPointT = EfsAccessPointConfiguration>
+  void SetEfsAccessPoint(EfsAccessPointT&& value) {
+    m_efsAccessPointHasBeenSet = true;
+    m_efsAccessPoint = std::forward<EfsAccessPointT>(value);
+  }
+  template <typename EfsAccessPointT = EfsAccessPointConfiguration>
+  FilesystemConfiguration& WithEfsAccessPoint(EfsAccessPointT&& value) {
+    SetEfsAccessPoint(std::forward<EfsAccessPointT>(value));
+    return *this;
+  }
+  ///@}
  private:
   SessionStorageConfiguration m_sessionStorage;
+
+  S3FilesAccessPointConfiguration m_s3FilesAccessPoint;
+
+  EfsAccessPointConfiguration m_efsAccessPoint;
   bool m_sessionStorageHasBeenSet = false;
+  bool m_s3FilesAccessPointHasBeenSet = false;
+  bool m_efsAccessPointHasBeenSet = false;
 };
 
 }  // namespace Model

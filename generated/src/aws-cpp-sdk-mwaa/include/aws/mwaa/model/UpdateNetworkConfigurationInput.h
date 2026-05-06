@@ -23,7 +23,7 @@ namespace Model {
 /**
  * <p>Defines the VPC networking components used to secure and enable network
  * traffic between the Amazon Web Services resources for your environment. For more
- * information, see <a
+ * information, refer to <a
  * href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
  * networking on Amazon MWAA</a>.</p><p><h3>See Also:</h3>   <a
  * href="http://docs.aws.amazon.com/goto/WebAPI/mwaa-2020-07-01/UpdateNetworkConfigurationInput">AWS
@@ -39,7 +39,7 @@ class UpdateNetworkConfigurationInput {
   ///@{
   /**
    * <p>A list of security group IDs. A security group must be attached to the same
-   * VPC as the subnets. For more information, see <a
+   * VPC as the subnets. For more information, refer to <a
    * href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
    * in your VPC on Amazon MWAA</a>.</p>
    */

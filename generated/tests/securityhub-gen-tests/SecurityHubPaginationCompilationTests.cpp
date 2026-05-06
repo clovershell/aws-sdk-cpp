@@ -26,6 +26,7 @@
 #include <aws/securityhub/model/DescribeStandardsControlsPaginationTraits.h>
 #include <aws/securityhub/model/GetEnabledStandardsPaginationTraits.h>
 #include <aws/securityhub/model/DescribeStandardsPaginationTraits.h>
+#include <aws/securityhub/model/GetRecommendedPolicyV2PaginationTraits.h>
 #include <aws/securityhub/model/ListFindingAggregatorsPaginationTraits.h>
 #include <aws/securityhub/model/DescribeProductsPaginationTraits.h>
 #include <aws/securityhub/model/ListAggregatorsV2PaginationTraits.h>

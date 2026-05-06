@@ -250,6 +250,7 @@
 #include <aws/sagemaker/model/ClusterEventSummary.h>
 #include <aws/sagemaker/model/ClusterFsxLustreConfig.h>
 #include <aws/sagemaker/model/ClusterFsxOpenZfsConfig.h>
+#include <aws/sagemaker/model/ClusterImageVersionStatus.h>
 #include <aws/sagemaker/model/ClusterInstanceGroupDetails.h>
 #include <aws/sagemaker/model/ClusterInstanceGroupSpecification.h>
 #include <aws/sagemaker/model/ClusterInstancePlacement.h>

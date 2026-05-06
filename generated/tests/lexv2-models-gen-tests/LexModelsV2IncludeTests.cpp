@@ -84,6 +84,8 @@
 #include <aws/lexv2-models/model/AssociatedTranscriptFilter.h>
 #include <aws/lexv2-models/model/AssociatedTranscriptFilterName.h>
 #include <aws/lexv2-models/model/AudioAndDTMFInputSpecification.h>
+#include <aws/lexv2-models/model/AudioFillerSettings.h>
+#include <aws/lexv2-models/model/AudioFillerType.h>
 #include <aws/lexv2-models/model/AudioLogDestination.h>
 #include <aws/lexv2-models/model/AudioLogSetting.h>
 #include <aws/lexv2-models/model/AudioRecognitionStrategy.h>
